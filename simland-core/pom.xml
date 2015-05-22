@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.simland</groupId>
+		<artifactId>simland</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>simland-core</artifactId>
+
+	<properties>
+		<com.simland.version>1.0.0</com.simland.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.simland</groupId>
+			<artifactId>simland-common</artifactId>
+			<version>${com.simland.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build />
+</project>

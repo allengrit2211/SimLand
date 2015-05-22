@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration
+    xmlns="http://schemas.genuitec.com/myeclipse/mobile"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.genuitec.com/myeclipse/mobile http://schemas.genuitec.com/myeclipse/mobile/buildconfig_0_2.xsd"
+    version="0.2">
+
+	<configId>befd0a30850f4c9c94ae21ec4559065d</configId>	
+	
+	<appId>simland-app.ios</appId>
+	<appName>simland-app</appName>
+	<packageName>simland-app</packageName>
+	<outputFileName>simland-app.ipa</outputFileName>
+	<appVersion>1.0.0</appVersion>
+	<appLanguage />
+	<author email="" name="" />
+
+	<supportedOrientation>ALL</supportedOrientation>
+	
+	<platform>
+	    <ios>
+            <targetDeviceFormFactor>UNIVERSAL</targetDeviceFormFactor>	        
+	    </ios>
+	</platform>
+
+	<sourceFolders>
+        <item exclusionPatterns="" inclusionPatterns="www/" />
+	</sourceFolders>
+	<startupURI>index.html</startupURI>
+
+	<brandingImages>
+		<app-image image-path="apps/simland-app.ios/images/icon.png"
+			image-size="57x57" image-type="ICON" />
+		<app-image image-path="apps/simland-app.ios/images/icon-72.png"
+			image-size="72x72" image-type="ICON" />
+		<app-image image-path="apps/simland-app.ios/images/Default@2x.png"
+			image-size="114x114" image-type="ICON" />
+		<app-image image-path="apps/simland-app.ios/images/iTunesArtwork.png"
+			image-size="512x512" image-type="ICON" />
+		<app-image image-path="apps/simland-app.ios/images/Default.png"
+			image-size="320x480" image-type="SPLASH" />
+		<app-image image-path="apps/simland-app.ios/images/Default@2x.png"
+			image-size="640x960" image-type="SPLASH" />
+		<app-image image-path="apps/simland-app.ios/images/Default-568h@2x.png"
+			image-size="640x1136" image-type="SPLASH" />
+		<app-image image-path="apps/simland-app.ios/images/Default-Portrait~ipad.png"
+			image-size="768x1004" image-type="SPLASH" />
+		<app-image image-path="apps/simland-app.ios/images/Default-Landscape~ipad.png"
+			image-size="1024x748" image-type="SPLASH" />
+	</brandingImages>
+
+</configuration>
