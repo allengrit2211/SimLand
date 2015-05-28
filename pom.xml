@@ -12,11 +12,11 @@
 	</properties>
 	<modules>
 		
+    <module>simland-core</module>
     <module>simland-test</module>
     <module>simland-app</module>
-    <module>simland-common</module>
     <module>simland-backstage</module>
-    <module>simland-core</module>
+    <module>simland-app-service</module>
 	</modules>
 	<build/>
 </project>
