@@ -8,30 +8,294 @@
     <title>Single-Page Application</title>
 
     <link rel="stylesheet" href="./css/jquery.mobile-1.4.3.css"/>
+    <link rel="stylesheet" href="css/style.css" />    
         
-    <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
     
-    <script type="text/javascript" src="cordova.js"></script>
-    
-    <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
-    <div data-role="page">
-        <div data-role="header" >
-            <h1>Single-Page Application </h1>
-        </div><!-- /header -->
 
-        <div data-role="content" >
-            <p>This is a single page boilerplate template that you can copy to build your first jQuery Mobile page.</p>
-                <canvas width="" height="300"></canvas>
-        </div><!-- /content -->
 
-        <div data-role="footer" data-position="fixed" >
-            <h4>Footer content</h4>
-        </div><!-- /footer -->
-    </div><!-- /page -->
+	<div data-role="page" id="indexPage">
+		<div data-role="header" data-theme="d"></div>
+		<!-- /header -->
+		<div data-role="content">
+			<div class="logodiv">
+				<img alt="" src="images/bg/logo.jpg">
+			</div>
+			<div class="ui-grid-a">
+				<div class="ui-block-a ui-block-a-1">
+					<a href="#" data-corners="false" data-role="button"
+						data-icon="search">店铺信息</a>
+				</div>
+				<div class="ui-block-b">
+					<input type="text" data-corners="false" />
+				</div>
+				<div class="ui-block-a">
+					<input class="ui-input-text ui-body-c" name="search" id="search"
+						value="" placeholder="搜索内容" data-type="search" type="text">
+				</div>
+			</div>
+			<div class="ui-grid-a"></div>
+			<p>This is a single page boilerplate template that you can copy
+				to build your first jQuery Mobile page.</p>
+		</div>
+		<!-- /content -->
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-fullscreen="true" data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /footer -->
+	</div>
+	<!-- /page -->
+	<!-- login page start -->
+	<div data-role="page" id="loginPage">
+		<div data-role="content">
+			<div class="loginDiv">
+				<form method="post">
+					<input type="text" name="uname" id="uname" value="zhuoer"
+						placeholder="请输入手机号码"> <input type="password" name="upw"
+						id="upw" value="123123" placeholder="输入密码"> <a
+						href="#userCenter" data-role="button" data-theme="d" id="loginBtn">登录</a>
+				</form>
+				<br>
+			</div>
+			<div class="ui-grid-a"
+				style="width:80%;margin:0 auto;text-align:center;font-size:14px;">
+				<div class="ui-block-a">
+					<a href="#reg1Page">快速注册</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#">找回密码</a>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- login page end -->
+	<!-- reg1Page page start -->
+	<div data-role="page" id="reg1Page">
+		<div data-role="header" class="header_1">
+			<a href="#" data-role="button" data-rel="back" class="back">后退</a>
+			<h1>快速注册</h1>
+			<a href="#reg2Page" data-role="button" class="back">下一步</a>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<div class="reg1">
+				<form method="post">
+					<p>
+						<input type="text" class="input1" data-role="none" name="umobile"
+							placeholder="请输入手机号码"> <a href="#" class="reg1Btn1"
+							data-role="button" data-mini="true" data-inline="true">发送验证码</a>
+					</p>
+					<p>
+						<input type="text" class="input1" data-role="none"
+							name="validataCode" placeholder="请输入手机收到的验证码">
+					</p>
+				</form>
+			</div>
+			<p style="margin-left:10%;">
+				<img style="float:left;" alt="" src="images/bg/right_1.jpg">
+				<lable style="color:#E9849B;float:left;margin-top:4px;">《我已阅读并同意》</lable>
+			</p>
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- reg1Page page end -->
+	<!-- reg2Page page start -->
+	<div data-role="page" id="reg2Page">
+		<div data-role="header" class="header_1">
+			<a href="#" data-role="button" data-rel="back" class="back">后退</a>
+			<h1>快速注册</h1>
+			<a href="#" data-role="button" class="back">完成</a>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<div class="reg2">
+				<form method="post">
+					<p>
+						<input type="text" class="input1" data-role="none" name="umobile"
+							placeholder="请输入昵称">
+					</p>
+					<p>
+						<input type="text" class="input1" data-role="none"
+							name="validataCode" placeholder="请输入密码">
+					</p>
+				</form>
+			</div>
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- reg2Page page end -->
+	<!-- userCenter page start -->
+	<div data-role="page" id="userCenterPage">
+		<div data-role="content">
+			<div class="uInfo">
+				<div class="u_img">
+					<img alt="" width="60" src="images/bg/u_1.jpg">
+				</div>
+				<div class="u_info">
+					<p class="u_p_1">我是大富翁</p>
+					<p class="u_p_2">
+						<img alt="" src="images/bg/zuanshi.jpg">
+					</p>
+					<p class="u_p_3">
+						<span>总订单:2笔</span> <span>总金额:12589元</span>
+					</p>
+				</div>
+				<div class="ui-grid-b collect"
+					style="width:80%;margin:0 auto;text-align:center;">
+					<div class="ui-block-a">
+						<a href="#"><span>8</span><span>收藏的宝贝</span></a>
+					</div>
+					<div class="ui-block-b">
+						<a href="#"><span>8</span><span>收藏的店铺</span></a>
+					</div>
+					<div class="ui-block-c">
+						<a href="#"><span>7</span><span>浏览历史</span></a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="ui-grid-d orderMenu" style="text-align:center;">
+				<div class="ui-block-a">
+					<a href="#"><img alt="" src="images/bg/order_menu_1.jpg"><span>待付款</span></a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#"><img alt="" src="images/bg/order_menu_2.jpg"><span>待发货</span></a>
+				</div>
+				<div class="ui-block-c">
+					<a href="#"><img alt="" src="images/bg/order_menu_3.jpg"><span>待收货</span></a>
+				</div>
+				<div class="ui-block-d">
+					<a href="#assessPage"><img alt=""
+						src="images/bg/order_menu_4.jpg"><span>待评价</span></a>
+				</div>
+				<div class="ui-block-e">
+					<a href="#"><img alt="" src="images/bg/order_menu_5.jpg"><span>退货/售后</span></a>
+				</div>
+				<hr class="line">
+				<div class="ucMenuList" style="border:none;padding:15px 0;">
+					<ul data-role="listview" data-inset="false" data-theme="d">
+						<li><a class="icon0" href="#">全部订单</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="ucMenuList" style="min-height:200px;">
+				<ul data-role="listview" data-inset="false" data-theme="d">
+					<li><a class="icon1" href="#">我的账户与安全</a></li>
+					<li><a class="icon2" href="#">我的收货地址</a></li>
+					<li><a class="icon3" href="#">我的银行卡管理</a></li>
+					<li><a class="icon4" href="#">个人信息修改</a></li>
+				</ul>
+			</div>
+			<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+				data-theme="d">
+				<div data-role="navbar" class="myfooter">
+					<ul>
+						<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+						<li><a href="#" class="ui-icon-map">地图</a></li>
+						<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+						<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- userCenter page end -->
+
+
+	<div data-role="page" id="assessPage">
+		<div data-role="header" class="header_1">
+			<a href="#" data-role="button" data-rel="back" class="back">返回</a>
+			<h1>待评价订单</h1>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<div>
+				<ul data-role="listview" data-inset="false">
+					<li data-role="divider">深圳市大本钟贸易有限公司</li>
+					<li>
+						<a href="#"> <img src="images/tmp/chrome.png">
+							<h6>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</h6>
+							<p>29890.00￥ 数量:1</p>
+						</a>
+						<p class="p">
+							<span class="red">29890.00</span>
+							<a href="#" class="btn" data-shadow="false" data-role="button" data-mini="true" data-inline="true">查看物流</a>
+							<a href="#" class="btn" data-shadow="false" data-role="button" data-mini="true" data-inline="true">评价</a>
+						</p>
+					</li>
+					<li data-role="divider">深圳市大本钟贸易有限公司</li>
+					<li>
+						<a href="#"> <img src="images/tmp/firefox.png">
+							<h2>Mozilla Firefox</h2>
+							<p>Firefox is a web browser from Mozilla. Released in 2004.</p>
+						</a>
+						<p class="p">
+							<span class="red">29890.00</span>
+							<a href="#" class="btn" data-shadow="false" data-role="button" data-mini="true" data-inline="true">查看物流</a>
+							<a href="#" class="btn" data-shadow="false" data-role="button" data-mini="true" data-inline="true">评价</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+    <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
+	<script type="text/javascript" src="./rte/cordova.js"></script>
+	<script type="text/javascript" src="./rte/rte.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>
