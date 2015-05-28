@@ -393,14 +393,42 @@ a {
 
 
 /************assessPage1***************/
-#assessPage1
+#assess1Page .table{
+	padding:10px;
+}
 
+#assess1Page .table .ui-block-a-1{
+	width:18%!important;
+}
+#assess1Page .table .ui-block-b-1{
+	line-height:40px;
+	width:20%!important;
+}
+#assess1Page .table .ui-block-c-1{
+}
+#assess1Page .table .ui-block-a-2{
+	width:100%;
+}
 
+#assess1Page .table .ui-block-b label{
+	margin-top:12px;
+	font-size:12px;
+}
 
+#assess1Page .star5
+{
+	margin-top:10px;
+	background:url("../images/bg/star.png") repeat 50% 50%;
+	width:100px;
+	height:20px;
+	display:block;
+}
 
+#assess1Page .table1{
+	padding:0 10px;
+}
 
-
-
+/************assessPage1 end***************/
 
 
 
