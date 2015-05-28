@@ -1,2 +1,527 @@
 body {
+	font-size: 12px;
+	color: #435159;
+	text-shadow: none;
 }
+
+.ui-page {
+	background-image: none;
+	background-color:#FFF;
+}
+
+a {
+	text-decoration: none;
+	color: #ACA9A4 !important;
+}
+
+.line {
+	background-color: #F2F2F2 !important;
+	padding: 0px !important;
+	margin: 0px !important;
+	width: 100% !important;
+}
+
+.red{
+	color:red;
+}
+
+.ui-content {
+	margin: 0px;
+	padding: 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+.nav-3-9 .ui-btn .ui-icon {
+	width: 30px !important;
+	height: 30px !important;
+	margin-left: -15px !important;
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	-webkit-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+
+.header_1 {
+	background-color: #FFF !important;
+	background-image: none !important;
+	border-bottom: 1px solid #ACA9A4 !important;
+}
+
+.header_1 h1 {
+	color: #666;
+	text-shadow: none;
+	margin: 0 !important;
+	padding: 12px 0 !important;
+	font-size: 16px;
+}
+
+.header_1 .back {
+	background-color: #FFF !important;
+	background-image: none !important;
+	text-shadow: none;
+	border: none !important;
+	color: #000000 !important;
+}
+
+.ui-footer {
+	border-top: none;
+}
+
+.myfooter {
+	height: 48px !important;
+	overflow: hidden !important;
+	background-color: #F0F0F0 !important;
+}
+
+.myfooter .ui-grid-c {
+	border: none;
+}
+
+.myfooter .ui-btn-inner {
+	border-top: none;
+}
+
+.myfooter .ui-btn-active {
+	border: none;
+}
+
+.myfooter .ui-btn-hover-d {
+	border: none;
+}
+
+.ui-icon-index, .ui-icon-map, .ui-icon-purchase, .ui-icon-my {
+	padding-top: 18px;
+	border: none;
+}
+
+.ui-icon-index {
+	background: url('../images/bg/menu_1.jpg') no-repeat 50% 20% !important;
+}
+
+.ui-icon-map {
+	background: url('../images/bg/menu_2.jpg') no-repeat 50% 20% !important;
+}
+
+.ui-icon-purchase {
+	background: url('../images/bg/menu_3.jpg') no-repeat 50% 20% !important;
+}
+
+.ui-icon-my {
+	background: url('../images/bg/menu_4.jpg') no-repeat 50% 20% !important;
+}
+
+.logodiv {
+	width: 102px;
+	margin: 30px auto;
+}
+
+.ui-block-a-1 {
+	width: 50% !important;
+}
+
+/******login*********/
+#loginPage {
+	background-color: #F1F0EC !important;
+}
+
+#loginPage .loginDiv {
+	padding-top: 100px;
+	width: 90%;
+	margin: auto;
+}
+
+#loginPage .ui-input-text {
+	
+}
+
+.ui-btn-active {
+	background-color: #EFEFEF !important;
+	background-image: none;
+	border: 1px solid #E7E7E7;
+}
+
+#uname {
+	background: url('../images/bg/login_1.jpg') no-repeat 1% 50% !important;
+	text-indent: 14%;
+}
+
+#upw {
+	background: url('../images/bg/login_2.jpg') no-repeat 1% 50% !important;
+	text-indent: 14%;
+}
+
+#loginBtn {
+	color: #E0486E !important;
+}
+
+/************reg1***********/
+.reg1, .reg2 {
+	background-color: #FFF;
+}
+
+.reg1 .input1, .reg2 .input1 {
+	width: 52% !important;
+	line-height: 35px;
+	border: none;
+	margin-left: 10%;
+	position: relative;
+	top: 5px;
+	font-size: 14px;
+}
+
+.reg1 p, .reg2 p {
+	border-bottom: 1px solid #ACA9A4;
+	height: 55px;
+}
+
+.reg1 .reg1Btn1, .reg2 .reg1Btn1 {
+	margin: 0px;
+	line-height: 15px;
+	padding: 0px;
+	position: relative;
+	top: 5px;
+}
+
+/************uInfo**************/
+#userCenterPage{
+	
+}
+
+.uInfo {
+	background-color: #FFF;
+	width:90%;
+	margin:0 auto;
+}
+
+.uInfo .u_img {
+	padding: 10px 0 0 10px;
+	width: 18%;
+	float: left;
+}
+
+.uInfo .u_info {
+	margin-left: 20px;
+	float: left;
+	width: 68%;
+}
+
+.uInfo .u_info .u_p_1 {
+	color: #E9849B;
+}
+
+.uInfo .u_info .u_p_2 {
+	
+}
+
+.uInfo .u_info .u_p_3 {
+	font-size:12px;
+}
+
+.uInfo .u_info .u_p_3 span {
+	font-size: 12px;
+}
+
+.uInfo .collect span {
+	padding: 3px 0 !important;
+	display: block;
+}
+
+#userCenterPage .orderMenu {
+	padding: 15px 0;
+	background-color:#EEE;
+}
+
+.orderMenu .ui-block-a,
+.orderMenu .ui-block-b,
+.orderMenu .ui-block-c,
+.orderMenu .ui-block-d,
+.orderMenu .ui-block-e{
+	background-color:#FFF;
+	padding-top: 10px;
+}
+
+.orderMenu .ui-block-a span,
+.orderMenu .ui-block-b span,
+.orderMenu .ui-block-c span,
+.orderMenu .ui-block-d span,
+.orderMenu .ui-block-e span{
+	padding: 3px 0 !important;
+	display: block;
+	background-color:#FFF;
+}
+
+
+.ucMenuList {
+	padding: 30px 0 30px 0;
+	width: 100% !important;
+	margin: auto;
+	padding-top:15px;
+}
+
+.ucMenuList .ui-listview{
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.ucMenuList .icon0 {
+	background: url("../images/bg/menu_list_0.jpg") 3.2% 50% no-repeat;
+}
+
+.ucMenuList .icon1 {
+	background: url("../images/bg/menu_list_1.jpg") 3.2% 50% no-repeat;
+}
+
+.ucMenuList .icon2 {
+	background: url("../images/bg/menu_list_2.jpg") 3.2% 50% no-repeat;
+}
+
+.ucMenuList .icon3 {
+	background: url("../images/bg/menu_list_3.jpg") 3.2% 50% no-repeat;
+}
+
+.ucMenuList .icon4 {
+	background: url("../images/bg/menu_list_4.jpg") 3.2% 50% no-repeat;
+}
+
+.ucMenuList a {
+	text-shadow: none !important;
+	text-indent: 15%;
+	padding-left:0px!important;
+	padding-right:0px!important;
+	color: #435159 !important;
+	background-color:#FFF!important;
+}
+
+.ucMenuList .ui-icon{
+	z-index:1;
+}
+
+
+/************assessPage***************/
+#assessPage .ui-listview{
+	margin:0px!important;
+	
+}
+#assessPage .ui-listview div.ui-btn-text{
+	background-color:#FFF;
+}
+
+#assessPage .ui-listview li.ui-btn-up-c{
+	background-color:#FFF;
+	border:none;
+	border-bottom:1px solid #EEE;
+}
+
+#assessPage .ui-listview li.ui-btn-hover-c{
+	border:none;
+	margin:0;
+	border-bottom:1px solid #EEE;
+}
+
+
+#assessPage .btn span { 
+	padding:2px 5px!important;
+	min-width:4.75em;
+	font-size:12px;
+	
+}
+	
+#assessPage .ui-listview .p{
+	padding-left:15%;
+	margin:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*Solve Jquery mobile header show and hide when click the long body*/
+.in   {
+
+      /*-webkit-animation-timing-function: ease-out;
+
+    -webkit-animation-duration: 350ms;
+
+    -moz-animation-timing-function: ease-out;
+
+    -moz-animation-duration: 350ms;
+
+    animation-timing-function: ease-out;
+
+    animation-duration: 350ms;*/
+
+      -webkit-animation-timing-function :   none ;
+
+      -webkit-animation-duration :   0 ;
+
+      -moz-animation-timing-function :   none ;
+
+      -moz-animation-duration :   0 ;
+
+      animation-timing-function :   ease-out ;
+
+      animation-duration :   0 ;
+}
+ 
+.out   {
+
+      -webkit-animation-timing-function :   ease-in ;
+
+      -webkit-animation-duration :   0 ;
+
+      -moz-animation-timing-function :   ease-in ;
+
+      -moz-animation-duration :   0 ;
+
+      animation-timing-function :   ease-in ;
+
+      animation-duration :   0 ;
+}
+ 
+ 
+ 
+ 
+
+.slidedown.in , .slideup.in   {
+
+      /*-webkit-transform: translateY(0);
+
+    -webkit-animation-name: slideinfromtop;
+
+    -webkit-animation-duration: 250ms;
+
+    -moz-transform: translateY(0);
+
+    -moz-animation-name: slideinfromtop;
+
+    -moz-animation-duration: 250ms;*/
+
+      -webkit-transform :   none ;
+
+      -webkit-animation-name :   none ;
+
+      -webkit-animation-duration :   0ms ;
+
+      -moz-transform :   none ;
+
+      -moz-animation-name :   none ;
+
+      -moz-animation-duration :   0ms ;
+}
+ 
+ 
+
+.slidedown.out , .slideup.out   {
+
+      /*-webkit-animation-name: fadeout;
+
+    -webkit-animation-duration: 100ms;
+
+    -moz-animation-name: fadeout;
+
+    -moz-animation-duration: 100ms;
+
+    animation-name: fadeout;
+
+    animation-duration: 100ms;*/
+
+      -webkit-animation-name :   none ;
+
+      -webkit-animation-duration :   0ms ;
+
+      -moz-animation-name :   none ;
+
+      -moz-animation-duration :   0ms ;
+
+      animation-name :   none ;
+
+      animation-duration :   0ms ;
+}
+ 
+
+      .slidedown.out.reverse ,   .slideup.out.reverse   {
+
+          /*-webkit-transform: translateY(-100%);
+
+        -webkit-animation-name: slideouttotop;
+
+        -webkit-animation-duration: 200ms;
+
+        -moz-transform: translateY(-100%);
+
+        -moz-animation-name: slideouttotop;
+
+        -moz-animation-duration: 200ms;
+
+        transform: translateY(-100%);
+
+        animation-name: slideouttotop;
+
+        animation-duration: 200ms;*/
+
+          -webkit-transform :   none   ;
+
+          -webkit-animation-name :   none   ;
+
+          -webkit-animation-duration :   200ms   ;
+
+          -moz-transform :   none   ;
+
+          -moz-animation-name :   none   ;
+
+          -moz-animation-duration :   200ms   ;
+
+          transform :   none ;
+
+          animation-name :   none   ;
+
+          animation-duration :   200ms   ;
+    }
+ 
+
+.slidedown.in.reverse ,   .slideup.in.reverse   {
+
+      /*-webkit-animation-name: fadein;
+
+    -webkit-animation-duration: 150ms;
+
+    -moz-animation-name: fadein;
+
+    -moz-animation-duration: 150ms;
+
+    animation-name: fadein;
+
+    animation-duration: 150ms;*/
+
+      -webkit-animation-name :   none ;
+
+      -webkit-animation-duration :   0 ;
+
+      -moz-animation-name :   none ;
+
+      -moz-animation-duration :   0 ;
+
+      animation-name :   none ;
+
+      animation-duration :   0 ;
+}
+
+/*Solve Jquery mobile header show and hide when click the long body*/ 
+
