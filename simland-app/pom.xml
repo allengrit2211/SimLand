@@ -18,12 +18,6 @@
 
 		<dependency>
 			<groupId>com.simland</groupId>
-			<artifactId>simland-common</artifactId>
-			<version>${com.simland.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.simland</groupId>
 			<artifactId>simland-core</artifactId>
 			<version>${com.simland.version}</version>
 		</dependency>
