@@ -215,10 +215,10 @@ a {
 }
 
 .reg1 .input1, .reg2 .input1 {
-	width: 52% !important;
+	width: 43% !important;
 	line-height: 35px;
 	border: none;
-	margin-left: 10%;
+	margin-left: 15%;
 	position: relative;
 	top: 5px;
 	font-size: 14px;
