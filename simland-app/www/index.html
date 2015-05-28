@@ -17,28 +17,32 @@
 
 
 	<div data-role="page" id="indexPage">
-		<div data-role="header" data-theme="d"></div>
-		<!-- /header -->
 		<div data-role="content">
 			<div class="logodiv">
 				<img alt="" src="images/bg/logo.jpg">
 			</div>
-			<div class="ui-grid-a">
-				<div class="ui-block-a ui-block-a-1">
-					<a href="#" data-corners="false" data-role="button"
-						data-icon="search">店铺信息</a>
-				</div>
-				<div class="ui-block-b">
-					<input type="text" data-corners="false" />
-				</div>
+			<div class="ui-grid-b box1" >
 				<div class="ui-block-a">
-					<input class="ui-input-text ui-body-c" name="search" id="search"
-						value="" placeholder="搜索内容" data-type="search" type="text">
+					<input class="ui-input-text" name="search" id="search"
+						value="" placeholder="店铺信息" data-type="search" type="text">
+				</div>
+					
+				<div class="ui-block-b">
+					<input class="ui-input-text" name="search" id="search"
+						value="" placeholder="主营类别" data-type="search" type="text">
+				</div>
+			   
+				<div class="ui-block-c">
+					<div class="ui-grid-a" >
+						<div class="ui-block-a">
+							<img width="120" alt="" src="images/tmp/index_1.jpg">
+						</div>
+						<div class="ui-block-b">
+							<img width="120" alt="" src="images/tmp/index_2.jpg">
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="ui-grid-a"></div>
-			<p>This is a single page boilerplate template that you can copy
-				to build your first jQuery Mobile page.</p>
 		</div>
 		<!-- /content -->
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
@@ -93,7 +97,7 @@
 	<!-- reg1Page page start -->
 	<div data-role="page" id="reg1Page">
 		<div data-role="header" class="header_1">
-			<a href="#" data-role="button" data-rel="back" class="back">后退</a>
+			<a href="#" data-role="button" data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>快速注册</h1>
 			<a href="#reg2Page" data-role="button" class="back">下一步</a>
 		</div>
@@ -133,7 +137,7 @@
 	<!-- reg2Page page start -->
 	<div data-role="page" id="reg2Page">
 		<div data-role="header" class="header_1">
-			<a href="#" data-role="button" data-rel="back" class="back">后退</a>
+			<a href="#" data-role="button" data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>快速注册</h1>
 			<a href="#" data-role="button" class="back">完成</a>
 		</div>
@@ -213,7 +217,7 @@
 					<a href="#"><img alt="" src="images/bg/order_menu_5.jpg"><span>退货/售后</span></a>
 				</div>
 				<hr class="line">
-				<div class="ucMenuList" style="border:none;padding:15px 0;">
+				<div class="ucMenuList">
 					<ul data-role="listview" data-inset="false" data-theme="d">
 						<li><a class="icon0" href="#">全部订单</a></li>
 					</ul>
@@ -242,10 +246,10 @@
 	</div>
 	<!-- userCenter page end -->
 
-
+	<!-- assessPage page start -->
 	<div data-role="page" id="assessPage">
 		<div data-role="header" class="header_1">
-			<a href="#" data-role="button" data-rel="back" class="back">返回</a>
+			<a href="#" data-role="button" data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>待评价订单</h1>
 		</div>
 		<!-- /header -->
@@ -261,7 +265,7 @@
 						<p class="p">
 							<span class="red">29890.00</span>
 							<a href="#" class="btn" data-shadow="false" data-role="button" data-mini="true" data-inline="true">查看物流</a>
-							<a href="#" class="btn" data-shadow="false" data-role="button" data-mini="true" data-inline="true">评价</a>
+							<a href="#assess1Page" class="btn" data-shadow="false" data-role="button" data-mini="true" data-inline="true">评价</a>
 						</p>
 					</li>
 					<li data-role="divider">深圳市大本钟贸易有限公司</li>
@@ -291,6 +295,36 @@
 			</div>
 		</div>
 	</div>
+	<!-- assessPage page end -->
+	
+	<!-- assessPage1 page start -->
+	<div data-role="page" id="assess1Page">
+		<div data-role="header" class="header_1">
+			<a href="#" data-role="button" data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
+			<h1>订单评价</h1>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+		   <div class="ui-grid-b">
+		     <div class="ui-block-a" style="border: 1px solid black;"><span>Some Text</span></div>
+		     <div class="ui-block-b" style="border: 1px solid black;"><span>Some Text</span></div>
+		     <div class="ui-block-c" style="border: 1px solid black;"><span>Some Text</span></div>
+		   </div>
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- assessPage1 page end -->
+
 
     <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>

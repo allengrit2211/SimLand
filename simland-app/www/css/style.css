@@ -1,12 +1,12 @@
 body {
 	font-size: 12px;
-	color: #435159;
+	color: #122734 !important;
 	text-shadow: none;
 }
 
 .ui-page {
 	background-image: none;
-	background-color:#FFF;
+	background-color:#EEEEEE;
 }
 
 a {
@@ -26,12 +26,19 @@ a {
 }
 
 .ui-content {
-	margin: 0px;
-	padding: 0px;
+  margin: 10px;
+  background: #FFF;
+  border-radius:6px;
+  min-height:32.5875em;
+  padding:0!important;
 }
 
 .clear {
 	clear: both;
+}
+
+.clearBorder{
+	border:none!important;
 }
 
 .nav-3-9 .ui-btn .ui-icon {
@@ -46,9 +53,10 @@ a {
 }
 
 .header_1 {
-	background-color: #FFF !important;
-	background-image: none !important;
-	border-bottom: 1px solid #ACA9A4 !important;
+	border-bottom: 1px solid #B2B2B2 !important;
+	background-color:#FFF!important;
+	color: #5F646E !important;
+	font-size: 16px;
 }
 
 .header_1 h1 {
@@ -56,25 +64,24 @@ a {
 	text-shadow: none;
 	margin: 0 !important;
 	padding: 12px 0 !important;
-	font-size: 16px;
 }
 
 .header_1 .back {
-	background-color: #FFF !important;
 	background-image: none !important;
 	text-shadow: none;
 	border: none !important;
-	color: #000000 !important;
+	box-shadow:none;
+	background-color:#FFF!important;
 }
 
 .ui-footer {
-	border-top: none;
+	border-top:1px solid #B2B2B2;
 }
 
 .myfooter {
 	height: 48px !important;
 	overflow: hidden !important;
-	background-color: #F0F0F0 !important;
+	background-color: #FFF !important;
 }
 
 .myfooter .ui-grid-c {
@@ -87,31 +94,38 @@ a {
 
 .myfooter .ui-btn-active {
 	border: none;
+	box-shadow:none;
+	color:#E2486E!important;
+	background-color: #FFF !important;
+	
 }
 
 .myfooter .ui-btn-hover-d {
 	border: none;
 }
 
+
+/*********************indexPage start******************************/
+
 .ui-icon-index, .ui-icon-map, .ui-icon-purchase, .ui-icon-my {
-	padding-top: 18px;
+	padding-top: 25px;
 	border: none;
 }
 
 .ui-icon-index {
-	background: url('../images/bg/menu_1.jpg') no-repeat 50% 20% !important;
+	background: url('../images/bg/menu_1.jpg') no-repeat 50% 10% !important;
 }
 
 .ui-icon-map {
-	background: url('../images/bg/menu_2.jpg') no-repeat 50% 20% !important;
+	background: url('../images/bg/menu_2.jpg') no-repeat 50% 10% !important;
 }
 
 .ui-icon-purchase {
-	background: url('../images/bg/menu_3.jpg') no-repeat 50% 20% !important;
+	background: url('../images/bg/menu_3.jpg') no-repeat 50% 10% !important;
 }
 
 .ui-icon-my {
-	background: url('../images/bg/menu_4.jpg') no-repeat 50% 20% !important;
+	background: url('../images/bg/menu_4.jpg') no-repeat 50% 10% !important;
 }
 
 .logodiv {
@@ -119,9 +133,41 @@ a {
 	margin: 30px auto;
 }
 
-.ui-block-a-1 {
-	width: 50% !important;
+
+
+#indexPage .ui-btn-active{
+	text-shadow:none;
 }
+
+
+#indexPage .box1{
+	width:80%;
+	margin:0 auto;	
+}
+
+
+#indexPage .box1 .ui-input-text{
+	width:90%!important;
+}
+
+#indexPage .box1 .ui-block-a,
+#indexPage .box1 .ui-block-b,
+#indexPage .box1 .ui-block-c{
+	width:100%;
+}
+
+#indexPage .box1 .ui-block-c .ui-block-a,
+#indexPage .box1 .ui-block-c .ui-block-b{
+	padding-top:10px;
+	width:48%;
+}
+
+/****************indexPage end********************/
+
+
+
+
+
 
 /******login*********/
 #loginPage {
@@ -147,16 +193,21 @@ a {
 #uname {
 	background: url('../images/bg/login_1.jpg') no-repeat 1% 50% !important;
 	text-indent: 14%;
+	min-height:3.2em;
 }
 
 #upw {
 	background: url('../images/bg/login_2.jpg') no-repeat 1% 50% !important;
 	text-indent: 14%;
+	min-height:3.2em;
 }
 
 #loginBtn {
 	color: #E0486E !important;
 }
+
+/******login end*********/
+
 
 /************reg1***********/
 .reg1, .reg2 {
@@ -179,9 +230,7 @@ a {
 }
 
 .reg1 .reg1Btn1, .reg2 .reg1Btn1 {
-	margin: 0px;
 	line-height: 15px;
-	padding: 0px;
 	position: relative;
 	top: 5px;
 }
@@ -256,7 +305,8 @@ a {
 
 
 .ucMenuList {
-	padding: 30px 0 30px 0;
+	padding:9px 0!important;
+	border:none!important;
 	width: 100% !important;
 	margin: auto;
 	padding-top:15px;
@@ -316,6 +366,10 @@ a {
 	border-bottom:1px solid #EEE;
 }
 
+#assessPage .ui-listview li a{
+	background-color:#FFF;
+}
+
 #assessPage .ui-listview li.ui-btn-hover-c{
 	border:none;
 	margin:0;
@@ -335,11 +389,11 @@ a {
 	margin:0;
 }
 
+/************assessPage end ***************/
 
 
-
-
-
+/************assessPage1***************/
+#assessPage1
 
 
 
