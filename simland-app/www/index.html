@@ -50,7 +50,7 @@
 			<div data-role="navbar" class="myfooter">
 				<ul>
 					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
 					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
 					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
 				</ul>
@@ -86,7 +86,7 @@
 			<div data-role="navbar" class="myfooter">
 				<ul>
 					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
 					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
 					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
 				</ul>
@@ -126,7 +126,7 @@
 			<div data-role="navbar" class="myfooter">
 				<ul>
 					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
 					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
 					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
 				</ul>
@@ -161,7 +161,7 @@
 			<div data-role="navbar" class="myfooter">
 				<ul>
 					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
 					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
 					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
 				</ul>
@@ -236,7 +236,7 @@
 				<div data-role="navbar" class="myfooter">
 					<ul>
 						<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
-						<li><a href="#" class="ui-icon-map">地图</a></li>
+						<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
 						<li><a href="#" class="ui-icon-purchase">进货单</a></li>
 						<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
 					</ul>
@@ -288,7 +288,7 @@
 			<div data-role="navbar" class="myfooter">
 				<ul>
 					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
 					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
 					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
 				</ul>
@@ -362,7 +362,7 @@
 			<div data-role="navbar" class="myfooter">
 				<ul>
 					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a href="#" class="ui-icon-map">地图</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
 					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
 					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
 				</ul>
@@ -371,11 +371,88 @@
 	</div>
 	<!-- assessPage1 page end -->
 
+	<!-- map1Page start  -->
+	<div data-role="page" id="map1Page">
+		<div data-role="header" class="header_1">
+			<a href="#" data-role="button" data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
+			<h1>水贝一览图</h1>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+		  <a href="#map2Page">
+		  	<img alt="" src="images/tmp/map_1.jpg">
+		  </a>
+		   
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- map1Page end  -->
+
+	<!-- map2Page start  -->
+	<div data-role="page" id="map2Page">
+		<div data-role="header" class="header_1">
+			<a href="#" data-role="button" data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
+			<h1></h1>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+		  <div id="allmap" style="width:auto; height:420px;"></div>
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			<div data-role="navbar" class="myfooter">
+				<ul>
+					<li><a href="#indexPage" class="ui-icon-index">首页</a></li>
+					<li><a href="#map1Page" class="ui-icon-map">地图</a></li>
+					<li><a href="#" class="ui-icon-purchase">进货单</a></li>
+					<li><a href="#loginPage" class="ui-icon-my">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- map2Page end  -->
+
 
     <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
 	<script type="text/javascript" src="./rte/cordova.js"></script>
 	<script type="text/javascript" src="./rte/rte.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+    
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
+    
+	<script type="text/javascript">
+		// 百度地图API功能
+		var map = new BMap.Map("allmap");
+		map.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
+		var json_data = [ [ 116.404, 39.915 ], [ 116.383752, 39.91334 ],
+				[ 116.384502, 39.932241 ] ];
+		var pointArray = new Array();
+		for (var i = 0; i < json_data.length; i++) {
+			var marker = new BMap.Marker(new BMap.Point(json_data[i][0],
+					json_data[i][1])); // 创建点
+			map.addOverlay(marker); //增加点
+			pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
+			marker.addEventListener("click", attribute);
+		}
+		//让所有点在视野范围内
+		//map.setViewport(pointArray);
+		//获取覆盖物位置
+		function attribute(e) {
+			var p = e.target;
+			//alert("marker的位置是" + p.getPosition().lng + "," + p.getPosition().lat);
+			$.mobile.changePage("#shop", "slideup"); 
+		}
+	</script>
 </body>
 </html>
