@@ -5,9 +5,23 @@ var AppServicerURL = "http://192.168.10.129:8080/simland-app-service";
 var init = function() {
 
 	$("#loginBtn").click(login);
+	
+	$("#searchBusiness").click(searchBusiness);
+	
 
 };
 $(document).ready(init);
+
+jQuery(function(){
+    $('.slides2').slidesjs({
+        navigation: true,
+        start: 3,
+        play: {
+          auto: true
+        }
+	});
+});
+
 
 function login() {
 	$.mobile.changePage("#userCenterPage", "slideup");
@@ -49,4 +63,9 @@ function login() {
 		}
 	});
 	return false;
+}
+
+
+function searchBusiness(){
+	$.mobile.changePage("#business1Page", "slideup");
 }
