@@ -104,6 +104,12 @@ a {
 }
 
 /*********************indexPage start******************************/
+
+#indexPage .ui-content{
+	
+}
+
+
 .ui-icon-index, .ui-icon-map, .ui-icon-purchase, .ui-icon-my {
 	padding-top: 25px;
 	border: none;
@@ -557,6 +563,153 @@ border-bottom:1px solid #F5F5F5;border-top:1px solid #FB7400;
 
 
 /************contactPage end***************/
+
+/************Product1Page start***************/
+
+#Product1Page .onePrice0 .ui-block-a{
+	width:60%;
+}
+#Product1Page .onePrice0 .ui-block-b{
+	width:13%;
+}
+#Product1Page .onePrice0 .ui-block-c{
+	width:13%;
+}
+#Product1Page .onePrice0 .ui-block-d{
+	width:13%;
+}
+
+#Product1Page .onePrice{
+	height:40px;
+	line-height:40px;
+}
+
+#Product1Page .onePrice .s_1{
+	display: block;
+	width:20%;	
+	text-align:center;
+	font-size:16px;
+}
+#Product1Page .onePrice .s_2{
+	display: block;
+	color:#E76714;
+	font-size:16px;
+	font-weight:bold;
+}
+
+#Product1Page .onePrice2 .s_1,
+#Product1Page .onePrice2 .s_2,
+#Product1Page .onePrice2 .s_3
+{
+	height:40px;
+	line-height:40px;
+	display:block;
+}
+
+#Product1Page .p_appraisal_line{
+	border-bottom:1px solid #EEE;
+	text-indent:3%;
+}
+
+#Product1Page .p_appraisal_line .time{
+	float:right;
+	margin-right:10px;
+}
+
+#Product1Page .popup{
+	min-height:300px;
+}
+#Product1Page .popup .ui-block-a{
+	width:40%;
+}
+
+#Product1Page .popup .ui-block-a img{
+	margin:5px;
+}
+#Product1Page .popup .ui-block-b{
+	width:60%;
+}
+#Product1Page .popup .ui-block-b{
+	padding-top:15px;
+}
+#Product1Page .popup .nums{
+	margin-left:20px;
+}
+#Product1Page .popup .nums .i_info{
+	float:right;
+	margin-top:15px;
+	margin-right:20px;
+}
+
+/************Product1Page end***************/
+
+
+/************catPage start***************/
+
+#scat1Page .cat{
+	margin-top:30px;
+}
+
+#scat1Page .cat .p_0_0{
+	text-align:center;
+	width:10%;
+}
+
+#scat1Page .cat .p_0_0 .ui-checkbox{
+	height:11px;
+}
+
+#scat1Page .cat .p_0_1{
+	text-align:center;
+	width:90%;
+	padding:10px 0;
+	border-bottom:1px solid #EEE;
+}
+
+
+#scat1Page .cat .p_1_0{
+	padding-top:10px;
+	width:10%;
+}
+
+#scat1Page .cat .p_1_1{
+	text-align:left;
+	padding-top:10px;
+	width:20%;
+}
+#scat1Page .cat .p_1_2{
+	padding-top:10px;
+	width:60%;
+}
+
+#scat1Page .p_2_0{
+	width:10%;
+	height:40px;
+	line-height:40px;
+}
+#scat1Page .p_2_1{
+	width:45%;
+	height:40px;
+	line-height:40px;
+}
+#scat1Page .p_2_2{
+	width:45%;
+	line-height:10px;
+}
+#scat1Page .p_2_2 .ui-input-text{
+	width:50%;
+}
+
+
+#scat1Page .catMenu .ui-checkbox{
+  float: left;
+  width: 30px;
+  margin-top: 23%;
+}
+
+/************catPage end***************/
+
+
 
 
 
