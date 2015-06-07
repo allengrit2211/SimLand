@@ -6,11 +6,32 @@ var init = function() {
 
 	$("#loginBtn").click(login);
 	
-	$("#searchBusiness").click(searchBusiness);
+	$("#searchBusinessBtn").click(searchBusiness);
 	
-
+	$("#searchCategory").focus(searchCategoryFocus);
+	
+	$("#searchCategory").blur(searchCategoryBlur);
+	
+	$("#searchCategoryBtn").click(searchCategoryBtn);
+	
 };
 $(document).ready(init);
+
+
+function searchCategoryFocus(){
+	$(".historyList").show();
+}
+
+function searchCategoryBlur(){
+	$(".historyList").hide();
+}
+
+function searchCategoryBtn(){
+	
+}
+
+
+
 
 jQuery(function(){
     $('.slides2').slidesjs({
