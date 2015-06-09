@@ -27,7 +27,7 @@ a {
 	padding: 0px !important;
 	margin: 0px !important;
 	width: 100% !important;
-	min-height:1px;
+	min-height: 1px;
 }
 
 .red {
@@ -65,7 +65,7 @@ a {
 	font-size: 16px;
 }
 
-.header_1 h1{
+.header_1 h1 {
 	color: #666;
 	text-shadow: none;
 	margin: 0 !important;
@@ -93,7 +93,7 @@ a {
 }
 
 .color41AC98 {
-	color: #41AC98 !important;
+	color: #44BBAB !important;
 }
 
 .myfooter {
@@ -321,10 +321,10 @@ a {
 }
 
 #indexPage .historyList ul li .a1 {
-	text-indent:20%;
-	float: left;
+	text-indent: 20%; float : left;
 	color: #666;
 	font-size: 16px;
+	float: left;
 }
 
 #indexPage .historyList ul li .a2 {
@@ -625,28 +625,90 @@ a {
 /************assessPage1 end***************/
 
 /************business1Page start***************/
-.slidesjs-container {
+#business1Page .ui-content {
+	margin: 0;
+	padding: 0;
+}
+
+#business1Page .business_top {
+	min-height: 78px;
+	background-color: #41AC98;
+	padding-top: 10%;
+}
+
+#business1Page .business_top .b_logo {
+	margin: 0 5% 0 5%;
+	float: left;
+}
+
+#business1Page .business_top .b_info {
+	float: left;
+}
+
+#business1Page .business_top .b_info h3 {
+	color: #FFF;
+	font-weight: normal;
+	margin: 5px 0;
+}
+
+#business1Page .business_top .b_info .star {
+	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
+	padding-left: 80px;
+	display: inline-block;
+	height: 16px;
+}
+
+#business1Page .business_top .b_btn {
+	float: left;
+	margin: 4%;
+}
+
+#business1Page .business_top .b_btn a{
+	display: inline-block;
+	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	width: 34px;
+	height: 34px;
+}
+
+#business1Page .slidesjs-container {
 	width: 100%;
 	min-width: 100% !important;
 }
 
-.slides_container {
+#business1Page .slides_container {
 	width: 100%;
+	height: 140px;
+	overflow: hidden !important;
 }
 
-.slides_container div {
-	width: 354px;
-	height: 120px;
-	display: block;
+#business1Page .slides_container div {
+	min-width: 320px;
+	min-height: 140px;
+	height: 140px;
+	display: inline-block;
 }
 
-.slidesjs-pagination {
+#business1Page .slidesjs-control img{
+	width:100%;
+}
+
+#business1Page .slidesjs-pagination {
 	display: none;
 }
 
-.businessTag {
+#business1Page .businessTag {
 	width: 98%;
-	margin: 15px auto 0 auto;
+	margin: 0px auto;
+}
+
+#business1Page .businessTag a{
+	width:11%;
+	height:32px;
+	line-height:32px;
+}
+
+#business1Page .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+	margin: 0;
 }
 
 .businessTag .ui-controlgroup-controls {
@@ -665,20 +727,66 @@ a {
 
 .businessTag .ui-controlgroup-controls a.on {
 	border-bottom: 1px solid #F5F5F5;
-	border-top: 1px solid #FB7400;
+	border-top: 1px solid #E9E9E9;
+	background-color: #FFF;
+	color: #41AC98;
 }
 
 #business1Page .commodityList {
 	text-align: center;
-	padding: 5px;
-	margin: 5px;
 }
 
-#business1Page .commodityList img {
-	border-radius: 5px;
-	border: 1px solid #EEE;
-	margin: 5px;
+#business1Page .commodityList .ui-block-a,
+#business1Page .commodityList .ui-block-b,
+#business1Page .commodityList .ui-block-c{
+	position:relative;
 }
+
+
+#business1Page .commodityList a img {
+  border-radius: 5px;
+  border: 1px solid #EEE;
+  padding: 10px;
+  margin: 10px 0.1%;
+  width: 82%;
+}
+
+#business1Page .commodityList a span{
+	color:#BDBDBD;
+}
+
+#business1Page .commodityList .s1{
+	color:#E08559;
+}
+#business1Page .commodityList .s3{
+	position: absolute;
+	right:5px;
+	bottom:5px;
+	height:13px;
+	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 0 50%;
+	top:70%;
+	right: 12%;
+	padding-left:15px;
+}
+
+
+#business1Page .b_bottom_menu{
+	margin:10px 0 30px 10%;
+	padding:5px 0px;
+}
+#business1Page .b_bottom_menu ul li{
+	float:left;
+	list-style: none;
+}
+#business1Page .b_bottom_menu ul li a{
+	display: inline-block;
+	color:#BDBDBD;
+	padding-left: 10px;
+	margin-left:10px;
+	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+}
+
+
 
 /************business1Page end***************/
 
@@ -1030,193 +1138,184 @@ a {
 	color: #1F8C77;
 }
 
-#map2Page .header_1 h1{
+#map2Page .header_1 h1 {
 	display: inline-block;
 	position: relative;
-	width:70%;
+	width: 70%;
 	left: 18%;
-	padding:0!important;
+	padding: 0 !important;
 }
 
 #map2Page .header_1 .ui-input-search {
-  width: 90%;
-  margin: 4px 0!important;
-  overflow: hidden;
-  min-height: none;
-  padding: 0!important;
-  height: 32px;
-  border: none;
+	width: 90%;
+	margin: 4px 0 !important;
+	overflow: hidden;
+	min-height: none;
+	padding: 0 !important;
+	height: 32px;
+	border: none;
 }
-#map2Page .header_1 .ui-input-search input{
-	font-size:12px;
+
+#map2Page .header_1 .ui-input-search input {
+	font-size: 12px;
 	padding: 0 0 0 10px;
-	margin:2px 0;
-	text-indent:15px;
-	font-size:14px;
-	line-height:32px;
+	margin: 2px 0;
+	text-indent: 15px;
+	font-size: 14px;
+	line-height: 32px;
 }
-
-
 
 /************Map Page end***************/
 
-
-
 /************businessListPage start***************/
-
-#businessListPage .boxList{
+#businessListPage .boxList {
 	
 }
 
-#businessListPage .boxList .box{
-	margin-bottom:15px;
-	border-radius:6px;
-	border:1px solid #EEE;
-	padding:10px;
+#businessListPage .boxList .box {
+	margin-bottom: 15px;
+	border-radius: 6px;
+	border: 1px solid #EEE;
+	padding: 10px;
 }
 
-#businessListPage .boxList .box h1{
-	text-indent:15px;
-}
-#businessListPage .boxList .box a{
-	color:#666!important;
+#businessListPage .boxList .box h1 {
+	text-indent: 15px;
 }
 
-#businessListPage .boxList .box p{
-	margin:10px 0;
-	text-indent:6%;
+#businessListPage .boxList .box a {
+	color: #666 !important;
 }
 
-#businessListPage .boxList .box .a1{
-	background: url("../images/bg/business_list_r2_c2.jpg") no-repeat 32% 45%;
+#businessListPage .boxList .box p {
+	margin: 10px 0;
+	text-indent: 6%;
+}
+
+#businessListPage .boxList .box .a1 {
+	background: url("../images/bg/business_list_r2_c2.jpg") no-repeat 32%
+		45%;
 	display: inline-block;
-	padding-left:20px;
-	width:40%;
-	text-align:center;
-	height:20px;
-	line-height:20px;
+	padding-left: 20px;
+	width: 40%;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
 }
-#businessListPage .boxList .box .a2{
-	background: url("../images/bg/business_list_r2_c4.jpg") no-repeat 32% 45%;
+
+#businessListPage .boxList .box .a2 {
+	background: url("../images/bg/business_list_r2_c4.jpg") no-repeat 32%
+		45%;
 	display: inline-block;
-	padding-left:20px;
-	width:40%;
-	text-align:center;
-	height:20px;
-	line-height:20px;
+	padding-left: 20px;
+	width: 40%;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
 }
 
 /************businessListPage end***************/
 
 /************sellerListPage start***************/
-
-
-
-
-#sellerListPage .header_1 h1{
+#sellerListPage .header_1 h1 {
 	display: inline-block;
 	position: relative;
-	width:30%;
+	width: 30%;
 	left: 18%;
-	padding:0!important;
+	padding: 0 !important;
 }
 
 #sellerListPage .header_1 .ui-input-search {
-  width: 100%;
-  margin: 6px 0!important;
-  overflow: hidden;
-  min-height: none;
-  padding: 0!important;
-  height: 28px;
-  border: none;
+	width: 100%;
+	margin: 6px 0 !important;
+	overflow: hidden;
+	min-height: none;
+	padding: 0 !important;
+	height: 28px;
+	border: none;
 }
-#sellerListPage .header_1 .ui-input-search input{
-	font-size:12px;
+
+#sellerListPage .header_1 .ui-input-search input {
+	font-size: 12px;
 	padding: 0 0 0 10px;
-	margin:2px 0;
-	text-indent:15px;
-	font-size:12px;
-	line-height:28px;
+	margin: 2px 0;
+	text-indent: 15px;
+	font-size: 12px;
+	line-height: 28px;
 }
 
-#sellerListPage .header_1 .h{
-	width:50%;
-	height:30px;
-	left:15%;
+#sellerListPage .header_1 .h {
+	width: 50%;
+	height: 30px;
+	left: 15%;
 }
 
-#sellerListPage .header_1 .h a{
-	font-size:12px;
-	color:#666;
-	margin-left:3px;
+#sellerListPage .header_1 .h a {
+	font-size: 12px;
+	color: #666;
+	margin-left: 3px;
 	background: url("../images/bg/map_dianpu_r2_c5.jpg") no-repeat 100% 50%;
-	padding-right:15px;
+	padding-right: 15px;
 }
 
-#sellerListPage .header_1 .a1{
-	
-}
-#sellerListPage .header_1 .a2{
+#sellerListPage .header_1 .a1 {
 	
 }
 
-#sellerListPage .boxList{
-	padding:0 20px;
+#sellerListPage .header_1 .a2 {
+	
 }
 
-#sellerListPage .boxList .box{
-	margin:30px 0;
+#sellerListPage .boxList {
+	padding: 0 20px;
 }
 
-#sellerListPage .boxList .box h3{
-	margin:3px 0;
+#sellerListPage .boxList .box {
+	margin: 30px 0;
 }
 
-#sellerListPage .boxList .box h3 a{
-	color:#666;
+#sellerListPage .boxList .box h3 {
+	margin: 3px 0;
+}
+
+#sellerListPage .boxList .box h3 a {
+	color: #666;
 	background: url("../images/bg/map_dianpu_r4_c9.jpg") no-repeat 0 50%;
 }
-#sellerListPage .boxList .box h3 a.a1{
+
+#sellerListPage .boxList .box h3 a.a1 {
 	position: absolute;
-	right:8%;
-	padding-left:15px;
+	right: 8%;
+	padding-left: 15px;
 }
 
-
-
-#sellerListPage .boxList .box h6{
-	margin:3px 0;
+#sellerListPage .boxList .box h6 {
+	margin: 3px 0;
 }
 
-#sellerListPage .boxList .box .line{
-	margin:5px 0!important;
+#sellerListPage .boxList .box .line {
+	margin: 5px 0 !important;
 }
 
-#sellerListPage .boxList .box .p2 .s1{
+#sellerListPage .boxList .box .p2 .s1 {
 	color: #E8916F;
 }
-#sellerListPage .boxList .box .p2 .s2{
+
+#sellerListPage .boxList .box .p2 .s2 {
 	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 100% 50%;
 }
 
-#sellerListPage .boxList .box .p2 .s4{
+#sellerListPage .boxList .box .p2 .s4 {
 	position: absolute;
-	right:10%;
+	right: 10%;
 }
 
-#sellerListPage .boxList .box .p2 .star2{
+#sellerListPage .boxList .box .p2 .star2 {
 	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 100% 50%;
-	width:79px;
+	width: 79px;
 }
-
 
 /************sellerListPage end***************/
-
-
-
-
-
-
 
 /*Solve Jquery mobile header show and hide when click the long body*/
 .in {

@@ -45,6 +45,9 @@ jQuery(function(){
           auto: true
         }
 	});
+    
+    $(".slides2").css("width",$(window).width());
+    
 });
 
 
