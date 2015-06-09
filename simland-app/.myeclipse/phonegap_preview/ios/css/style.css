@@ -27,6 +27,7 @@ a {
 	padding: 0px !important;
 	margin: 0px !important;
 	width: 100% !important;
+	min-height:1px;
 }
 
 .red {
@@ -319,7 +320,14 @@ a {
 	color: #666 !important;
 }
 
-#indexPage .historyList ul li a {
+#indexPage .historyList ul li .a1 {
+	text-indent:20%;
+	float: left;
+	color: #666;
+	font-size: 16px;
+}
+
+#indexPage .historyList ul li .a2 {
 	margin-right: 15px;
 	float: right;
 	color: #DFDEDF;
@@ -1100,12 +1108,109 @@ a {
 
 /************businessListPage end***************/
 
+/************sellerListPage start***************/
 
 
 
 
+#sellerListPage .header_1 h1{
+	display: inline-block;
+	position: relative;
+	width:30%;
+	left: 18%;
+	padding:0!important;
+}
+
+#sellerListPage .header_1 .ui-input-search {
+  width: 100%;
+  margin: 6px 0!important;
+  overflow: hidden;
+  min-height: none;
+  padding: 0!important;
+  height: 28px;
+  border: none;
+}
+#sellerListPage .header_1 .ui-input-search input{
+	font-size:12px;
+	padding: 0 0 0 10px;
+	margin:2px 0;
+	text-indent:15px;
+	font-size:12px;
+	line-height:28px;
+}
+
+#sellerListPage .header_1 .h{
+	width:50%;
+	height:30px;
+	left:15%;
+}
+
+#sellerListPage .header_1 .h a{
+	font-size:12px;
+	color:#666;
+	margin-left:3px;
+	background: url("../images/bg/map_dianpu_r2_c5.jpg") no-repeat 100% 50%;
+	padding-right:15px;
+}
+
+#sellerListPage .header_1 .a1{
+	
+}
+#sellerListPage .header_1 .a2{
+	
+}
+
+#sellerListPage .boxList{
+	padding:0 20px;
+}
+
+#sellerListPage .boxList .box{
+	margin:30px 0;
+}
+
+#sellerListPage .boxList .box h3{
+	margin:3px 0;
+}
+
+#sellerListPage .boxList .box h3 a{
+	color:#666;
+	background: url("../images/bg/map_dianpu_r4_c9.jpg") no-repeat 0 50%;
+}
+#sellerListPage .boxList .box h3 a.a1{
+	position: absolute;
+	right:8%;
+	padding-left:15px;
+}
 
 
+
+#sellerListPage .boxList .box h6{
+	margin:3px 0;
+}
+
+#sellerListPage .boxList .box .line{
+	margin:5px 0!important;
+}
+
+#sellerListPage .boxList .box .p2 .s1{
+	color: #E8916F;
+}
+#sellerListPage .boxList .box .p2 .s2{
+	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 100% 50%;
+}
+
+#sellerListPage .boxList .box .p2 .s4{
+	position: absolute;
+	right:10%;
+}
+
+#sellerListPage .boxList .box .p2 .star2{
+	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 100% 50%;
+	width:79px;
+}
+
+
+/************sellerListPage end***************/
 
 
 

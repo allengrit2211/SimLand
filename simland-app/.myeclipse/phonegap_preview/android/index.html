@@ -41,9 +41,9 @@
 							type="button" data-role="none" class="btn" id="searchCategoryBtn">
 						<div class="historyList">
 							<ul>
-								<li><span>老凤祥</span> <a href="#">X</a></li>
-								<li><span>施华洛世奇</span> <a href="#">X</a></li>
-								<li><span>周生生</span> <a href="#">X</a></li>
+								<li><a class="a1" href="#sellerListPage">老凤祥</a> <a class="a2" href="#">X</a></li>
+								<li><a class="a1" href="#sellerListPage">施华洛世奇</a> <a class="a2" href="#">X</a></li>
+								<li><a class="a1" href="#sellerListPage">周生生</a> <a class="a2" href="#">X</a></li>
 							</ul>
 						</div>
 					</div>
@@ -1272,7 +1272,7 @@
 	<!--   messageCenterPage end  -->
 
 
-	<!-- 商家列表 -->
+	<!-- 商家列表(地图列表视图) -->
 	<!-- businessList start-->
 	<div data-role="page" id="businessListPage">
 		<div data-role="header" class="header_1">
@@ -1346,6 +1346,106 @@
 		</div>
 	</div>
 	<!-- businessList end-->
+
+
+	<!-- 商家列表 搜索列表 -->
+	<!-- sellerListPage start-->
+	<div data-role="page" id="sellerListPage">
+		<div data-role="header" class="header_1">
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
+			<h1>
+				<input type="search" name="search" placeholder="中瑞">
+			</h1>
+			<h1 class="h">
+				<a href="#">商家星级</a>
+				<a href="#">距离最近</a>
+			</h1>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<div class="boxList">
+				<div class="box">
+					<h3>
+						<a href="#">水贝<span class="color41AC98">中瑞</span>宝石有限公司</a>
+						<a href="#" class="a1">260M</a>
+					</h3>
+					<h6>深圳市水贝街珠宝商厦7-2</h6>
+					<p class="p1">
+						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+					</p>
+					<div class="line"></div>
+					<p class="p2">
+						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+						<span class="s4 star2">&nbsp;</span>
+					</p>
+				</div>
+				<div class="box">
+					<h3>
+						<a href="#">金丽<span class="color41AC98">中瑞</span>国际珠宝交易中心</a>
+						<a href="#" class="a1">560M</a>
+					</h3>
+					<h6>深圳市水贝街珠宝商厦7-2</h6>
+					<p class="p1">
+						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+					</p>
+					<div class="line"></div>
+					<p class="p2">
+						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+						<span class="s4 star2">&nbsp;</span>
+					</p>
+				</div>
+				<div class="box">
+					<h3>
+						<a href="#">万山<span class="color41AC98">中瑞</span>珠宝有限公司</a>
+						<a href="#" class="a1">750M</a>
+					</h3>
+					<h6>深圳市水贝街珠宝商厦7-2</h6>
+					<p class="p1">
+						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+					</p>
+					<div class="line"></div>
+					<p class="p2">
+						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+						<span class="s4 star2">&nbsp;</span>
+					</p>
+				</div>
+				<div class="box">
+					<h3>
+						<a href="#">瑞丰银泰<span class="color41AC98">中瑞</span>美珠有限公司</a>
+						<a href="#" class="a1">780M</a>
+					</h3>
+					<h6>深圳罗湖区田贝4路68号</h6>
+					<p class="p1">
+						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+					</p>
+					<div class="line"></div>
+					<p class="p2">
+						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+						<span class="s4 star2">&nbsp;</span>
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+
+			<div data-role="navbar" class="myfooter bgEDEDED">
+				<ul>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1 ui-btn-active1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- SellerListPage end-->
 
 
 	<script type="text/javascript" src="./js/jquery-2.1.1.js"></script>

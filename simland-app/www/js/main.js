@@ -23,11 +23,15 @@ function searchCategoryFocus(){
 }
 
 function searchCategoryBlur(){
-	$(".historyList").hide();
+	
+	setTimeout(function(){
+		$(".historyList").hide();
+	},1000)
+	
 }
 
 function searchCategoryBtn(){
-	
+	$.mobile.changePage("#sellerListPage", "slideup");
 }
 
 
