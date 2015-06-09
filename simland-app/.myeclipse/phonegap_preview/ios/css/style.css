@@ -321,7 +321,8 @@ a {
 }
 
 #indexPage .historyList ul li .a1 {
-	text-indent: 20%; float : left;
+	text-indent: 20%;
+	float: left;
 	color: #666;
 	font-size: 16px;
 	float: left;
@@ -663,7 +664,7 @@ a {
 	margin: 4%;
 }
 
-#business1Page .business_top .b_btn a{
+#business1Page .business_top .b_btn a {
 	display: inline-block;
 	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
 	width: 34px;
@@ -688,8 +689,8 @@ a {
 	display: inline-block;
 }
 
-#business1Page .slidesjs-control img{
-	width:100%;
+#business1Page .slidesjs-control img {
+	width: 100%;
 }
 
 #business1Page .slidesjs-pagination {
@@ -701,33 +702,34 @@ a {
 	margin: 0px auto;
 }
 
-#business1Page .businessTag a{
-	width:11%;
-	height:32px;
-	line-height:32px;
+#business1Page .businessTag a {
+	width: 11%;
+	height: 32px;
+	line-height: 32px;
 }
 
 #business1Page .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
 	margin: 0;
 }
 
-.businessTag .ui-controlgroup-controls {
+#business1Page .businessTag .ui-controlgroup-controls {
 	width: 100%;
 }
 
-.businessTag .ui-controlgroup-controls a {
+#business1Page .businessTag .ui-controlgroup-controls a {
 	padding-left: 7%;
 	padding-right: 7%;
 	border-left: none;
+	font-size:14px;
 }
 
-.businessTag .ui-controlgroup-controls a.last {
+#business1Page .businessTag .ui-controlgroup-controls a.last {
 	border-right: none;
 }
 
-.businessTag .ui-controlgroup-controls a.on {
-	border-bottom: 1px solid #F5F5F5;
-	border-top: 1px solid #E9E9E9;
+#business1Page .businessTag .ui-controlgroup-controls a.on {
+	border-bottom: 1px solid #FFF;
+	border-top: 2px solid #E9E9E9;
 	background-color: #FFF;
 	color: #41AC98;
 }
@@ -736,57 +738,56 @@ a {
 	text-align: center;
 }
 
-#business1Page .commodityList .ui-block-a,
-#business1Page .commodityList .ui-block-b,
-#business1Page .commodityList .ui-block-c{
-	position:relative;
+#business1Page .commodityList .ui-block-a, #business1Page .commodityList .ui-block-b,
+	#business1Page .commodityList .ui-block-c {
+	position: relative;
 }
-
 
 #business1Page .commodityList a img {
-  border-radius: 5px;
-  border: 1px solid #EEE;
-  padding: 10px;
-  margin: 10px 0.1%;
-  width: 82%;
+	border-radius: 5px;
+	border: 1px solid #EEE;
+	padding: 10px;
+	margin: 10px 0.1%;
+	width: 82%;
 }
 
-#business1Page .commodityList a span{
-	color:#BDBDBD;
+#business1Page .commodityList a span {
+	color: #BDBDBD;
 }
 
-#business1Page .commodityList .s1{
-	color:#E08559;
+#business1Page .commodityList .s1 {
+	color: #E08559;
 }
-#business1Page .commodityList .s3{
+
+#business1Page .commodityList .s3 {
 	position: absolute;
-	right:5px;
-	bottom:5px;
-	height:13px;
+	right: 5px;
+	bottom: 5px; height : 13px;
 	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 0 50%;
-	top:70%;
+	height: 13px; background : url("../images/bg/map_dianpu_r7_c2.jpg")
+	no-repeat 0 50%;
+	top: 70%; right : 12%;
+	padding-left: 15px;
 	right: 12%;
-	padding-left:15px;
 }
 
-
-#business1Page .b_bottom_menu{
-	margin:10px 0 30px 10%;
-	padding:5px 0px;
+#business1Page .b_bottom_menu {
+	margin: 10px 0 30px 10%;
+	padding: 5px 0px;
 }
-#business1Page .b_bottom_menu ul li{
-	float:left;
+
+#business1Page .b_bottom_menu ul li {
+	float: left;
 	list-style: none;
 }
-#business1Page .b_bottom_menu ul li a{
+
+#business1Page .b_bottom_menu ul li a {
 	display: inline-block;
-	color:#BDBDBD;
+	color: #BDBDBD;
 	padding-left: 10px;
-	margin-left:10px;
+	margin-left: 10px;
 	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
 }
-
-
 
 /************business1Page end***************/
 
@@ -879,6 +880,14 @@ a {
 /************contactPage end***************/
 
 /************Product1Page start***************/
+#Product1Page .p_img img {
+	width: 100%;
+}
+
+#Product1Page .onePrice0 {
+	margin: 5px 0;
+}
+
 #Product1Page .onePrice0 .ui-block-a {
 	width: 60%;
 }
@@ -918,13 +927,24 @@ a {
 	#Product1Page .onePrice2 .s_3 {
 	height: 40px;
 	line-height: 40px;
-	display: block;
+	display: inline-block;
+}
+
+#Product1Page .onePrice2 .s2 {
+	padding-left: 25px;
+	background: url("../images/bg/star1.jpg") no-repeat 0px 50%;
 }
 
 #Product1Page .p_appraisal_line {
 	border-bottom: 1px solid #EEE;
 	text-indent: 3%;
+	padding:5px 0;
 }
+
+#Product1Page .p_appraisal_line p{
+	margin-top:5px;
+}
+
 
 #Product1Page .p_appraisal_line .time {
 	float: right;
@@ -959,6 +979,53 @@ a {
 	float: right;
 	margin-top: 15px;
 	margin-right: 20px;
+}
+
+#Product1Page .ui-footer .btn, #Product1Page .menu_height {
+	height: 35px;
+}
+
+#Product1Page .ui-footer .btn {
+	text-align: center;
+}
+
+#Product1Page .ui-footer .btn .a1 {
+	padding: 10px 30px;
+	margin-bottom: 10px;
+	border: 1px solid #41AC98;
+	height: 35px;
+	border-radius: 5px;
+	color: #209384;
+	background-color: #FFF;
+}
+
+#Product1Page .ui-footer .btn .a2 {
+	padding: 10px 30px;
+	margin-bottom: 10px;
+	border: 1px solid #41AC98;
+	height: 35px;
+	border-radius: 5px;
+	background-color: #209384;
+	color: #FFF;
+}
+
+#Product1Page .tags .ui-controlgroup-controls {
+	width: 100%;
+}
+
+#Product1Page .tags a {
+	width: 39%;
+	height:32px;
+	line-height:32px;
+	padding:.7em 1em;
+	font-size:14px;
+}
+
+#Product1Page .tags a.on {
+	border-bottom: 1px solid #FFF;
+	border-top: 2px solid #E9E9E9;
+	background-color: #FFF;
+	color: #41AC98;
 }
 
 /************Product1Page end***************/

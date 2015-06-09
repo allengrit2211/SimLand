@@ -95,5 +95,5 @@ function login() {
 
 
 function searchBusiness(){
-	$.mobile.changePage("#business1Page", "slideup");
+	$.mobile.changePage("#sellerListPage", "slideup");
 }
