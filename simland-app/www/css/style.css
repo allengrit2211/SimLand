@@ -1,6 +1,6 @@
-*{
-margin:0;
-padding:0;	
+* {
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 
 a {
 	text-decoration: none;
-	color:#666;
+	color: #666;
 }
 
 .line {
@@ -64,7 +64,7 @@ a {
 	font-size: 16px;
 }
 
-.header_1 h1 {
+.header_1 h1{
 	color: #666;
 	text-shadow: none;
 	margin: 0 !important;
@@ -83,10 +83,21 @@ a {
 	border-top: 1px solid #B2B2B2;
 }
 
+.bg41AC98 {
+	background-color: #41AC98 !important;
+}
+
+.bgEDEDED {
+	background-color: #EDEDED !important;
+}
+
+.color41AC98 {
+	color: #41AC98 !important;
+}
+
 .myfooter {
 	height: 48px !important;
 	overflow: hidden !important;
-	background-color: #41AC98 !important;
 }
 
 .myfooter .ui-grid-c {
@@ -103,13 +114,6 @@ a {
 	border-top: none;
 }
 
-.myfooter .ui-btn-active {
-	border: none;
-	box-shadow: none;
-	color: #FFF !important;
-	background-color: #41AC98 !important;
-}
-
 .myfooter .ui-btn-hover-d {
 	border: none;
 }
@@ -123,27 +127,49 @@ a {
 	margin: 0;
 }
 
-.ui-icon-index, .ui-icon-map, .ui-icon-purchase, .ui-icon-my {
-	padding-top: 28px; border : none;
+.ui-icon-index, .ui-icon-map, .ui-icon-purchase, .ui-icon-my,
+	.ui-icon-index_1, .ui-icon-map_1, .ui-icon-purchase_1, .ui-icon-my_1 {
+	padding-top: 28px;
+	border: none;
 	text-shadow: none !important;
 	color: #FFF;
 	border: none;
 }
 
 .ui-icon-index {
-	background: url('../images/bg/menu_1.jpg') no-repeat 50% 10% !important;
+	background: url('../images/bg/menu_1.jpg') no-repeat 50% 15% !important;
 }
 
 .ui-icon-map {
-	background: url('../images/bg/menu_2.jpg') no-repeat 50% 10% !important;
+	background: url('../images/bg/menu_2.jpg') no-repeat 50% 15% !important;
 }
 
 .ui-icon-purchase {
-	background: url('../images/bg/menu_3.jpg') no-repeat 50% 10% !important;
+	background: url('../images/bg/menu_3.jpg') no-repeat 50% 15% !important;
 }
 
 .ui-icon-my {
-	background: url('../images/bg/menu_4.jpg') no-repeat 50% 10% !important;
+	background: url('../images/bg/menu_4.jpg') no-repeat 50% 15% !important;
+}
+
+.ui-icon-index_1 {
+	background: url('../images/bg/menu_1_1.jpg') no-repeat 50% 15%
+		!important;
+}
+
+.ui-icon-map_1 {
+	background: url('../images/bg/menu_2_1.jpg') no-repeat 50% 15%
+		!important;
+}
+
+.ui-icon-purchase_1 {
+	background: url('../images/bg/menu_3_1.jpg') no-repeat 50% 15%
+		!important;
+}
+
+.ui-icon-my_1 {
+	background: url('../images/bg/menu_4_1.jpg') no-repeat 50% 15%
+		!important;
 }
 
 .logodiv {
@@ -170,7 +196,7 @@ a {
 
 #indexPage .box1 {
 	width: 90%;
-	margin: 0 auto;
+	margin: 12% auto 0 auto;
 }
 
 #indexPage .ui-input-search {
@@ -202,8 +228,7 @@ a {
 	line-height: 36px;
 }
 
-
-#indexPage .box1 .input1 span{
+#indexPage .box1 .input1 span {
 	color: #41AC98;
 	font-size: 14px;
 	font-weight: bold;
@@ -216,7 +241,7 @@ a {
 	padding: 8px 0;
 	width: 68%;
 	font-size: 14px;
-	text-indent:3px;
+	text-indent: 3px;
 }
 
 #indexPage .box1 .input1 .btn {
@@ -255,113 +280,153 @@ a {
 	text-align: center;
 }
 
-#indexPage .box1 .msg_1 a span,#indexPage .box1 .msg_2 a span{
+#indexPage .box1 .msg_1 a span, #indexPage .box1 .msg_2 a span {
 	color: #41AC98;
 }
 
-.history{
+#indexPage .box1 .msg_1 a, #indexPage .box1 .msg_2 a {
+	display: inline-block;
+	width: 80%;
+}
+
+.history {
 	
 }
 
-#indexPage .historyList{
-	border:1px solid #41AC98;
-	border-top:none;
+#indexPage .historyList {
+	border: 1px solid #41AC98;
+	border-top: none;
 	position: absolute;
-	z-index:1;
-	background-color:#FFF;
+	z-index: 1;
+	background-color: #FFF;
 	margin: 2px 0 0 -1px;
 	width: 90%;
-	display:none;
+	display: none;
 }
 
-#indexPage .historyList ul li{
+#indexPage .historyList ul li {
 	height: 30px;
-	line-height:30px;
-	border-bottom:1px solid #FFF;
+	line-height: 30px;
+	border-bottom: 1px solid #FFF;
 	width: 100%;
-	list-style:none;
+	list-style: none;
 }
 
-#indexPage .historyList ul li span{
-	display:inline-block;
-	cursor:pointer;
-	margin-left: 20%!important;
-	color:#666!important;
+#indexPage .historyList ul li span {
+	display: inline-block;
+	cursor: pointer;
+	margin-left: 20% !important;
+	color: #666 !important;
 }
 
-#indexPage .historyList ul li a{
-	margin-right:15px;
-	float:right;
-	color:#DFDEDF;
+#indexPage .historyList ul li a {
+	margin-right: 15px;
+	float: right;
+	color: #DFDEDF;
 	font-size: 16px;
 }
 
-#indexPage .historyList ul li:hover{
-	border-bottom:1px solid #41AC98;
+#indexPage .historyList ul li:hover {
+	border-bottom: 1px solid #41AC98;
 }
 
+#indexPage .myfooter .ui-btn-active {
+	border: none;
+	box-shadow: none;
+	color: #FFF;
+	background-color: #41AC98 !important;
+}
 
 /****************indexPage end********************/
 
 /******login*********/
 #loginPage {
-	background-color: #F1F0EC !important;
+	
 }
 
 #loginPage .loginDiv {
-	padding-top: 100px;
+	padding-top: 10%;
 	width: 90%;
 	margin: auto;
 }
 
-.ui-btn-active {
-	background-color: #EFEFEF !important;
+#loginPage .ui-btn-active {
 	background-image: none;
 	border: 1px solid #E7E7E7;
 }
 
+#loginPage .ui-input-text {
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+#loginPage .bt {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 14px;
+}
+
+#loginPage .bt a {
+	color: #1F8C77 !important;
+}
+
 #uname {
-	background: url('../images/bg/login_1.jpg') no-repeat 1% 50% !important;
+	background: url('../images/bg/login_1.jpg') no-repeat 4% 50% !important;
 	text-indent: 14%;
-	min-height: 3.2em;
+	height: 37px;
+	font-size: 16px;
 }
 
 #upw {
-	background: url('../images/bg/login_2.jpg') no-repeat 1% 50% !important;
+	background: url('../images/bg/login_2.jpg') no-repeat 4% 50% !important;
 	text-indent: 14%;
-	min-height: 3.2em;
+	height: 37px;
+	font-size: 16px;
 }
 
 #loginBtn {
-	color: #E0486E !important;
+	color: #FFF !important;
+	text-shadow: none;
+	background-color: #1F8C77;
+	border-radius: 8px;
 }
 
 /******login end*********/
 
 /************reg1***********/
 .reg1, .reg2 {
-	background-color: #FFF;
+	padding-top: 10%;
+	width: 96%;
+	margin: 0 auto;
 }
 
 .reg1 .input1, .reg2 .input1 {
-	width: 43% !important;
-	line-height: 35px;
-	border: none;
-	margin-left: 15%;
-	position: relative;
-	top: 5px;
+	width: 100%;
+	border-radius: 8px;
+	border: 1px solid #EEE;
+	height: 38px;
+	margin-bottom: 30px;
+	font-size: 16px;
+	text-indent: 10px;
+}
+
+.input1_1 {
+	width: 50% !important;
+}
+
+.reg2 .info {
+	margin-left: 10%;
+}
+
+.reg2 .info img {
+	float: left;
+}
+
+.reg2 .info lable {
+	float: left;
+	margin: 2px 0 0 3px;
 	font-size: 14px;
-}
-
-.reg1 p, .reg2 p {
-	border-bottom: 1px solid #ACA9A4;
-	height: 55px;
-}
-
-.reg1 .reg1Btn1, .reg2 .reg1Btn1 {
-	line-height: 15px;
-	position: relative;
-	top: 5px;
 }
 
 /************uInfo**************/
@@ -919,6 +984,134 @@ a {
 }
 
 /************confirmOrderPage end***************/
+
+/************messageCenterPage start***************/
+#messageCenterPage .msg_list_box {
+	width: 90%;
+	margin: 10px auto;
+}
+
+#messageCenterPage .msg_list {
+	margin: 20px 0;
+}
+
+#messageCenterPage .msg_list .img {
+	width: 34px;
+	height: 34px;
+	float: left;
+}
+
+#messageCenterPage .msg_list .info {
+	margin-left: 10px;
+	float: left;
+}
+
+#messageCenterPage .msg_list .info p {
+	margin: 2px 0;
+}
+
+/************messageCenterPage end***************/
+
+/************Map Page start***************/
+#map1Page .map1 img {
+	width: 100%;
+}
+
+#map1Page .map1 h3 {
+	margin: 5px 0;
+	color: #1F8C77;
+}
+
+#map2Page .header_1 h1{
+	display: inline-block;
+	position: relative;
+	width:70%;
+	left: 18%;
+	padding:0!important;
+}
+
+#map2Page .header_1 .ui-input-search {
+  width: 90%;
+  margin: 4px 0!important;
+  overflow: hidden;
+  min-height: none;
+  padding: 0!important;
+  height: 32px;
+  border: none;
+}
+#map2Page .header_1 .ui-input-search input{
+	font-size:12px;
+	padding: 0 0 0 10px;
+	margin:2px 0;
+	text-indent:15px;
+	font-size:14px;
+	line-height:32px;
+}
+
+
+
+/************Map Page end***************/
+
+
+
+/************businessListPage start***************/
+
+#businessListPage .boxList{
+	
+}
+
+#businessListPage .boxList .box{
+	margin-bottom:15px;
+	border-radius:6px;
+	border:1px solid #EEE;
+	padding:10px;
+}
+
+#businessListPage .boxList .box h1{
+	text-indent:15px;
+}
+#businessListPage .boxList .box a{
+	color:#666!important;
+}
+
+#businessListPage .boxList .box p{
+	margin:10px 0;
+	text-indent:6%;
+}
+
+#businessListPage .boxList .box .a1{
+	background: url("../images/bg/business_list_r2_c2.jpg") no-repeat 32% 45%;
+	display: inline-block;
+	padding-left:20px;
+	width:40%;
+	text-align:center;
+	height:20px;
+	line-height:20px;
+}
+#businessListPage .boxList .box .a2{
+	background: url("../images/bg/business_list_r2_c4.jpg") no-repeat 32% 45%;
+	display: inline-block;
+	padding-left:20px;
+	width:40%;
+	text-align:center;
+	height:20px;
+	line-height:20px;
+}
+
+/************businessListPage end***************/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Solve Jquery mobile header show and hide when click the long body*/
 .in {

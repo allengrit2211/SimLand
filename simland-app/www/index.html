@@ -23,42 +23,31 @@
 			<div class="logodiv">
 				<img alt="" src="images/bg/logo.jpg">
 			</div>
-			<div class="i-line-bg">
-				
-			</div>
-			
+			<div class="i-line-bg"></div>
+
 			<div class="ui-grid-b box1">
 				<div class="ui-block-a">
 					<div class="input1">
-						<span>店铺 |</span>
-						<input class="txt" id="searchBusiness" data-role="none" name="search" value="" type="text">
-						<input type="button" data-role="none" class="btn" id="searchBusinessBtn" >
+						<span>店铺 |</span> <input class="txt" id="searchBusiness"
+							data-role="none" name="search" value="" type="text"> <input
+							type="button" data-role="none" class="btn" id="searchBusinessBtn">
 					</div>
 				</div>
 
 				<div class="ui-block-b history">
 					<div class="input1">
-						<span>主营 |</span>
-						<input class="txt" id="searchCategory" data-role="none" name="search" value=""  type="text">
-						<input type="button" data-role="none" class="btn" id="searchCategoryBtn">
+						<span>主营 |</span> <input class="txt" id="searchCategory"
+							data-role="none" name="search" value="" type="text"> <input
+							type="button" data-role="none" class="btn" id="searchCategoryBtn">
 						<div class="historyList">
 							<ul>
-								<li>
-									<span>老凤祥</span>
-									<a href="#">X</a>
-								</li>
-								<li>
-									<span>施华洛世奇</span>
-									<a href="#">X</a>
-								</li>
-								<li>
-									<span>周生生</span>
-									<a href="#">X</a>
-								</li>
+								<li><span>老凤祥</span> <a href="#">X</a></li>
+								<li><span>施华洛世奇</span> <a href="#">X</a></li>
+								<li><span>周生生</span> <a href="#">X</a></li>
 							</ul>
 						</div>
 					</div>
-					
+
 				</div>
 
 				<div class="clear"></div>
@@ -67,7 +56,7 @@
 					<div class="ui-grid-a">
 						<div class="ui-block-a">
 							<div class="msg_1">
-								<a href="#"><span>12</span></a>
+								<a href="#messageCenterPage"><span>12</span></a>
 							</div>
 						</div>
 						<div class="ui-block-b">
@@ -77,28 +66,37 @@
 						</div>
 					</div>
 				</div>
-				
-				
-				
+
+
+
 			</div>
 		</div>
 		<!-- /content -->
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-fullscreen="true" data-theme="d">
-			<div data-role="navbar" class="myfooter no-top-border">
+			<div data-role="navbar" class="myfooter no-top-border bg41AC98">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index ui-btn-active">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index ui-btn-active">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
 		<!-- /footer -->
 	</div>
 	<!-- /page -->
+
+	<!-- 登录页面 -->
 	<!-- login page start -->
 	<div data-role="page" id="loginPage">
+		<div data-role="header" class="header_1">
+			<h1>登录</h1>
+		</div>
 		<div data-role="content">
 			<div class="loginDiv">
 				<form method="post">
@@ -109,8 +107,7 @@
 				</form>
 				<br>
 			</div>
-			<div class="ui-grid-a"
-				style="width:80%;margin:0 auto;text-align:center;font-size:14px;">
+			<div class="ui-grid-a bt">
 				<div class="ui-block-a">
 					<a data-transition="none" href="#reg1Page">快速注册</a>
 				</div>
@@ -121,94 +118,111 @@
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d">
-			<div data-role="navbar" class="myfooter">
+			<div data-role="navbar" class="myfooter bgEDEDED">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- login page end -->
+
+	<!-- 注册页面 -->
 	<!-- reg1Page page start -->
 	<div data-role="page" id="reg1Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>快速注册</h1>
-			<a data-transition="none" href="#reg2Page" data-role="button" class="back">下一步</a>
+			<a data-transition="none" href="#reg2Page" data-role="button"
+				class="back">下一步</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
 			<div class="reg1">
 				<form method="post">
-					<p>
-						<input type="text" class="input1" data-role="none" name="umobile"
-							placeholder="请输入手机号码"> <a data-transition="none" href="#" class="reg1Btn1"
-							data-role="button" data-mini="true" data-inline="true">发送验证码</a>
-					</p>
-					<p>
-						<input type="text" class="input1" data-role="none"
-							name="validataCode" placeholder="收到的验证码">
-					</p>
+					<input type="text" class="input1" data-role="none" name="umobile"
+						placeholder="请输入昵称"> <input type="text" class="input1"
+						data-role="none" name="validataCode" placeholder="请输入密码">
 				</form>
 			</div>
-			<p style="margin-left:10%;">
-				<img style="float:left;" alt="" src="images/bg/right_1.jpg">
-				<lable style="color:#E9849B;float:left;margin-top:4px;">《我已阅读并同意》</lable>
-			</p>
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d">
-			<div data-role="navbar" class="myfooter">
+			<div data-role="navbar" class="myfooter bgEDEDED">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- reg1Page page end -->
+
+
+
 	<!-- reg2Page page start -->
 	<div data-role="page" id="reg2Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>快速注册</h1>
-			<a data-transition="none" href="#" data-role="button" class="back">完成</a>
+			<a data-transition="none" href="#userCenterPage" data-role="button"
+				class="back">完成</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
+
 			<div class="reg2">
 				<form method="post">
-					<p>
-						<input type="text" class="input1" data-role="none" name="umobile"
-							placeholder="请输入昵称">
-					</p>
-					<p>
-						<input type="text" class="input1" data-role="none"
-							name="validataCode" placeholder="请输入密码">
+					<input type="text" class="input1 input1_1" data-role="none"
+						name="umobile" placeholder="请输入手机号码"> <a
+						data-transition="none" href="#" class="reg1Btn1"
+						data-role="button" data-mini="true" data-inline="true">发送验证码</a> <input
+						type="text" class="input1" data-role="none" name="validataCode"
+						placeholder="收到的验证码">
+					<p class="info">
+						<img alt="" src="images/bg/right_1.jpg">
+						<lable>我已阅读并同意<span class="color41AC98">《用户服务协议》</span></lable>
 					</p>
 				</form>
 			</div>
+
+
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d">
-			<div data-role="navbar" class="myfooter">
+			<div data-role="navbar" class="myfooter bgEDEDED">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- reg2Page page end -->
+
+
+
 	<!-- userCenter page start -->
 	<div data-role="page" id="userCenterPage">
 		<div data-role="content">
@@ -241,20 +255,24 @@
 			</div>
 			<div class="ui-grid-d orderMenu" style="text-align:center;">
 				<div class="ui-block-a">
-					<a data-transition="none" href="#"><img alt="" src="images/bg/order_menu_1.jpg"><span>待付款</span></a>
+					<a data-transition="none" href="#"><img alt=""
+						src="images/bg/order_menu_1.jpg"><span>待付款</span></a>
 				</div>
 				<div class="ui-block-b">
-					<a data-transition="none" href="#"><img alt="" src="images/bg/order_menu_2.jpg"><span>待发货</span></a>
+					<a data-transition="none" href="#"><img alt=""
+						src="images/bg/order_menu_2.jpg"><span>待发货</span></a>
 				</div>
 				<div class="ui-block-c">
-					<a data-transition="none" href="#"><img alt="" src="images/bg/order_menu_3.jpg"><span>待收货</span></a>
+					<a data-transition="none" href="#"><img alt=""
+						src="images/bg/order_menu_3.jpg"><span>待收货</span></a>
 				</div>
 				<div class="ui-block-d">
 					<a data-transition="none" href="#assessPage"><img alt=""
 						src="images/bg/order_menu_4.jpg"><span>待评价</span></a>
 				</div>
 				<div class="ui-block-e">
-					<a data-transition="none" href="#"><img alt="" src="images/bg/order_menu_5.jpg"><span>退货/售后</span></a>
+					<a data-transition="none" href="#"><img alt=""
+						src="images/bg/order_menu_5.jpg"><span>退货/售后</span></a>
 				</div>
 				<hr class="line">
 				<div class="ucMenuList">
@@ -275,10 +293,14 @@
 				data-theme="d">
 				<div data-role="navbar" class="myfooter">
 					<ul>
-						<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-						<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-						<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-						<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+						<li><a data-transition="none" href="#indexPage"
+							class="ui-icon-index">首页</a></li>
+						<li><a data-transition="none" href="#map1Page"
+							class="ui-icon-map">地图</a></li>
+						<li><a data-transition="none" href="#scat1Page"
+							class="ui-icon-purchase">进货单</a></li>
+						<li><a data-transition="none" href="#loginPage"
+							class="ui-icon-my">我的</a></li>
 					</ul>
 				</div>
 			</div>
@@ -289,8 +311,8 @@
 	<!-- assessPage page start -->
 	<div data-role="page" id="assessPage">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>待评价订单</h1>
 		</div>
 		<!-- /header -->
@@ -298,28 +320,31 @@
 			<div>
 				<ul data-role="listview" data-inset="false">
 					<li data-role="divider">深圳市大本钟贸易有限公司</li>
-					<li><a data-transition="none" href="#"> <img src="images/tmp/chrome.png">
+					<li><a data-transition="none" href="#"> <img
+							src="images/tmp/chrome.png">
 							<h6>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</h6>
 							<p>29890.00￥ 数量:1</p>
 					</a>
 						<p class="p">
-							<span class="red">29890.00</span> <a data-transition="none" href="#" class="btn"
-								data-shadow="false" data-role="button" data-mini="true"
-								data-inline="true">查看物流</a> <a data-transition="none" href="#assess1Page" class="btn"
+							<span class="red">29890.00</span> <a data-transition="none"
+								href="#" class="btn" data-shadow="false" data-role="button"
+								data-mini="true" data-inline="true">查看物流</a> <a
+								data-transition="none" href="#assess1Page" class="btn"
 								data-shadow="false" data-role="button" data-mini="true"
 								data-inline="true">评价</a>
 						</p></li>
 					<li data-role="divider">深圳市大本钟贸易有限公司</li>
-					<li><a data-transition="none" href="#"> <img src="images/tmp/firefox.png">
+					<li><a data-transition="none" href="#"> <img
+							src="images/tmp/firefox.png">
 							<h2>Mozilla Firefox</h2>
 							<p>Firefox is a web browser from Mozilla. Released in 2004.</p>
 					</a>
 						<p class="p">
-							<span class="red">29890.00</span> <a data-transition="none" href="#" class="btn"
-								data-shadow="false" data-role="button" data-mini="true"
-								data-inline="true">查看物流</a> <a data-transition="none" href="#" class="btn"
-								data-shadow="false" data-role="button" data-mini="true"
-								data-inline="true">评价</a>
+							<span class="red">29890.00</span> <a data-transition="none"
+								href="#" class="btn" data-shadow="false" data-role="button"
+								data-mini="true" data-inline="true">查看物流</a> <a
+								data-transition="none" href="#" class="btn" data-shadow="false"
+								data-role="button" data-mini="true" data-inline="true">评价</a>
 						</p></li>
 				</ul>
 			</div>
@@ -328,10 +353,14 @@
 			data-theme="d">
 			<div data-role="navbar" class="myfooter">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
@@ -341,8 +370,8 @@
 	<!-- assessPage1 page start -->
 	<div data-role="page" id="assess1Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>订单评价</h1>
 			<a data-transition="none" href="#" data-role="button" class="back">提交评价</a>
 		</div>
@@ -422,37 +451,48 @@
 			data-theme="d">
 			<div data-role="navbar" class="myfooter">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- assessPage1 page end -->
 
+	<!-- 一览图 -->
 	<!-- map1Page start  -->
 	<div data-role="page" id="map1Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>水贝一览图</h1>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-			<a data-transition="none" href="#map2Page"> <img alt="" src="images/tmp/map_1.jpg">
-			</a>
-
+			<div class="map1">
+				<a data-transition="none" href="#map2Page"><img alt=""
+					src="images/tmp/map_1.jpg"></a>
+				<h3>点击字母直接查看板块地图的大图</h3>
+			</div>
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d">
-			<div data-role="navbar" class="myfooter">
+			<div data-role="navbar" class="myfooter bgEDEDED">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
 				</ul>
 			</div>
 		</div>
@@ -462,9 +502,13 @@
 	<!-- map2Page start  -->
 	<div data-role="page" id="map2Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
-			<h1></h1>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
+			<h1>
+				<input type="search" name="search" placeholder="搜索内容...">
+			</h1>
+			<a data-transition="none" href="#businessListPage" data-role="button"
+				class="back">列表</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
@@ -472,12 +516,16 @@
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d">
-			<div data-role="navbar" class="myfooter">
+			<div data-role="navbar" class="myfooter bgEDEDED">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
 				</ul>
 			</div>
 		</div>
@@ -487,8 +535,8 @@
 	<!-- business1Page 商家页面 start  -->
 	<div data-role="page" id="business1Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1></h1>
 		</div>
 		<!-- /header -->
@@ -509,31 +557,32 @@
 					data-mini="true">
 					<a data-transition="none" href="#" data-role="button"
 						style="border-bottom:1px solid #FFF;border-top:1px solid #FB7400;background-color:#FFF;">新品</a>
-					<a data-transition="none" href="#" data-role="button">特价</a> <a data-transition="none" href="#"
-						data-role="button">产品</a> <a data-transition="none" href="#Vip1Page" data-role="button"
+					<a data-transition="none" href="#" data-role="button">特价</a> <a
+						data-transition="none" href="#" data-role="button">产品</a> <a
+						data-transition="none" href="#Vip1Page" data-role="button"
 						class="last">VIP</a>
 				</div>
 			</div>
 
 			<div class="ui-grid-a commodityList">
 				<div class="ui-block-a">
-					<a data-transition="none" href="#Product1Page"><img width="126" alt=""
-						src="images/commodity/c_1.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_1.jpg"> <br> <span>ORD承接纯银生产加工</span>
 					</a>
 				</div>
 				<div class="ui-block-b">
-					<a data-transition="none" href="#Product1Page"><img width="126" alt=""
-						src="images/commodity/c_2.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_2.jpg"> <br> <span>ORD承接纯银生产加工</span>
 					</a>
 				</div>
 				<div class="ui-block-a">
-					<a data-transition="none" href="#Product1Page"><img width="126" alt=""
-						src="images/commodity/c_1.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_1.jpg"> <br> <span>ORD承接纯银生产加工</span>
 					</a>
 				</div>
 				<div class="ui-block-b">
-					<a data-transition="none" href="#Product1Page"><img width="126" alt=""
-						src="images/commodity/c_2.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_2.jpg"> <br> <span>ORD承接纯银生产加工</span>
 					</a>
 				</div>
 			</div>
@@ -541,10 +590,10 @@
 			<br>
 
 			<div data-role="controlgroup" data-type="horizontal" data-mini="true">
-				<a data-transition="none" href="#anylink" data-role="button" data-rel="back">返回</a> <a
-					href="#businessInfoPage" data-role="button">公司简介</a> <a
-					href="#anylink" data-role="button">买家评论</a> <a data-transition="none" href="#anylink"
-					data-role="button">店铺首页</a>
+				<a data-transition="none" href="#anylink" data-role="button"
+					data-rel="back">返回</a> <a href="#businessInfoPage"
+					data-role="button">公司简介</a> <a href="#anylink" data-role="button">买家评论</a>
+				<a data-transition="none" href="#anylink" data-role="button">店铺首页</a>
 			</div>
 
 
@@ -553,22 +602,25 @@
 			data-theme="d">
 			<div data-role="navbar" class="myfooter">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- business1Page end  -->
 
-
 	<!-- Vip1Page start  -->
 	<div data-role="page" id="Vip1Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1></h1>
 		</div>
 		<!-- /header -->
@@ -586,8 +638,9 @@
 
 			<div class="businessTag">
 				<div data-role="controlgroup" data-type="horizontal">
-					<a data-transition="none" href="#" data-role="button">新品</a> <a data-transition="none" href="#"
-						data-role="button">特价</a> <a data-transition="none" href="#" data-role="button">产品</a> <a
+					<a data-transition="none" href="#" data-role="button">新品</a> <a
+						data-transition="none" href="#" data-role="button">特价</a> <a
+						data-transition="none" href="#" data-role="button">产品</a> <a
 						href="#Vip1Page" data-role="button" class="last">VIP</a>
 				</div>
 			</div>
@@ -612,10 +665,10 @@
 			<br>
 
 			<div data-role="controlgroup" data-type="horizontal" data-mini="true">
-				<a data-transition="none" href="#anylink" data-role="button" data-rel="back">返回</a> <a
-					href="#businessInfoPage" data-role="button">公司简介</a> <a
-					href="#anylink" data-role="button">买家评论</a> <a data-transition="none" href="#anylink"
-					data-role="button">店铺首页</a>
+				<a data-transition="none" href="#anylink" data-role="button"
+					data-rel="back">返回</a> <a href="#businessInfoPage"
+					data-role="button">公司简介</a> <a href="#anylink" data-role="button">买家评论</a>
+				<a data-transition="none" href="#anylink" data-role="button">店铺首页</a>
 			</div>
 
 
@@ -624,10 +677,14 @@
 			data-theme="d">
 			<div data-role="navbar" class="myfooter">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
@@ -638,8 +695,8 @@
 	<!-- businessInfoPage start  -->
 	<div data-role="page" id="businessInfoPage">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1></h1>
 		</div>
 		<!-- /header -->
@@ -650,9 +707,9 @@
 			<div class="businessTag">
 				<div style="margin-bottom:0;" data-role="controlgroup"
 					data-type="horizontal" data-mini="true">
-					<a data-transition="none" href="#" data-role="button" class="on">基本信息</a> <a data-transition="none" href="#"
-						data-role="button">认证信息</a> <a data-transition="none" href="#contactPage"
-						data-role="button">联系方式</a>
+					<a data-transition="none" href="#" data-role="button" class="on">基本信息</a>
+					<a data-transition="none" href="#" data-role="button">认证信息</a> <a
+						data-transition="none" href="#contactPage" data-role="button">联系方式</a>
 				</div>
 			</div>
 
@@ -718,10 +775,10 @@
 			<br>
 
 			<div data-role="controlgroup" data-type="horizontal" data-mini="true">
-				<a data-transition="none" href="#anylink" data-role="button" data-rel="back">返回</a> <a
-					href="#businessInfoPage" data-role="button">公司简介</a> <a
-					href="#anylink" data-role="button">买家评论</a> <a data-transition="none" href="#anylink"
-					data-role="button">店铺首页</a>
+				<a data-transition="none" href="#anylink" data-role="button"
+					data-rel="back">返回</a> <a href="#businessInfoPage"
+					data-role="button">公司简介</a> <a href="#anylink" data-role="button">买家评论</a>
+				<a data-transition="none" href="#anylink" data-role="button">店铺首页</a>
 			</div>
 
 
@@ -730,10 +787,14 @@
 			data-theme="d">
 			<div data-role="navbar" class="myfooter">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
@@ -743,8 +804,8 @@
 	<!-- contact start  -->
 	<div data-role="page" id="contactPage">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1></h1>
 		</div>
 		<!-- /header -->
@@ -755,9 +816,9 @@
 			<div class="businessTag">
 				<div style="margin-bottom:0;" data-role="controlgroup"
 					data-type="horizontal" data-mini="true">
-					<a data-transition="none" href="#" data-role="button">基本信息</a> <a data-transition="none" href="#"
-						data-role="button">认证信息</a> <a data-transition="none" href="#" data-role="button"
-						class="on">联系方式</a>
+					<a data-transition="none" href="#" data-role="button">基本信息</a> <a
+						data-transition="none" href="#" data-role="button">认证信息</a> <a
+						data-transition="none" href="#" data-role="button" class="on">联系方式</a>
 				</div>
 			</div>
 			<div class="info">
@@ -777,8 +838,9 @@
 					</div>
 				</div>
 
-				<a data-transition="none" href="#" data-role="button" style="border:1px solid #E87A23;color:#E87A23;">保存联系方式倒通讯录</a>
-		
+				<a data-transition="none" href="#" data-role="button"
+					style="border:1px solid #E87A23;color:#E87A23;">保存联系方式倒通讯录</a>
+
 				<div class="contactMap">
 					<div id="contactAllmap" style="width:auto; height:420px;"></div>
 				</div>
@@ -787,10 +849,10 @@
 
 				<div data-role="controlgroup" data-type="horizontal"
 					data-mini="true">
-					<a data-transition="none" href="#anylink" data-role="button" data-rel="back">返回</a> <a
-						href="#businessInfoPage" data-role="button">公司简介</a> <a
-						href="#anylink" data-role="button">买家评论</a> <a data-transition="none" href="#anylink"
-						data-role="button">店铺首页</a>
+					<a data-transition="none" href="#anylink" data-role="button"
+						data-rel="back">返回</a> <a href="#businessInfoPage"
+						data-role="button">公司简介</a> <a href="#anylink" data-role="button">买家评论</a>
+					<a data-transition="none" href="#anylink" data-role="button">店铺首页</a>
 				</div>
 			</div>
 
@@ -799,10 +861,14 @@
 			data-theme="d">
 			<div data-role="navbar" class="myfooter">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
@@ -813,8 +879,8 @@
 	<!-- Product1Page 产品明细页面 start  -->
 	<div data-role="page" id="Product1Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1></h1>
 		</div>
 		<!-- /header -->
@@ -863,31 +929,39 @@
 					<span class="s_1"><img alt="" src="images/bg/star1.jpg">738人</span>
 				</div>
 			</div>
-			<div data-role="controlgroup" data-type="horizontal"
-				data-mini="true">
-				<a data-transition="none" href="#" data-role="button">产品详情</a>
-				<a data-transition="none" href="#" data-role="button" style="border-bottom:1px solid #FFF;border-top:1px solid #FB7400;background-color:#FFF;">产品评价</a> 
+			<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+				<a data-transition="none" href="#" data-role="button">产品详情</a> <a
+					data-transition="none" href="#" data-role="button"
+					style="border-bottom:1px solid #FFF;border-top:1px solid #FB7400;background-color:#FFF;">产品评价</a>
 			</div>
 			<div class="p_appraisal">
 				<div class="p_appraisal_line">
 					<b>很好</b>
 					<p>颜色分类：深紫色</p>
-					<p>叶****2<span class="time">2015-06-03</span></p>
+					<p>
+						叶****2<span class="time">2015-06-03</span>
+					</p>
 				</div>
 				<div class="p_appraisal_line">
 					<b>很好</b>
 					<p>颜色分类：深紫色</p>
-					<p>叶****2<span class="time">2015-06-03</span></p>
+					<p>
+						叶****2<span class="time">2015-06-03</span>
+					</p>
 				</div>
 				<div class="p_appraisal_line">
 					<b>很好</b>
 					<p>颜色分类：深紫色</p>
-					<p>叶****2<span class="time">2015-06-03</span></p>
+					<p>
+						叶****2<span class="time">2015-06-03</span>
+					</p>
 				</div>
 				<div class="p_appraisal_line">
 					<b>很好</b>
 					<p>颜色分类：深紫色</p>
-					<p>叶****2<span class="time">2015-06-03</span></p>
+					<p>
+						叶****2<span class="time">2015-06-03</span>
+					</p>
 				</div>
 			</div>
 
@@ -895,13 +969,16 @@
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d" style="border-top:none;">
-			
+
 			<div>
-				<a data-transition="none" href="#" data-rel="back" style="margin-right:5%"><img alt="" src="images/bg/j_1.png"></a>
-				<a data-transition="none" href="#scat1Page"><img alt="" src="images/bg/btn_1.jpg"></a>
-				<a data-transition="none" href="#a_a" data-rel="popup" data-position-to="window"><img alt="" src="images/bg/btn_2.jpg"></a>
+				<a data-transition="none" href="#" data-rel="back"
+					style="margin-right:5%"><img alt="" src="images/bg/j_1.png"></a>
+				<a data-transition="none" href="#scat1Page"><img alt=""
+					src="images/bg/btn_1.jpg"></a> <a data-transition="none"
+					href="#a_a" data-rel="popup" data-position-to="window"><img
+					alt="" src="images/bg/btn_2.jpg"></a>
 			</div>
-			
+
 			<div id="a_a" data-role="popup" data-theme="a">
 				<div class="popup">
 					<div class="ui-grid-a">
@@ -909,20 +986,18 @@
 							<img alt="" src="images/commodity/c_4.jpg">
 						</div>
 						<div class="ui-block-b">
-							<span>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</span>
-							<br>
-							<span>￥29890.00</span>
+							<span>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</span> <br> <span>￥29890.00</span>
 						</div>
 					</div>
 					<div class="nums">
-						<span>购买数量：</span>
-						<br><br>
+						<span>购买数量：</span> <br>
+						<br>
 						<div>
 							<div data-role="controlgroup" data-type="horizontal"
 								data-mini="true" style="float:left;">
-								<a data-transition="none" href="#" data-role="button">-</a>
-								<a data-transition="none" href="#" data-role="button">100</a> 
-								<a data-transition="none" href="#" data-role="button">+</a>
+								<a data-transition="none" href="#" data-role="button">-</a> <a
+									data-transition="none" href="#" data-role="button">100</a> <a
+									data-transition="none" href="#" data-role="button">+</a>
 							</div>
 							<div class="i_info">
 								<span>库存96克拉</span>
@@ -931,35 +1006,39 @@
 					</div>
 					<div class="clear"></div>
 					<div>
-						<br>
-						<br>
-						<a style="margin-top:20px;margin-left:30%;" href="#confirmOrderPage"><img alt="" src="images/bg/btn_3.jpg"></a>
+						<br> <br> <a style="margin-top:20px;margin-left:30%;"
+							href="#confirmOrderPage"><img alt=""
+							src="images/bg/btn_3.jpg"></a>
 					</div>
-					
+
 				</div>
 			</div>
-			
+
 			<div data-role="navbar" class="myfooter">
 				<ul>
-					<li><a data-transition="none" href="#indexPage" class="ui-icon-index">首页</a></li>
-					<li><a data-transition="none" href="#map1Page" class="ui-icon-map">地图</a></li>
-					<li><a data-transition="none" href="#scat1Page" class="ui-icon-purchase">进货单</a></li>
-					<li><a data-transition="none" href="#loginPage" class="ui-icon-my">我的</a></li>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- Product1Page end  -->
 
-	
-	
+
 	<!-- scat1Page 购物车页面 start  -->
 	<div data-role="page" id="scat1Page">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>全部货品 (2)</h1>
-			<a data-transition="none" href="#confirmOrderPage" data-role="button" class="back">结算</a>
+			<a data-transition="none" href="#confirmOrderPage" data-role="button"
+				class="back">结算</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
@@ -981,7 +1060,8 @@
 						<input type="checkbox">
 					</div>
 					<div class="ui-block-b p_0_1">
-						<span>深圳市大本钟贸易有限...</span> |<a data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
+						<span>深圳市大本钟贸易有限...</span> |<a data-transition="none"
+							href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
 					</div>
 					<div class="ui-block-c p_0_2"></div>
 
@@ -994,9 +1074,11 @@
 					</div>
 					<div class="ui-block-a p_2_0">&nbsp;</div>
 					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
-					<div class="ui-block-c p_2_2">￥29,890.00<input type="text"></div>
-					
-					
+					<div class="ui-block-c p_2_2">
+						￥29,890.00<input type="text">
+					</div>
+
+
 				</div>
 
 				<div class="ui-grid-b plist">
@@ -1004,7 +1086,8 @@
 						<input type="checkbox">
 					</div>
 					<div class="ui-block-b p_0_1">
-						<span>深圳市大本钟贸易有限...</span> |<a data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
+						<span>深圳市大本钟贸易有限...</span> |<a data-transition="none"
+							href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
 					</div>
 					<div class="ui-block-c p_0_2"></div>
 
@@ -1017,7 +1100,9 @@
 					</div>
 					<div class="ui-block-a p_2_0">&nbsp;</div>
 					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
-					<div class="ui-block-c p_2_2">￥29,890.00<input type="text"></div>
+					<div class="ui-block-c p_2_2">
+						￥29,890.00<input type="text">
+					</div>
 				</div>
 
 
@@ -1027,25 +1112,30 @@
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d" style="border-top:none;">
-			
+
 			<div data-role="navbar" class="myfooter">
 				<div class="ui-grid-b catMenu">
-					<div class="ui-block-a"><input type="checkbox"><a data-transition="none" href="#">全选</a></div>
-					<div class="ui-block-b"><a data-transition="none" href="#" >移致收藏</a></div>
-					<div class="ui-block-c"><a data-transition="none" href="#" >删除</a></div>
+					<div class="ui-block-a">
+						<input type="checkbox"><a data-transition="none" href="#">全选</a>
+					</div>
+					<div class="ui-block-b">
+						<a data-transition="none" href="#">移致收藏</a>
+					</div>
+					<div class="ui-block-c">
+						<a data-transition="none" href="#">删除</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- scat1Page end  -->
-	
-	
-	
+
+
 	<!-- confirmOrderPage 确认订单 start  -->
 	<div data-role="page" id="confirmOrderPage">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back" class="back"
-				data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>确认订单</h1>
 			<a data-transition="none" href="#" data-role="button" class="back">提交订单</a>
 		</div>
@@ -1078,7 +1168,9 @@
 					</div>
 					<div class="ui-block-a p_2_0">&nbsp;</div>
 					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
-					<div class="ui-block-c p_2_2">￥29,890.00<br>1克拉</div>
+					<div class="ui-block-c p_2_2">
+						￥29,890.00<br>1克拉
+					</div>
 				</div>
 				<div class="ui-grid-b plist">
 					<div class="ui-block-a p_0_0">
@@ -1098,33 +1190,175 @@
 					</div>
 					<div class="ui-block-a p_2_0">&nbsp;</div>
 					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
-					<div class="ui-block-c p_2_2">￥29,890.00<br>1克拉</div>
+					<div class="ui-block-c p_2_2">
+						￥29,890.00<br>1克拉
+					</div>
 				</div>
 			</div>
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d" style="border-top:none;">
-			
+
 			<div data-role="navbar" class="myfooter">
-				<div class="ui-grid-b">
-				</div>
+				<div class="ui-grid-b"></div>
 			</div>
 		</div>
 	</div>
 	<!-- confirmOrderPage end  -->
 
 
-		<script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
-		<script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
-		<script type="text/javascript" src="./rte/cordova.js"></script>
-		<script type="text/javascript" src="./rte/rte.js"></script>
-		<script type="text/javascript" src="./js/jquery.slides.min.js"></script>
-		<script type="text/javascript" src="./js/main.js"></script>
+	<!-- 消息中心 -->
+	<!--   messageCenterPage start  -->
+	<div data-role="page" id="messageCenterPage">
+		<div data-role="header" class="header_1">
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
+			<h1>消息中心</h1>
+			<a data-transition="none" href="#" data-role="button" class="back">设置</a>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
 
-		<script type="text/javascript"
-			src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
+			<div class="msg_list_box">
+				<div class="msg_list">
+					<div class="img">
+						<img alt="" src="images/bg/messageCenterPage_r2_c3.jpg">
+					</div>
+					<div class="info">
+						<h6>咚咚</h6>
+						<p>点击查看您与水贝客服的会话记录</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="msg_list">
+					<div class="img">
+						<img alt="" src="images/bg/messageCenterPage_r4_c3.jpg">
+					</div>
+					<div class="info">
+						<h6>咚咚</h6>
+						<p>点击查看您与水贝客服的会话记录</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="msg_list">
+					<div class="img">
+						<img alt="" src="images/bg/messageCenterPage_r6_c3.jpg">
+					</div>
+					<div class="info">
+						<h6>咚咚</h6>
+						<p>点击查看您与水贝客服的会话记录</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
 
-		<script type="text/javascript">
+			<div data-role="navbar" class="myfooter bgEDEDED">
+				<ul>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1 ui-btn-active1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--   messageCenterPage end  -->
+
+
+	<!-- 商家列表 -->
+	<!-- businessList start-->
+	<div data-role="page" id="businessListPage">
+		<div data-role="header" class="header_1">
+			<a data-transition="none" href="#" data-role="button" data-rel="back"
+				class="back" data-icon="arrow-l">&nbsp;</a>
+			<h1>国际珠宝</h1>
+			<a data-transition="none" href="#map2Page" data-role="button"
+				class="back">地图</a>
+		</div>
+		<!-- /header -->
+		<div data-role="content">
+			<div class="boxList">
+				<div class="box">
+					<h3>
+						<span>1</span> <a href="#">水贝国际珠宝交易中心(贝丽北路)</a>
+					</h3>
+					<p>深圳罗湖区田贝4路68号</p>
+					<div class="line"></div>
+					<div>
+						<a class="a1" href="#">到这去</a> <a class="a2" href="#">电话</a>
+					</div>
+				</div>
+				<div class="box">
+					<h3>
+						<span>2</span> <a href="#">水贝国际珠宝交易中心(贝丽北路)</a>
+					</h3>
+					<p>深圳罗湖区田贝4路68号</p>
+					<div class="line"></div>
+					<div>
+						<a class="a1" href="#">到这去</a> <a class="a2" href="#">电话</a>
+					</div>
+				</div>
+				<div class="box">
+					<h3>
+						<span>3</span> <a href="#">水贝国际珠宝交易中心(贝丽北路)</a>
+					</h3>
+					<p>深圳罗湖区田贝4路68号</p>
+					<div class="line"></div>
+					<div>
+						<a class="a1" href="#">到这去</a> <a class="a2" href="#">电话</a>
+					</div>
+				</div>
+				<div class="box">
+					<h3>
+						<span>4</span> <a href="#">水贝国际珠宝交易中心(贝丽北路)</a>
+					</h3>
+					<p>深圳罗湖区田贝4路68号</p>
+					<div class="line"></div>
+					<div>
+						<a class="a1" href="#">到这去</a> <a class="a2" href="#">电话</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+
+			<div data-role="navbar" class="myfooter bgEDEDED">
+				<ul>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1 ui-btn-active1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- businessList end-->
+
+
+	<script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
+	<script type="text/javascript" src="./rte/cordova.js"></script>
+	<script type="text/javascript" src="./rte/rte.js"></script>
+	<script type="text/javascript" src="./js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+
+	<script type="text/javascript"
+		src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
+
+	<script type="text/javascript">
 		// 百度地图API功能
 		var map = new BMap.Map("allmap");
 		map.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
@@ -1146,7 +1380,7 @@
 			//alert("marker的位置是" + p.getPosition().lng + "," + p.getPosition().lat);
 			$.mobile.changePage("#shop", "slideup");
 		}
-		
+
 		// 百度地图API功能
 		var map1 = new BMap.Map("contactAllmap");
 		map1.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
