@@ -81,7 +81,7 @@ a {
 }
 
 .ui-footer {
-	border-top: 1px solid #B2B2B2;
+	border-top: 1px solid #c0c0c0;
 }
 
 .bg41AC98 {
@@ -439,15 +439,14 @@ a {
 }
 
 /************uInfo**************/
-
-#userCenterPage a,span{
-	color:#666;
+#userCenterPage a, span {
+	color: #666;
 }
 
 #userCenterPage .ui-content {
 	margin: 0;
 	padding: 0;
-	color:#666!important;
+	color: #666 !important;
 }
 
 .uInfo {
@@ -494,11 +493,11 @@ a {
 	width: 80%;
 	margin: 0 auto;
 	text-align: center;
-	height:56px;
+	height: 56px;
 }
 
 .uInfo .collect span {
-	padding: 5px 0  0 0!important;
+	padding: 5px 0 0 0 !important;
 	display: block;
 }
 
@@ -794,13 +793,15 @@ a {
 }
 
 #business1Page .b_bottom_menu {
-	margin: 10px 0 30px 10%;
-	padding: 5px 0px;
+	background-color: #FFF;
+	height: 40px;
+	line-height: 40px;
 }
 
 #business1Page .b_bottom_menu ul li {
 	float: left;
 	list-style: none;
+	padding-left: 6px;
 }
 
 #business1Page .b_bottom_menu ul li a {
