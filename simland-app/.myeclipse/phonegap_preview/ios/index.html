@@ -222,7 +222,7 @@
 	<!-- reg2Page page end -->
 
 
-
+	<!-- 用户中心 -->
 	<!-- userCenter page start -->
 	<div data-role="page" id="userCenterPage">
 		<div data-role="content">
@@ -291,16 +291,16 @@
 			</div>
 			<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 				data-theme="d">
-				<div data-role="navbar" class="myfooter">
+				<div data-role="navbar" class="myfooter bgEDEDED">
 					<ul>
 						<li><a data-transition="none" href="#indexPage"
-							class="ui-icon-index">首页</a></li>
+							class="ui-icon-index_1">首页</a></li>
 						<li><a data-transition="none" href="#map1Page"
-							class="ui-icon-map">地图</a></li>
+							class="ui-icon-map_1">地图</a></li>
 						<li><a data-transition="none" href="#scat1Page"
-							class="ui-icon-purchase">进货单</a></li>
+							class="ui-icon-purchase_1">进货单</a></li>
 						<li><a data-transition="none" href="#loginPage"
-							class="ui-icon-my">我的</a></li>
+							class="ui-icon-my_1">我的</a></li>
 					</ul>
 				</div>
 			</div>
@@ -1016,10 +1016,9 @@
 						</div>
 					</div>
 					<div class="clear"></div>
-					<div>
-						<br> <br> <a style="margin-top:20px;margin-left:30%;"
-							href="#confirmOrderPage"><img alt=""
-							src="images/bg/btn_3.jpg"></a>
+					<div class="line"></div>
+					<div class="buyBtn">
+						<a class="a1" href="#confirmOrderPage">确定</a>
 					</div>
 
 				</div>
@@ -1047,7 +1046,7 @@
 		<div data-role="header" class="header_1">
 			<a data-transition="none" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
-			<h1>全部货品 (2)</h1>
+			<h1>购物车</h1>
 			<a data-transition="none" href="#confirmOrderPage" data-role="button"
 				class="back">结算</a>
 		</div>
@@ -1068,7 +1067,7 @@
 
 				<div class="ui-grid-b plist">
 					<div class="ui-block-a p_0_0">
-						<input type="checkbox">
+						<input type="checkbox" name="carCheck" data-cacheval="false">
 					</div>
 					<div class="ui-block-b p_0_1">
 						<span>深圳市大本钟贸易有限...</span> |<a data-transition="none"
@@ -1094,7 +1093,7 @@
 
 				<div class="ui-grid-b plist">
 					<div class="ui-block-a p_0_0">
-						<input type="checkbox">
+						<input type="checkbox" name="carCheck" data-cacheval="false">
 					</div>
 					<div class="ui-block-b p_0_1">
 						<span>深圳市大本钟贸易有限...</span> |<a data-transition="none"
@@ -1124,19 +1123,32 @@
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d" style="border-top:none;">
 
-			<div data-role="navbar" class="myfooter">
-				<div class="ui-grid-b catMenu">
-					<div class="ui-block-a">
-						<input type="checkbox"><a data-transition="none" href="#">全选</a>
-					</div>
-					<div class="ui-block-b">
-						<a data-transition="none" href="#">移致收藏</a>
-					</div>
-					<div class="ui-block-c">
-						<a data-transition="none" href="#">删除</a>
-					</div>
+			<div class="catMenu">
+				<div class="left">
+					<input type="checkbox" id="carCheckAll"/>
+					<span>全选</span>
 				</div>
+				
+				<div class="right">
+					<a data-transition="none" href="#" data-role="button">移致收藏</a> 
+					<a data-transition="none" href="#" data-role="button">删除</a>
+				</div>
+				<div class="clear"></div>
 			</div>
+			
+			<div data-role="navbar" class="myfooter bgEDEDED">
+				<ul>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
+				</ul>
+			</div>
+			
 		</div>
 	</div>
 	<!-- scat1Page end  -->
@@ -1148,7 +1160,7 @@
 			<a data-transition="none" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>确认订单</h1>
-			<a data-transition="none" href="#" data-role="button" class="back">提交订单</a>
+			<a data-transition="none" href="#userCenterPage" data-role="button" class="back">提交订单</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
@@ -1158,13 +1170,12 @@
 				<h4>请填写你的收货地址</h4>
 				<div class="line">&nbsp;</div>
 			</div>
+			
+			
 			<div class="plistBox">
 				<p>货品清单</p>
-				<hr class="line">
+				<div class="line"></div>
 				<div class="ui-grid-b plist">
-					<div class="ui-block-a p_0_0">
-						<input type="checkbox">
-					</div>
 					<div class="ui-block-b p_0_1">
 						<span>深圳市大本钟贸易有限...</span> |<span>优惠说明</span>
 					</div>
@@ -1180,13 +1191,10 @@
 					<div class="ui-block-a p_2_0">&nbsp;</div>
 					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
 					<div class="ui-block-c p_2_2">
-						￥29,890.00<br>1克拉
+						<span class="s1">￥29,890.00</span><span class="s2">1克拉</span>
 					</div>
 				</div>
 				<div class="ui-grid-b plist">
-					<div class="ui-block-a p_0_0">
-						<input type="checkbox">
-					</div>
 					<div class="ui-block-b p_0_1">
 						<span>深圳市大本钟贸易有限...</span> |<span>优惠说明</span>
 					</div>
@@ -1202,16 +1210,49 @@
 					<div class="ui-block-a p_2_0">&nbsp;</div>
 					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
 					<div class="ui-block-c p_2_2">
-						￥29,890.00<br>1克拉
+						<span class="s1">￥29,890.00</span><span class="s2">1克拉</span>
 					</div>
 				</div>
 			</div>
+			
+			<div class="confirmOrderInfo_line">
+			
+			</div>
+			
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d" style="border-top:none;">
 
-			<div data-role="navbar" class="myfooter">
-				<div class="ui-grid-b"></div>
+			<div class="confirmOrderInfo">
+				<div class="left">
+					<p><span>店铺优惠:</span><span>￥0.00</span></p>
+					<p><span>运费计算:</span><span>￥0.00</span></p>
+					<p><span>货款总计:</span><span>￥29,890.00</span></p>
+				</div>
+				<div class="right">
+					<div class="l1">
+						<strong>总计:</strong>
+						<span class="s1">￥29,890.00</span>
+					</div>
+					<div class="l2">
+						<span>一种一件不含运费</span>
+					</div>
+					
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div data-role="navbar" class="myfooter bgEDEDED">
+				<ul>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>

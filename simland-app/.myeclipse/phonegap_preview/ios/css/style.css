@@ -952,15 +952,17 @@ a {
 }
 
 #Product1Page .popup {
-	min-height: 300px;
+	min-height: 236px;
 }
 
 #Product1Page .popup .ui-block-a {
-	width: 40%;
+	width:30%;
+	height:30%;
+	margin:10px;
 }
 
 #Product1Page .popup .ui-block-a img {
-	margin: 5px;
+	width:100%;
 }
 
 #Product1Page .popup .ui-block-b {
@@ -1028,6 +1030,22 @@ a {
 	color: #41AC98;
 }
 
+#Product1Page .buyBtn{
+	text-align: center;
+}
+
+#Product1Page .buyBtn .a1{
+	margin-top:10px;
+	display:inline-block;
+	padding:10px 80px;
+	background-color: #41AC98;
+	border:1px solid #2AA28B;
+	border-radius:5px;
+	color:#FFF;
+}
+
+
+
 /************Product1Page end***************/
 
 /************catPage start***************/
@@ -1088,15 +1106,76 @@ a {
 	width: 50%;
 }
 
-#scat1Page .catMenu .ui-checkbox {
-	float: left;
-	width: 30px;
-	margin-top: 23%;
+#scat1Page .catMenu{
+	height:50px;
+	text-align:center;
 }
+#scat1Page .catMenu .left{
+  float: left;
+  margin-left: 30px;
+  width: 30%;
+  text-align: left;
+  padding-top: 15px;
+}
+#scat1Page .catMenu .right{
+	float:right;
+	margin-right:20px;
+}
+
+
+#scat1Page .catMenu .ui-checkbox input, .ui-radio input{
+	position:static;
+}
+
+#scat1Page .catMenu .ui-checkbox{
+	width:30px;
+	vertical-align:text-top;
+	display: inline-block;
+}
+
 
 /************catPage end***************/
 
 /************confirmOrderPage start***************/
+
+
+
+
+
+#confirmOrderPage .confirmOrderInfo{
+	
+	background-color:#CCD3DC;
+	padding:8px;
+}
+
+#confirmOrderPage .confirmOrderInfo, 
+#confirmOrderPage .confirmOrderInfo_line{
+	height:50px;
+}
+
+
+#confirmOrderPage .confirmOrderInfo .left{
+	float:left;
+}
+
+
+#confirmOrderPage .confirmOrderInfo .right{
+	float:right;
+}
+
+#confirmOrderPage .confirmOrderInfo .right .l1{
+	margin:2px 0;
+}
+
+#confirmOrderPage .confirmOrderInfo .right strong{
+	font-size:16px;
+}
+#confirmOrderPage .confirmOrderInfo .right .s1{
+	color: #E48739;
+}
+
+
+
 #confirmOrderPage .adds .line {
 	height: 8px;
 	width: 100%;
@@ -1104,13 +1183,14 @@ a {
 }
 
 #confirmOrderPage .adds h4 {
-	height: 50px;
-	line-height: 50px;
+	height: 112px;
+	line-height: 112px;
 	text-indent: 30%;
+	background: url("../images/bg/confirmOrder_r2_c2.jpg") no-repeat 10% 50%;
 }
 
 #confirmOrderPage .plistBox p {
-	margin-top: 15px;
+	margin:15px;
 }
 
 .plist {
@@ -1163,7 +1243,15 @@ a {
 
 .plist .p_2_2 {
 	width: 45%;
-	line-height: 10px;
+	line-height: 17px;
+	text-indent:5px;
+}
+
+.plist .p_2_2 .s1{
+	display: block;
+}
+.plist .p_2_2 .s2{
+	display: block;
 }
 
 /************confirmOrderPage end***************/
