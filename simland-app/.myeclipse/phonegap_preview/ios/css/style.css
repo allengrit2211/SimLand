@@ -739,7 +739,7 @@ a {
 	padding-left: 7%;
 	padding-right: 7%;
 	border-left: none;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 #business1Page .businessTag .ui-controlgroup-controls a.last {
@@ -815,31 +815,272 @@ a {
 /************business1Page end***************/
 
 /************Vip1Page start***************/
-.vipBox {
+#Vip1Page .vipBox {
 	margin: 10px;
 	border-radius: 5px;
 }
 
+#Vip1Page .ui-content {
+	margin: 0;
+	padding: 0;
+}
+
+
+#Vip1Page .business_top {
+	min-height: 78px;
+	background-color: #41AC98;
+	padding-top: 10%;
+}
+
+#Vip1Page .business_top .b_logo {
+	margin: 0 5% 0 5%;
+	float: left;
+}
+
+#Vip1Page .business_top .b_info {
+	float: left;
+}
+
+#Vip1Page .business_top .b_info h3 {
+	color: #FFF;
+	font-weight: normal;
+	margin: 5px 0;
+}
+
+#Vip1Page .business_top .b_info .star {
+	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
+	padding-left: 80px;
+	display: inline-block;
+	height: 16px;
+}
+
+#Vip1Page .business_top .b_btn {
+	float: left;
+	margin: 4%;
+}
+
+#Vip1Page .business_top .b_btn a {
+	display: inline-block;
+	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	width: 34px;
+	height: 34px;
+}
+
+
+#Vip1Page .slidesjs-container {
+	width: 100%;
+	min-width: 100% !important;
+}
+
+#Vip1Page .slides_container {
+	width: 100%;
+	height: 140px;
+	overflow: hidden !important;
+}
+
+#Vip1Page .slides_container div {
+	min-width: 320px;
+	min-height: 140px;
+	height: 140px;
+	display: inline-block;
+}
+
+#Vip1Page .slidesjs-control img {
+	width: 100%;
+}
+
+#Vip1Page .slidesjs-pagination {
+	display: none;
+}
+
+#Vip1Page .businessTag {
+	width: 98%;
+	margin: 0px auto;
+}
+
+#Vip1Page .businessTag a {
+	width: 10.5%;
+	height: 32px;
+	line-height: 32px;
+}
+
+#Vip1Page .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+	margin: 0;
+}
+
+#Vip1Page .businessTag .ui-controlgroup-controls {
+	width: 100%;
+}
+
+#Vip1Page .businessTag .ui-controlgroup-controls a {
+	padding-left: 7%;
+	padding-right: 7%;
+	border-left: none;
+	font-size: 13px;
+}
+
+#Vip1Page .businessTag .ui-controlgroup-controls a.last {
+	border-right: none;
+}
+
+#Vip1Page .businessTag .ui-controlgroup-controls a.on {
+	border-bottom: 1px solid #FFF;
+	border-top: 2px solid #E9E9E9;
+	background-color: #FFF;
+	color: #41AC98;
+}
+
+
+
+
+#Vip1Page .b_bottom_menu {
+	background-color: #FFF;
+	height: 40px;
+	line-height: 40px;
+}
+
+#Vip1Page .b_bottom_menu ul li {
+	float: left;
+	list-style: none;
+	padding-left: 6px;
+}
+
+#Vip1Page .b_bottom_menu ul li a {
+	display: inline-block;
+	color: #BDBDBD;
+	padding-left: 10px;
+	margin-left: 10px;
+	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+}
+
+.vipBox .l1{
+	display: inline-block;
+	text-indent:12%;
+}
+
+.vipBox .ui-input-text{
+	display: inline-block;
+	width:50%;
+}
+
+.vipBox .p1{
+	text-indent:12%;
+}
+
+.vipBox .p1 span{
+	display: block;
+}
+
 .vipboxBtn {
 	margin-top: 5px;
+	text-align: center;
 }
 
 .vipboxBtn .a1, .vipboxBtn .a2 {
-	padding: 6px !important;
-	background-color: #F47950;
+	padding: 10px 20px!important;
+	background-color: #41AC98;
 	border-radius: 5px;
 	display: inline-block;
 	text-align: center;
 	color: #FFF !important;
 	text-shadow: none;
+	margin-top:20px;
 }
+
 
 /************Vip1Page end***************/
 
 /************businessInfoPage start***************/
+
+#businessInfoPage .ui-content{
+	margin:0;
+	padding:0;
+}
+
+
+
+#businessInfoPage .business_top {
+	min-height: 78px;
+	background-color: #41AC98;
+	padding-top: 10%;
+}
+
+#businessInfoPage .business_top .b_logo {
+	margin: 0 5% 0 5%;
+	float: left;
+}
+
+#businessInfoPage .business_top .b_info {
+	float: left;
+}
+
+#businessInfoPage .business_top .b_info h3 {
+	color: #FFF;
+	font-weight: normal;
+	margin: 5px 0;
+}
+
+#businessInfoPage .business_top .b_info .star {
+	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
+	padding-left: 80px;
+	display: inline-block;
+	height: 16px;
+}
+
+#businessInfoPage .business_top .b_btn {
+	float: left;
+	margin: 4%;
+}
+
+#businessInfoPage .business_top .b_btn a {
+	display: inline-block;
+	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	width: 34px;
+	height: 34px;
+}
+
+
+#businessInfoPage .businessTag {
+	width: 98%;
+	margin: 0px auto;
+}
+
+#businessInfoPage .businessTag a {
+	width: 18.5%;
+	height: 32px;
+	line-height: 32px;
+}
+
+#businessInfoPage .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+	margin: 0;
+}
+
+#businessInfoPage .businessTag .ui-controlgroup-controls {
+	width: 100%;
+}
+
+#businessInfoPage .businessTag .ui-controlgroup-controls a {
+	padding-left: 7%;
+	padding-right: 7%;
+	border-left: none;
+	font-size: 13px;
+}
+
+#businessInfoPage .businessTag .ui-controlgroup-controls a.last {
+	border-right: none;
+}
+
+#businessInfoPage .businessTag .ui-controlgroup-controls a.on {
+	border-bottom: 1px solid #FFF;
+	border-top: 2px solid #E9E9E9;
+	background-color: #FFF;
+	color: #41AC98;
+}
+
+
+
 #businessInfoPage .info {
 	padding: 20px 0;
-	background-color: #F5F5F5;
 	border-radius: 5px;
 	font-size: 12px !important;
 }
@@ -861,9 +1102,38 @@ a {
 	color: #ACACAC;
 }
 
+
+#businessInfoPage .b_bottom_menu {
+	background-color: #FFF;
+	height: 40px;
+	line-height: 40px;
+}
+
+#businessInfoPage .b_bottom_menu ul li {
+	float: left;
+	list-style: none;
+	padding-left: 6px;
+}
+
+#businessInfoPage .b_bottom_menu ul li a {
+	display: inline-block;
+	color: #BDBDBD;
+	padding-left: 10px;
+	margin-left: 10px;
+	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+}
+
+
+
 /************businessInfoPage end***************/
 
 /************contactPage start***************/
+#contactPage .ui-content{
+	margin:0;
+	padding: 0;
+}
+
+
 #contactPage .info {
 	background-color: #F5F5F5;
 	min-height: 300px;
@@ -895,10 +1165,125 @@ a {
 	border-bottom: 1px solid #E6E6E6;
 }
 
-#contactAllmap {
-	margin-top: 5px;
-	width: 80%;
+#contactPage .info .btn1{
+	border:1px solid #2AA28B;
+	color:#FFF;
+	background-color:#41AC98;
+	width:78%;
+	margin:20px auto;
 }
+
+#contactAllmap {
+	width: 92%;
+	height:320px;
+	margin:5px auto 0 auto;
+}
+
+
+
+#contactPage .business_top {
+	min-height: 78px;
+	background-color: #41AC98;
+	padding-top: 10%;
+}
+
+#contactPage .business_top .b_logo {
+	margin: 0 5% 0 5%;
+	float: left;
+}
+
+#contactPage .business_top .b_info {
+	float: left;
+}
+
+#contactPage .business_top .b_info h3 {
+	color: #FFF;
+	font-weight: normal;
+	margin: 5px 0;
+}
+
+#contactPage .business_top .b_info .star {
+	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
+	padding-left: 80px;
+	display: inline-block;
+	height: 16px;
+}
+
+#contactPage .business_top .b_btn {
+	float: left;
+	margin: 4%;
+}
+
+#contactPage .business_top .b_btn a {
+	display: inline-block;
+	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	width: 34px;
+	height: 34px;
+}
+
+
+#contactPage .businessTag {
+	width: 98%;
+	margin: 0px auto;
+}
+
+#contactPage .businessTag a {
+	width: 18.5%;
+	height: 32px;
+	line-height: 32px;
+}
+
+#contactPage .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+	margin: 0;
+}
+
+#contactPage .businessTag .ui-controlgroup-controls {
+	width: 100%;
+}
+
+#contactPage .businessTag .ui-controlgroup-controls a {
+	padding-left: 7%;
+	padding-right: 7%;
+	border-left: none;
+	font-size: 13px;
+}
+
+#contactPage .businessTag .ui-controlgroup-controls a.last {
+	border-right: none;
+}
+
+#contactPage .businessTag .ui-controlgroup-controls a.on {
+	border-bottom: 1px solid #FFF;
+	border-top: 2px solid #E9E9E9;
+	background-color: #FFF;
+	color: #41AC98;
+}
+
+
+
+
+#contactPage .b_bottom_menu {
+	background-color: #FFF;
+	height: 40px;
+	line-height: 40px;
+}
+
+#contactPage .b_bottom_menu ul li {
+	float: left;
+	list-style: none;
+	padding-left: 6px;
+}
+
+#contactPage .b_bottom_menu ul li a {
+	display: inline-block;
+	color: #BDBDBD;
+	padding-left: 10px;
+	margin-left: 10px;
+	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+}
+
+
+
 
 /************contactPage end***************/
 
