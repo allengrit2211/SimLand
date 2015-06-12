@@ -1717,7 +1717,167 @@ a {
 	line-height: 32px;
 }
 
+#map2Page .showFloor{
+	background-color:#FFF;
+	position:fixed;
+	bottom:60px;
+	left:7%;
+	right:7%;
+	width:86%;
+	height:80px;
+	border-radius:8px;
+}
+
+#map2Page .showFloor p{
+	padding:5px 0;
+	text-indent:10%;
+}
+
+
 /************Map Page end***************/
+
+
+
+
+/************map3Page start***************/
+#map3Page .header_1 h1 {
+	display: inline-block;
+	position: relative;
+	width: 30%;
+	left: 18%;
+	padding: 0 !important;
+}
+
+#map3Page .header_1 h1 .s1 {
+	font-size:12px;
+	color:#41AC98;
+}
+
+
+#map3Page .header_1 .h {
+	width:88%;
+	height: 38px;
+	left: 15%;
+	line-height:38px;
+	text-align:left;
+}
+
+#map3Page .header_1 .h a {
+	font-size: 12px;
+	color: #666;
+	margin-left: 3px;
+	background: url("../images/bg/map_dianpu_r2_c5.jpg") no-repeat 100% 50%;
+	padding-right: 15px;
+}
+
+#map3Page .header_1 .a1 {
+	
+}
+
+#map3Page .header_1 .a2 {
+	
+}
+
+#map3Page .boxList {
+	padding: 0 20px;
+}
+
+#map3Page .boxList .box {
+	margin: 30px 0;
+}
+
+#map3Page .boxList .box h3 {
+	margin: 3px 0;
+}
+
+#map3Page .boxList .box h3 a {
+	color: #666;
+	background: url("../images/bg/map_dianpu_r4_c9.jpg") no-repeat 0 50%;
+}
+
+#map3Page .boxList .box h3 a.a1 {
+	position: absolute;
+	right: 8%;
+	padding-left: 15px;
+}
+
+#map3Page .boxList .box h6 {
+	margin: 3px 0;
+}
+
+#map3Page .boxList .box .line {
+	margin: 5px 0 !important;
+}
+
+#map3Page .boxList .box .p2 .s1 {
+	color: #E8916F;
+}
+
+#map3Page .boxList .box .p2 .s2 {
+	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 100% 50%;
+}
+
+#map3Page .boxList .box .p2 .s4 {
+	position: absolute;
+	right: 10%;
+}
+
+#map3Page .boxList .box .p2 .star2 {
+	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 100% 50%;
+	width: 79px;
+}
+
+/************map3Page end***************/
+
+
+
+/************map4Page start***************/
+#map4Page .header_1 h1 {
+	display: inline-block;
+	position: relative;
+	width:65%;
+	left: 18%;
+	padding: 0 !important;
+}
+
+#map4Page .header_1 .ui-input-search {
+	width: 100%;
+	margin: 6px 0 !important;
+	overflow: hidden;
+	min-height: none;
+	padding: 0 !important;
+	height: 28px;
+	border: none;
+}
+
+#map4Page .header_1 .ui-input-search input {
+	font-size: 12px;
+	padding: 0 0 0 10px;
+	margin: 2px 0;
+	text-indent: 15px;
+	font-size: 12px;
+	line-height: 28px;
+}
+
+#map4Page .mapdiv img{
+	width:100%;
+}
+
+#map4Page .mapdiv .a1{
+	display: inline-block;
+	width:50px;
+	height:50px;
+	position: absolute;
+	left:81%;
+	top:18%;
+}
+
+/************map4Page end***************/
+
+
+
+
+
 
 /************shopListPage start***************/
 #shopListPage .boxList {
@@ -1866,8 +2026,165 @@ a {
 	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 100% 50%;
 	width: 79px;
 }
-
 /************sellerListPage end***************/
+
+
+/************myCollectShopPage start***************/
+
+#myCollectShopPage a{
+	color:#999;
+}
+
+#myCollectShopPage .header_1 h1{
+	padding:4px 0!important;
+}
+
+#myCollectShopPage .tags a{
+  display: inline-block;
+  width: 40px;
+  margin: 0;
+  padding: 0 20px;
+  height: 32px;
+  line-height: 32px;
+  background-color:#FFF;
+}
+#myCollectShopPage .tags a.left{
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+	border-right:none;
+}
+#myCollectShopPage .tags a.right{
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+	border-left:none;
+}
+#myCollectShopPage .tags a.on{
+	background-color:#000;
+	color:#FFF;
+}
+
+#myCollectShopPage .collectList{
+	
+}
+#myCollectShopPage .collectList .collectBox .p1{
+	padding:15px 0 15px 20px;
+	background: url("../images/bg/collect_r2_c2.jpg") no-repeat 0% 50%;
+}
+
+#myCollectShopPage .collectList .collectBox .p1 .s1{
+	width:50%;
+	margin-right:10px;
+}
+
+#myCollectShopPage .collectList .collectBox .p1 span{
+	display: inline-block;
+}
+
+#myCollectShopPage .collectList .collectBox .star{
+	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
+	padding-left: 80px;
+	display: inline-block;
+	height: 16px;
+	margin-top:2px;
+	vertical-align:-4px;
+}
+
+#myCollectShopPage .collectList .collectBox .c_imgs{
+	padding-top:10px;
+	text-align:center;
+}
+
+#myCollectShopPage .collectList .collectBox .c_imgs img{
+	padding:10px;
+	border:1px solid #EEE;
+}
+
+#myCollectShopPage .p_last{
+	color:#CDCDCD;
+	text-align:center;
+	padding:5px 0;
+}
+
+
+
+/************myCollectShopPage end***************/
+
+
+
+
+
+/************myCollectCommodityPage start***************/
+
+#myCollectCommodityPage a{
+	color:#999;
+}
+
+#myCollectCommodityPage .header_1 h1{
+	padding:4px 0!important;
+}
+
+#myCollectCommodityPage .tags a{
+  display: inline-block;
+  width: 40px;
+  margin: 0;
+  padding: 0 20px;
+  height: 32px;
+  line-height: 32px;
+  background-color:#FFF;
+}
+#myCollectCommodityPage .tags a.left{
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-right:none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#myCollectCommodityPage .tags a.right{
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+	border-left:none;
+}
+#myCollectCommodityPage .tags a.on{
+	background-color:#000;
+	color:#FFF;
+}
+
+#myCollectCommodityPage .commodity_list .commodityBox{
+	margin:20px 0 0 10%;
+}
+
+#myCollectCommodityPage .commodity_list .commodityBox .info .p1{
+	display: inline-block;
+	margin:10px 0 10px 0;
+}
+
+#myCollectCommodityPage .commodity_list .commodityBox .info .p2 .s1{
+	color:#41AC98;
+	margin-right:10px;
+}
+
+#myCollectCommodityPage .commodity_list .commodityBox .img{
+	float:left;
+}
+
+#myCollectCommodityPage .p_last{
+	color:#CDCDCD;
+	text-align:center;
+	padding:5px 0;
+}
+
+
+
+/************myCollectCommodityPage end***************/
+
+
+
 
 /*Solve Jquery mobile header show and hide when click the long body*/
 .in {
