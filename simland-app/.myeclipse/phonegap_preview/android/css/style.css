@@ -644,125 +644,125 @@ a {
 
 /************assessPage1 end***************/
 
-/************business1Page start***************/
-#business1Page .ui-content {
+/************shop1Page start***************/
+#shop1Page .ui-content {
 	margin: 0;
 	padding: 0;
 }
 
-#business1Page .business_top {
+#shop1Page .shop_top {
 	min-height: 78px;
 	background-color: #41AC98;
 	padding-top: 10%;
 }
 
-#business1Page .business_top .b_logo {
+#shop1Page .shop_top .b_logo {
 	margin: 0 5% 0 5%;
 	float: left;
 }
 
-#business1Page .business_top .b_info {
+#shop1Page .shop_top .b_info {
 	float: left;
 }
 
-#business1Page .business_top .b_info h3 {
+#shop1Page .shop_top .b_info h3 {
 	color: #FFF;
 	font-weight: normal;
 	margin: 5px 0;
 }
 
-#business1Page .business_top .b_info .star {
+#shop1Page .shop_top .b_info .star {
 	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
 	padding-left: 80px;
 	display: inline-block;
 	height: 16px;
 }
 
-#business1Page .business_top .b_btn {
+#shop1Page .shop_top .b_btn {
 	float: left;
 	margin: 4%;
 }
 
-#business1Page .business_top .b_btn a {
+#shop1Page .shop_top .b_btn a {
 	display: inline-block;
-	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	background: url("../images/bg/shop1_r3_c7.jpg") repeat 50% 50%;
 	width: 34px;
 	height: 34px;
 }
 
-#business1Page .slidesjs-container {
+#shop1Page .slidesjs-container {
 	width: 100%;
 	min-width: 100% !important;
 }
 
-#business1Page .slides_container {
+#shop1Page .slides_container {
 	width: 100%;
 	height: 140px;
 	overflow: hidden !important;
 }
 
-#business1Page .slides_container div {
+#shop1Page .slides_container div {
 	min-width: 320px;
 	min-height: 140px;
 	height: 140px;
 	display: inline-block;
 }
 
-#business1Page .slidesjs-control img {
+#shop1Page .slidesjs-control img {
 	width: 100%;
 }
 
-#business1Page .slidesjs-pagination {
+#shop1Page .slidesjs-pagination {
 	display: none;
 }
 
-#business1Page .businessTag {
+#shop1Page .shopTag {
 	width: 98%;
 	margin: 0px auto;
 }
 
-#business1Page .businessTag a {
+#shop1Page .shopTag a {
 	width: 11%;
 	height: 32px;
 	line-height: 32px;
 }
 
-#business1Page .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+#shop1Page .shopTag .ui-controlgroup, fieldset.ui-controlgroup {
 	margin: 0;
 }
 
-#business1Page .businessTag .ui-controlgroup-controls {
+#shop1Page .shopTag .ui-controlgroup-controls {
 	width: 100%;
 }
 
-#business1Page .businessTag .ui-controlgroup-controls a {
+#shop1Page .shopTag .ui-controlgroup-controls a {
 	padding-left: 7%;
 	padding-right: 7%;
 	border-left: none;
 	font-size: 13px;
 }
 
-#business1Page .businessTag .ui-controlgroup-controls a.last {
+#shop1Page .shopTag .ui-controlgroup-controls a.last {
 	border-right: none;
 }
 
-#business1Page .businessTag .ui-controlgroup-controls a.on {
+#shop1Page .shopTag .ui-controlgroup-controls a.on {
 	border-bottom: 1px solid #FFF;
 	border-top: 2px solid #E9E9E9;
 	background-color: #FFF;
 	color: #41AC98;
 }
 
-#business1Page .commodityList {
+#shop1Page .commodityList {
 	text-align: center;
 }
 
-#business1Page .commodityList .ui-block-a, #business1Page .commodityList .ui-block-b,
-	#business1Page .commodityList .ui-block-c {
+#shop1Page .commodityList .ui-block-a, #shop1Page .commodityList .ui-block-b,
+	#shop1Page .commodityList .ui-block-c {
 	position: relative;
 }
 
-#business1Page .commodityList a img {
+#shop1Page .commodityList a img {
 	border-radius: 5px;
 	border: 1px solid #EEE;
 	padding: 10px;
@@ -770,15 +770,15 @@ a {
 	width: 82%;
 }
 
-#business1Page .commodityList a span {
+#shop1Page .commodityList a span {
 	color: #BDBDBD;
 }
 
-#business1Page .commodityList .s1 {
+#shop1Page .commodityList .s1 {
 	color: #E08559;
 }
 
-#business1Page .commodityList .s3 {
+#shop1Page .commodityList .s3 {
 	position: absolute;
 	right: 5px;
 	bottom: 5px;
@@ -792,27 +792,27 @@ a {
 	right: 12%;
 }
 
-#business1Page .b_bottom_menu {
+#shop1Page .b_bottom_menu {
 	background-color: #FFF;
 	height: 40px;
 	line-height: 40px;
 }
 
-#business1Page .b_bottom_menu ul li {
+#shop1Page .b_bottom_menu ul li {
 	float: left;
 	list-style: none;
 	padding-left: 6px;
 }
 
-#business1Page .b_bottom_menu ul li a {
+#shop1Page .b_bottom_menu ul li a {
 	display: inline-block;
 	color: #BDBDBD;
 	padding-left: 10px;
 	margin-left: 10px;
-	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+	background: url("../images/bg/shop1_r12_c4.jpg") no-repeat 0 50%;
 }
 
-/************business1Page end***************/
+/************shop1Page end***************/
 
 /************Vip1Page start***************/
 #Vip1Page .vipBox {
@@ -826,42 +826,42 @@ a {
 }
 
 
-#Vip1Page .business_top {
+#Vip1Page .shop_top {
 	min-height: 78px;
 	background-color: #41AC98;
 	padding-top: 10%;
 }
 
-#Vip1Page .business_top .b_logo {
+#Vip1Page .shop_top .b_logo {
 	margin: 0 5% 0 5%;
 	float: left;
 }
 
-#Vip1Page .business_top .b_info {
+#Vip1Page .shop_top .b_info {
 	float: left;
 }
 
-#Vip1Page .business_top .b_info h3 {
+#Vip1Page .shop_top .b_info h3 {
 	color: #FFF;
 	font-weight: normal;
 	margin: 5px 0;
 }
 
-#Vip1Page .business_top .b_info .star {
+#Vip1Page .shop_top .b_info .star {
 	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
 	padding-left: 80px;
 	display: inline-block;
 	height: 16px;
 }
 
-#Vip1Page .business_top .b_btn {
+#Vip1Page .shop_top .b_btn {
 	float: left;
 	margin: 4%;
 }
 
-#Vip1Page .business_top .b_btn a {
+#Vip1Page .shop_top .b_btn a {
 	display: inline-block;
-	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	background: url("../images/bg/shop1_r3_c7.jpg") repeat 50% 50%;
 	width: 34px;
 	height: 34px;
 }
@@ -893,37 +893,37 @@ a {
 	display: none;
 }
 
-#Vip1Page .businessTag {
+#Vip1Page .shopTag {
 	width: 98%;
 	margin: 0px auto;
 }
 
-#Vip1Page .businessTag a {
+#Vip1Page .shopTag a {
 	width: 10.5%;
 	height: 32px;
 	line-height: 32px;
 }
 
-#Vip1Page .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+#Vip1Page .shopTag .ui-controlgroup, fieldset.ui-controlgroup {
 	margin: 0;
 }
 
-#Vip1Page .businessTag .ui-controlgroup-controls {
+#Vip1Page .shopTag .ui-controlgroup-controls {
 	width: 100%;
 }
 
-#Vip1Page .businessTag .ui-controlgroup-controls a {
+#Vip1Page .shopTag .ui-controlgroup-controls a {
 	padding-left: 7%;
 	padding-right: 7%;
 	border-left: none;
 	font-size: 13px;
 }
 
-#Vip1Page .businessTag .ui-controlgroup-controls a.last {
+#Vip1Page .shopTag .ui-controlgroup-controls a.last {
 	border-right: none;
 }
 
-#Vip1Page .businessTag .ui-controlgroup-controls a.on {
+#Vip1Page .shopTag .ui-controlgroup-controls a.on {
 	border-bottom: 1px solid #FFF;
 	border-top: 2px solid #E9E9E9;
 	background-color: #FFF;
@@ -950,7 +950,7 @@ a {
 	color: #BDBDBD;
 	padding-left: 10px;
 	margin-left: 10px;
-	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+	background: url("../images/bg/shop1_r12_c4.jpg") no-repeat 0 50%;
 }
 
 .vipBox .l1{
@@ -990,87 +990,87 @@ a {
 
 /************Vip1Page end***************/
 
-/************businessInfoPage start***************/
+/************shopInfoPage start***************/
 
-#businessInfoPage .ui-content{
+#shopInfoPage .ui-content{
 	margin:0;
 	padding:0;
 }
 
 
 
-#businessInfoPage .business_top {
+#shopInfoPage .shop_top {
 	min-height: 78px;
 	background-color: #41AC98;
 	padding-top: 10%;
 }
 
-#businessInfoPage .business_top .b_logo {
+#shopInfoPage .shop_top .b_logo {
 	margin: 0 5% 0 5%;
 	float: left;
 }
 
-#businessInfoPage .business_top .b_info {
+#shopInfoPage .shop_top .b_info {
 	float: left;
 }
 
-#businessInfoPage .business_top .b_info h3 {
+#shopInfoPage .shop_top .b_info h3 {
 	color: #FFF;
 	font-weight: normal;
 	margin: 5px 0;
 }
 
-#businessInfoPage .business_top .b_info .star {
+#shopInfoPage .shop_top .b_info .star {
 	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
 	padding-left: 80px;
 	display: inline-block;
 	height: 16px;
 }
 
-#businessInfoPage .business_top .b_btn {
+#shopInfoPage .shop_top .b_btn {
 	float: left;
 	margin: 4%;
 }
 
-#businessInfoPage .business_top .b_btn a {
+#shopInfoPage .shop_top .b_btn a {
 	display: inline-block;
-	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	background: url("../images/bg/shop1_r3_c7.jpg") repeat 50% 50%;
 	width: 34px;
 	height: 34px;
 }
 
 
-#businessInfoPage .businessTag {
+#shopInfoPage .shopTag {
 	width: 98%;
 	margin: 0px auto;
 }
 
-#businessInfoPage .businessTag a {
+#shopInfoPage .shopTag a {
 	width: 18.5%;
 	height: 32px;
 	line-height: 32px;
 }
 
-#businessInfoPage .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+#shopInfoPage .shopTag .ui-controlgroup, fieldset.ui-controlgroup {
 	margin: 0;
 }
 
-#businessInfoPage .businessTag .ui-controlgroup-controls {
+#shopInfoPage .shopTag .ui-controlgroup-controls {
 	width: 100%;
 }
 
-#businessInfoPage .businessTag .ui-controlgroup-controls a {
+#shopInfoPage .shopTag .ui-controlgroup-controls a {
 	padding-left: 7%;
 	padding-right: 7%;
 	border-left: none;
 	font-size: 13px;
 }
 
-#businessInfoPage .businessTag .ui-controlgroup-controls a.last {
+#shopInfoPage .shopTag .ui-controlgroup-controls a.last {
 	border-right: none;
 }
 
-#businessInfoPage .businessTag .ui-controlgroup-controls a.on {
+#shopInfoPage .shopTag .ui-controlgroup-controls a.on {
 	border-bottom: 1px solid #FFF;
 	border-top: 2px solid #E9E9E9;
 	background-color: #FFF;
@@ -1079,53 +1079,53 @@ a {
 
 
 
-#businessInfoPage .info {
+#shopInfoPage .info {
 	padding: 20px 0;
 	border-radius: 5px;
 	font-size: 12px !important;
 }
 
-#businessInfoPage .info .ui-block-a, #businessInfoPage .info .ui-block-b
+#shopInfoPage .info .ui-block-a, #shopInfoPage .info .ui-block-b
 	{
 	padding: 5px 0;
 }
 
-#businessInfoPage .info .ui-block-a {
+#shopInfoPage .info .ui-block-a {
 	width: 30%;
 	text-align: center;
 	color: #B8B8B8;
 }
 
-#businessInfoPage .info .ui-block-b {
+#shopInfoPage .info .ui-block-b {
 	width: 70%;
 	text-align: left;
 	color: #ACACAC;
 }
 
 
-#businessInfoPage .b_bottom_menu {
+#shopInfoPage .b_bottom_menu {
 	background-color: #FFF;
 	height: 40px;
 	line-height: 40px;
 }
 
-#businessInfoPage .b_bottom_menu ul li {
+#shopInfoPage .b_bottom_menu ul li {
 	float: left;
 	list-style: none;
 	padding-left: 6px;
 }
 
-#businessInfoPage .b_bottom_menu ul li a {
+#shopInfoPage .b_bottom_menu ul li a {
 	display: inline-block;
 	color: #BDBDBD;
 	padding-left: 10px;
 	margin-left: 10px;
-	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+	background: url("../images/bg/shop1_r12_c4.jpg") no-repeat 0 50%;
 }
 
 
 
-/************businessInfoPage end***************/
+/************shopInfoPage end***************/
 
 /************contactPage start***************/
 #contactPage .ui-content{
@@ -1181,78 +1181,78 @@ a {
 
 
 
-#contactPage .business_top {
+#contactPage .shop_top {
 	min-height: 78px;
 	background-color: #41AC98;
 	padding-top: 10%;
 }
 
-#contactPage .business_top .b_logo {
+#contactPage .shop_top .b_logo {
 	margin: 0 5% 0 5%;
 	float: left;
 }
 
-#contactPage .business_top .b_info {
+#contactPage .shop_top .b_info {
 	float: left;
 }
 
-#contactPage .business_top .b_info h3 {
+#contactPage .shop_top .b_info h3 {
 	color: #FFF;
 	font-weight: normal;
 	margin: 5px 0;
 }
 
-#contactPage .business_top .b_info .star {
+#contactPage .shop_top .b_info .star {
 	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
 	padding-left: 80px;
 	display: inline-block;
 	height: 16px;
 }
 
-#contactPage .business_top .b_btn {
+#contactPage .shop_top .b_btn {
 	float: left;
 	margin: 4%;
 }
 
-#contactPage .business_top .b_btn a {
+#contactPage .shop_top .b_btn a {
 	display: inline-block;
-	background: url("../images/bg/business1_r3_c7.jpg") repeat 50% 50%;
+	background: url("../images/bg/shop1_r3_c7.jpg") repeat 50% 50%;
 	width: 34px;
 	height: 34px;
 }
 
 
-#contactPage .businessTag {
+#contactPage .shopTag {
 	width: 98%;
 	margin: 0px auto;
 }
 
-#contactPage .businessTag a {
+#contactPage .shopTag a {
 	width: 18.5%;
 	height: 32px;
 	line-height: 32px;
 }
 
-#contactPage .businessTag .ui-controlgroup, fieldset.ui-controlgroup {
+#contactPage .shopTag .ui-controlgroup, fieldset.ui-controlgroup {
 	margin: 0;
 }
 
-#contactPage .businessTag .ui-controlgroup-controls {
+#contactPage .shopTag .ui-controlgroup-controls {
 	width: 100%;
 }
 
-#contactPage .businessTag .ui-controlgroup-controls a {
+#contactPage .shopTag .ui-controlgroup-controls a {
 	padding-left: 7%;
 	padding-right: 7%;
 	border-left: none;
 	font-size: 13px;
 }
 
-#contactPage .businessTag .ui-controlgroup-controls a.last {
+#contactPage .shopTag .ui-controlgroup-controls a.last {
 	border-right: none;
 }
 
-#contactPage .businessTag .ui-controlgroup-controls a.on {
+#contactPage .shopTag .ui-controlgroup-controls a.on {
 	border-bottom: 1px solid #FFF;
 	border-top: 2px solid #E9E9E9;
 	background-color: #FFF;
@@ -1279,7 +1279,7 @@ a {
 	color: #BDBDBD;
 	padding-left: 10px;
 	margin-left: 10px;
-	background: url("../images/bg/business1_r12_c4.jpg") no-repeat 0 50%;
+	background: url("../images/bg/shop1_r12_c4.jpg") no-repeat 0 50%;
 }
 
 
@@ -1719,33 +1719,33 @@ a {
 
 /************Map Page end***************/
 
-/************businessListPage start***************/
-#businessListPage .boxList {
+/************shopListPage start***************/
+#shopListPage .boxList {
 	
 }
 
-#businessListPage .boxList .box {
+#shopListPage .boxList .box {
 	margin-bottom: 15px;
 	border-radius: 6px;
 	border: 1px solid #EEE;
 	padding: 10px;
 }
 
-#businessListPage .boxList .box h1 {
+#shopListPage .boxList .box h1 {
 	text-indent: 15px;
 }
 
-#businessListPage .boxList .box a {
+#shopListPage .boxList .box a {
 	color: #666 !important;
 }
 
-#businessListPage .boxList .box p {
+#shopListPage .boxList .box p {
 	margin: 10px 0;
 	text-indent: 6%;
 }
 
-#businessListPage .boxList .box .a1 {
-	background: url("../images/bg/business_list_r2_c2.jpg") no-repeat 32%
+#shopListPage .boxList .box .a1 {
+	background: url("../images/bg/shop_list_r2_c2.jpg") no-repeat 32%
 		45%;
 	display: inline-block;
 	padding-left: 20px;
@@ -1755,8 +1755,8 @@ a {
 	line-height: 20px;
 }
 
-#businessListPage .boxList .box .a2 {
-	background: url("../images/bg/business_list_r2_c4.jpg") no-repeat 32%
+#shopListPage .boxList .box .a2 {
+	background: url("../images/bg/shop_list_r2_c4.jpg") no-repeat 32%
 		45%;
 	display: inline-block;
 	padding-left: 20px;
@@ -1766,7 +1766,7 @@ a {
 	line-height: 20px;
 }
 
-/************businessListPage end***************/
+/************shopListPage end***************/
 
 /************sellerListPage start***************/
 #sellerListPage .header_1 h1 {

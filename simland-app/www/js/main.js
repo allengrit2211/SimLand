@@ -6,7 +6,7 @@ var init = function() {
 
 	$("#loginBtn").click(login);
 	
-	$("#searchBusinessBtn").click(searchBusiness);
+	$("#searchShopBtn").click(searchShop);
 	
 	$("#searchCategory").focus(searchCategoryFocus);
 	
@@ -17,9 +17,15 @@ var init = function() {
 	//购物车商品全选按钮
 	$("#carCheckAll").click(carCheckAll);
 	
-	
+	document.addEventListener("backbutton", yourCallbackFunction, false);
 };
 $(document).ready(init);
+
+
+function yourCallbackFunction(){
+	alert(0);
+}
+
 
 function carCheckAll(){
 	
@@ -31,7 +37,6 @@ function carCheckAll(){
 	
 
 }
-
 
 function searchCategoryFocus(){
 	$(".historyList").show();
@@ -109,6 +114,6 @@ function login() {
 }
 
 
-function searchBusiness(){
+function searchShop(){
 	$.mobile.changePage("#sellerListPage", "slideup");
 }
