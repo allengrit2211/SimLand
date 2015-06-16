@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.shop.mapper.ShopMapper">
+
+	<resultMap id="ShopRM" type="com.simland.core.module.shop.entity.Shop">
+        <result property="id" column="ID"/>
+        <result property="name" column="name"/>
+        <result property="cname" column="cname"/>
+        <result property="caddress" column="caddress"/>
+        <result property="bmodel" column="bmodel"/>
+        <result property="brand" column="brand"/>
+        <result property="salesArea" column="salesArea"/>
+        <result property="clientrGroup" column="clientrGroup"/>
+        <result property="regAddress" column="regAddress"/>
+        <result property="corporate" column="corporate"/>
+        <result property="people" column="people"/>
+        <result property="engage" column="engage"/>
+        <result property="loginName" column="loginName"/>
+        <result property="loginPwd" column="loginPwd"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="contact" column="contact"/>
+        <result property="contactPeople" column="contactPeople"/>
+        <result property="clogo" column="cLogo"/>
+        <result property="licenseImg" column="licenseImg"/>
+        <result property="score" column="score"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        ID id,
+        name name,
+        cname cname,
+        caddress caddress,
+        bmodel bmodel,
+        brand brand,
+        salesArea salesArea,
+        clientrGroup clientrGroup,
+        regAddress regAddress,
+        corporate corporate,
+        people people,
+        engage engage,
+        loginName loginName,
+        loginPwd loginPwd,
+        email email,
+        phone phone,
+        contact contact,
+        contactPeople contactPeople,
+        cLogo clogo,
+        licenseImg licenseImg,
+        score score
+	    ]]>
+	</sql>
+
+
+	<insert id="insertShop" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.shop.entity.Shop">
+	    <![CDATA[
+	        INSERT INTO t_shop (
+		        name,
+		        cname,
+		        caddress,
+		        bmodel,
+		        brand,
+		        salesArea,
+		        clientrGroup,
+		        regAddress,
+		        corporate,
+		        people,
+		        engage,
+		        loginName,
+		        loginPwd,
+		        email,
+		        phone,
+		        contact,
+		        contactPeople,
+		        cLogo,
+		        licenseImg,
+		        score
+	        ) VALUES (
+		        	#{name},
+		        	#{cname},
+		        	#{caddress},
+		        	#{bmodel},
+		        	#{brand},
+		        	#{salesArea},
+		        	#{clientrGroup},
+		        	#{regAddress},
+		        	#{corporate},
+		        	#{people},
+		        	#{engage},
+		        	#{loginName},
+		        	#{loginPwd},
+		        	#{email},
+		        	#{phone},
+		        	#{contact},
+		        	#{contactPeople},
+		        	#{clogo},
+		        	#{licenseImg},
+		        	#{score}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateShop">
+	    <![CDATA[
+        UPDATE t_shop SET
+        ]]>
+		<if test="name!=null">
+        	name = #{name}
+		</if>
+		<if test="cname!=null">
+        	cname = #{cname}
+		</if>
+		<if test="caddress!=null">
+        	caddress = #{caddress}
+		</if>
+		<if test="bmodel!=null">
+        	bmodel = #{bmodel}
+		</if>
+		<if test="brand!=null">
+        	brand = #{brand}
+		</if>
+		<if test="salesArea!=null">
+        	salesArea = #{salesArea}
+		</if>
+		<if test="clientrGroup!=null">
+        	clientrGroup = #{clientrGroup}
+		</if>
+		<if test="regAddress!=null">
+        	regAddress = #{regAddress}
+		</if>
+		<if test="corporate!=null">
+        	corporate = #{corporate}
+		</if>
+		<if test="people!=null">
+        	people = #{people}
+		</if>
+		<if test="engage!=null">
+        	engage = #{engage}
+		</if>
+		<if test="loginName!=null">
+        	loginName = #{loginName}
+		</if>
+		<if test="loginPwd!=null">
+        	loginPwd = #{loginPwd}
+		</if>
+		<if test="email!=null">
+        	email = #{email}
+		</if>
+		<if test="phone!=null">
+        	phone = #{phone}
+		</if>
+		<if test="contact!=null">
+        	contact = #{contact}
+		</if>
+		<if test="contactPeople!=null">
+        	contactPeople = #{contactPeople}
+		</if>
+		<if test="clogo!=null">
+        	cLogo = #{clogo}
+		</if>
+		<if test="licenseImg!=null">
+        	licenseImg = #{licenseImg}
+		</if>
+		<if test="score!=null">
+        	score = #{score}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteShop">
+    <![CDATA[
+        DELETE FROM t_shop WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getShop" resultMap="ShopRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_shop 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getShopList" resultMap="ShopRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_shop  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND ID = #{id}
+	        </if>
+			<if test="name!=null">
+	        AND name = #{name}
+	        </if>
+			<if test="cname!=null">
+	        AND cname = #{cname}
+	        </if>
+			<if test="caddress!=null">
+	        AND caddress = #{caddress}
+	        </if>
+			<if test="bmodel!=null">
+	        AND bmodel = #{bmodel}
+	        </if>
+			<if test="brand!=null">
+	        AND brand = #{brand}
+	        </if>
+			<if test="salesArea!=null">
+	        AND salesArea = #{salesArea}
+	        </if>
+			<if test="clientrGroup!=null">
+	        AND clientrGroup = #{clientrGroup}
+	        </if>
+			<if test="regAddress!=null">
+	        AND regAddress = #{regAddress}
+	        </if>
+			<if test="corporate!=null">
+	        AND corporate = #{corporate}
+	        </if>
+			<if test="people!=null">
+	        AND people = #{people}
+	        </if>
+			<if test="engage!=null">
+	        AND engage = #{engage}
+	        </if>
+			<if test="loginName!=null">
+	        AND loginName = #{loginName}
+	        </if>
+			<if test="loginPwd!=null">
+	        AND loginPwd = #{loginPwd}
+	        </if>
+			<if test="email!=null">
+	        AND email = #{email}
+	        </if>
+			<if test="phone!=null">
+	        AND phone = #{phone}
+	        </if>
+			<if test="contact!=null">
+	        AND contact = #{contact}
+	        </if>
+			<if test="contactPeople!=null">
+	        AND contactPeople = #{contactPeople}
+	        </if>
+			<if test="clogo!=null">
+	        AND cLogo = #{clogo}
+	        </if>
+			<if test="licenseImg!=null">
+	        AND licenseImg = #{licenseImg}
+	        </if>
+			<if test="score!=null">
+	        AND score = #{score}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getShopCount" resultType="int">
+		SELECT count(*) FROM t_shop
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitShopList" resultMap="ShopRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_shop
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

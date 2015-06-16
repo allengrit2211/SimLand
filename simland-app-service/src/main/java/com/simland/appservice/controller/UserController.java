@@ -18,7 +18,7 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
-	@RequestMapping(value = "/appservice/login")
+	@RequestMapping(value = "/user/login")
 	@ResponseBody
 	public String login(HttpServletRequest request, Model model) {
 
@@ -29,9 +29,9 @@ public class UserController {
 		SysMessage msg = null;
 		userService.login(uname, upw, msg = new SysMessage());
 
-		System.out.println(Utils.toJsonpStr(msg, callback));
+		System.out.println(Utils.objToJsonpStr(msg, callback));
 
-		return Utils.toJsonpStr(msg, callback);
+		return Utils.objToJsonpStr(msg, callback);
 	}
 
 }

@@ -18,4 +18,12 @@
 
 	<context:component-scan base-package="com.simland.appservice.controller" />
 
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
 </beans>
