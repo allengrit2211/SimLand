@@ -19,8 +19,13 @@ public class ShopService implements IShopService {
 	private ShopMapper shopMapper;
 
 	@Override
-	public List<Shop> getShopList(Map<String, Object> param) {
-		return shopMapper.getShopList(param);
+	public List<Shop> getSplitShopList(Map<String, Object> param) {
+		return shopMapper.getSplitShopList(param);
+	}
+
+	@Override
+	public Integer getShopCount(Map param) {
+		return shopMapper.getShopCount(param);
 	}
 
 }

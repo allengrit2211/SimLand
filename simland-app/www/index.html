@@ -10,6 +10,7 @@
 <title>Single-Page Application</title>
 
 <link rel="stylesheet" href="./css/jquery.mobile-1.4.3.css" />
+<link rel="stylesheet" href="./js/iscroll/scrollbar.css"  type="text/css">
 <link rel="stylesheet" href="css/style.css" />
 
 
@@ -1581,70 +1582,107 @@
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-			<div class="boxList">
-				<!-- 
-				<div class="box">
-					<h3>
-						<a href="#shop1Page">水贝<span class="color41AC98">中瑞</span>宝石有限公司</a>
-						<a href="#" class="a1">260M</a>
-					</h3>
-					<h6>深圳市水贝街珠宝商厦7-2</h6>
-					<p class="p1">
-						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-					</p>
-					<div class="line"></div>
-					<p class="p2">
-						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-						<span class="s4 star2">&nbsp;</span>
-					</p>
+
+			
+			<!-- 
+			<div id="sellerListPage_wrapper">
+				<div id="sellerListPage_scroller">
+					<div id="sellerListPage_pullDown" class="pullDown">
+						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+					</div>
+
+					<div class="boxList">
+						<div class="box">
+							<h3>
+								<a href="#shop1Page">水贝<span class="color41AC98">中瑞</span>宝石有限公司</a>
+								<a href="#" class="a1">260M</a>
+							</h3>
+							<h6>深圳市水贝街珠宝商厦7-2</h6>
+							<p class="p1">
+								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+							</p>
+							<div class="line"></div>
+							<p class="p2">
+								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+								<span class="s4 star2">&nbsp;</span>
+							</p>
+						</div>
+						<div class="box">
+							<h3>
+								<a href="#shop1Page">金丽<span class="color41AC98">中瑞</span>国际珠宝交易中心</a>
+								<a href="#" class="a1">560M</a>
+							</h3>
+							<h6>深圳市水贝街珠宝商厦7-2</h6>
+							<p class="p1">
+								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+							</p>
+							<div class="line"></div>
+							<p class="p2">
+								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+								<span class="s4 star2">&nbsp;</span>
+							</p>
+						</div>
+						<div class="box">
+							<h3>
+								<a href="#shop1Page">万山<span class="color41AC98">中瑞</span>珠宝有限公司</a>
+								<a href="#" class="a1">750M</a>
+							</h3>
+							<h6>深圳市水贝街珠宝商厦7-2</h6>
+							<p class="p1">
+								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+							</p>
+							<div class="line"></div>
+							<p class="p2">
+								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+								<span class="s4 star2">&nbsp;</span>
+							</p>
+						</div>
+						<div class="box">
+							<h3>
+								<a href="#shop1Page">瑞丰银泰<span class="color41AC98">中瑞</span>美珠有限公司</a>
+								<a href="#" class="a1">780M</a>
+							</h3>
+							<h6>深圳罗湖区田贝4路68号</h6>
+							<p class="p1">
+								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
+							</p>
+							<div class="line"></div>
+							<p class="p2">
+								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
+								<span class="s4 star2">&nbsp;</span>
+							</p>
+						</div>
+						
+					</div>
+					
+					<div id="sellerListPage_pullUp" class="pullUp">
+						<input hidden="hidden" id="sellerListPage_cp" value="1">
+						<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+					</div>
 				</div>
-				<div class="box">
-					<h3>
-						<a href="#shop1Page">金丽<span class="color41AC98">中瑞</span>国际珠宝交易中心</a>
-						<a href="#" class="a1">560M</a>
-					</h3>
-					<h6>深圳市水贝街珠宝商厦7-2</h6>
-					<p class="p1">
-						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-					</p>
-					<div class="line"></div>
-					<p class="p2">
-						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-						<span class="s4 star2">&nbsp;</span>
-					</p>
-				</div>
-				<div class="box">
-					<h3>
-						<a href="#shop1Page">万山<span class="color41AC98">中瑞</span>珠宝有限公司</a>
-						<a href="#" class="a1">750M</a>
-					</h3>
-					<h6>深圳市水贝街珠宝商厦7-2</h6>
-					<p class="p1">
-						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-					</p>
-					<div class="line"></div>
-					<p class="p2">
-						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-						<span class="s4 star2">&nbsp;</span>
-					</p>
-				</div>
-				<div class="box">
-					<h3>
-						<a href="#shop1Page">瑞丰银泰<span class="color41AC98">中瑞</span>美珠有限公司</a>
-						<a href="#" class="a1">780M</a>
-					</h3>
-					<h6>深圳罗湖区田贝4路68号</h6>
-					<p class="p1">
-						<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-					</p>
-					<div class="line"></div>
-					<p class="p2">
-						<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-						<span class="s4 star2">&nbsp;</span>
-					</p>
-				</div>
-				 -->
+
 			</div>
+
+			-->
+
+
+			<div id="wrapper">
+				<div id="scroller">
+					<div id="pullDown">
+						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+					</div>
+					
+					<div class="boxList">
+					
+					</div>
+					
+					<div id="pullUp">
+						<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+					</div>
+					
+				</div>
+			</div>
+
 
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
@@ -1812,7 +1850,11 @@
 	<script type="text/javascript" src="./rte/cordova.js"></script>
 	<script type="text/javascript" src="./rte/rte.js"></script>
 	<script type="text/javascript" src="./js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="./js/simland/app.js"></script>
 	<script type="text/javascript" src="./js/simland/shop.js"></script>
+	<script type="text/javascript" src="./js/simland/user.js"></script>
+	<script type="application/javascript" src="./js/iscroll/iscroll.js"></script>
+	
 	<script type="text/javascript" src="./js/main.js"></script>
 
 	<script type="text/javascript"

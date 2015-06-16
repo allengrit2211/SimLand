@@ -1,8 +1,6 @@
 //Initialize function
 
-//var AppServicerURL = "http://192.168.10.129:8080/simland-app-service";
 
-var AppServicerURL = "http://localhost:8080/simland-app-service";
 
 var init = function() {
 

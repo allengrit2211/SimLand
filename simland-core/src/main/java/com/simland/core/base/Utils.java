@@ -254,15 +254,26 @@ public class Utils {
 		return strBuffer.toString();
 	}
 
-	public static String toJsonStr(Object obj) {
+	public static String objToJson(Object obj) {
 		try {
 			return JSONObject.fromObject(obj).toString();
 		} catch (Exception e) {
 			return "{}";
 		}
 	}
+	
+	public static String arrayToJson(Object obj){
+		try {
+			return JSONArray.fromObject(obj).toString();
+		} catch (Exception e) {
+			return "[]";
+		}
+	}
 
-	public static String objToJsonpStr(Object obj, String callBackName) {
+	public static String objToJsonp(Object obj, String callBackName) {
+		if (Utils.isObjectEmpty(obj))
+			return "{}";
+		
 		try {
 			return callBackName + "(" + JSONObject.fromObject(obj).toString()
 					+ ")";
@@ -272,13 +283,17 @@ public class Utils {
 		}
 	}
 
-	public static String listToJsonpStr(List<?> obj, String callBackName) {
+	public static String arrayToJsonp(Object obj, String callBackName) {
+
+		if (Utils.isObjectEmpty(obj))
+			return "[]";
+
 		try {
 			return callBackName + "(" + JSONArray.fromObject(obj).toString()
 					+ ")";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "{}";
+			return "[]";
 		}
 	}
 

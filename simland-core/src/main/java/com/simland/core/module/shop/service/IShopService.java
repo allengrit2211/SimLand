@@ -19,6 +19,14 @@ public interface IShopService {
 	 * @param param
 	 * @return
 	 */
-	public List<Shop> getShopList(Map<String, Object> param);
+	public List<Shop> getSplitShopList(Map<String, Object> param);
+
+	/***
+	 * 商家数量
+	 * 
+	 * @param param
+	 * @return
+	 */
+	public Integer getShopCount(Map param);
 
 }

@@ -29,9 +29,9 @@ public class UserController {
 		SysMessage msg = null;
 		userService.login(uname, upw, msg = new SysMessage());
 
-		System.out.println(Utils.objToJsonpStr(msg, callback));
+		System.out.println(Utils.objToJsonp(msg, callback));
 
-		return Utils.objToJsonpStr(msg, callback);
+		return Utils.objToJsonp(msg, callback);
 	}
 
 }
