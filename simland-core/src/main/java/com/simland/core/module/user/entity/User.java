@@ -1,6 +1,7 @@
 package com.simland.core.module.user.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class User implements Serializable {
 
@@ -8,6 +9,7 @@ public class User implements Serializable {
 	private Long id;
 	private String uname;
 	private String password;
+	private Timestamp lastLoginTime;
 
 	public Long getId() {
 		return id;
@@ -31,6 +33,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Timestamp getLastLoginTime() {
+		return lastLoginTime;
+	}
+
+	public void setLastLoginTime(Timestamp lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
 	}
 
 }

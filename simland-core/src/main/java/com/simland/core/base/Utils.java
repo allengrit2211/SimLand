@@ -1,6 +1,7 @@
 package com.simland.core.base;
 
 import java.math.BigDecimal;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,6 +31,14 @@ public class Utils {
 
 	public static boolean isObjectNotEmpty(Object objects) {
 		return !isObjectEmpty(objects);
+	}
+	
+	public static String URLDecode(String url) {
+		try {
+			return URLDecoder.decode(url, "UTF-8");
+		} catch (Exception e) {
+			return "";
+		}
 	}
 
 	/***

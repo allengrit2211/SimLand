@@ -17,8 +17,7 @@
 </head>
 
 <body>
-
-
+	
 	<div data-role="page" id="indexPage">
 		<div data-role="content">
 			<div class="logodiv">
@@ -99,12 +98,12 @@
 			<h1>登录</h1>
 		</div>
 		<div data-role="content">
+			
 			<div class="loginDiv">
-				<form method="post">
-					<input type="text" name="uname" id="uname" value="zhuoer"
-						placeholder="请输入手机号码"> <input type="password" name="upw"
-						id="upw" value="123123" placeholder="输入密码"> <a
-						href="#userCenter" data-role="button" data-theme="d" id="loginBtn">登录</a>
+				<form method="post" id="loginPage_form">
+					<input type="text" name="uname" id="uname" value="zhuoer" placeholder="请输入手机号码">
+					<input type="password" name="upw" id="upw" value="123123" placeholder="输入密码"> 
+					<a href="#userCenter" data-role="button" data-theme="d" id="loginBtn">登录</a>
 				</form>
 				<br>
 			</div>
@@ -680,15 +679,15 @@
 
 	<!-- 商家页面 新品页面 -->
 	<!-- shop1Page start  -->
-	<div data-role="page" id="shop1Page">
+	<div data-role="page" id="shop1Page" class="shop">
 		<div data-role="content">
 			<div class="shop_top">
 				<div class="b_logo">
-					<img alt="" src="images/shop/shop1_r2_c3.jpg">
+					<img alt="" src="images/shop/default.jpg">
 				</div>
 				<div class="b_info">
-					<h3>深圳市东方金城珠宝首饰</h3>
-					<span class="star"></span>
+					<h3>&nbsp;</h3>
+					<span class="star star0"></span>
 				</div>
 				<div class="b_btn">
 					<a href="#"></a>
@@ -706,10 +705,9 @@
 				<div data-role="controlgroup" data-type="horizontal"
 					data-mini="true">
 					<a class="on" data-transition="none" href="#" data-role="button">新品</a>
-					<a data-transition="none" href="#" data-role="button">特价</a> <a
-						data-transition="none" href="#" data-role="button">产品</a> <a
-						data-transition="none" href="#Vip1Page" data-role="button"
-						class="last">VIP</a>
+					<a data-transition="none" href="#shop2Page" data-role="button">特价</a>
+					<a data-transition="none" href="#shop3Page" data-role="button">产品</a>
+					<a data-transition="none" href="#Vip1Page" data-role="button" class="last">VIP</a>
 				</div>
 			</div>
 
@@ -756,7 +754,7 @@
 					<li><a href="#" data-rel="back">返回</a></li>
 					<li><a href="#shopInfoPage">公司简介</a></li>
 					<li><a href="#anylink">买家评论</a></li>
-					<li><a href="#shop1Page">买家评论</a></li>
+					<li><a href="#shop1Page">店铺首页</a></li>
 				</ul>
 			</div>
 			
@@ -775,9 +773,204 @@
 		</div>
 	</div>
 	<!-- shop1Page end  -->
+	
+	<!-- 商家页面 特价 -->
+	<!-- shop2Page start  -->
+	<div data-role="page" id="shop2Page" class="shop">
+		<div data-role="content">
+			<div class="shop_top">
+				<div class="b_logo">
+					<img alt="" src="images/shop/default.jpg">
+				</div>
+				<div class="b_info">
+					<h3>&nbsp;</h3>
+					<span class="star"></span>
+				</div>
+				<div class="b_btn">
+					<a href="#"></a>
+				</div>
+			</div>
+			<div class="slides_container">
+				<div class="slides2">
+					<img src="images/activity/shop1_r6_c1.jpg"> 
+					<img src="images/activity/shop1_r6_c1.jpg"> 
+					<img src="images/activity/shop1_r6_c1.jpg">
+				</div>
+			</div>
+
+			<div class="shopTag">
+				<div data-role="controlgroup" data-type="horizontal"
+					data-mini="true">
+					<a data-transition="none" href="#shop1Page" data-role="button">新品</a>
+					<a class="on" data-transition="none" href="#" data-role="button">特价</a>
+					<a data-transition="none" href="#shop3Page" data-role="button">产品</a>
+					<a data-transition="none" href="#Vip1Page" data-role="button" class="last">VIP</a>
+				</div>
+			</div>
+
+			<div class="ui-grid-a commodityList">
+				<div class="ui-block-a">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/shop1_r10_c2.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">342</span>
+				</div>
+				<div class="ui-block-b">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/shop1_r10_c8.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">234</span>
+				</div>
+				<div class="ui-block-a">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_1.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">234</span>
+				</div>
+				<div class="ui-block-b">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_2.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">343</span>
+				</div>
+			</div>
+
+			<br>
+
+
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			
+			<div class="b_bottom_menu">
+				<ul>
+					<li><a href="#" data-rel="back">返回</a></li>
+					<li><a href="#shopInfoPage">公司简介</a></li>
+					<li><a href="#anylink">买家评论</a></li>
+					<li><a href="#shop1Page">店铺首页</a></li>
+				</ul>
+			</div>
+			
+			<div data-role="navbar" class="myfooter bgEDEDED">
+				<ul>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- shop2Page end  -->
+	
+	<!-- 商家页面 产品 -->
+	<!-- shop3Page start  -->
+	<div data-role="page" id="shop3Page" class="shop">
+		<div data-role="content">
+			<div class="shop_top">
+				<div class="b_logo">
+					<img alt="" src="images/shop/default.jpg">
+				</div>
+				<div class="b_info">
+					<h3>&nbsp;</h3>
+					<span class="star"></span>
+				</div>
+				<div class="b_btn">
+					<a href="#"></a>
+				</div>
+			</div>
+			<div class="slides_container">
+				<div class="slides2">
+					<img src="images/activity/shop1_r6_c1.jpg"> 
+					<img src="images/activity/shop1_r6_c1.jpg"> 
+					<img src="images/activity/shop1_r6_c1.jpg">
+				</div>
+			</div>
+
+			<div class="shopTag">
+				<div data-role="controlgroup" data-type="horizontal"
+					data-mini="true">
+					<a data-transition="none" href="#shop1Page" data-role="button">新品</a>
+					<a data-transition="none" href="#shop2Page" data-role="button">特价</a>
+					<a class="on" data-transition="none" href="#" data-role="button">产品</a>
+					<a data-transition="none" href="#Vip1Page" data-role="button" class="last">VIP</a>
+				</div>
+			</div>
+
+			<div class="ui-grid-a commodityList">
+				<div class="ui-block-a">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/shop1_r10_c2.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">342</span>
+				</div>
+				<div class="ui-block-b">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/shop1_r10_c8.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">234</span>
+				</div>
+				<div class="ui-block-a">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_1.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">234</span>
+				</div>
+				<div class="ui-block-b">
+					<a data-transition="none" href="#Product1Page"><img width="126"
+						alt="" src="images/commodity/c_2.jpg"> <br> <span>ORD承接纯银生产加工</span>
+					</a>
+					<span class="s1">￥</span><span class="s2">12564</span>
+					<span class="s3">343</span>
+				</div>
+			</div>
+
+			<br>
+
+
+		</div>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+			data-theme="d">
+			
+			<div class="b_bottom_menu">
+				<ul>
+					<li><a href="#" data-rel="back">返回</a></li>
+					<li><a href="#shopInfoPage">公司简介</a></li>
+					<li><a href="#anylink">买家评论</a></li>
+					<li><a href="#shop1Page">店铺首页</a></li>
+				</ul>
+			</div>
+			
+			<div data-role="navbar" class="myfooter bgEDEDED">
+				<ul>
+					<li><a data-transition="none" href="#indexPage"
+						class="ui-icon-index_1">首页</a></li>
+					<li><a data-transition="none" href="#map1Page"
+						class="ui-icon-map_1">地图</a></li>
+					<li><a data-transition="none" href="#scat1Page"
+						class="ui-icon-purchase_1">进货单</a></li>
+					<li><a data-transition="none" href="#loginPage"
+						class="ui-icon-my_1">我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- shop3Page end  -->
+	
 
 	<!-- Vip1Page start  -->
-	<div data-role="page" id="Vip1Page">
+	<div data-role="page" id="Vip1Page" class="shop">
 		<div data-role="content">
 			<div class="shop_top">
 				<div class="b_logo">
@@ -801,10 +994,10 @@
 
 			<div class="shopTag">
 				<div data-role="controlgroup" data-type="horizontal">
-					<a data-transition="none" href="#" data-role="button">新品</a> <a
-						data-transition="none" href="#" data-role="button">特价</a> <a
-						data-transition="none" href="#" data-role="button">产品</a> <a
-						href="#Vip1Page" data-role="button" class="on">VIP</a>
+					<a data-transition="none" href="#shop1Page" data-role="button">新品</a>
+					<a data-transition="none" href="#shop2Page" data-role="button">特价</a>
+					<a data-transition="none" href="#shop3Page" data-role="button">产品</a>
+					<a class="on"  data-transition="none" href="#" data-role="button" class="last">VIP</a>
 				</div>
 			</div>
 
@@ -840,7 +1033,7 @@
 					<li><a href="#" data-rel="back">返回</a></li>
 					<li><a href="#shopInfoPage">公司简介</a></li>
 					<li><a href="#anylink">买家评论</a></li>
-					<li><a href="#shop1Page">买家评论</a></li>
+					<li><a href="#shop1Page">店铺首页</a></li>
 				</ul>
 			</div>
 			
@@ -955,7 +1148,7 @@
 					<li><a href="#" data-rel="back">返回</a></li>
 					<li><a href="#shopInfoPage">公司简介</a></li>
 					<li><a href="#anylink">买家评论</a></li>
-					<li><a href="#shop1Page">买家评论</a></li>
+					<li><a href="#shop1Page">店铺首页</a></li>
 				</ul>
 			</div>
 			
@@ -1036,7 +1229,7 @@
 					<li><a href="#" data-rel="back">返回</a></li>
 					<li><a href="#shopInfoPage">公司简介</a></li>
 					<li><a href="#anylink">买家评论</a></li>
-					<li><a href="#shop1Page">买家评论</a></li>
+					<li><a href="#shop1Page">店铺首页</a></li>
 				</ul>
 			</div>
 			
@@ -1570,15 +1763,22 @@
 	<!-- sellerListPage start-->
 	<div data-role="page" id="sellerListPage">
 		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back"
-				class="back" data-icon="arrow-l">&nbsp;</a>
-			<h1>
-				<input type="search" name="search" placeholder="中瑞">
-			</h1>
-			<h1 class="h">
-				<a href="#">商家星级</a>
-				<a href="#">距离最近</a>
-			</h1>
+			
+				<a data-transition="none" href="#" data-role="button" data-rel="back"
+					class="back" data-icon="arrow-l">&nbsp;</a>
+				<h1>
+				<form action="#sellerListPage" method="get" id="sellerListPage_form" onsubmit="return sellerList.sellerListPageForm()">
+					<input type="search" name="k" id="sellerListPage_search_k" placeholder="商家名称">
+					<input type="hidden" name="icurrentPage" id="sellerListPage_currentPage" value="1">
+					<input type="hidden" name="sort" id="sellerListPage_score">
+					<input type="hidden" name="sortType" id="sellerListPage_scoreType">
+				</form>
+				</h1>
+				<h1 class="h">
+					<a href="#" id="sellerListPage_score_btn">商家星级<span class="arrow"></span></a>
+					<a href="#">距离最近</a>
+				</h1>
+			
 		</div>
 		<!-- /header -->
 		<div data-role="content">
@@ -1666,9 +1866,9 @@
 			-->
 
 
-			<div id="wrapper">
-				<div id="scroller">
-					<div id="pullDown">
+			<div id="sellerListPage_wrapper" class="wrapper">
+				<div id="sellerListPage_scroller" class="scroller">
+					<div id="sellerListPage_pullDown" class="pullDown">
 						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 					</div>
 					
@@ -1676,7 +1876,7 @@
 					
 					</div>
 					
-					<div id="pullUp">
+					<div id="sellerListPage_pullUp" class="pullUp">
 						<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
 					</div>
 					
@@ -1843,6 +2043,10 @@
 	</div>
 	<!-- myCollectCommodityPage end-->
 	
+	<div id="message" style="display: none;"></div>
+	<div id="loading" style="display: none;">
+		<img alt="" src="images/bg/loading.gif">
+	</div>
 	
 
 	<script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
@@ -1851,6 +2055,8 @@
 	<script type="text/javascript" src="./rte/rte.js"></script>
 	<script type="text/javascript" src="./js/jquery.slides.min.js"></script>
 	<script type="text/javascript" src="./js/simland/app.js"></script>
+	<script type="text/javascript" src="./js/simland/index.js"></script>
+	<script type="text/javascript" src="./js/simland/sellerList.js"></script>
 	<script type="text/javascript" src="./js/simland/shop.js"></script>
 	<script type="text/javascript" src="./js/simland/user.js"></script>
 	<script type="application/javascript" src="./js/iscroll/iscroll.js"></script>

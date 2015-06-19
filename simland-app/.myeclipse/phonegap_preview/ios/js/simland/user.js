@@ -1,46 +1,47 @@
 var user = {
+	loginFlag : true,
 	initialize : function() {
+		
 		$("#loginBtn").click(user.login);
+		
+		$(document).on("pageshow", "#userCenterPage", user.pageLoad);
+		
+	},
+	pageLoad : function(){
+		alert(0);
 	},
 	login : function() {
-		$.mobile.changePage("#userCenterPage", "slideup");
+
+		if (!user.loginFlag) {
+			return;
+		}
+
+		user.loginFlag = false;
+
+		setTimeout(function() {// 防止重复提交
+			user.loginFlag = true;
+		}, 3000);
+
 		$.ajax({
 			type : "get",
-			url : AppServicerURL + "/appservice/login",
-			data : {
-				"uname" : $("#uname").val(),
-				"upw" : $("#upw").val()
-			},
+			url : app.servicerURL + "/user/login",
+			data : $("#loginPage_form").serialize(),
 			cache : false,
 			async : false,
 			dataType : 'jsonp',
-			success : function(data) {
-				if (data.code == 1) {
-					$.mobile.changePage("#userCenterPage", "slideup");
-				} else {
-					$('<div>').simpledialog2({
-						mode : 'button',
-						headerText : '登录提示',
-						headerClose : true,
-						themeDialog : "c",
-						themeHeader : "d",
-						buttonPrompt : '用户名或密码错误',
-						buttons : {
-							'OK' : {
-								click : function() {
-									$('#buttonoutput').text('OK');
-								},
-								// icon: "ok",
-								theme : "c"
-							}
-						}
-					})
-				}
-			},
+			success : loginCallBack,
 			error : function(data, df, d) {
-				// $.mobile.changePage("#userCenterPage","slideup");
 			}
 		});
+
+		function loginCallBack(data) {
+			if (data.code == 2) {
+				$.mobile.changePage("#userCenterPage", "slideup");
+			} else {
+				app.message(data.msg)
+			}
+		}
+
 		return false;
 	}
 }

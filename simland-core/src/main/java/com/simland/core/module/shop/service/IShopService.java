@@ -29,4 +29,12 @@ public interface IShopService {
 	 */
 	public Integer getShopCount(Map param);
 
+	/***
+	 * 获取店铺信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Shop getShop(Integer id);
+
 }

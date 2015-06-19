@@ -17,7 +17,7 @@
 	</appender>
 
 	<appender name="info-out" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="C:/apache-tomcat-7.0.57/logs/info.log" />
+		<param name="File" value="/simland-core/logs/info.log" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss} [%t] %-5p %c\:%L - %m%n" />
 		</layout>
@@ -29,7 +29,7 @@
 	</appender>
 
 	<appender name="debug-out" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="C:/apache-tomcat-7.0.57/logs/debug.log" />
+		<param name="File" value="/simland-core/logs/debug.log" />
 		<param name="Threshold" value="debug" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss} [%t] %-5p %c\:%L - %m%n" />
@@ -42,7 +42,7 @@
 	</appender>
 
 	<appender name="error-out" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="C:/apache-tomcat-7.0.57/logs/error.log" />
+		<param name="File" value="/simland-core/logs/error.log" />
 		<param name="Threshold" value="error" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss} [%t] %-5p %c\:%L - %m%n" />
@@ -50,21 +50,8 @@
 	</appender>
 
 
-	<appender name="PayLogger" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="C:/apache-tomcat-7.0.57/logs/pay_log.log" />
-		<param name="Threshold" value="debug" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss} - %m%n" />
-		</layout>
-	</appender>
-
-	<logger name="JJPayLogger" additivity="false">
-		<level value="debug" />
-		<appender-ref ref="PayLogger" />
-	</logger>
-
 	<root>
-		<level value="info" />
+		<level value="debug" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="info-out" />
 		<appender-ref ref="error-out" />

@@ -1,9 +1,23 @@
 var app = {
-	//servicerURL: "http://192.168.253.3:8080/simland-app-service/",
-	servicerURL: "http://192.168.1.27:8080/simland-app-service/",
+	servicerURL : "http://192.168.253.3/simland-app-service/",
+	// servicerURL: "http://192.168.1.27:8080/simland-app-service/",
 	initialize : function() {
+	},
+	message : function(msg) {// 信息提示
+		$("#message").text(msg);
+		$("#message").show();
+		setTimeout(function(){
+			$('#message').fadeOut(500, function() {
+				$("#message").html("");
+				$('#message').hide();
+			});
+		},2000);
+	},
+	loading : function() {// 加载信息
+
 	}
 }
 
-
 app.initialize();
+
+

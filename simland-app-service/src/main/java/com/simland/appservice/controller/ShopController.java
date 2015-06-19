@@ -27,16 +27,32 @@ public class ShopController {
 	@Autowired
 	private IShopService shopService;
 
+	/***
+	 * 店铺列表信息
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/shop/list")
 	@ResponseBody
 	public String list(HttpServletRequest request, Model model) {
 
+		String sort = request.getParameter("sort");
+		String sortType = request.getParameter("sortType");
+		String k = request.getParameter("k");
+
 		Map<String, Object> json = new HashMap<String, Object>();
 
 		int currentPage = Utils.strToInteger(request
-				.getParameter("currentPage"));
+				.getParameter("icurrentPage"));
 
 		Map<String, Object> param = new HashMap<String, Object>();
+
+		if ("score".equalsIgnoreCase(sort))
+			param.put("sortColumns", "score");
+		param.put("sortType", sortType);
+		param.put("cnameLike", k);
 
 		int totalRecord = shopService.getShopCount(param);
 
@@ -44,7 +60,6 @@ public class ShopController {
 		pageView.setCurrentPage(currentPage);
 		pageView.setPageSize(5);
 		pageView.setTotalRecord(totalRecord);
-
 		param.put("endSize", pageView.getFirstResult());
 		param.put("pageSize", pageView.getPageSize());
 
@@ -52,10 +67,6 @@ public class ShopController {
 
 		json.put("totalPage", pageView.getTotalPage());
 		json.put("list", list);
-
-		System.out.println(Utils.objToJson(json));
-
-		System.out.println(pageView.getTotalPage());
 
 		String reJson = null;
 		logger.info(reJson = Utils.objToJsonp(json,
@@ -65,6 +76,30 @@ public class ShopController {
 		param = null;
 		pageView = null;
 		list = null;
+
+		return reJson;
+
+	}
+
+	/**
+	 * 店铺详情页面
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/shop/showShop")
+	@ResponseBody
+	public String showShop(HttpServletRequest request, Model model) {
+
+		Shop shop = shopService.getShop(Utils.strToInteger(request
+				.getParameter("id")));
+
+		String reJson = null;
+		logger.info(reJson = Utils.objToJsonp(shop,
+				request.getParameter("callback")));
+
+		shop = null;
 
 		return reJson;
 

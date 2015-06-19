@@ -7,7 +7,7 @@
 <mapper namespace="com.simland.core.module.shop.mapper.ShopMapper">
 
 	<resultMap id="ShopRM" type="com.simland.core.module.shop.entity.Shop">
-        <result property="id" column="ID"/>
+        <result property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="cname" column="cname"/>
         <result property="caddress" column="caddress"/>
@@ -32,7 +32,7 @@
 
 	<sql id="Base_Column_List">
 	    <![CDATA[
-        ID id,
+        id id,
         name name,
         cname cname,
         caddress caddress,
@@ -214,6 +214,9 @@
 			<if test="cname!=null">
 	        AND cname = #{cname}
 	        </if>
+			<if test="cnameLike!=null">
+				AND cname like "%"#{cnameLike}"%"
+			</if>
 			<if test="caddress!=null">
 	        AND caddress = #{caddress}
 	        </if>
@@ -283,8 +286,12 @@
 		<include refid="pageWhere" />
 
 		<if test="sortColumns!=null">
-			ORDER BY #{sortColumns}
+			ORDER BY ${sortColumns}
+			<if test="sortType==1">
+				DESC
+			</if>
 		</if>
+
 		limit #{endSize},#{pageSize}
 	</select>
 

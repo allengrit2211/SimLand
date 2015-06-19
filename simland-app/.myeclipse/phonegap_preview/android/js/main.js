@@ -1,8 +1,15 @@
 //Initialize function
 
-
-
 var init = function() {
+
+	$(function() {
+		$(document).ajaxStart(function() {
+			$("#loading").show();
+		});
+		$(document).ajaxSuccess(function() {
+			$("#loading").hide();
+		});
+	});
 
 	// 购物车商品全选按钮
 	$("#carCheckAll").click(carCheckAll);
