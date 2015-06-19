@@ -1,4 +1,0 @@
-dataSource.driver=com.mysql.jdbc.Driver
-dataSource.url=jdbc:mysql://localhost:3306/simland_db?useUnicode=true&characterEncoding=UTF-8
-dataSource.user=root
-dataSource.password=123123
