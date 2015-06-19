@@ -184,7 +184,7 @@ var sellerList = {
 			dataType : 'jsonp',
 			success : selerListPageShowCallBack,
 			error : function(data, df, d) {
-				alert("数据加载失败");
+				app.message("数据加载失败")
 			}
 		});
 

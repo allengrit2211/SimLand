@@ -816,6 +816,7 @@ a {
 	padding: 10px;
 	margin: 10px 0.1%;
 	width: 82%;
+	min-height:122px;
 }
 
 .shop .commodityList a span {

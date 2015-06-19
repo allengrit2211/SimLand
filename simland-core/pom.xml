@@ -7,6 +7,7 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>simland-core</artifactId>
+	<packaging>jar</packaging>
 
 	<properties>
 		<com.simland.version>1.0.0</com.simland.version>
@@ -127,7 +128,7 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- 上面的都是Spring的jar包，可以选择性的添加 -->
-		
+
 		<!-- 下面的三个包是在配置事务的时候用到的 spring的依赖包 -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -144,7 +145,7 @@
 			<artifactId>cglib-nodep</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-		
+
 		<!-- Mybatis 开发包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -193,7 +194,7 @@
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
 		</dependency>
-		
+
 		<!-- JSON lib 开发包 以及它的依赖包 -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
@@ -234,6 +235,26 @@
 
 
 	<build>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/*.properties</exclude>
+					<exclude>**/*.xml</exclude>
+				</excludes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -244,7 +265,7 @@
 				</configuration>
 				<version>2.3.2</version>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -253,7 +274,7 @@
 				</configuration>
 				<version>2.18</version>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 

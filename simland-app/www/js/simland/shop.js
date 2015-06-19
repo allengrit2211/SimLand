@@ -24,14 +24,14 @@ var shop = {
 			dataType : 'jsonp',
 			success : showShopCallBack,
 			error : function(data, df, d) {
-				alert("读取店铺信息失败...");
+				app.message("读取店铺信息失败...")
 			}
 		});
 		
 		function showShopCallBack(data){
 			
 			if(data){
-				$(".shop .shop_top .b_logo img").attr("src",data.clogo);
+				$(".shop .shop_top .b_logo img").attr("src",app.servicerURL + data.clogo);
 				$(".shop .shop_top .b_info h3").html(data.cname);
 				var span = $(".shop .shop_top .b_info span");
 				$(span).removeClass();
