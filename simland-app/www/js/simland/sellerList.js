@@ -29,7 +29,7 @@ var sellerList = {
 	pageLoad : function(event, ui) {
 		// 设置参数查询 商家列表
 		sellerList.selerListPageShow({
-			k : $("#searchShop").val(),
+			k : $("#sellerListPage_search_k").val(),
 			currentPage : 1,
 			reset : 0,
 			sort : "",
@@ -213,6 +213,13 @@ var sellerList = {
 			if (option.reset == 1) {
 				$("#sellerListPage .boxList").append(htmlStr);
 			}
+			
+			
+			if($("#sellerListPage_stype").val()==1){
+				$("#sellerListPage .boxList .box .p1").textSearch($("#sellerListPage_search_k").val(),{markColor: "#44BBAB"});
+			}else	
+				$("#sellerListPage .boxList .box .a0").textSearch($("#sellerListPage_search_k").val(),{markColor: "#44BBAB"});
+			
 		}
 
 	},

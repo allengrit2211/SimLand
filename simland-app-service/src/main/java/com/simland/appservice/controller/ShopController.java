@@ -41,6 +41,7 @@ public class ShopController {
 		String sort = request.getParameter("sort");
 		String sortType = request.getParameter("sortType");
 		String k = request.getParameter("k");
+		String stype = request.getParameter("stype");// 搜索类型
 
 		Map<String, Object> json = new HashMap<String, Object>();
 
@@ -52,7 +53,11 @@ public class ShopController {
 		if ("score".equalsIgnoreCase(sort))
 			param.put("sortColumns", "score");
 		param.put("sortType", sortType);
-		param.put("cnameLike", k);
+
+		if ("1".equals(stype))
+			param.put("engageLike", (k+"").trim());
+		else
+			param.put("cnameLike", (k+"").trim());
 
 		int totalRecord = shopService.getShopCount(param);
 

@@ -244,6 +244,9 @@
 			<if test="engage!=null">
 	        AND engage = #{engage}
 	        </if>
+			<if test="engageLike!=null">
+				AND engage like "%"#{engageLike}"%"
+			</if>
 			<if test="loginName!=null">
 	        AND loginName = #{loginName}
 	        </if>

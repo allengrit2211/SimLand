@@ -8,7 +8,7 @@ var user = {
 		
 	},
 	pageLoad : function(){
-		alert(0);
+		//alert(0);
 	},
 	login : function() {
 
