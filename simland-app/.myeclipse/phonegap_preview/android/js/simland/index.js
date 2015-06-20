@@ -1,5 +1,6 @@
 var index = {
 	initialize : function() {
+		
 		// 店铺搜索按钮
 		$("#searchShopBtn").click(index.searchShop);
 		// 主营类别按钮
@@ -8,7 +9,22 @@ var index = {
 		$("#searchCategory").focus(index.searchCategoryFocus);
 		// 主营类别失去焦点
 		$("#searchCategory").blur(index.searchCategoryBlur);
-
+		//历史记载
+		index.loadHistoryList(3);
+	},
+	loadHistoryList : function(n){
+		
+		$(".historyList ul").html("");
+		
+		for (var i = 1; i <= n; i++) {
+			if((localStorage.getItem('k' + i))!=null&&(localStorage.getItem('k' + i))!='null')
+				$(".historyList ul").append("<li><a class='a1' href='#sellerListPage'>"+(localStorage.getItem('k' + i))+"</a> <a index='"+i+"' class='a2' href='#'>X</a></li>");
+		}
+		
+		$(".historyList .a1").click(index.historySeach);
+		//历史记录清除
+		$(".historyList .a2").click(index.historyClear);
+		
 	},
 	searchCategoryFocus : function() {// 搜索主营类别获得焦点
 		$(".historyList").show();
@@ -31,12 +47,13 @@ var index = {
 	},
 	setHistoryList : function(key, type) {// 搜索历史
 	
+		var n = 3;
 		
 		if (key == null || $.trim(key) == '')
 			return;
 		
 		var flag = true;
-		for (var i = 1; i <= 3; i++) {
+		for (var i = 1; i <= n; i++) {
 			if (localStorage.getItem("k" + i) == key) {
 				flag = false;
 			}
@@ -44,7 +61,7 @@ var index = {
 
 		if (flag) {
 			
-			for (var i = 3; i >= 1; i--) {
+			for (var i = n; i >= 1; i--) {
 				if (i == 1) {
 					localStorage.setItem(("k" + i), key);
 				} else {
@@ -53,16 +70,15 @@ var index = {
 				}
 			}
 			
-			$(".historyList ul").html("");
-			
-			for (var i = 1; i <= 3; i++) {
-				if((localStorage.getItem('k' + i))!=null&&(localStorage.getItem('k' + i))!='null')
-					$(".historyList ul").append("<li><a class='a1' href='#sellerListPage'>"+(localStorage.getItem('k' + i))+"</a> <a index='"+i+"' class='a2' href='#'>X</a></li>");
-			}
-			
+			index.loadHistoryList(3);
 		}
-
-
+	},
+	historySeach : function(){
+		$("#sellerListPage_search_k").val($(this).text());
+	},
+	historyClear :function(){
+		localStorage.removeItem("k"+$(this).attr("index"))
+		index.loadHistoryList(3);
 	}
 }
 
