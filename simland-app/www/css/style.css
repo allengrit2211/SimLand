@@ -286,15 +286,15 @@ a {
 }
 
 #indexPage .box1 .input1 .btn {
-	background: url('../images/bg/index_r6_c15.jpg') no-repeat 50% 50%;
-	border: none;
-	width: 20px;
-	height: 20px;
-	float: right;
-	margin: 10px 10px 10px 0;
-	position: absolute;
-	right: 0px;
-	top: 0;
+  background: url('../images/bg/index_r6_c15.jpg') no-repeat 50% 50%;
+  border: none;
+  width: 30px;
+  height: 20px;
+  float: right;
+  margin: 10px;
+  position: absolute;
+  right: 0px;
+  top: 0;
 }
 
 #indexPage .box1 .input2 {
@@ -703,6 +703,12 @@ a {
 .shop .shop_top .b_logo {
 	margin: 0 5% 0 5%;
 	float: left;
+	width:59px;
+	height:59px;
+}
+
+.shop .shop_top .b_logo img{
+	width:100%;
 }
 
 .shop .shop_top .b_info {
@@ -1707,7 +1713,7 @@ a {
 }
 
 #map3Page .boxList .box .p2 .s2 {
-	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 100% 50%;
+	background: url("../images/bg/map_dianpu_r7_c2.png") no-repeat 100% 50%;
 }
 
 #map3Page .boxList .box .p2 .s4 {
@@ -1919,7 +1925,7 @@ a {
 }
 
 #sellerListPage .boxList .box .p2 .s2 {
-	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 100% 50%;
+	background: url("../images/bg/map_dianpu_r7_c2.png") no-repeat 100% 50%;
 	width: 13px;
 	height: 13px;
 	display: inline-block;

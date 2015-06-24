@@ -17,6 +17,8 @@ var shop = {
 	},
 	pageLoad : function(type) {// 进入店铺
 		
+		$(".shop .commodityList").html("暂无商品");
+		
 		if (shop.id <= 0)
 			return;
 

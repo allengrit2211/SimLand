@@ -143,7 +143,8 @@ public class ShopController {
 				.getParameter("icurrentPage"));
 
 		Map<String, Object> param = new HashMap<String, Object>();
-
+		param.put("sid", sid);
+		
 		if ("0".equals(type)) {
 			param.put("isNew", "1");
 		}
