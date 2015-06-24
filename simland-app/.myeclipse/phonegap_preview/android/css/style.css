@@ -30,13 +30,13 @@ a {
 	min-height: 1px;
 }
 
-#message{
+#message {
 	width: 70%;
 	height: 60px;
 	background-color: #000;
-	filter:alpha(opacity=70); /*IE滤镜，透明度50%*/
-	-moz-opacity:0.7; /*Firefox私有，透明度50%*/
-	opacity:0.7;/*其他，透明度50%*/
+	filter: alpha(opacity = 70); /*IE滤镜，透明度50%*/
+	-moz-opacity: 0.7; /*Firefox私有，透明度50%*/
+	opacity: 0.7; /*其他，透明度50%*/
 	display: block;
 	position: fixed;
 	left: 15%;
@@ -44,21 +44,21 @@ a {
 	bottom: 50%;
 	z-index: 1000;
 	border-radius: 8px;
-	font-size:14px;
-	color:#FFF;
-	text-align:center;
-	line-height:60px;
-	overflow:hidden;
+	font-size: 14px;
+	color: #FFF;
+	text-align: center;
+	line-height: 60px;
+	overflow: hidden;
 }
 
-#loading{
-	width:40px;
-	height:40px;
-	margin-left:-20px;
-	margin-right:-20px;
-	filter:alpha(opacity=70); /*IE滤镜，透明度50%*/
-	-moz-opacity:0.7; /*Firefox私有，透明度50%*/
-	opacity:0.7;/*其他，透明度50%*/
+#loading {
+	width: 40px;
+	height: 40px;
+	margin-left: -20px;
+	margin-right: -20px;
+	filter: alpha(opacity = 70); /*IE滤镜，透明度50%*/
+	-moz-opacity: 0.7; /*Firefox私有，透明度50%*/
+	opacity: 0.7; /*其他，透明度50%*/
 	display: block;
 	position: fixed;
 	left: 50%;
@@ -66,18 +66,18 @@ a {
 	bottom: 50%;
 	z-index: 1000;
 	border-radius: 8px;
-	font-size:14px;
-	color:#FFF;
-	text-align:center;
-	line-height:60px;
+	font-size: 14px;
+	color: #FFF;
+	text-align: center;
+	line-height: 60px;
 	overflow: hidden;
 }
-#loading img{
-	width:100%;
-	height:100%;
-	margin:auto;
-}
 
+#loading img {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
 
 .red {
 	color: red;
@@ -255,7 +255,6 @@ a {
 	color: #41AC98;
 }
 
-
 #indexPage .box1 .input1 {
 	border-radius: 6px;
 	width: 100%;
@@ -265,7 +264,7 @@ a {
 	padding: 2px 0;
 	height: 36px;
 	line-height: 36px;
-	position:relative;
+	position: relative;
 }
 
 #indexPage .box1 .input1 span {
@@ -273,7 +272,7 @@ a {
 	font-size: 14px;
 	font-weight: bold;
 	margin-left: 5px;
-	position:absolute;
+	position: absolute;
 }
 
 #indexPage .box1 .input1 .txt {
@@ -283,7 +282,7 @@ a {
 	width: 100%;
 	font-size: 14px;
 	text-indent: 3px;
-	text-indent:60px;
+	text-indent: 60px;
 }
 
 #indexPage .box1 .input1 .btn {
@@ -294,17 +293,16 @@ a {
 	float: right;
 	margin: 10px 10px 10px 0;
 	position: absolute;
-	right:0px;
-	top:0;
+	right: 0px;
+	top: 0;
 }
 
-#indexPage .box1 .input2{
+#indexPage .box1 .input2 {
 	text-align: center;
 }
 
-#indexPage .box1 .input2 .msg_1,
-#indexPage .box1 .input2 .msg_2 {
-	background-color: #FFF!important;
+#indexPage .box1 .input2 .msg_1, #indexPage .box1 .input2 .msg_2 {
+	background-color: #FFF !important;
 	border-radius: 6px;
 	height: 33px;
 	line-height: 33px;
@@ -317,7 +315,7 @@ a {
 	display: inline-block;
 }
 
-#indexPage .box1 .input2 .msg_1{
+#indexPage .box1 .input2 .msg_1 {
 	background: url('../images/bg/index_r10_c4.jpg') no-repeat 10% 50%;
 }
 
@@ -335,7 +333,7 @@ a {
 }
 
 .history {
-	position:relative;
+	position: relative;
 }
 
 #indexPage .historyList {
@@ -345,7 +343,7 @@ a {
 	background-color: #FFF;
 	margin: -5px 0 0 -1px;
 	width: 100%;
-	display:none;
+	display: none;
 	position: absolute;
 }
 
@@ -370,7 +368,7 @@ a {
 	color: #666;
 	font-size: 16px;
 	float: left;
-	width:100%;
+	width: 100%;
 }
 
 #indexPage .historyList ul li .a2 {
@@ -378,7 +376,7 @@ a {
 	color: #DFDEDF;
 	font-size: 16px;
 	position: absolute;
-	right:0;
+	right: 0;
 }
 
 #indexPage .historyList ul li:hover {
@@ -691,7 +689,7 @@ a {
 /************assessPage1 end***************/
 
 /************shop1Page start***************/
-.shop .ui-content{
+.shop .ui-content {
 	margin: 0;
 	padding: 0;
 }
@@ -715,13 +713,11 @@ a {
 	color: #FFF;
 	font-weight: normal;
 	margin: 5px 0;
-	width:174px;
+	width: 174px;
 	overflow: hidden;
-	white-space:nowrap;
-	text-overflow:ellipsis;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
-
-
 
 .shop .shop_top .b_btn {
 	float: left;
@@ -754,7 +750,7 @@ a {
 }
 
 .shop .slidesjs-control img {
-	width: 100%!important;
+	width: 100% !important;
 }
 
 .shop .slidesjs-pagination {
@@ -802,8 +798,9 @@ a {
 	text-align: center;
 }
 
-.shop .commodityList .ui-block-a, .shop .commodityList .ui-block-b,
-	#shop1Page .commodityList .ui-block-c {
+.shop .commodityList .commodityBox {
+	width: 49%;
+	display:inline-block;
 	position: relative;
 }
 
@@ -813,29 +810,33 @@ a {
 	padding: 10px;
 	margin: 10px 0.1%;
 	width: 82%;
-	min-height:122px;
+	min-height: 122px;
 }
 
-.shop .commodityList a span {
+.shop .commodityList  a .s4 {
 	color: #BDBDBD;
+	height: 30px;
+	overflow: hidden;
+	display: inline-block;
+	font-weight: normal;
 }
 
-.shop .commodityList .s1 {
+.shop .commodityList .commodityBox .price {
+	
+}
+
+.shop .commodityList .commodityBox .s1 {
 	color: #E08559;
 }
 
 .shop .commodityList .s3 {
-	position: absolute;
-	right: 5px;
 	bottom: 5px;
 	height: 13px;
-	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 0 50%;
-	height: 13px;
-	background: url("../images/bg/map_dianpu_r7_c2.jpg") no-repeat 0 50%;
-	top: 70%;
+	background: url("../images/bg/map_dianpu_r7_c2.png") no-repeat 0 50%;
+	bottom: 33%;
 	right: 12%;
 	padding-left: 15px;
-	right: 12%;
+	position: absolute;
 }
 
 .shop .b_bottom_menu {
@@ -889,8 +890,7 @@ a {
 	text-align: center;
 }
 
-#Vip1Page .vipboxBtn .a1,
-#Vip1Page .vipboxBtn .a2 {
+#Vip1Page .vipboxBtn .a1, #Vip1Page .vipboxBtn .a2 {
 	padding: 10px 20px !important;
 	background-color: #41AC98;
 	border-radius: 5px;
@@ -901,10 +901,10 @@ a {
 	margin-top: 20px;
 }
 
-#Vip1Page .ui-controlgroup-horizontal .ui-controlgroup-controls .ui-btn.ui-last-child{
-	border-right-width:0px;
+#Vip1Page .ui-controlgroup-horizontal .ui-controlgroup-controls .ui-btn.ui-last-child
+	{
+	border-right-width: 0px;
 }
-
 
 /************Vip1Page end***************/
 
@@ -1861,7 +1861,6 @@ a {
 	vertical-align: middle;
 	/*-webkit-transition-property: -webkit-transform;*/
 	/*-webkit-transition-duration: 250ms;*/
-
 }
 
 #sellerListPage .header_1 .h span.up {
@@ -1932,10 +1931,10 @@ a {
 }
 
 .star {
-  width: 80px;
-  overflow: hidden;
-  height: 16px;
-  display: inline-block;
+	width: 80px;
+	overflow: hidden;
+	height: 16px;
+	display: inline-block;
 }
 
 .star0 {

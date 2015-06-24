@@ -16,7 +16,7 @@ public interface IUserService {
 	 * @param msg
 	 * @return
 	 */
-	public boolean login(String uname, String password, SysMessage msg);
+	public User login(String uname, String password, SysMessage msg);
 
 	public List<User> getUserList(Map<String, Object> param);
 

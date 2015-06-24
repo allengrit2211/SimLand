@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.shop.mapper.CommodityMapper">
+
+	<resultMap id="CommodityRM" type="com.simland.core.module.shop.entity.Commodity">
+        <result property="id" column="id"/>
+        <result property="sid" column="sid"/>
+        <result property="name" column="name"/>
+        <result property="img" column="img"/>
+        <result property="type" column="type"/>
+        <result property="collectNum" column="collectNum"/>
+        <result property="marketPrice" column="marketPrice"/>
+        <result property="realPrice" column="realPrice"/>
+        <result property="createTime" column="createTime"/>
+        <result property="creater" column="creater"/>
+        <result property="isNew" column="isNew"/>
+        <result property="isSpecial" column="isSpecial"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        sid sid,
+        name name,
+        img img,
+        type type,
+        collectNum collectNum,
+        marketPrice marketPrice,
+        realPrice realPrice,
+        createTime createTime,
+        creater creater,
+        isNew isNew,
+        isSpecial isSpecial
+	    ]]>
+	</sql>
+
+
+	<insert id="insertCommodity" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.shop.entity.Commodity">
+	    <![CDATA[
+	        INSERT INTO t_commodity (
+		        sid,
+		        name,
+		        img,
+		        type,
+		        collectNum,
+		        marketPrice,
+		        realPrice,
+		        createTime,
+		        creater,
+		        isNew,
+		        isSpecial
+	        ) VALUES (
+		        	#{sid},
+		        	#{name},
+		        	#{img},
+		        	#{type},
+		        	#{collectNum},
+		        	#{marketPrice},
+		        	#{realPrice},
+		        	#{createTime},
+		        	#{creater},
+		        	#{isNew},
+		        	#{isSpecial}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateCommodity">
+	    <![CDATA[
+        UPDATE t_commodity SET
+        ]]>
+		<if test="sid!=null">
+        	sid = #{sid}
+		</if>
+		<if test="name!=null">
+        	name = #{name}
+		</if>
+		<if test="img!=null">
+        	img = #{img}
+		</if>
+		<if test="type!=null">
+        	type = #{type}
+		</if>
+		<if test="collectNum!=null">
+        	collectNum = #{collectNum}
+		</if>
+		<if test="marketPrice!=null">
+        	marketPrice = #{marketPrice}
+		</if>
+		<if test="realPrice!=null">
+        	realPrice = #{realPrice}
+		</if>
+		<if test="createTime!=null">
+        	createTime = #{createTime}
+		</if>
+		<if test="creater!=null">
+        	creater = #{creater}
+		</if>
+		<if test="isNew!=null">
+        	isNew = #{isNew}
+		</if>
+		<if test="isSpecial!=null">
+        	isSpecial = #{isSpecial}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteCommodity">
+    <![CDATA[
+        DELETE FROM t_commodity WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getCommodity" resultMap="CommodityRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_commodity 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getCommodityList" resultMap="CommodityRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_commodity  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="sid!=null">
+	        AND sid = #{sid}
+	        </if>
+			<if test="name!=null">
+	        AND name = #{name}
+	        </if>
+			<if test="img!=null">
+	        AND img = #{img}
+	        </if>
+			<if test="type!=null">
+	        AND type = #{type}
+	        </if>
+			<if test="collectNum!=null">
+	        AND collectNum = #{collectNum}
+	        </if>
+			<if test="marketPrice!=null">
+	        AND marketPrice = #{marketPrice}
+	        </if>
+			<if test="realPrice!=null">
+	        AND realPrice = #{realPrice}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime}
+	        </if>
+			<if test="creater!=null">
+	        AND creater = #{creater}
+	        </if>
+			<if test="isNew!=null">
+	        AND isNew = #{isNew}
+	        </if>
+			<if test="isSpecial!=null">
+	        AND isSpecial = #{isSpecial}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getCommodityCount" resultType="int">
+		SELECT count(*) FROM t_commodity
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitCommodityList" resultMap="CommodityRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_commodity
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

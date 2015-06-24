@@ -1,14 +1,19 @@
 var user = {
 	loginFlag : true,
 	initialize : function() {
-		
+
 		$("#loginBtn").click(user.login);
-		
-		$(document).on("pageshow", "#userCenterPage", user.pageLoad);
-		
+
+		//$(document).on("pageshow", "#userCenterPage", user.pageLoad);
+
+		$(document).on("pagebeforeshow","#userCenterCheckLoginPage", function(event) {
+			setTimeout(user.isLogin(),300);
+			return;
+		});
+
 	},
-	pageLoad : function(){
-		//alert(0);
+	pageLoad : function() {
+
 	},
 	login : function() {
 
@@ -43,6 +48,29 @@ var user = {
 		}
 
 		return false;
+	},
+	isLogin : function() {
+		$.ajax({
+			type : "get",
+			url : app.servicerURL + "/user/isLogin",
+			data : {},
+			cache : false,
+			async : true,
+			dataType : 'jsonp',
+			success : isLoginCallBack,
+			error : function(data, df, d) {
+			}
+		});
+
+		function isLoginCallBack(data) {
+			if (data && data.code == 1) {
+				$.mobile.changePage("#userCenterPage", "slideup");
+			} else {
+				$.mobile.changePage("#loginPage", "slideup");
+			}
+
+		}
+
 	}
 }
 

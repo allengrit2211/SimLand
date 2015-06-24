@@ -28,7 +28,7 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public boolean login(String uname, String password, SysMessage msg) {
+	public User login(String uname, String password, SysMessage msg) {
 
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("uname", uname);
@@ -36,17 +36,18 @@ public class UserServiceImpl implements IUserService {
 		if (Utils.isObjectEmpty(user)) {
 			msg.setCode("1");
 			msg.setMsg("用户名不存在");
-			return false;
+			return null;
 		}
 
-		if (user.getPassword().equalsIgnoreCase(MD5Util.encode(password.getBytes()))) {
+		if (user.getPassword().equalsIgnoreCase(
+				MD5Util.encode(password.getBytes()))) {
 			msg.setCode("2");
 			msg.setMsg("登录成功");
-			return true;
+			return user;
 		} else {
 			msg.setCode("3");
 			msg.setMsg("用户名或密码错误");
-			return false;
+			return null;
 		}
 
 	}
