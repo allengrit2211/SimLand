@@ -1972,17 +1972,14 @@
 	<script type="text/javascript" src="./rte/rte.js"></script>
 	<script type="text/javascript" src="./js/jquery.textSearch-1.0.js"></script>
 	<script type="text/javascript" src="./js/jquery.slides.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
 	<script type="text/javascript" src="./js/simland/app.js"></script>
 	<script type="text/javascript" src="./js/simland/index.js"></script>
 	<script type="text/javascript" src="./js/simland/sellerList.js"></script>
 	<script type="text/javascript" src="./js/simland/shop.js"></script>
 	<script type="text/javascript" src="./js/simland/user.js"></script>
 	<script type="application/javascript" src="./js/iscroll/iscroll.js"></script>
-	
-	<script type="text/javascript" src="./js/main.js"></script>
-
-	<script type="text/javascript"
-		src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
 
 	<script type="text/javascript">
 		// 百度地图API功能
@@ -2007,19 +2004,14 @@
 			$.mobile.changePage("#shop", "slideup");
 		}
 
-		// 百度地图API功能
-		var map1 = new BMap.Map("contactAllmap");
-		map1.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
-		var json_data = [ [ 116.404, 39.915 ], [ 116.383752, 39.91334 ],
-				[ 116.384502, 39.932241 ] ];
-		var pointArray = new Array();
-		for (var i = 0; i < json_data.length; i++) {
-			var marker = new BMap.Marker(new BMap.Point(json_data[i][0],
-					json_data[i][1])); // 创建点
-			map1.addOverlay(marker); //增加点
-			pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
-			marker.addEventListener("click", attribute);
-		}
+		/**************店铺联系方式地图显示 start******************/
+		var contact_map = new BMap.Map("contactAllmap");
+		var point = new BMap.Point(116.331398, 39.897445);
+		contact_map.centerAndZoom(point, 12);
+		// 创建地址解析器实例
+		var contact_ceo = new BMap.Geocoder();
+		//myGeo @see shop.js
+		/**************店铺联系方式地图显示 end******************/
 	</script>
 </body>
 </html>

@@ -1038,10 +1038,13 @@ a {
 	margin: 20px auto;
 }
 
+#contactPage .contactMap{
+	
+}
+
 #contactAllmap {
-	width: 92%;
-	height: 320px;
-	margin: 5px auto 0 auto;
+	width: 100%;
+	height: 250px;
 }
 
 #contactPage .shop_top {
@@ -1050,20 +1053,6 @@ a {
 	padding-top: 10%;
 }
 
-#contactPage .shop_top .b_logo {
-	margin: 0 5% 0 5%;
-	float: left;
-}
-
-#contactPage .shop_top .b_info {
-	float: left;
-}
-
-#contactPage .shop_top .b_info h3 {
-	color: #FFF;
-	font-weight: normal;
-	margin: 5px 0;
-}
 
 
 #contactPage .shopTag {

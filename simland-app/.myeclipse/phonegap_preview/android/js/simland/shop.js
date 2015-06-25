@@ -1,53 +1,54 @@
 var shop = {
 	id : 0,// 店铺id
+	marker:{},
 	initialize : function() {
 
-		$(document).on("pagebeforeshow", "#shop1Page", function(event,data){
+		$(document).on("pagebeforeshow", "#shop1Page", function(event, data) {
 			shop.pageLoad(0)
 		});
-		$(document).on("pagebeforeshow", "#shop2Page", function(){
+		$(document).on("pagebeforeshow", "#shop2Page", function() {
 			shop.pageLoad(1)
 		});
-		$(document).on("pagebeforeshow", "#shop3Page", function(){
+		$(document).on("pagebeforeshow", "#shop3Page", function() {
 			shop.pageLoad(2)
 		});
-		$(document).on("pagebeforeshow", "#Vip1Page", function(){
+		$(document).on("pagebeforeshow", "#Vip1Page", function() {
 			shop.pageLoad(3)
 		});
-		//店铺信息页面
-		$(document).on("pagebeforeshow", "#shopInfoPage", function(){
+		// 店铺信息页面
+		$(document).on("pagebeforeshow", "#shopInfoPage", function() {
 			shop.showShop(shop.id);
 		});
-		
-		//店铺信息页面
-		$(document).on("pagebeforeshow", "#contactPage", function(){
+
+		// 店铺信息页面
+		$(document).on("pagebeforeshow", "#contactPage", function() {
 			shop.showShop(shop.id);
-			
-			// 百度地图API功能
-			var map1 = new BMap.Map("contactAllmap");
-			map1.centerAndZoom(new BMap.Point(114.133149, 22.578115), 13);
-			var json_data = [ [ 114.133149, 22.578115 ]];
-			var pointArray = new Array();
-			for (var i = 0; i < json_data.length; i++) {
-				var marker = new BMap.Marker(new BMap.Point(json_data[i][0],
-						json_data[i][1])); // 创建点
-				map1.addOverlay(marker); //增加点
-				pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
-				marker.addEventListener("click", attribute);
-			}
-			
-			
+			shop.mapLoad($("#shopInfoPage .info .s2").text());
 		});
+
 	},
-	shopInfo : function(){
-		if (shop.id <= 0)
-			return;
+	mapLoad : function(address) {
 		
+		if(shop.marker)
+			contact_map.removeOverlay(shop.marker);
+		
+		
+		// 将地址解析结果显示在地图上,并调整地图视野
+		contact_ceo.getPoint(address, function(point) {
+			
+			if (point) {
+				contact_map.centerAndZoom(point, 15);
+				contact_map.addOverlay(shop.marker = new BMap.Marker(point));
+			} else {
+				// alert("您选择地址没有解析到结果!");
+			}
+		}, "北京市");
+
 	},
 	pageLoad : function(type) {// 进入店铺
-		
+
 		$(".shop .commodityList").html("暂无商品");
-		
+
 		if (shop.id <= 0)
 			return;
 
@@ -120,7 +121,7 @@ var shop = {
 				var span = $(".shop .shop_top .b_info span");
 				$(span).removeClass();
 				$(span).addClass("star star" + data.score + "");
-				
+
 				$("#shopInfoPage .info .s1").html(data.cname);
 				$("#shopInfoPage .info .s2").html(data.caddress);
 				$("#shopInfoPage .info .s3").html(data.bmodel);
@@ -130,10 +131,10 @@ var shop = {
 				$("#shopInfoPage .info .s7").html(data.regAddress);
 				$("#shopInfoPage .info .s8").html(data.corporate);
 				$("#shopInfoPage .info .s9").html(data.people);
-			
+
 				$("#contactPage .contactBox .s1").html(data.contactPeople);
 				$("#contactPage .contactBox .s2").html(data.contact);
-				
+
 			}
 
 		}
