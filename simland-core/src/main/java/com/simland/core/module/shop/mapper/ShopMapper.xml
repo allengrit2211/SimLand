@@ -11,6 +11,7 @@
         <result property="name" column="name"/>
         <result property="cname" column="cname"/>
         <result property="caddress" column="caddress"/>
+        <result property="coordinates" column="coordinates"/>
         <result property="bmodel" column="bmodel"/>
         <result property="brand" column="brand"/>
         <result property="salesArea" column="salesArea"/>
@@ -36,6 +37,7 @@
         name name,
         cname cname,
         caddress caddress,
+        coordinates coordinates,
         bmodel bmodel,
         brand brand,
         salesArea salesArea,
@@ -64,6 +66,7 @@
 		        name,
 		        cname,
 		        caddress,
+		        coordinates,
 		        bmodel,
 		        brand,
 		        salesArea,
@@ -85,6 +88,7 @@
 		        	#{name},
 		        	#{cname},
 		        	#{caddress},
+		        	#{coordinates},
 		        	#{bmodel},
 		        	#{brand},
 		        	#{salesArea},
@@ -121,6 +125,9 @@
 		</if>
 		<if test="caddress!=null">
         	caddress = #{caddress}
+		</if>
+		<if test="coordinates!=null">
+        	coordinates = #{coordinates}
 		</if>
 		<if test="bmodel!=null">
         	bmodel = #{bmodel}
@@ -220,6 +227,10 @@
 			<if test="caddress!=null">
 	        AND caddress = #{caddress}
 	        </if>
+			<if test="coordinates!=null">
+	        AND coordinates = #{coordinates}
+	        </if>
+	        
 			<if test="bmodel!=null">
 	        AND bmodel = #{bmodel}
 	        </if>

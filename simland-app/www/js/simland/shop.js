@@ -14,6 +14,35 @@ var shop = {
 		$(document).on("pagebeforeshow", "#Vip1Page", function(){
 			shop.pageLoad(3)
 		});
+		//店铺信息页面
+		$(document).on("pagebeforeshow", "#shopInfoPage", function(){
+			shop.showShop(shop.id);
+		});
+		
+		//店铺信息页面
+		$(document).on("pagebeforeshow", "#contactPage", function(){
+			shop.showShop(shop.id);
+			
+			// 百度地图API功能
+			var map1 = new BMap.Map("contactAllmap");
+			map1.centerAndZoom(new BMap.Point(114.133149, 22.578115), 13);
+			var json_data = [ [ 114.133149, 22.578115 ]];
+			var pointArray = new Array();
+			for (var i = 0; i < json_data.length; i++) {
+				var marker = new BMap.Marker(new BMap.Point(json_data[i][0],
+						json_data[i][1])); // 创建点
+				map1.addOverlay(marker); //增加点
+				pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
+				marker.addEventListener("click", attribute);
+			}
+			
+			
+		});
+	},
+	shopInfo : function(){
+		if (shop.id <= 0)
+			return;
+		
 	},
 	pageLoad : function(type) {// 进入店铺
 		
@@ -91,6 +120,20 @@ var shop = {
 				var span = $(".shop .shop_top .b_info span");
 				$(span).removeClass();
 				$(span).addClass("star star" + data.score + "");
+				
+				$("#shopInfoPage .info .s1").html(data.cname);
+				$("#shopInfoPage .info .s2").html(data.caddress);
+				$("#shopInfoPage .info .s3").html(data.bmodel);
+				$("#shopInfoPage .info .s4").html(data.brand);
+				$("#shopInfoPage .info .s5").html(data.salesArea);
+				$("#shopInfoPage .info .s6").html(data.clientrGroup);
+				$("#shopInfoPage .info .s7").html(data.regAddress);
+				$("#shopInfoPage .info .s8").html(data.corporate);
+				$("#shopInfoPage .info .s9").html(data.people);
+			
+				$("#contactPage .contactBox .s1").html(data.contactPeople);
+				$("#contactPage .contactBox .s2").html(data.contact);
+				
 			}
 
 		}

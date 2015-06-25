@@ -915,50 +915,7 @@ a {
 /************Vip1Page end***************/
 
 /************shopInfoPage start***************/
-#shopInfoPage .ui-content {
-	margin: 0;
-	padding: 0;
-}
 
-#shopInfoPage .shop_top {
-	min-height: 78px;
-	background-color: #41AC98;
-	padding-top: 10%;
-}
-
-#shopInfoPage .shop_top .b_logo {
-	margin: 0 5% 0 5%;
-	float: left;
-}
-
-#shopInfoPage .shop_top .b_info {
-	float: left;
-}
-
-#shopInfoPage .shop_top .b_info h3 {
-	color: #FFF;
-	font-weight: normal;
-	margin: 5px 0;
-}
-
-#shopInfoPage .shop_top .b_info .star {
-	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
-	padding-left: 80px;
-	display: inline-block;
-	height: 16px;
-}
-
-#shopInfoPage .shop_top .b_btn {
-	float: left;
-	margin: 4%;
-}
-
-#shopInfoPage .shop_top .b_btn a {
-	display: inline-block;
-	background: url("../images/bg/shop1_r3_c7.jpg") repeat 50% 50%;
-	width: 34px;
-	height: 34px;
-}
 
 #shopInfoPage .shopTag {
 	width: 98%;
@@ -1042,13 +999,8 @@ a {
 /************shopInfoPage end***************/
 
 /************contactPage start***************/
-#contactPage .ui-content {
-	margin: 0;
-	padding: 0;
-}
 
 #contactPage .info {
-	background-color: #F5F5F5;
 	min-height: 300px;
 	padding-top: 20px;
 }
@@ -1113,24 +1065,6 @@ a {
 	margin: 5px 0;
 }
 
-#contactPage .shop_top .b_info .star {
-	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
-	padding-left: 80px;
-	display: inline-block;
-	height: 16px;
-}
-
-#contactPage .shop_top .b_btn {
-	float: left;
-	margin: 4%;
-}
-
-#contactPage .shop_top .b_btn a {
-	display: inline-block;
-	background: url("../images/bg/shop1_r3_c7.jpg") repeat 50% 50%;
-	width: 34px;
-	height: 34px;
-}
 
 #contactPage .shopTag {
 	width: 98%;

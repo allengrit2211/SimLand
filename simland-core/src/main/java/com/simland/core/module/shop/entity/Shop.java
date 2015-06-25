@@ -8,6 +8,7 @@ public class Shop implements java.io.Serializable {
 	private java.lang.String name;
 	private java.lang.String cname;
 	private java.lang.String caddress;
+	private java.lang.String coordinates;
 	private java.lang.String bmodel;
 	private java.lang.String brand;
 	private java.lang.String salesArea;
@@ -56,6 +57,14 @@ public class Shop implements java.io.Serializable {
 
 	public void setCaddress(java.lang.String value) {
 		this.caddress = value;
+	}
+
+	public java.lang.String getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(java.lang.String coordinates) {
+		this.coordinates = coordinates;
 	}
 
 	public java.lang.String getBmodel() {
