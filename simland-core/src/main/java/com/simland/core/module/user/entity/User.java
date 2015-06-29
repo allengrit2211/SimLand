@@ -6,16 +6,16 @@ import java.sql.Timestamp;
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private int id;
 	private String uname;
 	private String password;
 	private Timestamp lastLoginTime;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

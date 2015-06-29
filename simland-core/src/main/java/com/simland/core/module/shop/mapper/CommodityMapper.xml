@@ -178,6 +178,10 @@
 			<if test="isSpecial!=null">
 	        AND isSpecial = #{isSpecial}
 	        </if>
+			<if test="ids!=null">
+	        AND id in (${ids})
+	        </if>
+	        
 		</where>
 	</sql>
 

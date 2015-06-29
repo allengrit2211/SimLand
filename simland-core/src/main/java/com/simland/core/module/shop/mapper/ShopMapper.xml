@@ -29,6 +29,10 @@
         <result property="clogo" column="cLogo"/>
         <result property="licenseImg" column="licenseImg"/>
         <result property="score" column="score"/>
+        
+        <result property="commodityNum" column="commodityNum"/>
+        <result property="collectNum" column="collectNum"/>
+        <result property="recomm" column="recomm"/>
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -54,7 +58,10 @@
         contactPeople contactPeople,
         cLogo clogo,
         licenseImg licenseImg,
-        score score
+        score score,
+        commodityNum commodityNum,
+        collectNum collectNum,
+        recomm recomm
 	    ]]>
 	</sql>
 
@@ -83,7 +90,10 @@
 		        contactPeople,
 		        cLogo,
 		        licenseImg,
-		        score
+		        score,
+		        commodityNum,
+		        collectNum,
+		        recomm
 	        ) VALUES (
 		        	#{name},
 		        	#{cname},
@@ -105,7 +115,10 @@
 		        	#{contactPeople},
 		        	#{clogo},
 		        	#{licenseImg},
-		        	#{score}
+		        	#{score},
+		        	#{commodityNum},
+		        	#{collectNum},
+		        	#{recomm}
 	        )
 	    ]]>
 		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
@@ -180,6 +193,17 @@
 		<if test="score!=null">
         	score = #{score}
 		</if>
+		
+		<if test="commodityNum!=null">
+        	commodityNum = #{commodityNum}
+		</if>
+		<if test="collectNum!=null">
+        	collectNum = #{collectNum}
+		</if>
+		<if test="recomm!=null">
+        	recomm = #{recomm}
+		</if>
+		
 	    <![CDATA[  
         WHERE 
 	        id = #{id}
@@ -285,6 +309,17 @@
 			<if test="score!=null">
 	        AND score = #{score}
 	        </if>
+	        
+			<if test="commodityNum!=null">
+	        AND commodityNum = #{commodityNum}
+	        </if>
+			<if test="collectNum!=null">
+	        AND collectNum = #{collectNum}
+	        </if>
+			<if test="recomm!=null">
+	        AND recomm = #{recomm}
+	        </if>
+	        
 		</where>
 	</sql>
 

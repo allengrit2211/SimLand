@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.user.mapper.CollectShopMapper">
+
+	<resultMap id="CollectShopRM" type="com.simland.core.module.user.entity.CollectShop">
+        <result property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="sid" column="sid"/>
+        <result property="createTime" column="createTime"/>
+        
+        <result property="score" column="score"/>
+        <result property="cname" column="cname"/>
+        <result property="recomm" column="recomm"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        t1.id id,
+        t1.uid uid,
+        t1.sid sid,
+        t1.createTime createTime,
+        t2.score score,
+        t2.cname cname,
+        t2.recomm recomm
+	    ]]>
+	</sql>
+
+
+	<insert id="insertCollectShop" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.user.entity.CollectShop">
+	    <![CDATA[
+	        INSERT INTO t_collect_shop (
+		        uid,
+		        sid,
+		        createTime
+	        ) VALUES (
+		        	#{uid},
+		        	#{sid},
+		        	#{createTime}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateCollectShop">
+	    <![CDATA[
+        UPDATE t_collect_shop SET
+        ]]>
+		<if test="uid!=null">
+        	uid = #{uid}
+		</if>
+		<if test="sid!=null">
+        	sid = #{sid}
+		</if>
+		<if test="createTime!=null">
+        	createTime = #{createTime}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteCollectShop">
+    <![CDATA[
+        DELETE FROM t_collect_shop WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getCollectShop" resultMap="CollectShopRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_collect_shop 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getCollectShopList" resultMap="CollectShopRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_collect_shop  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="uid!=null">
+	        AND uid = #{uid}
+	        </if>
+			<if test="sid!=null">
+	        AND sid = #{sid}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getCollectShopCount" resultType="int">
+		SELECT count(*) FROM t_collect_shop
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitCollectShopList" resultMap="CollectShopRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_collect_shop t1 left join t_shop t2 on t1.sid = t2.id
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

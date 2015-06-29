@@ -50,8 +50,7 @@ public class ShopController {
 
 		Map<String, Object> json = new HashMap<String, Object>();
 
-		int currentPage = Utils.strToInteger(request
-				.getParameter("icurrentPage"));
+		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
 
 		Map<String, Object> param = new HashMap<String, Object>();
 
@@ -79,8 +78,7 @@ public class ShopController {
 		json.put("list", list);
 
 		String reJson = null;
-		logger.info(reJson = Utils.objToJsonp(json,
-				request.getParameter("callback")));
+		logger.info(reJson = Utils.objToJsonp(json, request.getParameter("callback")));
 
 		json = null;
 		param = null;
@@ -102,12 +100,10 @@ public class ShopController {
 	@ResponseBody
 	public String showShop(HttpServletRequest request, Model model) {
 
-		Shop shop = shopService.getShop(Utils.strToInteger(request
-				.getParameter("id")));
+		Shop shop = shopService.getShop(Utils.strToInteger(request.getParameter("id")));
 
 		String reJson = null;
-		logger.info(reJson = Utils.objToJsonp(shop,
-				request.getParameter("callback")));
+		logger.info(reJson = Utils.objToJsonp(shop, request.getParameter("callback")));
 
 		shop = null;
 
@@ -139,12 +135,11 @@ public class ShopController {
 			return reJson;
 		}
 
-		int currentPage = Utils.strToInteger(request
-				.getParameter("icurrentPage"));
+		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
 
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("sid", sid);
-		
+
 		if ("0".equals(type)) {
 			param.put("isNew", "1");
 		}
@@ -167,8 +162,7 @@ public class ShopController {
 		json.put("totalPage", pageView.getTotalPage());
 		json.put("list", list);
 
-		logger.info(reJson = Utils.objToJsonp(json,
-				request.getParameter("callback")));
+		logger.info(reJson = Utils.objToJsonp(json, request.getParameter("callback")));
 
 		param.clear();
 		list.clear();

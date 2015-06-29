@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.user.mapper.CollectCommodityMapper">
+
+	<resultMap id="CollectCommodityRM" type="com.simland.core.module.user.entity.CollectCommodity">
+        <result property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="cid" column="cid"/>
+        <result property="createTime" column="createTime"/>
+        <association property="commodity" column="cid" select="com.simland.core.module.shop.mapper.CommodityMapper.getCommodity"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        uid uid,
+        cid cid,
+        createTime createTime
+	    ]]>
+	</sql>
+
+
+	<insert id="insertCollectCommodity" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.user.entity.CollectCommodity">
+	    <![CDATA[
+	        INSERT INTO t_collect_commodity (
+		        uid,
+		        cid,
+		        createTime
+	        ) VALUES (
+		        	#{uid},
+		        	#{cid},
+		        	#{createTime}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateCollectCommodity">
+	    <![CDATA[
+        UPDATE t_collect_commodity SET
+        ]]>
+		<if test="uid!=null">
+        	uid = #{uid}
+		</if>
+		<if test="cid!=null">
+        	cid = #{cid}
+		</if>
+		<if test="createTime!=null">
+        	createTime = #{createTime}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteCollectCommodity">
+    <![CDATA[
+        DELETE FROM t_collect_commodity WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getCollectCommodity" resultMap="CollectCommodityRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_collect_commodity 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getCollectCommodityList" resultMap="CollectCommodityRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_collect_commodity  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="uid!=null">
+	        AND uid = #{uid}
+	        </if>
+			<if test="cid!=null">
+	        AND cid = #{cid}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getCollectCommodityCount" resultType="int">
+		SELECT count(*) FROM t_collect_commodity
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitCollectCommodityList" resultMap="CollectCommodityRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_collect_commodity
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

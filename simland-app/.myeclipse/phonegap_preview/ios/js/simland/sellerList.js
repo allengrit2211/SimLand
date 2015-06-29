@@ -1,8 +1,8 @@
 var sellerList = {
-	totalPage : 1,// 总页数
+	totalPage : 1,// 总页数,
 	initialize : function() {
 		// 店铺列表页面加载事件
-		$(document).on("pageshow", "#sellerListPage", sellerList.pageLoad);
+		$(document).on("pagebeforeshow", "#sellerListPage", sellerList.pageLoad);
 		// 商家星级排序
 		$("#sellerListPage_score_btn").click(sellerList.scoreOrder);
 
@@ -35,6 +35,7 @@ var sellerList = {
 			sort : "",
 			sortType : ""
 		});
+
 	},
 	scroll : function() {// 商家列表页面，滚动分页
 
@@ -60,31 +61,29 @@ var sellerList = {
 		 * 滚动翻页 （自定义实现此方法） myScroll.refresh(); // 数据加载完成后，调用界面更新方法
 		 */
 		function pullUpAction() {
-			setTimeout(
-					function() { // <-- Simulate network congestion, remove
-						// setTimeout from production!
+			setTimeout(function() { // <-- Simulate network congestion, remove
+				// setTimeout from production!
 
-						var currentPage = parseInt($(
-								"#sellerListPage_currentPage").val()) + 1;
+				var currentPage = parseInt($("#sellerListPage_currentPage").val()) + 1;
 
-						if (currentPage > sellerList.totalPage) {
-							pullUpEl.className = '';
-							pullUpEl.querySelector('.pullUpLabel').innerHTML = '已经到达最后一页...';
-							myScroll.refresh(); // 数据加载完成后，调用界面更新方法 Remember to
-							// refresh when
-							return;
-						}
+				if (currentPage > sellerList.totalPage) {
+					pullUpEl.className = '';
+					pullUpEl.querySelector('.pullUpLabel').innerHTML = '已经到达最后一页...';
+					myScroll.refresh(); // 数据加载完成后，调用界面更新方法 Remember to
+					// refresh when
+					return;
+				}
 
-						sellerList.selerListPageShow({
-							currentPage : currentPage,
-							reset : 1
-						});
+				sellerList.selerListPageShow({
+					currentPage : currentPage,
+					reset : 1
+				});
 
-						myScroll.refresh(); // 数据加载完成后，调用界面更新方法 Remember to
-						// refresh when
-						// contents are loaded (ie: on ajax
-						// completion)
-					}, 300); // <-- Simulate network congestion, remove
+				myScroll.refresh(); // 数据加载完成后，调用界面更新方法 Remember to
+				// refresh when
+				// contents are loaded (ie: on ajax
+				// completion)
+			}, 300); // <-- Simulate network congestion, remove
 			// setTimeout
 			// from production!
 		}
@@ -98,64 +97,57 @@ var sellerList = {
 			pullUpEl = document.getElementById('sellerListPage_pullUp');
 			pullUpOffset = pullUpEl.offsetHeight;
 
-			myScroll = new iScroll(
-					'sellerListPage_wrapper',
-					{
-						scrollbarClass : 'myScrollbar', /* 重要样式 */
-						useTransition : false, /* 此属性不知用意，本人从true改为false */
-						checkDOMChanges : true,
-						topOffset : pullDownOffset,
-						onRefresh : function() {
-							if (pullDownEl.className.match('loading')) {
-								pullDownEl.className = '';
-								pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
-							} else if (pullUpEl.className.match('loading')) {
-								pullUpEl.className = '';
-								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
-							}
-						},
-						onScrollMove : function() {
-							if (this.y > 5
-									&& !pullDownEl.className.match('flip')) {
-								pullDownEl.className = 'flip';
-								pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
-								this.minScrollY = 0;
-							} else if (this.y < 5
-									&& pullDownEl.className.match('flip')) {
-								pullDownEl.className = '';
-								pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
-								this.minScrollY = -pullDownOffset;
-							} else if (this.y < (this.maxScrollY - 5)
-									&& !pullUpEl.className.match('flip')) {
-								pullUpEl.className = 'flip';
-								pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
-								this.maxScrollY = this.maxScrollY;
-							} else if (this.y > (this.maxScrollY + 5)
-									&& pullUpEl.className.match('flip')) {
-								pullUpEl.className = '';
-								pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
-								this.maxScrollY = pullUpOffset;
-							}
-						},
-						onScrollEnd : function() {
-							if (pullDownEl.className.match('flip')) {
-								pullDownEl.className = 'loading';
-								pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';
-								pullDownAction(); // Execute custom function
-								// (ajax call?)
-							} else if (pullUpEl.className.match('flip')) {
-								pullUpEl.className = 'loading';
-								pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
-								pullUpAction(); // Execute custom function (ajax
-								// call?)
-							}
-						}
-					});
+			myScroll = new iScroll('sellerListPage_wrapper', {
+				scrollbarClass : 'myScrollbar', /* 重要样式 */
+				useTransition : false, /* 此属性不知用意，本人从true改为false */
+				checkDOMChanges : true,
+				topOffset : pullDownOffset,
+				onRefresh : function() {
+					if (pullDownEl.className.match('loading')) {
+						pullDownEl.className = '';
+						pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+					} else if (pullUpEl.className.match('loading')) {
+						pullUpEl.className = '';
+						pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+					}
+				},
+				onScrollMove : function() {
+					if (this.y > 5 && !pullDownEl.className.match('flip')) {
+						pullDownEl.className = 'flip';
+						pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+						this.minScrollY = 0;
+					} else if (this.y < 5 && pullDownEl.className.match('flip')) {
+						pullDownEl.className = '';
+						pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+						this.minScrollY = -pullDownOffset;
+					} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+						pullUpEl.className = 'flip';
+						pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+						this.maxScrollY = this.maxScrollY;
+					} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+						pullUpEl.className = '';
+						pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+						this.maxScrollY = pullUpOffset;
+					}
+				},
+				onScrollEnd : function() {
+					if (pullDownEl.className.match('flip')) {
+						pullDownEl.className = 'loading';
+						pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';
+						pullDownAction(); // Execute custom function
+						// (ajax call?)
+					} else if (pullUpEl.className.match('flip')) {
+						pullUpEl.className = 'loading';
+						pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+						pullUpAction(); // Execute custom function (ajax
+						// call?)
+					}
+				}
+			});
 
-			setTimeout(
-					function() {
-						document.getElementById('sellerListPage_wrapper').style.left = '0';
-					}, 300);
+			setTimeout(function() {
+				document.getElementById('sellerListPage_wrapper').style.left = '0';
+			}, 300);
 		}
 
 		// 初始化绑定iScroll控件
@@ -174,7 +166,7 @@ var sellerList = {
 	selerListPageShow : function(option) {// 商家列表显示
 		// 设置搜索参数
 		sellerList.serchParam(option);
-		
+
 		$.ajax({
 			type : "get",
 			url : app.servicerURL + "shop/list",
@@ -193,12 +185,11 @@ var sellerList = {
 			if (data.totalPage)
 				sellerList.totalPage = data.totalPage;
 
-			if(data.list&&data.list.length==0){
+			if (data.list && data.list.length == 0) {
 				$("#sellerListPage .boxList").html("没有搜索到任何数据...");
 				return;
 			}
-			
-			
+
 			var htmlStr = "";
 			if (data.list && data.list.length != 0) {
 				for (var i = 0; i < data.list.length; i++) {
@@ -213,13 +204,20 @@ var sellerList = {
 			if (option.reset == 1) {
 				$("#sellerListPage .boxList").append(htmlStr);
 			}
-			
-			
-			if($("#sellerListPage_stype").val()==1){
-				$("#sellerListPage .boxList .box .p1").textSearch($("#sellerListPage_search_k").val(),{markColor: "#44BBAB"});
-			}else	
-				$("#sellerListPage .boxList .box .a0").textSearch($("#sellerListPage_search_k").val(),{markColor: "#44BBAB"});
-			
+
+			if ($("#sellerListPage_stype").val() == 1) {
+				$("#sellerListPage .boxList .box .p1").textSearch($("#sellerListPage_search_k").val(), {
+					markColor : "#44BBAB"
+				});
+			} else
+				$("#sellerListPage .boxList .box .a0").textSearch($("#sellerListPage_search_k").val(), {
+					markColor : "#44BBAB"
+				});
+
+			// 店铺收藏事件加载
+			shop.collectShopEvent();
+			// 跳转到店铺事件加载
+			shop.toShopEvent();
 		}
 
 	},
@@ -227,8 +225,7 @@ var sellerList = {
 		var html = "";
 		html += "<div class='box'>";
 		html += "<p>";
-		html += "<a onclick='shop.id="+jsonData.id+"' href='?id="+jsonData.id+"#shop1Page' class='a0 ui-link'>" + jsonData.cname
-				+ "</a>";
+		html += "<a sid='" + jsonData.id + "' href='#shop1Page' class='toShop a0 ui-link'>" + jsonData.cname + "</a>";
 		html += "<a href='#' class='a1 ui-link'>260M</a>";
 		html += "</p>";
 		html += "<p>" + jsonData.caddress + "</p>";
@@ -237,9 +234,10 @@ var sellerList = {
 		html += "</p>";
 		html += "<div class='line'></div>";
 		html += "<p class='p2'>";
-		html += "<span class='s1'>965</span> <span>件产品</span> | <span class='s2'>&nbsp;</span> <span class='s3'>236</span> <span>次</span>";
-		html += "<span class='s4 star star" + jsonData.score
-				+ "'>&nbsp;</span>";
+		html += "<span class='s1'>" + jsonData.commodityNum + "</span> <span>件产品</span> |";
+		html += " <a href='#' class='a2' sid='" + jsonData.id + "'><span class='s2'>&nbsp;</span> "
+		html += "<span class='s3'>" + jsonData.collectNum + "</span></a> <span>次</span>";
+		html += "<span class='s4 star star" + jsonData.score + "'>&nbsp;</span>";
 		html += "</p>";
 		html += "</div>";
 		return html;
@@ -254,14 +252,14 @@ var sellerList = {
 			sortType : 1
 		});
 	},
-	sellerListPageForm : function(){
-		try{
+	sellerListPageForm : function() {
+		try {
 			sellerList.selerListPageShow({
-				k:$("#sellerListPage_search_k").val(),
+				k : $("#sellerListPage_search_k").val(),
 				currentPage : 1,
 				reset : 0
 			});
-		}catch(e){
+		} catch (e) {
 			return false;
 		}
 		return false;

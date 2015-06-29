@@ -14,6 +14,7 @@ import com.simland.appservice.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.module.user.entity.User;
+import com.simland.core.module.user.service.ICollectShopService;
 import com.simland.core.module.user.service.IUserService;
 
 @Controller
@@ -24,6 +25,9 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
+	@Autowired
+	private ICollectShopService collectShopService;
+
 	@RequestMapping(value = "/user/login")
 	@ResponseBody
 	public String login(HttpServletRequest request, Model model) {
@@ -33,12 +37,12 @@ public class UserController {
 		String callback = request.getParameter("callback");
 		String uname = request.getParameter("uname");
 		String upw = request.getParameter("upw");
+		String toUrl = request.getParameter("toUrl");
 
 		if (Utils.isObjectEmpty(uname) || Utils.isObjectEmpty(upw)) {
 			msg.setCode("-1");
 			msg.setMsg("用户名或密码不能为空");
-			return reJson = Utils.objToJsonp(msg,
-					request.getParameter("callback"));
+			return reJson = Utils.objToJsonp(msg, request.getParameter("callback"));
 		}
 
 		User user = userService.login(uname, upw, msg);
@@ -46,8 +50,11 @@ public class UserController {
 			request.getSession().setAttribute(Constants.USER_SESSION, user);
 		}
 
-		logger.info(this.getClass().getName() + " uname=" + uname + " "
-				+ (reJson = Utils.objToJsonp(msg, callback)));
+		if (Utils.isObjectNotEmpty(toUrl)) {
+			msg.setToUrl(toUrl);
+		}
+
+		logger.info(this.getClass().getName() + " uname=" + uname + " " + (reJson = Utils.objToJsonp(msg, callback)));
 		msg = null;
 		return reJson;
 	}
@@ -74,10 +81,9 @@ public class UserController {
 			msg.setMsg("未登录");
 		}
 
-		logger.info(this.getClass().getName()
-				+ (reJson = Utils.objToJsonp(msg,
-						request.getParameter("callback"))));
+		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
 
 		return reJson;
 	}
+
 }

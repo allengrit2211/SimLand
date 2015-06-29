@@ -27,6 +27,10 @@ public class Shop implements java.io.Serializable {
 	private java.lang.String licenseImg;
 	private java.lang.String score;
 
+	private java.lang.Integer commodityNum;
+	private java.lang.Integer collectNum;
+	private java.lang.String recomm;
+
 	public java.lang.Integer getId() {
 		return this.id;
 	}
@@ -203,4 +207,29 @@ public class Shop implements java.io.Serializable {
 		this.score = value;
 	}
 
+	public java.lang.Integer getCommodityNum() {
+		return commodityNum;
+	}
+
+	public void setCommodityNum(java.lang.Integer commodityNum) {
+		this.commodityNum = commodityNum;
+	}
+
+	public java.lang.Integer getCollectNum() {
+		return collectNum;
+	}
+
+	public void setCollectNum(java.lang.Integer collectNum) {
+		this.collectNum = collectNum;
+	}
+
+	public java.lang.String getRecomm() {
+		return recomm;
+	}
+
+	public void setRecomm(java.lang.String recomm) {
+		this.recomm = recomm;
+	}
+
+	
 }

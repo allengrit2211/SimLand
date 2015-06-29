@@ -1955,14 +1955,7 @@ a {
 	display: inline-block;
 }
 
-#myCollectShopPage .collectList .collectBox .star {
-	background: url("../images/bg/map_dianpu_r6_c4.jpg") repeat 0 50%;
-	padding-left: 80px;
-	display: inline-block;
-	height: 16px;
-	margin-top: 2px;
-	vertical-align: -4px;
-}
+
 
 #myCollectShopPage .collectList .collectBox .c_imgs {
 	padding-top: 10px;
@@ -1970,8 +1963,15 @@ a {
 }
 
 #myCollectShopPage .collectList .collectBox .c_imgs img {
-	padding: 10px;
+	padding: 4px;
 	border: 1px solid #EEE;
+	width:100%;
+}
+
+#myCollectShopPage .collectList .collectBox .c_imgs .a1{
+	display: inline-block;
+	width:61px;
+	padding:10px;
 }
 
 #myCollectShopPage .p_last {
@@ -2022,23 +2022,22 @@ a {
 	color: #FFF;
 }
 
-#myCollectCommodityPage .commodity_list .commodityBox {
-	margin: 20px 0 0 10%;
+#myCollectCommodityPage .commodity_list{
+	padding:10px;
 }
 
-#myCollectCommodityPage .commodity_list .commodityBox .info .p1 {
+
+#myCollectCommodityPage .commodityBox .img{
+	width:25%;
 	display: inline-block;
-	margin: 10px 0 10px 0;
+}
+#myCollectCommodityPage .commodityBox .info{
+	width:75%;
+	display: inline-block;
 }
 
-#myCollectCommodityPage .commodity_list .commodityBox .info .p2 .s1 {
-	color: #41AC98;
-	margin-right: 10px;
-}
 
-#myCollectCommodityPage .commodity_list .commodityBox .img {
-	float: left;
-}
+
 
 #myCollectCommodityPage .p_last {
 	color: #CDCDCD;

@@ -32,7 +32,7 @@ public class Utils {
 	public static boolean isObjectNotEmpty(Object objects) {
 		return !isObjectEmpty(objects);
 	}
-	
+
 	public static String URLDecode(String url) {
 		try {
 			return URLDecoder.decode(url, "UTF-8");
@@ -71,8 +71,7 @@ public class Utils {
 		}
 		if (randGen == null) {
 			randGen = new Random();
-			numbersAndLetters = ("0123456789abcdefghijklmnopqrstuvwxyz"
-					+ "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
+			numbersAndLetters = ("0123456789abcdefghijklmnopqrstuvwxyz" + "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
 		}
 		char[] randBuffer = new char[length];
 		for (int i = 0; i < randBuffer.length; i++) {
@@ -136,8 +135,7 @@ public class Utils {
 
 	public static Integer getJSONObjectIntegerVal(Object object, String key) {
 		try {
-			return new BigDecimal(JSONObject.fromObject(object).get(key) + "")
-					.intValue();
+			return new BigDecimal(JSONObject.fromObject(object).get(key) + "").intValue();
 		} catch (Exception e) {
 			return 0;
 		}
@@ -184,8 +182,7 @@ public class Utils {
 
 	public static Date getDefaultDate() {
 		String format = new String("yyyy-MM-dd");
-		Date defaultDate = Utils.stringToDate(Utils.getToday(format)
-				+ " 00:00:00.000", format + " hh:mm:ss.SSS");
+		Date defaultDate = Utils.stringToDate(Utils.getToday(format) + " 00:00:00.000", format + " hh:mm:ss.SSS");
 		return defaultDate;
 	}
 
@@ -231,8 +228,7 @@ public class Utils {
 	}
 
 	// generate csv content
-	public static String getCsvMessage(List<String> rowMapper,
-			List<Map<String, String>> exportData) {
+	public static String getCsvMessage(List<String> rowMapper, List<Map<String, String>> exportData) {
 		StringBuffer strBuffer = new StringBuffer("");
 		if (isObjectNotEmpty(exportData) && !exportData.isEmpty()) {
 			// 写入文件头部
@@ -244,11 +240,9 @@ public class Utils {
 			}
 			strBuffer.append("\n");
 			// 写入文件内容
-			for (Iterator<Map<String, String>> iterator = exportData.iterator(); iterator
-					.hasNext();) {
+			for (Iterator<Map<String, String>> iterator = exportData.iterator(); iterator.hasNext();) {
 				Map<String, String> row = iterator.next();
-				for (Iterator<Entry<String, String>> it = row.entrySet()
-						.iterator(); it.hasNext();) {
+				for (Iterator<Entry<String, String>> it = row.entrySet().iterator(); it.hasNext();) {
 					java.util.Map.Entry<String, String> entry = it.next();
 					strBuffer.append(entry.getValue());
 					if (it.hasNext()) {
@@ -270,8 +264,8 @@ public class Utils {
 			return "{}";
 		}
 	}
-	
-	public static String arrayToJson(Object obj){
+
+	public static String arrayToJson(Object obj) {
 		try {
 			return JSONArray.fromObject(obj).toString();
 		} catch (Exception e) {
@@ -282,10 +276,9 @@ public class Utils {
 	public static String objToJsonp(Object obj, String callBackName) {
 		if (Utils.isObjectEmpty(obj))
 			return "{}";
-		
+
 		try {
-			return callBackName + "(" + JSONObject.fromObject(obj).toString()
-					+ ")";
+			return callBackName + "(" + JSONObject.fromObject(obj).toString() + ")";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "{}";
@@ -298,12 +291,62 @@ public class Utils {
 			return "[]";
 
 		try {
-			return callBackName + "(" + JSONArray.fromObject(obj).toString()
-					+ ")";
+			return callBackName + "(" + JSONArray.fromObject(obj).toString() + ")";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "[]";
 		}
+	}
+
+	public static String notNullTrim(String strTemp) {
+		if (strTemp == null) {
+			return "";
+		} else if ("null".equalsIgnoreCase(strTemp.trim())) {
+			return "";
+		} else {
+			return strTemp.trim();
+		}
+	}
+
+	/**
+	 * 将字符串数组转化成中间用逗号分割的字符串 "a,b,c"
+	 */
+	public static String getStrs(String[] strs) {
+
+		List<String> params = new ArrayList<String>();
+		for (int i = 0; strs != null && i < strs.length; i++) {
+			if (Utils.isObjectNotEmpty(strs[i]) && !("null".equalsIgnoreCase(strs[i])))
+				params.add(strs[i]);
+		}
+
+		StringBuffer ids = new StringBuffer();
+		for (int i = 0; i < params.size(); i++) {
+			if (i == params.size() - 1) {
+				ids.append(Utils.notNullTrim(params.get(i)));
+			} else {
+				ids.append(Utils.notNullTrim(params.get(i)) + ",");
+			}
+		}
+		return ids.toString();
+	}
+
+	/**
+	 * 将字符串数组转化成中间用逗号分割的字符串 "'a','b','c'"
+	 */
+	public static String getRecordIds(String[] recordIds) {
+		if (recordIds == null || recordIds.length == 0)
+			return "";
+		if (recordIds.length == 1)
+			return recordIds[0];
+		StringBuffer ids = new StringBuffer();
+		for (int i = 0; i < recordIds.length; i++) {
+			if (i == recordIds.length - 1) {
+				ids.append("'" + recordIds[i] + "'");
+			} else {
+				ids.append("'" + recordIds[i] + "'" + ",");
+			}
+		}
+		return ids.toString();
 	}
 
 	public static void main(String[] args) {
