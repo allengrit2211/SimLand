@@ -17,7 +17,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.simland.appservice.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
@@ -34,20 +33,6 @@ public class CollectCommodityController {
 	private ICollectCommodityService collectCommodityService;
 
 	/***
-	 * 登录检测
-	 * 
-	 * @return
-	 */
-	private User loginChk(HttpServletRequest request) {
-		Object obj = request.getSession().getAttribute(Constants.USER_SESSION);
-		if (Utils.isObjectEmpty(obj)) {
-			return null;
-		} else {
-			return (User) obj;
-		}
-	}
-
-	/***
 	 * 收藏店铺
 	 * 
 	 * @param request
@@ -60,12 +45,12 @@ public class CollectCommodityController {
 		String reJson = null;
 		SysMessage msg = new SysMessage();
 		User user = null;
-		if (Utils.isObjectEmpty(user = loginChk(request))) {
-			msg.setCode("-1");
-			msg.setMsg("请先登录");
-			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
-			return reJson;
-		}
+//		if (Utils.isObjectEmpty(user = loginChk(request))) {
+//			msg.setCode("-1");
+//			msg.setMsg("请先登录");
+//			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+//			return reJson;
+//		}
 
 		String cid = request.getParameter("cid");
 		if (Utils.isObjectEmpty(cid)) {
@@ -125,25 +110,13 @@ public class CollectCommodityController {
 	 * @return
 	 */
 	@RequestMapping(value = "/user/collectCommodityShow")
-	@ResponseBody
 	public String collectCommodityShow(HttpServletRequest request, Model model) {
-
-		Map<String, Object> json = new HashMap<String, Object>();
-		String reJson = null;
-
-		User user = null;
-		if (Utils.isObjectEmpty(user = loginChk(request))) {
-			json.put("code", "-1");
-			json.put("msg", "请先登录");
-			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(json, request.getParameter("callback"))));
-			return reJson;
-		}
 
 		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
 
 		Map<String, Object> param = new HashMap<String, Object>();
 
-		param.put("uid", user.getId());
+		// param.put("uid", user.getId());
 
 		int totalRecord = collectCommodityService.getCollectCommodityCount(param);
 		PageView pageView = new PageView();
@@ -155,16 +128,15 @@ public class CollectCommodityController {
 
 		List<CollectCommodity> list = collectCommodityService.getSplitCollectCommodityList(param);
 
-		json.put("code", "1");
-		json.put("totalPage", pageView.getTotalPage());
-		json.put("list", list);
-
-		logger.info(reJson = Utils.objToJsonp(json, request.getParameter("callback")));
+		model.addAttribute("code", "1");
+		model.addAttribute("totalPage", pageView.getTotalPage());
+		model.addAttribute("list", list);
 
 		param.clear();
-		list.clear();
 
-		return reJson;
+		model.addAttribute("list", list);
+
+		return "user/collectCommodityShow";
 	}
 
 }

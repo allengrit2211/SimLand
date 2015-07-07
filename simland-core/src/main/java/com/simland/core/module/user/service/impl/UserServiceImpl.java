@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +20,7 @@ import com.simland.core.module.user.service.IUserService;
 
 @Service("userService")
 @Transactional(rollbackFor = java.lang.Exception.class)
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements IUserService, UserDetailsService {
 
 	@Autowired
 	private UserMapper userMapper;
@@ -39,8 +42,7 @@ public class UserServiceImpl implements IUserService {
 			return null;
 		}
 
-		if (user.getPassword().equalsIgnoreCase(
-				MD5Util.encode(password.getBytes()))) {
+		if (user.getPassword().equalsIgnoreCase(MD5Util.encode(password.getBytes()))) {
 			msg.setCode("2");
 			msg.setMsg("登录成功");
 			return user;
@@ -51,4 +53,22 @@ public class UserServiceImpl implements IUserService {
 		}
 
 	}
+
+	/****
+	 * 登录安全验证
+	 */
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("uname", username);
+
+		List users = userMapper.getUserList(param);
+		if (users == null || users.isEmpty()) {
+			throw new UsernameNotFoundException("user '" + username + "' not found...");
+		} else {
+			return (UserDetails) users.get(0);
+		}
+	}
+
 }

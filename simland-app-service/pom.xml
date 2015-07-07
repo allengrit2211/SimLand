@@ -10,9 +10,6 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<org.springframework.version>4.0.8.RELEASE</org.springframework.version>
-		<jettyVersion>8.0.4.v20111024</jettyVersion>
 		<com.simland.version>1.0.0</com.simland.version>
 	</properties>
 
@@ -26,8 +23,8 @@
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 		</dependency>
 
 	</dependencies>

@@ -1,13 +1,15 @@
 package com.simland.core.module.shop.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.simland.core.module.shop.mapper.CommodityMapper;
 import com.simland.core.module.shop.entity.Commodity;
+import com.simland.core.module.shop.mapper.CommodityMapper;
 import com.simland.core.module.shop.service.ICommodityService;
 
 @Service("commodityService")
@@ -43,6 +45,19 @@ public class CommodityServiceImpl implements ICommodityService {
 
 	public List<Commodity> getSplitCommodityList(Map param) {
 		return commodityMapper.getSplitCommodityList(param);
+	}
+
+	@Override
+	public Commodity getCommodity(Integer id) {
+
+		if (id == null || id <= 0)
+			return null;
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("id", id);
+		Commodity c = commodityMapper.getCommodity(param);
+		param = null;
+		return c;
 	}
 
 }

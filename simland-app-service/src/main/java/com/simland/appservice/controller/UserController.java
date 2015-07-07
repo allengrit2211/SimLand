@@ -1,13 +1,22 @@
 package com.simland.appservice.controller;
 
+import java.lang.ProcessBuilder.Redirect;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simland.appservice.base.Constants;
@@ -28,13 +37,51 @@ public class UserController {
 	@Autowired
 	private ICollectShopService collectShopService;
 
-	@RequestMapping(value = "/user/login")
-	@ResponseBody
-	public String login(HttpServletRequest request, Model model) {
+	/****
+	 * 登录页面
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/loginPage")
+	public String login() {
+		return "login";
+	}
 
-		String reJson = null;
+	/**
+	 * 退出
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/logout")
+	public String logout() {
+		logger.debug("logout");
+		return "logout";
+	}
+
+	/***
+	 * 用户中心
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/user/userCenter")
+	public String userCenter() {
+		return "user/userCenter";
+	}
+
+	/***
+	 * 消息中心
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/user/messageCenter")
+	public String messageCenter() {
+		return "user/messageCenter";
+	}
+
+	@RequestMapping(value = "/logindo")
+	public String logindo(HttpServletRequest request, Model model) {
+
 		SysMessage msg = new SysMessage();
-		String callback = request.getParameter("callback");
 		String uname = request.getParameter("uname");
 		String upw = request.getParameter("upw");
 		String toUrl = request.getParameter("toUrl");
@@ -42,21 +89,28 @@ public class UserController {
 		if (Utils.isObjectEmpty(uname) || Utils.isObjectEmpty(upw)) {
 			msg.setCode("-1");
 			msg.setMsg("用户名或密码不能为空");
-			return reJson = Utils.objToJsonp(msg, request.getParameter("callback"));
+			return "login";
 		}
 
-		User user = userService.login(uname, upw, msg);
-		if (Utils.isObjectNotEmpty(user)) {
-			request.getSession().setAttribute(Constants.USER_SESSION, user);
-		}
+		// User user = userService.login(uname, upw, msg);
+		// if (Utils.isObjectNotEmpty(user)) {
+		// request.getSession().setAttribute(Constants.USER_SESSION, user);
+		// }
+
+		// spring security 将权限及用户信息存入securityContext
+		UserDetails userDetails = userService.loadUserByUsername(uname);
+		Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		securityContext.setAuthentication(authentication);
+		HttpSession session = request.getSession(true);
+		session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
+
 
 		if (Utils.isObjectNotEmpty(toUrl)) {
-			msg.setToUrl(toUrl);
+			return "redirect:" + toUrl;
 		}
 
-		logger.info(this.getClass().getName() + " uname=" + uname + " " + (reJson = Utils.objToJsonp(msg, callback)));
-		msg = null;
-		return reJson;
+		return "index";
 	}
 
 	/***
@@ -66,7 +120,7 @@ public class UserController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/user/isLogin")
+	@RequestMapping(value = "/isLogin")
 	@ResponseBody
 	public String isLogin(HttpServletRequest request, Model model) {
 		String reJson = null;

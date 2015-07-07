@@ -12,7 +12,9 @@
 <link rel="stylesheet" href="./css/jquery.mobile-1.4.3.css" />
 <link rel="stylesheet" href="./js/iscroll/scrollbar.css"  type="text/css">
 <link rel="stylesheet" href="css/style.css" />
-
+<script type="text/javascript">
+location.href='http://192.168.10.129:8080/simland-app-service/main'
+</script>
 
 </head>
 
@@ -1683,7 +1685,7 @@
 				<a data-transition="none" href="#" data-role="button" data-rel="back"
 					class="back" data-icon="arrow-l">&nbsp;</a>
 				<h1>
-				<form action="#sellerListPage" method="get" id="sellerListPage_form" onsubmit="return sellerList.sellerListPageForm()">
+				<form action="#sellerListPage" method="get" id="sellerListPage_form" onSubmit="return sellerList.sellerListPageForm()">
 					<input type="search" name="k" id="sellerListPage_search_k" placeholder="商家名称">
 					<input type="hidden" name="icurrentPage" id="sellerListPage_currentPage" value="1">
 					<input type="hidden" name="sort" id="sellerListPage_score">

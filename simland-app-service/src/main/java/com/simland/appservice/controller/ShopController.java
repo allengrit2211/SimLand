@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
@@ -40,15 +39,13 @@ public class ShopController {
 	 * @return
 	 */
 	@RequestMapping(value = "/shop/list")
-	@ResponseBody
 	public String list(HttpServletRequest request, Model model) {
 
 		String sort = request.getParameter("sort");
 		String sortType = request.getParameter("sortType");
 		String k = request.getParameter("k");
+		String k1 = request.getParameter("k1");
 		String stype = request.getParameter("stype");// 搜索类型
-
-		Map<String, Object> json = new HashMap<String, Object>();
 
 		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
 
@@ -58,10 +55,13 @@ public class ShopController {
 			param.put("sortColumns", "score");
 		param.put("sortType", sortType);
 
-		if ("1".equals(stype))
-			param.put("engageLike", (k + "").trim());
-		else
+		if ("1".equals(stype) && Utils.isObjectNotEmpty(k1)) {
+			param.put("engageLike", (k1 + "").trim());
+		}
+
+		if ("0".equals(stype) && Utils.isObjectNotEmpty(k)) {
 			param.put("cnameLike", (k + "").trim());
+		}
 
 		int totalRecord = shopService.getShopCount(param);
 
@@ -74,19 +74,31 @@ public class ShopController {
 
 		List<Shop> list = shopService.getSplitShopList(param);
 
-		json.put("totalPage", pageView.getTotalPage());
-		json.put("list", list);
+		model.addAttribute("totalPage", pageView.getTotalPage());
+		model.addAttribute("list", list);
+		
+		model.addAttribute("sort", sort);
+		
+		model.addAttribute("sort", sort);
+		model.addAttribute("sortType", sortType);
+		model.addAttribute("k", k);
+		model.addAttribute("k1", k1);
+		model.addAttribute("stype", stype);
 
-		String reJson = null;
-		logger.info(reJson = Utils.objToJsonp(json, request.getParameter("callback")));
+		
 
-		json = null;
 		param = null;
 		pageView = null;
 		list = null;
 
-		return reJson;
+		return "shop/sellerList";
 
+	}
+	
+	@RequestMapping(value = "/shop/listAjax")
+	public String listAjax(HttpServletRequest request, Model model){
+		this.list(request, model);
+		return "shop/sellerListAjax";
 	}
 
 	/**
@@ -97,17 +109,23 @@ public class ShopController {
 	 * @return
 	 */
 	@RequestMapping(value = "/shop/showShop")
-	@ResponseBody
 	public String showShop(HttpServletRequest request, Model model) {
 
 		Shop shop = shopService.getShop(Utils.strToInteger(request.getParameter("id")));
 
-		String reJson = null;
-		logger.info(reJson = Utils.objToJsonp(shop, request.getParameter("callback")));
+		// String reJson = null;
+		// logger.info(reJson = Utils.objToJsonp(shop,
+		// request.getParameter("callback")));
 
-		shop = null;
+		model.addAttribute("shop", shop);
 
-		return reJson;
+		if (Utils.isObjectNotEmpty(shop)) {
+			model.addAttribute("list1", shopCommodity("0", shop.getId()));
+			model.addAttribute("list2", shopCommodity("1", shop.getId()));
+			model.addAttribute("list3", shopCommodity(null, shop.getId()));
+		}
+
+		return "/shop/shopShow";
 
 	}
 
@@ -118,24 +136,10 @@ public class ShopController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/shop/commodityList")
-	@ResponseBody
-	public String commodityNew(HttpServletRequest request, Model model) {
+	private List<Commodity> shopCommodity(String type, Integer sid) {
 
-		String reJson = null;
-
-		Map<String, Object> json = new HashMap<String, Object>();
-
-		String type = request.getParameter("type");// 0 新品 1特价
-
-		String sid = request.getParameter("sid");
-		if (Utils.isObjectEmpty(sid)) {
-			json.put("code", "-1");
-			reJson = Utils.objToJsonp(json, request.getParameter("callback"));
-			return reJson;
-		}
-
-		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
+		if (Utils.isObjectEmpty(sid))
+			return null;
 
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("sid", sid);
@@ -150,23 +154,44 @@ public class ShopController {
 		int totalRecord = commodityService.getCommodityCount(param);
 
 		PageView pageView = new PageView();
-		pageView.setCurrentPage(currentPage);
+		pageView.setCurrentPage(1);
 		pageView.setPageSize(100);
 		pageView.setTotalRecord(totalRecord);
 		param.put("endSize", pageView.getFirstResult());
 		param.put("pageSize", pageView.getPageSize());
 
-		List<Commodity> list = commodityService.getSplitCommodityList(param);
+		return commodityService.getSplitCommodityList(param);
 
-		json.put("code", "1");
-		json.put("totalPage", pageView.getTotalPage());
-		json.put("list", list);
-
-		logger.info(reJson = Utils.objToJsonp(json, request.getParameter("callback")));
-
-		param.clear();
-		list.clear();
-
-		return reJson;
 	}
+
+	/****
+	 * 联系方式
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/shop/contact")
+	public String contactPage(HttpServletRequest request, Model model) {
+
+		Shop shop = shopService.getShop(Utils.strToInteger(request.getParameter("id")));
+
+		model.addAttribute("shop", shop);
+
+		return "shop/shopContact";
+	}
+
+	/****
+	 * 详细信息
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/shop/info")
+	public String info(HttpServletRequest request, Model model) {
+
+		Shop shop = shopService.getShop(Utils.strToInteger(request.getParameter("id")));
+
+		model.addAttribute("shop", shop);
+
+		return "shop/shopInfo";
+	}
+
 }

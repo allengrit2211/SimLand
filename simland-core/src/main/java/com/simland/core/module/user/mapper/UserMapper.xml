@@ -3,7 +3,6 @@
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 
-<!-- 不使用namespace的话sql搜索定位会比较方便 -->
 <mapper namespace="com.simland.core.module.user.mapper.UserMapper">
 
 	<resultMap id="UserRM" type="com.simland.core.module.user.entity.User">
