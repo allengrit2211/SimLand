@@ -10,11 +10,17 @@ var shop = {
 		
 		
 		// 加载店铺收藏事件
-		$("#sellerListPage .boxList .box .p2 .a2").click(function() {
-			
-			shop.collectShop($(this), $(this).attr("sid"));
-		});
+		shop.collectShopEvent();
 		
+	},
+	collectShopEvent : function(){
+		
+		 $("#sellerListPage .boxList .box .p2 .a2").unbind("click");
+		
+		// 加载店铺收藏事件
+		$("#sellerListPage .boxList .box .p2 .a2").click(function() {
+			shop.collectShop($(this), $(this).attr("sid"));
+		});	
 	},
 	collectShop : function(obj, sid) {
 		
@@ -24,9 +30,7 @@ var shop = {
 		$.ajax({
 			type : "get",
 			url : app.servicerURL + "user/collectShop",
-			data : {
-				sid : sid
-			},
+			data : {sid : sid,ajax:"ajax"},
 			cache : false,
 			async : false,
 			dataType : 'jsonp',
@@ -37,8 +41,8 @@ var shop = {
 		});
 
 		function collectShopCallBack(data) {
-			if (data && data.code == -1) {
-				$.mobile.changePage("#loginPage", "slideup");
+			if (data && data.code == -100) {
+				$.mobile.changePage(app.servicerURL +"/loginPage", "slideup");
 			} else {
 				if (data.code == 1) {
 					app.message(data.msg)

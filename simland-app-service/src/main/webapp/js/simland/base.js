@@ -1,5 +1,23 @@
 //Initialize function
 
+$(function() {
+	$('a').bind('tap', function() {
+		$.mobile.loading("show")
+		setTimeout(function() {
+			$.mobile.loading("hide");
+		}, 300)
+	});
+	
+
+});
+
+$(document).on("pagebeforecreate", function(event) {
+	$.mobile.loading("show")
+	setTimeout(function() {
+		$.mobile.loading("hide");
+	}, 200)
+});
+
 var init = function() {
 	jQuery(function() {
 		if ($("#message").length <= 0) {
@@ -38,7 +56,7 @@ var init = function() {
 	// });
 
 	jQuery.mobile.ajaxEnabled = false;
-	//$.mobile.loadingMessageTextVisible = true;
+	// $.mobile.loadingMessageTextVisible = true;
 	// $.mobile.page.prototype.options.domCache = true;
 
 	// 初始化绑定iScroll控件
@@ -53,10 +71,9 @@ var init = function() {
 			var myscroll = new IScroll("#wrapper", {
 				scrollbarClass : 'myScrollbar',
 				mouseWheel : true,
-				click : true
+				click:true
 			});
 		}
-
 	}
 
 };

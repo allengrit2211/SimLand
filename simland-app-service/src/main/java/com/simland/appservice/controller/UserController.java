@@ -1,7 +1,5 @@
 package com.simland.appservice.controller;
 
-import java.lang.ProcessBuilder.Redirect;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,13 +14,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simland.appservice.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
-import com.simland.core.module.user.entity.User;
 import com.simland.core.module.user.service.ICollectShopService;
 import com.simland.core.module.user.service.IUserService;
 
@@ -43,8 +39,21 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/loginPage")
-	public String login() {
-		return "login";
+	public String login(HttpServletRequest request) {
+
+		System.out.println(request.getQueryString());
+		
+		String reJson = null;
+		String ajax = request.getParameter("ajax");
+		if ("ajax".equalsIgnoreCase(ajax)) {
+			SysMessage msg = new SysMessage();
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			msg = null;
+			return reJson;
+		} else {
+			return "login";
+		}
+
 	}
 
 	/**
@@ -98,14 +107,16 @@ public class UserController {
 		// }
 
 		// spring security 将权限及用户信息存入securityContext
+		System.out.println("start ");
 		UserDetails userDetails = userService.loadUserByUsername(uname);
+		System.out.println("userDetails end" + userDetails);
 		Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 		securityContext.setAuthentication(authentication);
 		HttpSession session = request.getSession(true);
-		session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
+		session.setAttribute(Constants.SPRING_SECURITY_CONTEXT, securityContext);
 
-
+		System.out.println("-----------------" + "redirect:" + toUrl);
 		if (Utils.isObjectNotEmpty(toUrl)) {
 			return "redirect:" + toUrl;
 		}
@@ -126,7 +137,7 @@ public class UserController {
 		String reJson = null;
 
 		SysMessage msg = new SysMessage();
-		Object obj = request.getSession().getAttribute(Constants.USER_SESSION);
+		Object obj = request.getSession().getAttribute(Constants.SPRING_SECURITY_CONTEXT);
 		if (Utils.isObjectNotEmpty(obj)) {
 			msg.setCode("1");
 			msg.setMsg("已登录");

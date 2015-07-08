@@ -17,10 +17,13 @@ var sellerList = {
 		}
 
 		// 加载店铺收藏事件
-		$("#sellerListPage .boxList .box .p2 .a2").click(function() {
-			shop.collectShop($(this), $(this).attr("sid"));
+		shop.collectShopEvent();
+
+		$("#sellerListPage_search_k").bind("change", function(event, ui) {
+			$("#sellerListPage_form").submit();
 		});
 
+		sellerList.textSeach();
 	},
 	scroll : function() {// 商家列表页面，滚动分页
 		/**
@@ -85,6 +88,11 @@ var sellerList = {
 
 			$("#sellerListPage .boxList").append(data);
 			sellerList.myScroll.refresh();
+			sellerList.textSeach();
+			
+			// 加载店铺收藏事件
+			shop.collectShopEvent();
+			
 			if (option.currentPage >= sellerList.totalPage) {
 				$("#pullUp").html("已经到达最后一页...");
 				return;
@@ -92,6 +100,17 @@ var sellerList = {
 
 		}
 
+	},
+	textSeach : function(){
+		if ($("#sellerListPage_stype").val() == 1) {
+			$("#sellerListPage .boxList .box .p1").textSearch($("#sellerListPage_search_k").val(), {
+				markColor : "#44BBAB"
+			});
+		} else{
+			$("#sellerListPage .boxList .box .a0").textSearch($("#sellerListPage_search_k").val(), {
+				markColor : "#44BBAB"
+			});
+		}		
 	},
 	scoreOrder : function() {// 商家星级排序
 		$("#sellerListPage_score").val("score");

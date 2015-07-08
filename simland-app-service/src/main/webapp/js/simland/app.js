@@ -11,9 +11,6 @@ var app = {
 				$('#message').hide();
 			});
 		},2000);
-	},
-	loading : function() {// 加载信息
-
 	}
 }
 

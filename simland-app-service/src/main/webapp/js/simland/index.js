@@ -85,7 +85,9 @@ var index = {
 		}
 	},
 	historySeach : function(){
-		$("#sellerListPage_search_k").val($(this).text());
+		$("#sellerListPage_stype").val(1);
+		$("#searchCategory").val($(this).text());
+		$("#sellerListPage_form").submit();
 	},
 	historyClear :function(){
 		localStorage.removeItem("k"+$(this).attr("index"))

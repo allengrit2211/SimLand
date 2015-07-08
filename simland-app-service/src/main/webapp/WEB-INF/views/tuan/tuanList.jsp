@@ -14,6 +14,40 @@
 
 <body>
 	
+	<!-- 团购列表页面 -->
+	<div data-role="page" id="tuanListPage">
+		
+		<div data-role="header" class="header_1 bg41AC98" data-tap-toggle="false" data-position="fixed">
+				<a  data-transition="none" href="#" data-role="button" data-rel="back"
+					class="bg41AC98 back" data-icon="arrow-l">&nbsp;</a>
+				<h1 class="colorFFF">水贝团购</h1>			
+		</div>
+		
+		
+		<div data-role="content">
+			<div id="wrapper" class="top">
+				<div id="scroller">
+				
+					<div class="nav">
+						<a class="a1" href="#">全部分类<span class="s1"></span></a>
+						<div class="right">
+							<a class="a2" href="#">排序</a>
+							<a class="a3" href="#">搜索</a>
+						</div>
+					</div>
+				
+					<div class="boxList">
+						<c:import url="tuanListAjax.jsp"/>
+					</div>
+					<div class="line"></div>
+					<div id="pullUp">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+		
+		<c:import url="../footer.jsp"/>
+	</div>
+
 
 
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>

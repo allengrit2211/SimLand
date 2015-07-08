@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.simland.appservice.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
@@ -44,7 +47,8 @@ public class CollectShopController {
 	public String collectShop(HttpServletRequest request, Model model) {
 		String reJson = null;
 		SysMessage msg = new SysMessage();
-		User user = null;
+
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 		String sid = request.getParameter("sid");
 		if (Utils.isObjectEmpty(sid)) {

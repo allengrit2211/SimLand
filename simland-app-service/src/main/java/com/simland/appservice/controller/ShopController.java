@@ -76,16 +76,19 @@ public class ShopController {
 
 		model.addAttribute("totalPage", pageView.getTotalPage());
 		model.addAttribute("list", list);
-		
-		model.addAttribute("sort", sort);
-		
 		model.addAttribute("sort", sort);
 		model.addAttribute("sortType", sortType);
 		model.addAttribute("k", k);
 		model.addAttribute("k1", k1);
 		model.addAttribute("stype", stype);
 
-		
+		if (totalRecord == 0) {// 搜索结果为0时默认显示
+			param.clear();
+			param.put("endSize", pageView.getFirstResult());
+			param.put("pageSize", pageView.getPageSize());
+			List<Shop> list1 = shopService.getSplitShopList(param);
+			model.addAttribute("list1", list1);
+		}
 
 		param = null;
 		pageView = null;
@@ -94,9 +97,9 @@ public class ShopController {
 		return "shop/sellerList";
 
 	}
-	
+
 	@RequestMapping(value = "/shop/listAjax")
-	public String listAjax(HttpServletRequest request, Model model){
+	public String listAjax(HttpServletRequest request, Model model) {
 		this.list(request, model);
 		return "shop/sellerListAjax";
 	}
