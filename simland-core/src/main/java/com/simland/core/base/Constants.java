@@ -1,4 +1,4 @@
-package com.simland.appservice.base;
+package com.simland.core.base;
 
 public class Constants {
 

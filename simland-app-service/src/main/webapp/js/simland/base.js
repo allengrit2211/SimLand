@@ -25,7 +25,7 @@ var init = function() {
 		}
 
 		if ($("#loading").length <= 0) {
-			var str = "<div id=\"loading\" style=\"display: none;\"><img src=\"" + app.servicerURL + "/images/bg/loading.gif\"></div>";
+			var str = "<div id=\"loading\" style=\"display: none;\"><img src=\"" + app.servicerURL + "images/bg/loading.gif\"></div>";
 			$("body").append(str);
 		}
 

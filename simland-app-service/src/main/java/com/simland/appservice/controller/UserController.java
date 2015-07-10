@@ -16,7 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.simland.appservice.base.Constants;
+import com.simland.core.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.module.user.service.ICollectShopService;
@@ -110,9 +110,8 @@ public class UserController {
 		System.out.println("start ");
 		UserDetails userDetails = userService.loadUserByUsername(uname);
 		System.out.println("userDetails end" + userDetails);
-		Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
 		SecurityContext securityContext = SecurityContextHolder.getContext();
-		securityContext.setAuthentication(authentication);
+		securityContext.setAuthentication(new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities()));
 		HttpSession session = request.getSession(true);
 		session.setAttribute(Constants.SPRING_SECURITY_CONTEXT, securityContext);
 

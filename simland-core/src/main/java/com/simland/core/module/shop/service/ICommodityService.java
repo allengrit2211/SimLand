@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.simland.core.module.shop.entity.Commodity;
 
-@SuppressWarnings("unchecked")
 public interface ICommodityService {
 
 	public Integer insertCommodity(Commodity commodity);

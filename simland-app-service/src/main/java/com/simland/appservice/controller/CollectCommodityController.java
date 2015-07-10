@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.simland.appservice.controller.security.SessionManager;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
@@ -33,7 +34,7 @@ public class CollectCommodityController {
 	private ICollectCommodityService collectCommodityService;
 
 	/***
-	 * 收藏店铺
+	 * 收藏商品
 	 * 
 	 * @param request
 	 * @param model
@@ -44,13 +45,7 @@ public class CollectCommodityController {
 	public String collectCommodity(HttpServletRequest request, Model model) {
 		String reJson = null;
 		SysMessage msg = new SysMessage();
-		User user = null;
-//		if (Utils.isObjectEmpty(user = loginChk(request))) {
-//			msg.setCode("-1");
-//			msg.setMsg("请先登录");
-//			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
-//			return reJson;
-//		}
+		User user = SessionManager.getUser();
 
 		String cid = request.getParameter("cid");
 		if (Utils.isObjectEmpty(cid)) {

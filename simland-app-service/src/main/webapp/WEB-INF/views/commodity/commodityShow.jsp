@@ -32,7 +32,7 @@
 		
 					<div class="ui-grid-c onePrice0">
 						<div class="ui-block-a">
-							<span>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</span>
+							<span>${commodity.name}</span>
 						</div>
 						<div class="ui-block-b">
 							<img alt="" src="${pageContext.request.contextPath}/images/bg/star1.jpg"> <br> <span>收藏</span>
@@ -50,7 +50,7 @@
 							<span>单价</span>
 						</div>
 						<div class="ui-block-b s_2">
-							<span>￥29890.00</span>
+							<span>${commodity.marketPrice}</span>
 						</div>
 					</div>
 		
@@ -113,43 +113,8 @@
 			data-theme="d" style="border-top:none;">
 
 			<div class="btn">
-				<a  class="a1" data-transition="none" href="${pageContext.request.contextPath}/buy/cart">加入进货单</a> 
-					<a  class="a2" data-transition="none"
-					href="#a_a" data-rel="popup" data-position-to="window">直接购买</a>
-			</div>
-
-			<div id="a_a" data-role="popup" data-theme="a">
-				<div class="popup">
-					<div class="ui-grid-a">
-						<div class="ui-block-a">
-							<img alt="" src="${pageContext.request.contextPath}/images/commodity/c_4.jpg">
-						</div>
-						<div class="ui-block-b">
-							<span>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</span> <br> <span>29890.00</span>
-						</div>
-					</div>
-					<div class="nums">
-						<span>购买数量：</span> <br>
-						<br>
-						<div>
-							<div data-role="controlgroup" data-type="horizontal"
-								data-mini="true" style="float:left;">
-								<a  data-transition="none" href="#" data-role="button">-</a> <a 
-									data-transition="none" href="#" data-role="button">100</a> <a 
-									data-transition="none" href="#" data-role="button">+</a>
-							</div>
-							<div class="i_info">
-								<span>库存96克拉</span>
-							</div>
-						</div>
-					</div>
-					<div class="clear"></div>
-					<div class="line"></div>
-					<div class="buyBtn">
-						<a  class="a1" href="#confirmOrderPage">确定</a>
-					</div>
-
-				</div>
+				<a  class="a1" id="addCartBtn" data-transition="none" href="#addCartPopup" data-rel="popup" data-position-to="window">加入进货单</a> 
+				<a  class="a2" id="goBuyBtn" data-transition="none" href="#addCartPopup" data-rel="popup" data-position-to="window">直接购买</a>
 			</div>
 			
 			<div data-role="navbar" class="myfooter bgEDEDED">
@@ -162,6 +127,63 @@
 			</div>
 			
 		</div>
+		
+		
+			<div id="addCartPopup" data-role="popup" >
+				<div class="popup">
+					<form action="${pageContext.request.contextPath}/buy/addCart" id="cartForm" method="post">
+						<div class="box">
+							<div class="img">
+								<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
+							</div>
+							<div class="info">
+								<span class="s1">$123</span>
+								<span class="s2">库存 126件</span>
+								<span class="s3">已选 <span id="attr1ValShow">请选择</span> <span id="attr2ValShow"></span></span>
+								<input type="hidden" value="${commodity.id}" name="cid"/>
+								<input type="hidden" value="" id="buyTypeHid"/>
+								<input type="hidden" id="attr1Val" name="attr1Val" tit="${commodity.attr1.name}" value=""/>
+								<input type="hidden" id="attr2Val" name="attr2Val" tit="${commodity.attr2.name}" value=""/>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="box">
+							<span class="title">${commodity.attr1.name}</span>
+							<div class="attr1">
+								<c:forEach items="${commodity.attr1List}" var="item" varStatus="status">
+									<a aid="${item[0]}" href="#">${item[1]}</a>
+								</c:forEach>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="box">
+							<span class="title">${commodity.attr2.name}</span>
+							<div class="attr2">
+								<c:forEach items="${commodity.attr2List}" var="item" varStatus="status">
+									<a aid="${item[0]}" href="#">${item[1]}</a>
+								</c:forEach>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="box">
+							<span class="title inline">购买数量</span>
+							<div class="number">
+								<a href="#" class="a1" id="addNum">-</a>
+								<input id="buyNum" name="buyNum" class="input" type="number" data-role="none" value="1"/>
+								<a href="#" class="a2" id="revNum">+</a>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="buyBtn">
+							<a id="confirmOrderBtn" class="a1" href="#">确定</a>
+						</div>
+				
+					</form>
+
+				</div>
+			</div>		
+		
+		
 	</div>
 	<!-- Product1Page end  -->
 
@@ -170,6 +192,7 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/cart.js"></script>
 
 </body>
 </html>

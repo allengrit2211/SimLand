@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.shop.mapper.InventoryMapper">
+
+	<resultMap id="InventoryRM" type="com.simland.core.module.shop.entity.Inventory">
+        <result property="id" column="id"/>
+        <result property="cid" column="cid"/>
+        <result property="attr1" column="attr1"/>
+        <result property="attr2" column="attr2"/>
+        <result property="nums" column="nums"/>
+        <result property="status" column="status"/>
+        <result property="type" column="type"/>
+        <result property="sid" column="sid"/>
+	</resultMap>
+	
+	<resultMap id="InventoryRM1" type="com.simland.core.module.shop.entity.CommodityInventory">
+		<result property="cid" column="cid"/>
+        <result property="attr1" column="attr1"/>
+        <result property="attr2" column="attr2"/>
+        <result property="nums" column="nums"/>
+        <result property="sid" column="sid"/>
+        <result property="cpvalue1" column="cpvalue1"/>
+        <result property="cpvalue2" column="cpvalue2"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        cid cid,
+        attr1 attr1,
+        attr2 attr2,
+        nums nums,
+        status status,
+        type type,
+        sid sid
+	    ]]>
+	</sql>
+
+
+	<insert id="insertInventory" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.shop.entity.Inventory">
+	    <![CDATA[
+	        INSERT INTO t_inventory (
+		        cid,
+		        attr1,
+		        attr2,
+		        nums,
+		        status,
+		        type,
+		        sid
+	        ) VALUES (
+		        	#{cid},
+		        	#{attr1},
+		        	#{attr2},
+		        	#{nums},
+		        	#{status},
+		        	#{type},
+		        	#{sid}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateInventory">
+	    <![CDATA[
+        UPDATE t_inventory SET
+        ]]>
+		<if test="cid!=null">
+        	cid = #{cid}
+		</if>
+		<if test="attr1!=null">
+        	attr1 = #{attr1}
+		</if>
+		<if test="attr2!=null">
+        	attr2 = #{attr2}
+		</if>
+		<if test="nums!=null">
+        	nums = #{nums}
+		</if>
+		<if test="status!=null">
+        	status = #{status}
+		</if>
+		<if test="type!=null">
+        	type = #{type}
+		</if>
+		<if test="sid!=null">
+        	sid = #{sid}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteInventory">
+    <![CDATA[
+        DELETE FROM t_inventory WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getInventory" resultMap="InventoryRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_inventory 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getInventoryList" resultMap="InventoryRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_inventory  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="cid!=null">
+	        AND cid = #{cid}
+	        </if>
+			<if test="attr1!=null">
+	        AND attr1 = #{attr1}
+	        </if>
+			<if test="attr2!=null">
+	        AND attr2 = #{attr2}
+	        </if>
+			<if test="nums!=null">
+	        AND nums = #{nums}
+	        </if>
+			<if test="status!=null">
+	        AND status = #{status}
+	        </if>
+			<if test="type!=null">
+	        AND type = #{type}
+	        </if>
+			<if test="sid!=null">
+	        AND sid = #{sid}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getInventoryCount" resultType="int">
+		SELECT count(*) FROM t_inventory
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitInventoryList" resultMap="InventoryRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_inventory
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+	<select id="getInventoryByCommodityId" resultMap="InventoryRM1">
+	    <![CDATA[
+			select t1.cid,t1.attr1,t1.attr2,t1.nums,t1.sid,t2.cpvalue cpvalue1,t3.cpvalue cpvalue2 from t_inventory t1 
+			left join t_category_properties_val t2 on t1.attr1 = t2.id
+			left join t_category_properties_val t3 on t1.attr2 = t3.id
+	    ]]>	
+	    <where>
+	    	t1.cid = #{cid} AND nums>0
+	    </where>
+	
+	</select>
+
+
+</mapper>

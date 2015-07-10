@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.shop.mapper.CategoryPropertiesMapper">
+
+	<resultMap id="CategoryPropertiesRM" type="com.simland.core.module.shop.entity.CategoryProperties">
+        <result property="id" column="id"/>
+        <result property="pid" column="pid"/>
+        <result property="name" column="name"/>
+        <result property="ilevel" column="ilevel"/>
+        <result property="attrMark" column="attrMark"/>
+        <association property="categoryPropertiesList" column="id" select="com.simland.core.module.shop.mapper.CategoryPropertiesMapper.getCategoryPropertiesByPid"></association>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        pid pid,
+        name name,
+        ilevel ilevel,
+        attrMark attrMark
+	    ]]>
+	</sql>
+
+
+	<insert id="insertCategoryProperties" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.shop.entity.CategoryProperties">
+	    <![CDATA[
+	        INSERT INTO t_category_properties (
+		        pid,
+		        name,
+		        ilevel,
+		        attrMark
+	        ) VALUES (
+		        	#{pid},
+		        	#{name},
+		        	#{ilevel},
+		        	#{attrMark}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateCategoryProperties">
+	    <![CDATA[
+        UPDATE t_category_properties SET
+        ]]>
+		<if test="pid!=null">
+        	pid = #{pid}
+		</if>
+		<if test="name!=null">
+        	name = #{name}
+		</if>
+		<if test="ilevel!=null">
+        	ilevel = #{ilevel}
+		</if>
+		<if test="attrMark!=null">
+        	attrMark = #{attrMark}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteCategoryProperties">
+    <![CDATA[
+        DELETE FROM t_category_properties WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getCategoryProperties" resultMap="CategoryPropertiesRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_category_properties 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getCategoryPropertiesList" resultMap="CategoryPropertiesRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_category_properties  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="pid!=null">
+	        AND pid = #{pid}
+	        </if>
+			<if test="name!=null">
+	        AND name = #{name}
+	        </if>
+			<if test="ilevel!=null">
+	        AND ilevel = #{ilevel}
+	        </if>
+			<if test="attrMark!=null">
+	        AND attrMark = #{attrMark}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getCategoryPropertiesCount" resultType="int">
+		SELECT count(*) FROM t_category_properties
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitCategoryPropertiesList" resultMap="CategoryPropertiesRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_category_properties
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+	<select id="getCategoryPropertiesByPid" resultMap="CategoryPropertiesRM">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_category_properties
+		<where>
+			pid = #{pid}
+		</where>
+		ORDER BY id
+	</select>
+
+</mapper>

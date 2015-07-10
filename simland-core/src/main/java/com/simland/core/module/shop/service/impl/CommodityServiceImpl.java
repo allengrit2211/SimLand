@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.module.shop.entity.Commodity;
+import com.simland.core.module.shop.mapper.CategoryPropertiesMapper;
 import com.simland.core.module.shop.mapper.CommodityMapper;
 import com.simland.core.module.shop.service.ICommodityService;
 
@@ -18,6 +19,9 @@ public class CommodityServiceImpl implements ICommodityService {
 
 	@Autowired
 	private CommodityMapper commodityMapper;
+
+	@Autowired
+	private CategoryPropertiesMapper categoryPropertiesMapper;
 
 	public Integer insertCommodity(Commodity commodity) {
 		return commodityMapper.insertCommodity(commodity);

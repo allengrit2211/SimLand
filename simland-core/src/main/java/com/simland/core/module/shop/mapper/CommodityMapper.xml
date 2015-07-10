@@ -7,18 +7,24 @@
 <mapper namespace="com.simland.core.module.shop.mapper.CommodityMapper">
 
 	<resultMap id="CommodityRM" type="com.simland.core.module.shop.entity.Commodity">
-        <result property="id" column="id"/>
-        <result property="sid" column="sid"/>
-        <result property="name" column="name"/>
-        <result property="img" column="img"/>
-        <result property="type" column="type"/>
-        <result property="collectNum" column="collectNum"/>
-        <result property="marketPrice" column="marketPrice"/>
-        <result property="realPrice" column="realPrice"/>
-        <result property="createTime" column="createTime"/>
-        <result property="creater" column="creater"/>
-        <result property="isNew" column="isNew"/>
-        <result property="isSpecial" column="isSpecial"/>
+		<result property="id" column="id" />
+		<result property="sid" column="sid" />
+		<result property="name" column="name" />
+		<result property="img" column="img" />
+		<result property="type" column="type" />
+		<result property="collectNum" column="collectNum" />
+		<result property="marketPrice" column="marketPrice" />
+		<result property="realPrice" column="realPrice" />
+		<result property="createTime" column="createTime" />
+		<result property="creater" column="creater" />
+		<result property="isNew" column="isNew" />
+		<result property="isSpecial" column="isSpecial" />
+
+		<association property="cInventoryList" column="id"
+			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventoryByCommodityId" />
+
+		<!-- <association property="categoryPropertiesValList" column="id" select="com.simland.core.module.shop.mapper.CategoryPropertiesValMapper.getCategoryPropertiesValByCid" 
+			/> -->
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -39,8 +45,8 @@
 	</sql>
 
 
-	<insert id="insertCommodity" useGeneratedKeys="true" keyProperty="id"
-	parameterType="com.simland.core.module.shop.entity.Commodity">
+	<insert id="insertCommodity" useGeneratedKeys="true"
+		keyProperty="id" parameterType="com.simland.core.module.shop.entity.Commodity">
 	    <![CDATA[
 	        INSERT INTO t_commodity (
 		        sid,
@@ -68,9 +74,10 @@
 		        	#{isSpecial}
 	        )
 	    ]]>
-		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
-		SELECT LAST_INSERT_ID() as id
-		</selectKey>     
+		<selectKey resultType="java.lang.Integer" order="AFTER"
+			keyProperty="id">
+			SELECT LAST_INSERT_ID() as id
+		</selectKey>
 	</insert>
 
 	<update id="updateCommodity">
@@ -78,37 +85,37 @@
         UPDATE t_commodity SET
         ]]>
 		<if test="sid!=null">
-        	sid = #{sid}
+			sid = #{sid}
 		</if>
 		<if test="name!=null">
-        	name = #{name}
+			name = #{name}
 		</if>
 		<if test="img!=null">
-        	img = #{img}
+			img = #{img}
 		</if>
 		<if test="type!=null">
-        	type = #{type}
+			type = #{type}
 		</if>
 		<if test="collectNum!=null">
-        	collectNum = #{collectNum}
+			collectNum = #{collectNum}
 		</if>
 		<if test="marketPrice!=null">
-        	marketPrice = #{marketPrice}
+			marketPrice = #{marketPrice}
 		</if>
 		<if test="realPrice!=null">
-        	realPrice = #{realPrice}
+			realPrice = #{realPrice}
 		</if>
 		<if test="createTime!=null">
-        	createTime = #{createTime}
+			createTime = #{createTime}
 		</if>
 		<if test="creater!=null">
-        	creater = #{creater}
+			creater = #{creater}
 		</if>
 		<if test="isNew!=null">
-        	isNew = #{isNew}
+			isNew = #{isNew}
 		</if>
 		<if test="isSpecial!=null">
-        	isSpecial = #{isSpecial}
+			isSpecial = #{isSpecial}
 		</if>
 	    <![CDATA[  
         WHERE 
@@ -122,7 +129,7 @@
         id = #{id} 
     ]]>
 	</delete>
-	
+
 	<select id="getCommodity" resultMap="CommodityRM">
 		SELECT
 		<include refid="Base_Column_List" />
@@ -136,52 +143,52 @@
 	<select id="getCommodityList" resultMap="CommodityRM">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM t_commodity  
+		FROM t_commodity
 		<include refid="pageWhere" />
 	</select>
 
 	<sql id="pageWhere">
 		<where>
 			<if test="id!=null">
-	        AND id = #{id}
-	        </if>
+				AND id = #{id}
+			</if>
 			<if test="sid!=null">
-	        AND sid = #{sid}
-	        </if>
+				AND sid = #{sid}
+			</if>
 			<if test="name!=null">
-	        AND name = #{name}
-	        </if>
+				AND name = #{name}
+			</if>
 			<if test="img!=null">
-	        AND img = #{img}
-	        </if>
+				AND img = #{img}
+			</if>
 			<if test="type!=null">
-	        AND type = #{type}
-	        </if>
+				AND type = #{type}
+			</if>
 			<if test="collectNum!=null">
-	        AND collectNum = #{collectNum}
-	        </if>
+				AND collectNum = #{collectNum}
+			</if>
 			<if test="marketPrice!=null">
-	        AND marketPrice = #{marketPrice}
-	        </if>
+				AND marketPrice = #{marketPrice}
+			</if>
 			<if test="realPrice!=null">
-	        AND realPrice = #{realPrice}
-	        </if>
+				AND realPrice = #{realPrice}
+			</if>
 			<if test="createTime!=null">
-	        AND createTime = #{createTime}
-	        </if>
+				AND createTime = #{createTime}
+			</if>
 			<if test="creater!=null">
-	        AND creater = #{creater}
-	        </if>
+				AND creater = #{creater}
+			</if>
 			<if test="isNew!=null">
-	        AND isNew = #{isNew}
-	        </if>
+				AND isNew = #{isNew}
+			</if>
 			<if test="isSpecial!=null">
-	        AND isSpecial = #{isSpecial}
-	        </if>
+				AND isSpecial = #{isSpecial}
+			</if>
 			<if test="ids!=null">
-	        AND id in (${ids})
-	        </if>
-	        
+				AND id in (${ids})
+			</if>
+
 		</where>
 	</sql>
 
@@ -189,7 +196,7 @@
 		SELECT count(*) FROM t_commodity
 		<include refid="pageWhere" />
 	</select>
-	
+
 	<select id="getSplitCommodityList" resultMap="CommodityRM">
 		SELECT
 		<include refid="Base_Column_List" />

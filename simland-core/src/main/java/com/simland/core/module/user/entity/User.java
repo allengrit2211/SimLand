@@ -5,12 +5,16 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Vector;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.simland.core.module.order.entity.Cart;
+import com.simland.core.module.order.entity.Order;
 
 /***
  * 用户类， 实现Spring security 接口类
@@ -28,6 +32,8 @@ public class User implements Serializable, UserDetails {
 	private String password;
 	private String authorities;
 	private Timestamp lastLoginTime;
+	
+	private Cart cart;//购物车
 
 	public int getId() {
 		return id;
@@ -107,5 +113,16 @@ public class User implements Serializable, UserDetails {
 	public void setAuthorities(String authorities) {
 		this.authorities = authorities;
 	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
+	
+	
 
 }

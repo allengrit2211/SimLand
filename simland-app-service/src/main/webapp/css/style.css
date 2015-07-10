@@ -4,7 +4,7 @@
 }
 
 body {
-	text-shadow: none!important;
+	text-shadow: none !important;
 }
 
 .ui-page {
@@ -17,6 +17,10 @@ body {
 
 a {
 	text-decoration: none;
+	color: #666;
+}
+
+span{
 	color: #666;
 }
 
@@ -130,7 +134,7 @@ a {
 
 .ui-footer {
 	border-top: 1px solid #c0c0c0;
-	position:fixed;
+	position: fixed;
 }
 
 .bg41AC98 {
@@ -258,7 +262,7 @@ a {
 
 #indexPage .box {
 	text-align: center;
-	margin-bottom:1%;
+	margin-bottom: 1%;
 }
 
 #indexPage .box .a {
@@ -510,8 +514,7 @@ a {
 }
 
 /************uInfo**************/
-#userCenterPage a, span {
-	color: #666;
+#userCenterPage a {
 }
 
 #userCenterPage .ui-content {
@@ -530,20 +533,20 @@ a {
 }
 
 .uInfo .u_img {
-	display:inline-block;
+	display: inline-block;
 	margin: 5% 2% 5% 5%;
-	width:25%;
+	width: 25%;
 }
 
-.uInfo .u_img img{
-	width:100%;
+.uInfo .u_img img {
+	width: 100%;
 }
 
 .uInfo .u_info {
-	margin:1.4em 0 0 1.25em;
-	display:inline-block;
+	margin: 1.4em 0 0 1.25em;
+	display: inline-block;
 	width: 50%;
-	vertical-align:top;
+	vertical-align: top;
 }
 
 .uInfo .u_info p {
@@ -571,7 +574,7 @@ a {
 	margin: 0 auto;
 	text-align: center;
 	height: 56px;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 .uInfo .collect span {
@@ -582,7 +585,7 @@ a {
 #userCenterPage .orderMenu {
 	padding: 15px 0;
 	background-color: #EEE;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 .orderMenu .ui-block-a, .orderMenu .ui-block-b, .orderMenu .ui-block-c,
@@ -758,7 +761,7 @@ a {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 .shop .shop_top .b_btn {
@@ -838,7 +841,7 @@ a {
 
 .shop .commodityList {
 	text-align: center;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 .shop .none {
@@ -893,7 +896,7 @@ a {
 }
 
 .shop .b_bottom_menu ul li {
-	display:inline-block;
+	display: inline-block;
 	list-style: none;
 	padding-left: 6px;
 }
@@ -904,7 +907,7 @@ a {
 	padding-left: 10px;
 	margin-left: 10px;
 	background: url("../images/bg/shop1_r12_c4.jpg") no-repeat 0 50%;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 /************shop1Page end***************/
@@ -947,7 +950,7 @@ a {
 	color: #FFF !important;
 	text-shadow: none;
 	margin-top: 20px;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 .shop  .ui-controlgroup-horizontal .ui-controlgroup-controls .ui-btn.ui-last-child
@@ -1024,7 +1027,7 @@ a {
 }
 
 #shopInfoPage .b_bottom_menu ul li {
-	display:inline-block;
+	display: inline-block;
 	list-style: none;
 	padding-left: 6px;
 }
@@ -1223,36 +1226,118 @@ a {
 	margin-right: 10px;
 }
 
+#CommodityPage #addCartPopup-popup {
+	width: 98%;
+	margin: 0 auto;
+}
+
 #CommodityPage .popup {
 	min-height: 236px;
+	margin: 0 auto;
+	padding-bottom: 0.75em;
 }
 
-#CommodityPage .popup .ui-block-a {
-	width: 30%;
-	height: 30%;
-	margin: 10px;
+#CommodityPage .popup .box {
+	width: 100%;
+	padding: 0.75em 0;
 }
 
-#CommodityPage .popup .ui-block-a img {
+#CommodityPage .popup .box .img {
+	width: 5.5em;
+	margin: 0.625em 0 0 1.625em;
+	display: inline-block;
+	width: 33%;
+}
+
+#CommodityPage .popup .box .img img {
 	width: 100%;
 }
 
-#CommodityPage .popup .ui-block-b {
-	width: 60%;
+#CommodityPage .popup .box .info {
+	display: inline-block;
+	width: 50%;
+	vertical-align: top;
+	margin: 2em 0 0 3%;
+	text-indent: 13%;
 }
 
-#CommodityPage .popup .ui-block-b {
-	padding-top: 15px;
+#CommodityPage .popup .box .info span {
+	display: block;
+	margin: 0.175em 0;
 }
 
-#CommodityPage .popup .nums {
-	margin-left: 20px;
+#CommodityPage .popup .box .info .s1 {
+	color: #EE3939;
 }
 
-#CommodityPage .popup .nums .i_info {
-	float: right;
-	margin-top: 15px;
-	margin-right: 20px;
+#CommodityPage .popup .box .info .s3 span {
+	display: inline;
+}
+
+#CommodityPage .popup .box .title {
+	display: block;
+	margin: 0.375em 0;
+	text-indent: 1.45em;
+}
+
+#CommodityPage .popup .box .inline {
+	display: inline-block;
+}
+
+#CommodityPage .popup .box .attr1, #CommodityPage .popup .box .attr2 {
+	padding-left: 1em;
+}
+
+#CommodityPage .popup .box .attr1 a, #CommodityPage .popup .box .attr2 a
+	{
+	font-size: 0.75em;
+	padding: 0.175em 0.75em;
+	display: inline-block;
+	border: 1px solid #EEE;
+	margin: 0.15em;
+	color: #666;
+}
+
+#CommodityPage .popup .box .attrOn {
+	background-color: #41AC98;
+	color: #FFF !important;
+}
+
+#CommodityPage .popup .box .number {
+	border: 1px solid #EEE;
+	display: inline-block;
+	margin-left: 40%;
+	height: 1.25em;
+	overflow: hidden;
+}
+
+#CommodityPage .popup .box .number .a1, #CommodityPage .popup .box .number .a2,
+	#CommodityPage .popup .box .number .input {
+	width: 0.75em;
+	height: 0.75em;
+	display: inline-block;
+	line-height: 0.75em;
+	margin: 0;
+	padding: 0.25em;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#CommodityPage .popup .box .number .input {
+	border: none;
+	padding: 0;
+	height: 100%;
+	width: 1.2em;
+	text-align: center;
+}
+
+#CommodityPage .popup .box .number .a1 {
+	border-right: 1px solid #EEE;
+}
+
+#CommodityPage .popup .box .number .a2 {
+	border-left: 1px solid #EEE;
 }
 
 #CommodityPage .ui-footer .btn, #CommodityPage .menu_height {
@@ -1320,61 +1405,99 @@ a {
 
 /************cartPage start***************/
 #cartPage .cart {
-	margin-top: 30px;
+	margin-top: 20px;
+	font-size:0.75em;
+	padding-bottom: 7em;
+	color: #666;
 }
 
-#cartPage .cart .p_0_0 {
-	text-align: center;
-	width: 10%;
+#cartPage .cart .shopBox {
+
 }
 
-#cartPage .cart .p_0_0 .ui-checkbox {
-	height: 11px;
+#cartPage .cart .shopBox .title {
+	display: inline-block;
+	width: 100%;
+	margin:0.175em 0;
 }
 
-#cartPage .cart .p_0_1 {
-	text-align: center;
-	width: 90%;
-	padding: 10px 0;
-	border-bottom: 1px solid #EEE;
+#cartPage .cart .shopBox .title .a1{
+	font-size:1.125em;
+	color:#666;
+}
+#cartPage .cart .shopBox .title .a2{
+	color:#666;
+	margin: 0.375em 1em 0.375em 0;
+	line-height:1.5em;
+	float:right;
 }
 
-#cartPage .cart .p_1_0 {
-	padding-top: 10px;
-	width: 10%;
+#cartPage .cart .shopBox .title .check{
+	display: inline-block;
+	margin: 0.375em;
+	width:5%;
+	vertical-align:middle;
 }
 
-#cartPage .cart .p_1_1 {
-	text-align: left;
-	padding-top: 10px;
-	width: 20%;
+#cartPage .cart .shopBox .title .check input{
+	width:1.5em;
+	height: 1.5em;
 }
 
-#cartPage .cart .p_1_2 {
-	padding-top: 10px;
-	width: 60%;
+#cartPage .commodity{
+	padding:1.75em 0;
+	width:100%;
+	clear: both;
+	background-color: #F9F9F9;
 }
 
-#cartPage .p_2_0 {
-	width: 10%;
-	height: 40px;
-	line-height: 40px;
+#cartPage .commodity .check{
+	width:5%;
+	display: inline-block;
+	margin: 2.375em 0.375em 1em 0.375em;
+	vertical-align:middle;
+}
+#cartPage .commodity .check input{
+	width:1.5em;
+	height: 1.5em;
 }
 
-#cartPage .p_2_1 {
-	width: 45%;
-	height: 40px;
-	line-height: 40px;
+#cartPage .commodity .box{
+	width:88%;
+	display: inline-block;
+	vertical-align:top;
 }
 
-#cartPage .p_2_2 {
-	width: 45%;
-	line-height: 10px;
+#cartPage .commodity .box .c_info{
+	display: inline-block;
 }
 
-#cartPage .p_2_2 .ui-input-text {
-	width: 50%;
+#cartPage .commodity .box .c_info .c_img{
+	display: inline-block;
+	width:35%;
+	padding:1%;
 }
+#cartPage .commodity .box .c_info .c_img img{
+	width:100%;
+}
+#cartPage .commodity .box .c_info .c_infobox{
+	width:60%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#cartPage .commodity .box .c_info .c_infobox .c_title{
+	display: inline-block;
+}
+
+#cartPage .commodity .box .c_info .c_infobox .c_price{
+	
+}
+#cartPage .commodity .box .c_info .c_infobox .c_price p{
+	margin:0.5em 0;
+}
+
+
 
 #cartPage .cartMenu {
 	height: 50px;
@@ -1452,68 +1575,6 @@ a {
 
 #confirmOrderPage .plistBox p {
 	margin: 15px;
-}
-
-.plist {
-	margin-top: 10px;
-}
-
-.plist .p_0_0 {
-	text-align: center;
-	width: 10%;
-}
-
-.plist .p_0_0 .ui-checkbox {
-	height: 11px;
-}
-
-.plist .p_0_1 {
-	text-align: center;
-	width: 90%;
-	padding: 10px 0;
-	border-bottom: 1px solid #EEE;
-}
-
-.plist .p_1_0 {
-	padding-top: 10px;
-	width: 10%;
-}
-
-.plist .p_1_1 {
-	text-align: left;
-	padding-top: 10px;
-	width: 20%;
-}
-
-.plist .p_1_2 {
-	padding-top: 10px;
-	width: 60%;
-}
-
-.plist .p_2_0 {
-	width: 10%;
-	height: 40px;
-	line-height: 40px;
-}
-
-.plist .p_2_1 {
-	width: 45%;
-	height: 40px;
-	line-height: 40px;
-}
-
-.plist .p_2_2 {
-	width: 45%;
-	line-height: 17px;
-	text-indent: 5px;
-}
-
-.plist .p_2_2 .s1 {
-	display: block;
-}
-
-.plist .p_2_2 .s2 {
-	display: block;
 }
 
 /************confirmOrderPage end***************/
@@ -1842,8 +1903,8 @@ a {
 	padding: 20px 20px 0 20px;
 }
 
-#sellerListPage .boxList .p5{
-	font-size:0.875em;
+#sellerListPage .boxList .p5 {
+	font-size: 0.875em;
 }
 
 #sellerListPage .boxList .box {
@@ -1865,8 +1926,8 @@ a {
 
 #sellerListPage .boxList .box p a.a1 {
 	padding-left: 15px;
-	font-size:0.75em;
-	float:right;
+	font-size: 0.75em;
+	float: right;
 	padding-top: 6px;
 }
 
@@ -1894,9 +1955,9 @@ a {
 	right: 10%;
 }
 
-#sellerListPage .boxList .box .p3 a{
-	font-weight:normal;
-	font-size:0.75em;
+#sellerListPage .boxList .box .p3 a {
+	font-weight: normal;
+	font-size: 0.75em;
 }
 
 .star {
@@ -2101,8 +2162,8 @@ a {
 	padding: 5px 10px 20px 10px;
 }
 
-#tuanListPage .boxList .box{
-	margin:10px 0;
+#tuanListPage .boxList .box {
+	margin: 10px 0;
 }
 
 #tuanListPage .nav {
@@ -2169,7 +2230,7 @@ a {
 #tuanListPage .boxList .box .info span {
 	display: block;
 	padding: 2px 0;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 #tuanListPage .boxList .box .info .s1 {

@@ -42,7 +42,7 @@ var shop = {
 
 		function collectShopCallBack(data) {
 			if (data && data.code == -100) {
-				$.mobile.changePage(app.servicerURL +"/loginPage", "slideup");
+				$.mobile.changePage(app.servicerURL +"loginPage", "slideup");
 			} else {
 				if (data.code == 1) {
 					app.message(data.msg)

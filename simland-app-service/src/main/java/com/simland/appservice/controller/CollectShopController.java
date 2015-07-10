@@ -19,7 +19,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.simland.appservice.base.Constants;
+import com.simland.appservice.controller.security.SessionManager;
+import com.simland.core.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
@@ -48,7 +49,7 @@ public class CollectShopController {
 		String reJson = null;
 		SysMessage msg = new SysMessage();
 
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		User user = SessionManager.getUser();
 
 		String sid = request.getParameter("sid");
 		if (Utils.isObjectEmpty(sid)) {
