@@ -27,7 +27,9 @@ var init = function() {
 	if($.mobile.activePage.is("#userCenterPage")){
 		user.initialize();
 	}
-	
+	if($.mobile.activePage.is("#cartPage")){
+		cart.initialize();
+	}
 	
 };
 $(document).ready(init);

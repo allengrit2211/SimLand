@@ -47,6 +47,8 @@ public class Cart {
 	 */
 	public static Cart addCart(Cart cart, Shop shop, Commodity c, int buyNum) {
 
+		if(cart==null) cart = new Cart();
+		
 		ConcurrentMap<Shop, Vector<CartItem>> cartItems = cart.getCartItems();
 		if (cartItems == null || cartItems.size() == 0) {// 购物车为空时
 			cartItems = new ConcurrentHashMap<Shop, Vector<CartItem>>();
