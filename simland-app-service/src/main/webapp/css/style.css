@@ -268,6 +268,8 @@ span{
 #indexPage .box .a {
 	width: 30%;
 	display: inline-block;
+	vertical-align: top;
+	min-height:1em;
 }
 
 #indexPage .box .a span {
@@ -316,13 +318,13 @@ span{
 }
 
 #indexPage .box1 .input1 .btn {
-	background: url('../images/bg/index_r6_c15.jpg') no-repeat 50% 50%;
+	background: url('../images/bg/index_r6_c15.jpg') no-repeat 70% 50%;
 	border: none;
 	width: 30px;
 	height: 20px;
 	float: right;
 	margin: 10px;
-	padding-left: 40px;
+	padding-left: 3em;
 	position: absolute;
 	right: 0px;
 	top: 0;
@@ -2247,7 +2249,7 @@ span{
 }
 
 /************tuanListPage end***************/
-#wrapper {
+.wrapper {
 	position: absolute;
 	z-index: 1;
 	top: 0px;
@@ -2257,11 +2259,11 @@ span{
 	overflow: auto;
 }
 
-#wrapper.top {
+.wrapper.top {
 	top: 45px;
 }
 
-#scroller {
+.scroller {
 	position: absolute;
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);

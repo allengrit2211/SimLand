@@ -18,8 +18,8 @@
 	<!-- map1Page start  -->
 	<div data-role="page" id="map1Page">
 		<div data-role="header" class="header_1">
-			<a  data-transition="none" href="#" data-role="button" data-rel="back"
-				class="back" data-icon="arrow-l">&nbsp;</a>
+			<a data-transition="slide" href="#" data-role="button"
+				data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>水贝一览图</h1>
 		</div>
 		<!-- /header -->

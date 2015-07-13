@@ -22,8 +22,8 @@
 	<div data-role="page" id="shop1Page" class="shop">
 		<div data-role="content" id="content">
 			
-			<div id="wrapper">
-				<div id="scroller">
+			<div class="wrapper">
+				<div class="scroller">
 
 					<div class="shop_top">
 						<div class="b_logo">
@@ -58,7 +58,7 @@
 					<div class="commodityList tags" id="page1">
 						<c:forEach var="item" items="${list1}">
 							<div class='commodityBox'>
-								<a  data-transition='none' href='${pageContext.request.contextPath}/commodity/show?id=${item.id}'>
+								<a  data-transition='slide' href='${pageContext.request.contextPath}/commodity/show?id=${item.id}'>
 								<span class='s3' cid='${item.id}'>${item.collectNum}</span>
 								<img width='126' alt='' src='${pageContext.request.contextPath}/${item.img}'>
 								<span class='s4'>${item.name}</span>
@@ -74,7 +74,7 @@
 					<div class="commodityList tags none" id="page2">
 						<c:forEach var="item" items="${list2}">
 							<div class='commodityBox'>
-								<a  data-transition='none' href='${pageContext.request.contextPath}/commodity/show?id=${item.id}'>
+								<a  data-transition='slide' href='${pageContext.request.contextPath}/commodity/show?id=${item.id}'>
 								<span class='s3' cid='${item.id}'>${item.collectNum}</span>
 								<img width='126' alt='' src='${pageContext.request.contextPath}/${item.img}'>
 								<span class='s4'>${item.name}</span>
@@ -90,7 +90,7 @@
 					<div class="commodityList tags none" id="page3">
 						<c:forEach var="item" items="${list3}">
 							<div class='commodityBox'>
-								<a  data-transition='none' href='${pageContext.request.contextPath}/commodity/show?id=${item.id}'>
+								<a  data-transition='slide' href='${pageContext.request.contextPath}/commodity/show?id=${item.id}'>
 								<span class='s3' cid='${item.id}'>${item.collectNum}</span>
 								<img width='126' alt='' src='${pageContext.request.contextPath}/${item.img}'>
 								<span class='s4'>${item.name}</span>

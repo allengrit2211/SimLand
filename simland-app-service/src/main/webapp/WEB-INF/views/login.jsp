@@ -23,6 +23,8 @@
 	<!-- login page start -->
 	<div data-role="page" id="loginPage">
 		<div data-role="header" class="header_1">
+			<a data-transition="slide" href="#" data-role="button"
+				data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>		
 			<h1>登录</h1>
 		</div>
 		<div data-role="content">

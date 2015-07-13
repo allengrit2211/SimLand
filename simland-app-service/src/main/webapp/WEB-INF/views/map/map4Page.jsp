@@ -17,7 +17,7 @@
 	<!-- map4Page start -->
 	<div data-role="page" id="map4Page">
 		<div data-role="header" class="header_1">
-			<a  data-transition="none" href="#" data-role="button" data-rel="back"
+			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>
 				<input type="search" name="search" placeholder="水贝市场">

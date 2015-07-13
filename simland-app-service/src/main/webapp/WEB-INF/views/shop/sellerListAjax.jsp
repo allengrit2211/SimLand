@@ -10,11 +10,11 @@
 							<c:forEach var="item" items="${list1}" varStatus="status">   
 								<div class='box'>
 								<p class="p4">
-									<a  sid='${item.id}' href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' class='toShop a0 ui-link'>${item.cname}</a>
+									<a sid='${item.id}' href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide" class='toShop a0 ui-link'>${item.cname}</a>
 									<a  href='#' class='a1 ui-link'>260M</a>
 								</p>
 								<p class="p3">
-									<a href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}'>
+									<a href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide">
 										${item.caddress}
 									</a>
 								</p>
@@ -36,11 +36,11 @@
 						<c:forEach var="item" items="${list}" varStatus="status">   
 							<div class='box'>
 							<p class="p4">
-								<a  sid='${item.id}' href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' class='toShop a0 ui-link'>${item.cname}</a>
+								<a  sid='${item.id}' href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide" class='toShop a0 ui-link'>${item.cname}</a>
 								<a  href='#' class='a1 ui-link'>260M</a>
 							</p>
 							<p class="p3">
-								<a href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}'>
+								<a href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide">
 									${item.caddress}
 								</a>
 							</p>

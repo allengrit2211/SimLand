@@ -19,7 +19,7 @@
 	<!-- myCollectShopPage start-->
 	<div data-role="page" id="myCollectShopPage">
 		<div data-role="header" class="header_1">
-			<a  data-transition="none" href="#" data-role="button" data-rel="back"
+			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>
 				<div class="tags">
@@ -31,8 +31,8 @@
 		<!-- /header -->
 		<div data-role="content">
 		
-			<div id="wrapper" class="top">
-				<div id="scroller">		
+			<div class="wrapper top">
+				<div class="scroller">		
 		
 					<div class="collectList">
 						

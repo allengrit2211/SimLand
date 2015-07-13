@@ -25,18 +25,20 @@ public class AjaxAwareLoginUrlAuthenticationEntryPoint extends LoginUrlAuthentic
 	public void commence(final HttpServletRequest request, final HttpServletResponse response, final AuthenticationException authException) throws IOException, ServletException {
 		if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
 			//response.sendError(HttpServletResponse.SC_FORBIDDEN, "Access Denied");// 对于ajax请求不重定向
-			String reJson = null;
-			SysMessage msg = new SysMessage();
-			msg.setCode("-100");
-			msg.setMsg("未登录");
-			reJson = Utils.objToJsonp(msg, request.getParameter("callback"));
 
-			response.setContentType("text/plan");
-			response.setCharacterEncoding("UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println(reJson);
-			out.flush();
-			out.close();
+			response.sendRedirect(request.getContextPath()+"/loginPage");
+			//			String reJson = null;
+//			SysMessage msg = new SysMessage();
+//			msg.setCode("-100");
+//			msg.setMsg("未登录");
+//			reJson = Utils.objToJsonp(msg, request.getParameter("callback"));
+//
+//			response.setContentType("text/plan");
+//			response.setCharacterEncoding("UTF-8");
+//			PrintWriter out = response.getWriter();
+//			out.println(reJson);
+//			out.flush();
+//			out.close();
 
 		} else {
 			super.commence(request, response, authException);

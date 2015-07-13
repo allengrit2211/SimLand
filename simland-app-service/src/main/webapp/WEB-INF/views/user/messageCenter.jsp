@@ -18,7 +18,7 @@
 	<!--   messageCenterPage start  -->
 	<div data-role="page" id="messageCenterPage">
 		<div data-role="header" class="header_1">
-			<a  data-transition="none" href="#" data-role="button" data-rel="back"
+			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>消息中心</h1>
 			<a  data-transition="none" href="#" data-role="button" class="back">设置</a>

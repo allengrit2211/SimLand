@@ -49,9 +49,11 @@ var index = {
 	},
 	searchShop : function() {// 搜索店铺跳转
 		$("#sellerListPage_stype").val(0);
+		$("#sellerListPage_currentPage").val(1);
 		$("#sellerListPage_form").submit();
 	},
 	searchCategoryBtn : function() {// 主营类别搜索
+		$("#sellerListPage_currentPage").val(1);
 		$("#sellerListPage_stype").val(1);
 		index.setHistoryList($("#searchCategory").val(), 0);
 		$("#sellerListPage_form").submit();

@@ -46,9 +46,9 @@ public class CartController {
 	@RequestMapping(value = "/buy/cart")
 	public String showShoppingCart(HttpServletRequest request, Model model) {
 
-		User user = SessionManager.getUser();
-		Cart cart = user.getCart();
-		model.addAttribute("cartItmes", cart.getCartItems());
+		//User user = SessionManager.getUser();
+		//Cart cart = user.getCart();
+		//model.addAttribute("cartItmes", cart.getCartItems());
 		return "buy/cart";
 	}
 

@@ -19,8 +19,8 @@
 	<div data-role="page" id="shopInfoPage" class="shop">
 		<div data-role="content">
 		
-			<div id="wrapper">
-				<div id="scroller">
+			<div class="wrapper">
+				<div class="scroller">
 				
 					<div class="shop_top">
 						<div class="b_logo">

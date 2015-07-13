@@ -23,8 +23,8 @@
 	<!-- userCenter page start -->
 	<div data-role="page" id="userCenterPage">
 		<div data-role="content">
-			<div id="wrapper">
-				<div id="scroller">
+			<div class="wrapper">
+				<div class="scroller">
 					<div class="uInfo">
 						<div class="uInfoBox">
 							<div class="u_img">

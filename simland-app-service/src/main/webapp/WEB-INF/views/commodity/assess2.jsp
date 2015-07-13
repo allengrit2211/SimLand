@@ -18,7 +18,7 @@
 	<!-- assessPage1 page start -->
 	<div data-role="page" id="assess1Page">
 		<div data-role="header" class="header_1">
-			<a  data-transition="none" href="#" data-role="button" data-rel="back"
+			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>订单评价</h1>
 			<a  data-transition="none" href="#" data-role="button" class="back">提交评价</a>

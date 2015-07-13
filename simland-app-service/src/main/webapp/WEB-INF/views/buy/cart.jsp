@@ -22,18 +22,18 @@
 
 	<!-- scat1Page 购物车页面 start  -->
 	<div data-role="page" id="cartPage">
-		<div data-role="header" class="header_1">
-			<a data-transition="none" href="#" data-role="button" data-rel="back"
-				class="back" data-icon="arrow-l">&nbsp;</a>
-			<h1>购物车</h1>
+		<div data-role="header" class="header_1 bg41AC98">
+			<a data-transition="slide" href="#" data-role="button" data-rel="back"
+				class="back bg41AC98" data-icon="arrow-l">&nbsp;</a>
+			<h1 class="colorFFF">购物车</h1>
 			<a data-transition="none"
 				href="${pageContext.request.contextPath}/order/confirmOrder"
-				data-role="button" class="back">结算</a>
+				data-role="button" class="back bg41AC98 colorFFF">结算</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-			<div id="wrapper" class="top">
-				<div id="scroller">
+			<div class="wrapper top">
+				<div class="scroller">
 					<div class="cart">
 						<div id="preferential" data-role="popup" data-theme="a">
 							<div style="width:300px;overflow:hidden;">
@@ -197,18 +197,10 @@
 
 			<div data-role="navbar" class="myfooter bgEDEDED">
 				<ul>
-					<li><a data-transition="none"
-						href="${pageContext.request.contextPath}/main"
-						class="ui-icon-index_1 ui-btn-active1">首页</a></li>
-					<li><a data-transition="none"
-						href="${pageContext.request.contextPath}/map/map1Page"
-						class="ui-icon-map_1">地图</a></li>
-					<li><a data-transition="none"
-						href="${pageContext.request.contextPath}/buy/cart"
-						class="ui-icon-purchase_1">进货单</a></li>
-					<li><a data-transition="none"
-						href="${pageContext.request.contextPath}/user/userCenter"
-						class="ui-icon-my_1">我的</a></li>
+					<li><a  data-transition="none" href="${pageContext.request.contextPath}/main" class="ui-icon-index_1 ui-btn-active1">首页</a></li>
+					<li><a  data-transition="none" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map_1">地图</a></li>
+					<li><a  data-transition="none" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase_1">进货单</a></li>
+					<li><a  data-transition="none" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my_1">我的</a></li>
 				</ul>
 			</div>
 

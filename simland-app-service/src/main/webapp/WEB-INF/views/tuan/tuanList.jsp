@@ -10,6 +10,12 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.mobile-1.4.3.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
+
 </head>
 
 <body>
@@ -18,15 +24,15 @@
 	<div data-role="page" id="tuanListPage">
 		
 		<div data-role="header" class="header_1 bg41AC98" data-tap-toggle="false" data-position="fixed">
-				<a  data-transition="none" href="#" data-role="button" data-rel="back"
+				<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 					class="bg41AC98 back" data-icon="arrow-l">&nbsp;</a>
 				<h1 class="colorFFF">水贝团购</h1>			
 		</div>
 		
 		
 		<div data-role="content">
-			<div id="wrapper" class="top">
-				<div id="scroller">
+			<div class="top wrapper">
+				<div class="scroller">
 				
 					<div class="nav">
 						<a class="a1" href="#">全部分类<span class="s1"></span></a>
@@ -49,12 +55,6 @@
 	</div>
 
 
-
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
 
 </body>
 </html>

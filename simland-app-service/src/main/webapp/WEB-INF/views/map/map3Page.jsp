@@ -20,7 +20,7 @@
 	<div data-role="page" id="map3Page">
 		
 		<div data-role="header" class="header_1">
-			<a  data-transition="none" href="#" data-role="button" data-rel="back"
+			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1 class="h">
 				<span class="s1">水北街珠宝商厦</span>
@@ -31,8 +31,8 @@
 		</div>
 		
 		<div data-role="content">
-			<div id="wrapper" class="top">
-				<div id="scroller">	
+			<div class="wrapper top">
+				<div class="scroller">	
 		
 					<div class="boxList">
 						<div class="box">

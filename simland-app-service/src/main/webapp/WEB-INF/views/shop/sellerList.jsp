@@ -20,7 +20,7 @@
 	<div data-role="page" id="sellerListPage">
 		<div data-role="header" class="header_1" data-tap-toggle="false" data-position="fixed">
 			
-				<a  data-transition="none" href="#" data-role="button" data-rel="back"
+				<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 					class="back" data-icon="arrow-l">&nbsp;</a>
 				<h1>
 				<form action="${pageContext.request.contextPath}/shop/list" method="get" id="sellerListPage_form">
@@ -122,8 +122,8 @@
 			-->
 
 
-			<div id="wrapper" class="top">
-				<div id="scroller">
+			<div class="wrapper top">
+				<div class="scroller">
 					<div class="boxList">
 						<c:import url="sellerListAjax.jsp"/>
 					</div>
@@ -135,17 +135,19 @@
 
 		</div>
 		<c:import url="../footer.jsp"/>
+		
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/shop.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/sellerList.js"></script>
 	</div>
 	<!-- SellerListPage end-->
 
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.textSearch-1.0.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/shop.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/sellerList.js"></script>
+	
+	
 	
 
 </body>

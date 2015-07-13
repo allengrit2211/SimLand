@@ -13,6 +13,18 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.textSearch-1.0.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/index.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/shop.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/commodity.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/sellerList.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/user.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/cart.js"></script>
 </head>
 
 <body>
@@ -20,20 +32,20 @@
 	<div data-role="page" id="indexPage">
 		<div data-role="content">
 		
-			<div id="wrapper">
-				<div id="scroller">
+			<div class="wrapper">
+				<div class="scroller">
 				
 					<div class="logodiv">
 						<img alt="" src="${pageContext.request.contextPath}/images/bg/logo.jpg">
 					</div>
 		
 					<div class="box">
-						<a class="a a1" href="${pageContext.request.contextPath}/tuan/list">
+						<a class="a a1" href="${pageContext.request.contextPath}/tuan/list" data-transition="slide">
 							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c3.jpg">
 							<br>
 							<span>团购</span>
 						</a>
-						<a class="a a2" href="">
+						<a class="a a2" href="#" data-transition="slide">
 							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c5.jpg">
 							<br>
 							<span>拍卖</span>
@@ -66,7 +78,7 @@
 		
 					<div class="box1">
 					
-						<form action="${pageContext.request.contextPath}/shop/list" method="get" id="sellerListPage_form">
+						<form action="${pageContext.request.contextPath}/shop/list" method="get" id="sellerListPage_form" data-transition="slide">
 							<input type="hidden" name="icurrentPage" id="sellerListPage_currentPage" value="1">
 							<input type="hidden" name="sort" id="sellerListPage_score">
 							<input type="hidden" name="sortType" id="sellerListPage_scoreType">
@@ -82,7 +94,7 @@
 								<div class="input1">
 									<span>主营 |</span> <input class="txt" id="searchCategory"
 										data-role="none" name="k1" maxlength="14" value="" type="text"> 
-										<input type="button" data-role="none" class="btn" id="searchCategoryBtn">
+										<input type="button" data-role="none" class="btn" id="searchCategoryBtn" >
 								</div>
 									<div class="historyList">
 										<ul>
@@ -121,10 +133,10 @@
 			data-theme="d" id="footer">
 			<div data-role="navbar" class="myfooter no-top-border bg41AC98">
 				<ul>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/main" class="ui-icon-index ui-btn-active">首页</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map">地图</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase">进货单</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my">我的</a></li>
+					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/main" class="ui-icon-index ui-btn-active">首页</a></li>
+					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map">地图</a></li>
+					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase">进货单</a></li>
+					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>
@@ -132,11 +144,5 @@
 	</div>
 	<!-- /page -->
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/index.js"></script>
 </body>
 </html>

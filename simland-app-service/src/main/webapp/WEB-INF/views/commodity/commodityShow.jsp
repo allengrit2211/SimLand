@@ -18,14 +18,14 @@
 	<!-- Product1Page 产品明细页面 start  -->
 	<div data-role="page" id="CommodityPage">
 		<div data-role="header" class="header_1"  data-tap-toggle="false" data-position="fixed">
-			<a  data-transition="none" href="#" data-role="button" data-rel="back"
+			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>宝贝明细</h1>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-			<div id="wrapper" class="top">
-				<div id="scroller">
+			<div class="wrapper top">
+				<div class="scroller">
 					<div class="p_img">
 						<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
 					</div>

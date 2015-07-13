@@ -59,7 +59,3 @@ var shop = {
 }
 
 shop.initialize();
-
-$(document).ready(function() {
-
-});

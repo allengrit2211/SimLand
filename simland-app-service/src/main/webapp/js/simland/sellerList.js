@@ -9,12 +9,12 @@ var sellerList = {
 		sellerList.scroll();
 
 		// 页面初始数据加载
-		$(document).on("pageinit", initPage2);
+		//$(document).on("pageinit", initPage2);
 
-		function initPage2(event) {
-			$(document).off('pageinit', initPage2);
+		//function initPage2(event) {
+			//$(document).off('pageinit', initPage2);
 			$("#sellerListPage_currentPage").val(1);
-		}
+		//}
 
 		// 加载店铺收藏事件
 		shop.collectShopEvent();
@@ -26,16 +26,21 @@ var sellerList = {
 		sellerList.textSeach();
 	},
 	scroll : function() {// 商家列表页面，滚动分页
+		
+		
+		setTimeout(loaded, 100);
+		
+		
 		/**
 		 * 初始化iScroll控件
 		 */
 		function loaded() {
-			sellerList.myScroll = new IScroll('#wrapper', {
+			sellerList.myScroll = new IScroll($.mobile.activePage.find(".wrapper")[0], {
 				scrollbarClass : 'myScrollbar', /* 重要样式 */
 				useTransition : false, /* 此属性不知用意，本人从true改为false */
 				checkDOMChanges : true,
 				mouseWheel : true,
-				click : true,
+				preventDefault:false,
 				probeType : 3
 			});
 
@@ -57,8 +62,6 @@ var sellerList = {
 			}
 
 		}
-
-		document.addEventListener('DOMContentLoaded', loaded, false);
 
 	},
 	/***************************************************************************
