@@ -27,6 +27,9 @@ public class Commodity implements java.io.Serializable {
 	private CategoryProperties attr1;// 属性1
 	private CategoryProperties attr2;// 属性2
 
+	private String attr1Val;// 属性值
+	private String attr2Val;// 属性值
+
 	private List<String[]> attr1List = new ArrayList<String[]>();// 属性1值
 	private List<String[]> attr2List = new ArrayList<String[]>();// 属性2值
 
@@ -189,6 +192,22 @@ public class Commodity implements java.io.Serializable {
 
 	public void setDefaultChose(String[] defaultChose) {
 		this.defaultChose = defaultChose;
+	}
+
+	public String getAttr1Val() {
+		return attr1Val;
+	}
+
+	public void setAttr1Val(String attr1Val) {
+		this.attr1Val = attr1Val;
+	}
+
+	public String getAttr2Val() {
+		return attr2Val;
+	}
+
+	public void setAttr2Val(String attr2Val) {
+		this.attr2Val = attr2Val;
 	}
 
 	/***

@@ -46,9 +46,9 @@ public class CartController {
 	@RequestMapping(value = "/buy/cart")
 	public String showShoppingCart(HttpServletRequest request, Model model) {
 
-		//User user = SessionManager.getUser();
-		//Cart cart = user.getCart();
-		//model.addAttribute("cartItmes", cart.getCartItems());
+		User user = SessionManager.getUser();
+		Cart cart = user.getCart();
+		model.addAttribute("cart", cart);
 		return "buy/cart";
 	}
 
@@ -66,6 +66,8 @@ public class CartController {
 		SysMessage msg = new SysMessage();
 
 		String cid = request.getParameter("cid");
+		String attr1 = request.getParameter("attr1");
+		String attr2 = request.getParameter("attr2");
 		String attr1Val = request.getParameter("attr1Val");
 		String attr2Val = request.getParameter("attr2Val");
 		String buyNum = request.getParameter("buyNum");
@@ -79,8 +81,10 @@ public class CartController {
 		}
 
 		// 设置属性
-		c.setAttr1(SystemConstants.categoryPropertiesMap.get(attr1Val));
-		c.setAttr2(SystemConstants.categoryPropertiesMap.get(attr2Val));
+		c.setAttr1(SystemConstants.categoryPropertiesMap.get(attr1));
+		c.setAttr2(SystemConstants.categoryPropertiesMap.get(attr2));
+		c.setAttr1Val(attr1Val);
+		c.setAttr2Val(attr2Val);
 		if (c.getAttr1() == null || c.getAttr2() == null) {
 			msg.setCode("-2");
 			msg.setMsg("请选择商品属性");

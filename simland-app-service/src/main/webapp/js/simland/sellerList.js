@@ -3,7 +3,7 @@ var sellerList = {
 	myScroll : {},
 	initialize : function() {
 		// 商家星级排序
-		$("#sellerListPage_score_btn").click(sellerList.scoreOrder);
+		$("#sellerListPage_score_btn").unbind().click(sellerList.scoreOrder);
 
 		// 滚动翻页
 		sellerList.scroll();
@@ -19,7 +19,7 @@ var sellerList = {
 		// 加载店铺收藏事件
 		shop.collectShopEvent();
 
-		$("#sellerListPage_search_k").bind("change", function(event, ui) {
+		$("#sellerListPage_search_k").unbind().bind("change", function(event, ui) {
 			$("#sellerListPage_form").submit();
 		});
 
@@ -122,4 +122,4 @@ var sellerList = {
 	}
 }
 
-sellerList.initialize();
+

@@ -1,7 +1,7 @@
 var shop = {
 	initialize : function() {
 		//店铺tags切换
-		$(".shop .shopTag a").click(function() {
+		$(".shop .shopTag a").unbind().click(function() {
 			$("#loading").show();
 			$(this).addClass("on").siblings().removeClass('on');
 			$("#page" + $(this).attr("i")).siblings(".tags").addClass("none").end().removeClass('none');
@@ -18,7 +18,7 @@ var shop = {
 		 $("#sellerListPage .boxList .box .p2 .a2").unbind("click");
 		
 		// 加载店铺收藏事件
-		$("#sellerListPage .boxList .box .p2 .a2").click(function() {
+		$("#sellerListPage .boxList .box .p2 .a2").unbind().click(function() {
 			shop.collectShop($(this), $(this).attr("sid"));
 		});	
 	},
@@ -58,4 +58,4 @@ var shop = {
 	}
 }
 
-shop.initialize();
+

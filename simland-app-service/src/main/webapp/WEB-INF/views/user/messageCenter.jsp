@@ -25,39 +25,42 @@
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-
-			<div class="msg_list_box">
-				<div class="msg_list">
-					<div class="img">
-						<img alt="" src="images/bg/messageCenterPage_r2_c3.jpg">
+			<div class="wrapper top">
+				<div class="scroller">	
+					<div class="msg_list_box">
+						<div class="msg_list">
+							<div class="img">
+								<img alt="" src="images/bg/messageCenterPage_r2_c3.jpg">
+							</div>
+							<div class="info">
+								<h6>咚咚</h6>
+								<p>点击查看您与水贝客服的会话记录</p>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="msg_list">
+							<div class="img">
+								<img alt="" src="images/bg/messageCenterPage_r4_c3.jpg">
+							</div>
+							<div class="info">
+								<h6>咚咚</h6>
+								<p>点击查看您与水贝客服的会话记录</p>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="msg_list">
+							<div class="img">
+								<img alt="" src="images/bg/messageCenterPage_r6_c3.jpg">
+							</div>
+							<div class="info">
+								<h6>咚咚</h6>
+								<p>点击查看您与水贝客服的会话记录</p>
+							</div>
+							<div class="clear"></div>
+						</div>
 					</div>
-					<div class="info">
-						<h6>咚咚</h6>
-						<p>点击查看您与水贝客服的会话记录</p>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="msg_list">
-					<div class="img">
-						<img alt="" src="images/bg/messageCenterPage_r4_c3.jpg">
-					</div>
-					<div class="info">
-						<h6>咚咚</h6>
-						<p>点击查看您与水贝客服的会话记录</p>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="msg_list">
-					<div class="img">
-						<img alt="" src="images/bg/messageCenterPage_r6_c3.jpg">
-					</div>
-					<div class="info">
-						<h6>咚咚</h6>
-						<p>点击查看您与水贝客服的会话记录</p>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
+				</div>	
+			</div>		
 		</div>
 		<c:import url="../footer.jsp"/>
 	</div>

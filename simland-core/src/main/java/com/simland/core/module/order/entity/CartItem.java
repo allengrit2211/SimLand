@@ -6,7 +6,7 @@ public class CartItem {
 
 	private Commodity c;// 商品
 	private Integer buyNum;// 购买数量
-	private String sky;// 商品sku
+	private String sku;// 商品sku
 
 	public Commodity getC() {
 		return c;
@@ -24,12 +24,12 @@ public class CartItem {
 		this.buyNum = buyNum;
 	}
 
-	public String getSky() {
-		return sky;
+	public String getSku() {
+		return sku;
 	}
 
-	public void setSky(String sky) {
-		this.sky = sky;
+	public void setSku(String sku) {
+		this.sku = sku;
 	}
 
 }

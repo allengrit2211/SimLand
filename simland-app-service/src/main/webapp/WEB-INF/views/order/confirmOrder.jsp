@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,74 +17,105 @@
 	
 <!-- confirmOrderPage 确认订单 start  -->
 	<div data-role="page" id="confirmOrderPage">
-		<div data-role="header" class="header_1">
+		<div data-role="header" class="header_1 bg41AC98">
 			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
-				class="back" data-icon="arrow-l">&nbsp;</a>
-			<h1>确认订单</h1>
-			<a  data-transition="none" href="#userCenterCheckLoginPage" data-role="button" class="back">提交订单</a>
+				class="back bg41AC98" data-icon="arrow-l">&nbsp;</a>
+			<h1 class="colorFFF">确认订单</h1>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
 
-			<div class="adds">
-				<div class="line">&nbsp;</div>
-				<h4>请填写你的收货地址</h4>
-				<div class="line">&nbsp;</div>
-			</div>
-			
-			
-			<div class="plistBox">
-				<p>货品清单</p>
-				<div class="line"></div>
-				<div class="ui-grid-b plist">
-					<div class="ui-block-b p_0_1">
-						<span>深圳市大本钟贸易有限...</span> |<span>优惠说明</span>
-					</div>
-					<div class="ui-block-c p_0_2"></div>
+			<div class="wrapper top">
+				<div class="scroller">
 
-					<div class="ui-block-a p_1_0"></div>
-					<div class="ui-block-b p_1_1">
-						<img width="53" alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/c_4.jpg">
+					<div class="adds">
+						<c:choose>
+							<c:when test="${address!=null}">
+							<div class="line">&nbsp;</div>
+							<h4>
+								<span class="s1">收货人:${address.receiverName} ${address.receiverPhone}</span>
+								<span class="s2">${address.receiverProvince}${address.receiverCity}${address.receiverDistrict}${address.receiverAdress} ${address.receiverZipCode}</span>
+							</h4>
+							<div class="line">&nbsp;</div>
+							</c:when>
+							<c:otherwise>
+								<div class="line">&nbsp;</div>
+								<h4><a href="${pageContext.request.contextPath}/user/addAddressShow" data-transition="slide" class="a1">请填写你的收货地址</a></h4>
+								<div class="line">&nbsp;</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
-					<div class="ui-block-c p_1_2">
-						<span>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</span> <br> <span>￥29890.00</span>
+					
+					
+					<div class="plistBox">
+						<p class="p_title">货品清单</p>
+						<div class="line"></div>
+						
+						<c:forEach items="${cart.cartItems}" var="item">
+							<div class="shopBox">
+								<div class="title">
+									<a class="a1" href="#">${item.key.cname}</a> 
+									<a class="a2" data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
+								</div>
+								
+								<c:forEach items="${item.value}" var="item1">
+									<div class="commodity">
+										<div class="box">
+											<div class="c_info">
+												<div class="c_img">
+													<img width="53" alt=""
+														src="${pageContext.request.contextPath}/${item1.c.img}">
+												</div>
+												<div class="c_infobox">
+													<div class="c_title">${item1.c.name}</div>
+													<div class="c_price">
+														<p>
+															<span>${item1.c.attr1.name} : </span><span class="s_1">${item1.c.attr1Val}</span> <span>${item1.c.attr2.name} : </span><span
+																class="s_2">${item1.c.attr2Val}</span>
+														</p>
+														<p>
+															<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x  ${item1.buyNum}</span>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								<!-- 配送方式 -->
+								<div class="title">
+									<span class="left">配送方式</span>
+									<span class="right"></span>
+								</div>
+								<div class="title">
+									<div class="input">
+										<input type="text" placeholder="给商家留言">
+									</div>
+								</div>
+								<div class="title">
+									<span class="left"></span>
+									<span class="right">共${fn:length(cart.cartItems)}件商品,合计￥<span class="red">89</span></span>
+								</div>
+							</div>
+		
+						</c:forEach>
+						
 					</div>
-					<div class="ui-block-a p_2_0">&nbsp;</div>
-					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
-					<div class="ui-block-c p_2_2">
-						<span class="s1">￥29,890.00</span><span class="s2">1克拉</span>
+					
+					<div class="confirmOrderInfo_line">
+					
 					</div>
-				</div>
-				<div class="ui-grid-b plist">
-					<div class="ui-block-b p_0_1">
-						<span>深圳市大本钟贸易有限...</span> |<span>优惠说明</span>
-					</div>
-					<div class="ui-block-c p_0_2"></div>
-
-					<div class="ui-block-a p_1_0"></div>
-					<div class="ui-block-b p_1_1">
-						<img width="53" alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/c_4.jpg">
-					</div>
-					<div class="ui-block-c p_1_2">
-						<span>【十年资质】裸钻提供商 天然南非钻石 深圳水贝珠宝 一手...</span> <br> <span>￥29890.00</span>
-					</div>
-					<div class="ui-block-a p_2_0">&nbsp;</div>
-					<div class="ui-block-b p_2_1">单价:￥29,890.00/克拉</div>
-					<div class="ui-block-c p_2_2">
-						<span class="s1">￥29,890.00</span><span class="s2">1克拉</span>
-					</div>
-				</div>
-			</div>
 			
-			<div class="confirmOrderInfo_line">
 			
+				</div>
 			</div>
 			
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
-			data-theme="d" style="border-top:none;">
+			data-theme="d">
 
 			<div class="confirmOrderInfo">
+				<!-- 
 				<div class="left">
 					<p><span>店铺优惠:</span><span>￥0.00</span></p>
 					<p><span>运费计算:</span><span>￥0.00</span></p>
@@ -100,6 +132,11 @@
 					
 				</div>
 				<div class="clear"></div>
+				 -->
+				<div class="right">
+					<a href="#" id="submitOrderBtn" data-role="button">提交订单</a>
+				</div>
+				
 			</div>
 			
 			<div data-role="navbar" class="myfooter bgEDEDED">

@@ -1,7 +1,8 @@
 package com.simland.core.module.order.entity;
 
-import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -25,6 +26,10 @@ public class Cart {
 	private ConcurrentMap<Shop, Vector<CartItem>> cartItems;
 
 	public ConcurrentMap<Shop, Vector<CartItem>> getCartItems() {
+
+		if (cartItems == null)
+			this.cartItems = new ConcurrentHashMap<Shop, Vector<CartItem>>();
+
 		return cartItems;
 	}
 
@@ -32,7 +37,7 @@ public class Cart {
 		this.cartItems = cartItems;
 	}
 
-	private Map<String, String> skuIndex;// 购物车商品sky索引
+	private Map<String, Shop> skuIndex = new HashMap<String, Shop>();// 购物车商品sky索引
 
 	/***
 	 * 添加购物车
@@ -47,34 +52,41 @@ public class Cart {
 	 */
 	public static Cart addCart(Cart cart, Shop shop, Commodity c, int buyNum) {
 
-		if(cart==null) cart = new Cart();
-		
+		if (cart == null)
+			cart = new Cart();
+
 		ConcurrentMap<Shop, Vector<CartItem>> cartItems = cart.getCartItems();
-		if (cartItems == null || cartItems.size() == 0) {// 购物车为空时
-			cartItems = new ConcurrentHashMap<Shop, Vector<CartItem>>();
-			Vector<CartItem> cilist = new Vector<CartItem>();
-			CartItem cartItem = new CartItem();
-			cartItem.setC(c);
-			cartItem.setSky(Commodity.getCommoditySku(c));
-			cilist.add(cartItem);
-			cartItems.put(shop, cilist);
-			cart.setCartItems(cartItems);
-		} else {// 购物车不为空 ，存在相同商品 数量增加
-			Collection<Vector<CartItem>> allCartItem = cartItems.values();
-			for (Vector<CartItem> vci : allCartItem) {
-				for (CartItem cartItem : vci) {
-					if (Commodity.getCommoditySku(c).equals(cartItem.getSky())) {// 存在相同商品，购买数量+buyNum
-						cartItem.setBuyNum(cartItem.getBuyNum() + buyNum);
-					} else {
-						CartItem cartItem1 = new CartItem();
-						cartItem1.setBuyNum(buyNum);
-						cartItem1.setC(c);
-						cartItem1.setSky(Commodity.getCommoditySku(c));
-						vci.add(cartItem1);
-					}
-				}
+
+		for (Entry<Shop, Vector<CartItem>> e : cartItems.entrySet()) {
+			Vector<CartItem> ci = e.getValue();
+			for (int i = 0; ci != null && i < ci.size(); i++) {
+				cart.skuIndex.put(ci.get(i).getSku(), e.getKey());
 			}
 		}
+
+		String sku = Commodity.getCommoditySku(c);
+		if (cart.skuIndex.containsKey(sku)) {// 存在该商品
+			Vector<CartItem> ciList = cartItems.get(cart.skuIndex.get(sku));
+			for (int i = 0; ciList != null && i < ciList.size(); i++) {
+				if (Commodity.getCommoditySku(c).equals(ciList.get(i).getSku())) {
+					ciList.get(i).setBuyNum(ciList.get(i).getBuyNum() + buyNum);
+				}
+			}
+		} else {// 不存在
+			CartItem cartItem = new CartItem();
+			cartItem.setC(c);
+			cartItem.setBuyNum(buyNum);
+			cartItem.setSku(Commodity.getCommoditySku(c));
+
+			if (cartItems.get(shop) != null) {
+				cartItems.get(shop).add(cartItem);
+			} else {
+				Vector<CartItem> cl = new Vector<CartItem>();
+				cl.add(cartItem);
+				cartItems.put(shop, cl);
+			}
+		}
+
 		return cart;
 	}
 }

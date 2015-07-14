@@ -130,8 +130,10 @@
 		
 		
 			<div id="addCartPopup" data-role="popup" >
+				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"> Close</a>
 				<div class="popup">
-					<form action="${pageContext.request.contextPath}/buy/addCart" id="cartForm" method="post">
+					<form action="${pageContext.request.contextPath}/buy/addCart" id="cartForm" method="post" data-transition="slide">
+						<input type="hidden" name="_stype" value="ajax"/>
 						<div class="box">
 							<div class="img">
 								<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
@@ -142,6 +144,8 @@
 								<span class="s3">已选 <span id="attr1ValShow">请选择</span> <span id="attr2ValShow"></span></span>
 								<input type="hidden" value="${commodity.id}" name="cid"/>
 								<input type="hidden" value="" id="buyTypeHid"/>
+								<input type="hidden" id="attr1" name="attr1" tit="" value=""/>
+								<input type="hidden" id="attr2" name="attr2" tit="" value=""/>
 								<input type="hidden" id="attr1Val" name="attr1Val" tit="${commodity.attr1.name}" value=""/>
 								<input type="hidden" id="attr2Val" name="attr2Val" tit="${commodity.attr2.name}" value=""/>
 							</div>

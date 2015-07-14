@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,18 +23,20 @@
 
 	<!-- scat1Page 购物车页面 start  -->
 	<div data-role="page" id="cartPage">
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/cart.js"></script>
 		<div data-role="header" class="header_1 bg41AC98">
 			<a data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back bg41AC98" data-icon="arrow-l">&nbsp;</a>
 			<h1 class="colorFFF">购物车</h1>
 			<a data-transition="none"
 				href="${pageContext.request.contextPath}/order/confirmOrder"
-				data-role="button" class="back bg41AC98 colorFFF">结算</a>
+				data-role="button" class="back bg41AC98 colorFFF">编辑</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
 			<div class="wrapper top">
 				<div class="scroller">
+				
 					<div class="cart">
 						<div id="preferential" data-role="popup" data-theme="a">
 							<div style="width:300px;overflow:hidden;">
@@ -45,6 +48,50 @@
 							</div>
 						</div>
 
+						<c:forEach items="${cart.cartItems}" var="item">
+							<div class="shopBox">
+								<div class="title">
+									<div class="check">
+										<input type="checkbox" name="carCheck" data-cacheval="false" data-role="none">
+									</div>
+									<a class="a1" href="#">${item.key.cname}</a> 
+									<a class="a2" data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
+								</div>
+								
+								<c:forEach items="${item.value}" var="item1">
+									<div class="commodity">
+										<div class="check">
+											<input type="checkbox" name="carCheck" data-cacheval="false" data-role="none">
+										</div>
+										<div class="box">
+											<div class="c_info">
+												<div class="c_img">
+													<img width="53" alt=""
+														src="${pageContext.request.contextPath}/${item1.c.img}">
+												</div>
+												<div class="c_infobox">
+													<div class="c_title">${item1.c.name}</div>
+													<div class="c_price">
+														<p>
+															<span>${item1.c.attr1.name} : </span><span class="s_1">${item1.c.attr1Val}</span> <span>${item1.c.attr2.name} : </span><span
+																class="s_2">${item1.c.attr2Val}</span>
+														</p>
+														<p>
+															<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x  ${item1.buyNum}</span>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								
+							</div>
+
+						</c:forEach>
+
+
+						<!-- 
 						<div class="shopBox">
 							<div class="title">
 								<div class="check">
@@ -172,7 +219,7 @@
 							
 						</div>
 						
-						
+						 -->
 						
 						
 					</div>
@@ -183,14 +230,18 @@
 		<div data-role="footer" data-tap-toggle="false" data-cacheval="false" data-position="fixed"
 			data-theme="d" style="border-top:none;">
 
+
 			<div class="cartMenu">
 				<div class="left ">
-					<input type="checkbox" id="carCheckAll" data-role="none"/> <span>全选</span>
+					<input type="checkbox" id="carCheckAll" data-role="none"/>
 				</div>
 
 				<div class="right">
-					<a data-transition="none" href="#" data-role="button">移致收藏</a> <a
-						data-transition="none" href="#" data-role="button">删除</a>
+					<!-- 
+					<a data-transition="none" href="#" data-role="button">移致收藏</a> 
+					<a data-transition="none" href="#" data-role="button">删除</a>
+					 -->
+					<a data-transition="slide" href="${pageContext.request.contextPath}/order/confirmOrder" data-role="button">结算</a>
 				</div>
 				<div class="clear"></div>
 			</div>

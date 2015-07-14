@@ -2,23 +2,23 @@ var index = {
 	initialize : function() {
 		
 		// 店铺搜索按钮
-		$("#searchShopBtn").click(index.searchShop);
+		$("#searchShopBtn").unbind().click(index.searchShop);
 		// 主营类别按钮
-		$("#searchCategoryBtn").click(index.searchCategoryBtn);
+		$("#searchCategoryBtn").unbind().click(index.searchCategoryBtn);
 		// 主营类别获得焦点
-		$("#searchCategory").focus(index.searchCategoryFocus);
+		$("#searchCategory").unbind().focus(index.searchCategoryFocus);
 		// 主营类别失去焦点
-		$("#searchCategory").blur(index.searchCategoryBlur);
+		$("#searchCategory").unbind().blur(index.searchCategoryBlur);
 		// 历史记载
 		index.loadHistoryList(3);
 		
-		$("#searchShop").bind("change", function(event, ui) {
+		$("#searchShop").unbind().bind("change", function(event, ui) {
 			if($(this).val()!=''){
 				index.searchShop();
 			}
 		});
 		
-		$("#searchCategory").bind("change", function(event, ui) {
+		$("#searchCategory").unbind().bind("change", function(event, ui) {
 			if($(this).val()!=''){
 				index.searchCategoryBtn();
 			}
@@ -34,9 +34,9 @@ var index = {
 				$(".historyList ul").append("<li><a class='a1' href='#sellerListPage'>"+(localStorage.getItem('k' + i))+"</a> <a index='"+i+"' class='a2' href='#'>X</a></li>");
 		}
 		
-		$(".historyList .a1").click(index.historySeach);
+		$(".historyList .a1").unbind().click(index.historySeach);
 		// 历史记录清除
-		$(".historyList .a2").click(index.historyClear);
+		$(".historyList .a2").unbind().click(index.historyClear);
 		
 	},
 	searchCategoryFocus : function() {// 搜索主营类别获得焦点
@@ -97,4 +97,3 @@ var index = {
 	}
 }
 
-index.initialize();

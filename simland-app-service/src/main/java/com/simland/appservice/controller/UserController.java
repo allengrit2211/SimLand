@@ -7,7 +7,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.simland.core.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
+import com.simland.core.module.user.entity.Address;
+import com.simland.core.module.user.service.IAddressService;
 import com.simland.core.module.user.service.ICollectShopService;
 import com.simland.core.module.user.service.IUserService;
 
@@ -33,6 +34,9 @@ public class UserController {
 	@Autowired
 	private ICollectShopService collectShopService;
 
+	@Autowired
+	private IAddressService addressService;
+
 	/****
 	 * 登录页面
 	 * 
@@ -42,7 +46,7 @@ public class UserController {
 	public String login(HttpServletRequest request) {
 
 		System.out.println(request.getQueryString());
-		
+
 		String reJson = null;
 		String ajax = request.getParameter("ajax");
 		if ("ajax".equalsIgnoreCase(ajax)) {
@@ -148,6 +152,31 @@ public class UserController {
 		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
 
 		return reJson;
+	}
+
+	/***
+	 * 添加用户地址显示
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/user/addAddressShow")
+	public String addAddressShow(HttpServletRequest request, Model model) {
+
+		return "user/addAddress";
+	}
+
+	/***
+	 * 添加地址
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/user/addAddress")
+	public String addAddress(HttpServletRequest request, Model model) {
+		Address address = new Address();
+		addressService.insertAddress(address);
+		return "order/confirmOrder";
 	}
 
 }

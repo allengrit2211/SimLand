@@ -33,9 +33,8 @@
 		
 			<div class="wrapper top">
 				<div class="scroller">		
-		
+			
 					<div class="collectList">
-						
 						<c:forEach var="item" items="${list}">
 							<div class="collectBox">
 								<p class="p1"><a  href="${pageContext.request.contextPath}/shop/shopShow?id=${item.id}" class="s1">${item.cname}</a><span class="star star${item.score}"></span></p>
@@ -48,59 +47,60 @@
 								</div>
 							</div>
 						</c:forEach>
-					
-						<!-- 
-						<div class="collectBox">
-							<p class="p1"><a  href="#shop1Page" class="s1">深圳市东方金城珠宝首饰</a><span class="star"></span></p>
-							<div class="clear"></div>
-							<div class="line"></div>
-							<div class="c_imgs">
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c4.jpg"></a>
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c6.jpg"></a>
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c8.jpg"></a>
+						
+							<!-- 
+							<div class="collectBox">
+								<p class="p1"><a  href="#shop1Page" class="s1">深圳市东方金城珠宝首饰</a><span class="star"></span></p>
+								<div class="clear"></div>
+								<div class="line"></div>
+								<div class="c_imgs">
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c4.jpg"></a>
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c6.jpg"></a>
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c8.jpg"></a>
+								</div>
+							</div>
+							<div class="collectBox">
+								<p class="p1"><a  href="#shop1Page" class="s1">深圳市东方金城珠宝首饰</a><span class="star"></span></p>
+								<div class="clear"></div>
+								<div class="line"></div>
+								<div class="c_imgs">
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c4.jpg"></a>
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c6.jpg"></a>
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c8.jpg"></a>
+								</div>
+							</div>
+							<div class="collectBox">
+								<p class="p1"><a  href="#shop1Page" class="s1">深圳市东方金城珠宝首饰</a><span class="star"></span></p>
+								<div class="clear"></div>
+								<div class="line"></div>
+								<div class="c_imgs">
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c4.jpg"></a>
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c6.jpg"></a>
+									<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c8.jpg"></a>
+								</div>
 							</div>
 						</div>
-						<div class="collectBox">
-							<p class="p1"><a  href="#shop1Page" class="s1">深圳市东方金城珠宝首饰</a><span class="star"></span></p>
-							<div class="clear"></div>
-							<div class="line"></div>
-							<div class="c_imgs">
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c4.jpg"></a>
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c6.jpg"></a>
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c8.jpg"></a>
-							</div>
-						</div>
-						<div class="collectBox">
-							<p class="p1"><a  href="#shop1Page" class="s1">深圳市东方金城珠宝首饰</a><span class="star"></span></p>
-							<div class="clear"></div>
-							<div class="line"></div>
-							<div class="c_imgs">
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c4.jpg"></a>
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c6.jpg"></a>
-								<a  class="a1" href="#Product1Page"><img alt="" src="http://115.28.92.59:8089/simland-app-service/images/commodity/collect_r4_c8.jpg"></a>
-							</div>
-						</div>
+						 -->
+						<p class="p_last">已经没有更多数据了</p>
+						
+						<div class="bottom_height"></div>
 					</div>
-					 -->
-					<p class="p_last">已经没有更多数据了</p>
-					
-					<div class="bottom_height"></div>
+				</div>
+			</div>
+			<div data-role="footer" data-tap-toggle="false" data-position="fixed"
+				data-theme="d">
+	
+				<div data-role="navbar" class="myfooter bgEDEDED">
+					<ul>
+						<li><a  data-transition="none" href="${pageContext.request.contextPath}/main" class="ui-icon-index_1 ui-btn-active1">首页</a></li>
+						<li><a  data-transition="none" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map_1">地图</a></li>
+						<li><a  data-transition="none" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase_1">进货单</a></li>
+						<li><a  data-transition="none" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my_1">我的</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
-		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
-			data-theme="d">
-
-			<div data-role="navbar" class="myfooter bgEDEDED">
-				<ul>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/main" class="ui-icon-index_1 ui-btn-active1">首页</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map_1">地图</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase_1">进货单</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my_1">我的</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	</div>	
 	<!-- myCollectShopPage end-->
 
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>

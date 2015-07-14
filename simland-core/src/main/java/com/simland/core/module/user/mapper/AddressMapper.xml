@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.user.mapper.AddressMapper">
+
+	<resultMap id="AddressRM" type="com.simland.core.module.user.entity.Address">
+        <result property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="receiverName" column="receiverName"/>
+        <result property="receiverPhone" column="receiverPhone"/>
+        <result property="receiverProvince" column="receiverProvince"/>
+        <result property="receiverCity" column="receiverCity"/>
+        <result property="receiverDistrict" column="receiverDistrict"/>
+        <result property="receiverAdress" column="receiverAdress"/>
+        <result property="receiverZipCode" column="receiverZipCode"/>
+        <result property="isDefault" column="isDefault"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        uid uid,
+        receiverName receiverName,
+        receiverPhone receiverPhone,
+        receiverProvince receiverProvince,
+        receiverCity receiverCity,
+        receiverDistrict receiverDistrict,
+        receiverAdress receiverAdress,
+        receiverZipCode receiverZipCode,
+        isDefault isDefault
+	    ]]>
+	</sql>
+
+
+	<insert id="insertAddress" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.user.entity.Address">
+	    <![CDATA[
+	        INSERT INTO t_address (
+		        uid,
+		        receiverName,
+		        receiverPhone,
+		        receiverProvince,
+		        receiverCity,
+		        receiverDistrict,
+		        receiverAdress,
+		        receiverZipCode,
+		        isDefault
+	        ) VALUES (
+		        	#{uid},
+		        	#{receiverName},
+		        	#{receiverPhone},
+		        	#{receiverProvince},
+		        	#{receiverCity},
+		        	#{receiverDistrict},
+		        	#{receiverAdress},
+		        	#{receiverZipCode},
+		        	#{isDefault}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateAddress">
+	    <![CDATA[
+        UPDATE t_address SET
+        ]]>
+		<if test="uid!=null">
+        	uid = #{uid}
+		</if>
+		<if test="receiverName!=null">
+        	receiverName = #{receiverName}
+		</if>
+		<if test="receiverPhone!=null">
+        	receiverPhone = #{receiverPhone}
+		</if>
+		<if test="receiverProvince!=null">
+        	receiverProvince = #{receiverProvince}
+		</if>
+		<if test="receiverCity!=null">
+        	receiverCity = #{receiverCity}
+		</if>
+		<if test="receiverDistrict!=null">
+        	receiverDistrict = #{receiverDistrict}
+		</if>
+		<if test="receiverAdress!=null">
+        	receiverAdress = #{receiverAdress}
+		</if>
+		<if test="receiverZipCode!=null">
+        	receiverZipCode = #{receiverZipCode}
+		</if>
+		<if test="isDefault!=null">
+        	isDefault = #{isDefault}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteAddress">
+    <![CDATA[
+        DELETE FROM t_address WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getAddress" resultMap="AddressRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_address 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getAddressList" resultMap="AddressRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_address  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="uid!=null">
+	        AND uid = #{uid}
+	        </if>
+			<if test="receiverName!=null">
+	        AND receiverName = #{receiverName}
+	        </if>
+			<if test="receiverPhone!=null">
+	        AND receiverPhone = #{receiverPhone}
+	        </if>
+			<if test="receiverProvince!=null">
+	        AND receiverProvince = #{receiverProvince}
+	        </if>
+			<if test="receiverCity!=null">
+	        AND receiverCity = #{receiverCity}
+	        </if>
+			<if test="receiverDistrict!=null">
+	        AND receiverDistrict = #{receiverDistrict}
+	        </if>
+			<if test="receiverAdress!=null">
+	        AND receiverAdress = #{receiverAdress}
+	        </if>
+			<if test="receiverZipCode!=null">
+	        AND receiverZipCode = #{receiverZipCode}
+	        </if>
+			<if test="isDefault!=null">
+	        AND isDefault = #{isDefault}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getAddressCount" resultType="int">
+		SELECT count(*) FROM t_address
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitAddressList" resultMap="AddressRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_address
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

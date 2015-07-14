@@ -28,24 +28,28 @@
 			<h1>登录</h1>
 		</div>
 		<div data-role="content">
-			
-			<div class="loginDiv">
-				<form action="${pageContext.request.contextPath}/logindo" method="post" id="loginPage_form">
-					<input type="text" name="uname" id="uname" value="zhuoer" placeholder="请输入手机号码">
-					<input type="password" name="upw" id="upw" value="123123" placeholder="输入密码"> 
-					<input type="hidden" name="toUrl" id="toUrl" value="/user/userCenter">
-					<input type="submit" value="登录" id="loginBtn"/>
-				</form>
-				<br>
-			</div>
-			<div class="ui-grid-a bt">
-				<div class="ui-block-a">
-					<a  data-transition="none" href="#reg1Page">快速注册</a>
+			<div class="wrapper top">
+				<div class="scroller">
+					<div class="loginDiv">
+						<form action="${pageContext.request.contextPath}/logindo" method="post" id="loginPage_form">
+							<input type="text" name="uname" id="uname" value="zhuoer" placeholder="请输入手机号码">
+							<input type="password" name="upw" id="upw" value="123123" placeholder="输入密码"> 
+							<input type="hidden" name="toUrl" id="toUrl" value="/user/userCenter">
+							<input type="submit" value="登录" id="loginBtn"/>
+						</form>
+						<br>
+					</div>
+					<div class="ui-grid-a bt">
+						<div class="ui-block-a">
+							<a  data-transition="none" href="#reg1Page">快速注册</a>
+						</div>
+						<div class="ui-block-b">
+							<a  data-transition="none" href="#">找回密码</a>
+						</div>
+					</div>
 				</div>
-				<div class="ui-block-b">
-					<a  data-transition="none" href="#">找回密码</a>
-				</div>
 			</div>
+				
 		</div>
 		<c:import url="footer.jsp"/>
 	</div>

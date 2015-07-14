@@ -19,6 +19,7 @@
 		<!-- 需要拦截的地址 -->
 		<intercept-url pattern="/user/*" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/buy/*" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/order/*" access="hasRole('ROLE_USER')" />
 		<!-- <intercept-url pattern="/**/*.do*" access="hasRole('ROLE_USER')" /> -->
 
 

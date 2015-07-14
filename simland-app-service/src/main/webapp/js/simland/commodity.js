@@ -3,7 +3,7 @@ var commodity = {
 		
 	},
 	collectEvent : function() {//收藏事件加载
-		$(".shop .commodityList .s3").click(function(){
+		$(".shop .commodityList .s3").unbind().click(function(){
 			commodity.collectCommodity($(this))
 			return false;
 		});
@@ -40,4 +40,3 @@ var commodity = {
 	}
 }
 
-commodity.initialize();
