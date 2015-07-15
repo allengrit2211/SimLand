@@ -15,10 +15,9 @@ public class SimpleBuilder implements Builder {
 
 	private Commodity commodity;// 商品信息
 
-	public SimpleBuilder(User user, int buyNum, Commodity commodity) {
+	public SimpleBuilder(User user, Commodity commodity) {
 		this.user = user;
 		this.commodity = commodity;
-		order.setBuyNum(buyNum);
 	}
 
 	@Override

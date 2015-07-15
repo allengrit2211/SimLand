@@ -28,9 +28,8 @@
 			<a data-transition="slide" href="#" data-role="button" data-rel="back"
 				class="back bg41AC98" data-icon="arrow-l">&nbsp;</a>
 			<h1 class="colorFFF">购物车</h1>
-			<a data-transition="none"
-				href="${pageContext.request.contextPath}/order/confirmOrder"
-				data-role="button" class="back bg41AC98 colorFFF">编辑</a>
+			<a data-transition="none" id="cartEditBtn"
+				href="#" data-role="button" class="back bg41AC98 colorFFF">编辑</a>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
@@ -52,16 +51,16 @@
 							<div class="shopBox">
 								<div class="title">
 									<div class="check">
-										<input type="checkbox" name="carCheck" data-cacheval="false" data-role="none">
+										<input type="checkbox" name="carShopCheck" data-cacheval="false" data-role="none">
 									</div>
-									<a class="a1" href="#">${item.key.cname}</a> 
+									<a class="a1" href="${pageContext.request.contextPath}/shop/showShop?id=${item.key.id}">${item.key.cname}</a> 
 									<a class="a2" data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
 								</div>
 								
 								<c:forEach items="${item.value}" var="item1">
 									<div class="commodity">
 										<div class="check">
-											<input type="checkbox" name="carCheck" data-cacheval="false" data-role="none">
+											<input value="${item1.sku}" type="checkbox" name="carCheck" data-cacheval="false" data-role="none">
 										</div>
 										<div class="box">
 											<div class="c_info">
@@ -70,7 +69,7 @@
 														src="${pageContext.request.contextPath}/${item1.c.img}">
 												</div>
 												<div class="c_infobox">
-													<div class="c_title">${item1.c.name}</div>
+													<div class="c_title"><a href="${pageContext.request.contextPath}/commodity/show?id=${item1.c.id}">${item1.c.name}</a></div>
 													<div class="c_price">
 														<p>
 															<span>${item1.c.attr1.name} : </span><span class="s_1">${item1.c.attr1Val}</span> <span>${item1.c.attr2.name} : </span><span
@@ -80,6 +79,19 @@
 															<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x  ${item1.buyNum}</span>
 														</p>
 													</div>
+												</div>
+												<div class="c_infoboxEdit">
+													<div class="number">
+														<!-- 库存信息 -->
+														<c:forEach items="${item1.c.inventoryMap}" var="item2">
+															<input type="hidden" value="${item2.value}" id="${item2.key}"/>
+														</c:forEach>
+													
+														<a href="#" class="a1" id="revNum"></a>
+														<input id="buyNum" name="buyNum" class="input" type="number" data-role="none" value="1"/>
+														<a href="#" class="a2" id="addNum"></a>
+													</div>
+													<p class="p2">${item1.c.attr1.name}:${item1.c.attr1Val};${item1.c.attr2.name}:${item1.c.attr2Val}</p>
 												</div>
 											</div>
 										</div>
@@ -237,11 +249,13 @@
 				</div>
 
 				<div class="right">
-					<!-- 
-					<a data-transition="none" href="#" data-role="button">移致收藏</a> 
-					<a data-transition="none" href="#" data-role="button">删除</a>
-					 -->
-					<a data-transition="slide" href="${pageContext.request.contextPath}/order/confirmOrder" data-role="button">结算</a>
+					<div class="cartEdit">
+						<a data-transition="none" href="#" data-role="button">移致收藏</a> 
+						<a data-transition="none" href="#" data-role="button">删除</a>
+					</div>
+					 <div class="cartNormal">
+						<a data-transition="slide" href="${pageContext.request.contextPath}/order/confirmOrder" data-role="button">结算</a>
+					 </div>
 				</div>
 				<div class="clear"></div>
 			</div>

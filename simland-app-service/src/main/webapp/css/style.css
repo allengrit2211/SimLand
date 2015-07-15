@@ -92,6 +92,10 @@ span {
 	color: #666;
 }
 
+.ui-content a{
+	color: #666;
+}
+
 .clear {
 	clear: both;
 }
@@ -1299,18 +1303,17 @@ span {
 	border: 1px solid #EEE;
 	display: inline-block;
 	margin-left: 40%;
-	height: 1.25em;
+	height: 28px;
 	overflow: hidden;
 }
 
 #CommodityPage .popup .box .number .a1, #CommodityPage .popup .box .number .a2,
 	#CommodityPage .popup .box .number .input {
-	width: 0.75em;
-	height: 0.75em;
+	width: 28px;
+	height: 28px;
 	display: inline-block;
 	line-height: 0.75em;
 	margin: 0;
-	padding: 0.25em;
 	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;
@@ -1320,16 +1323,18 @@ span {
 	border: none;
 	padding: 0;
 	height: 100%;
-	width: 1.2em;
+	width:28px;
 	text-align: center;
 }
 
 #CommodityPage .popup .box .number .a1 {
 	border-right: 1px solid #EEE;
+	background: url("../images/bg/subtract.png") no-repeat 50% 50%;
 }
 
 #CommodityPage .popup .box .number .a2 {
 	border-left: 1px solid #EEE;
+	background: url("../images/bg/add.png") no-repeat 50% 50%;
 }
 
 #CommodityPage .ui-footer .btn, #CommodityPage .menu_height {
@@ -1407,6 +1412,10 @@ span {
 	
 }
 
+#cartPage .cartEdit{
+	display: none;
+}
+
 #cartPage .cart .shopBox .title {
 	display: inline-block;
 	width: 100%;
@@ -1423,7 +1432,6 @@ span {
 	color: #666;
 	margin: 0.375em 1em 0.375em 0;
 	line-height: 1.5em;
-	float: right;
 	font-weight: normal;
 }
 
@@ -1495,11 +1503,64 @@ span {
 }
 
 #cartPage .cart .shopBox .commodity .box .c_info .c_infobox .c_price p {
-	margin: 0.5em 0;
+	margin: 0.2em 0;
 }
+
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit{
+	width: 60%;
+	vertical-align: top;	
+	display: none;
+	margin-top:1.5em;
+	text-indent: 2em;
+}
+
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number {
+	border: 1px solid #EEE;
+	display: inline-flex;
+	height: 28px;
+	overflow: hidden;
+}
+
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a1, 
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .a2,
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .input {
+	width: 28px;
+	height: 28px;
+	display: inline-block;
+	line-height: 0.75em;
+	margin: 0;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .input {
+	border: none;
+	padding: 0;
+	height: 100%;
+	width:28px;
+	text-align: center;
+}
+
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a1 {
+	border-right: 1px solid #EEE;
+	background: url("../images/bg/subtract.png") no-repeat 50% 50%;
+}
+
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a2 {
+	border-left: 1px solid #EEE;
+	background: url("../images/bg/add.png") no-repeat 50% 50%;
+}
+
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .p2{
+	margin-top:1em;
+}
+
+
 
 #cartPage .cartMenu {
 	height: 50px;
+	background-color: #F9F9F9;
 }
 
 #cartPage .cartMenu .left {

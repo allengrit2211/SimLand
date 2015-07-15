@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.order.mapper.OrderItemMapper">
+
+	<resultMap id="OrderItemRM" type="com.simland.core.module.order.entity.OrderItem">
+        <result property="id" column="id"/>
+        <result property="oid" column="oid"/>
+        <result property="cid" column="cid"/>
+        <result property="cname" column="cname"/>
+        <result property="attr1Id" column="attr1Id"/>
+        <result property="attr1Val" column="attr1Val"/>
+        <result property="attr2Id" column="attr2Id"/>
+        <result property="attr2Val" column="attr2Val"/>
+        <result property="buyNum" column="buyNum"/>
+        <result property="cprice" column="cprice"/>
+        <result property="createTime" column="createTime"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        oid oid,
+        cid cid,
+        cname cname,
+        attr1Id attr1Id,
+        attr1Val attr1Val,
+        attr2Id attr2Id,
+        attr2Val attr2Val,
+        buyNum buyNum,
+        cprice cprice,
+        createTime createTime
+	    ]]>
+	</sql>
+
+
+	<insert id="insertOrderItem" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.order.entity.OrderItem">
+	    <![CDATA[
+	        INSERT INTO t_order_item (
+		        id,
+		        cid,
+		        cname,
+		        attr1Id,
+		        attr1Val,
+		        attr2Id,
+		        attr2Val,
+		        buyNum,
+		        cprice,
+		        createTime
+	        ) VALUES (
+		        	#{id},
+		        	#{cid},
+		        	#{cname},
+		        	#{attr1Id},
+		        	#{attr1Val},
+		        	#{attr2Id},
+		        	#{attr2Val},
+		        	#{buyNum},
+		        	#{cprice},
+		        	#{createTime}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateOrderItem">
+	    <![CDATA[
+        UPDATE t_order_item SET
+        ]]>
+		<if test="id!=null">
+        	id = #{id}
+		</if>
+		<if test="cid!=null">
+        	cid = #{cid}
+		</if>
+		<if test="cname!=null">
+        	cname = #{cname}
+		</if>
+		<if test="attr1Id!=null">
+        	attr1Id = #{attr1Id}
+		</if>
+		<if test="attr1Val!=null">
+        	attr1Val = #{attr1Val}
+		</if>
+		<if test="attr2Id!=null">
+        	attr2Id = #{attr2Id}
+		</if>
+		<if test="attr2Val!=null">
+        	attr2Val = #{attr2Val}
+		</if>
+		<if test="buyNum!=null">
+        	buyNum = #{buyNum}
+		</if>
+		<if test="cprice!=null">
+        	cprice = #{cprice}
+		</if>
+		<if test="createTime!=null">
+        	createTime = #{createTime}
+		</if>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteOrderItem">
+    <![CDATA[
+        DELETE FROM t_order_item WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getOrderItem" resultMap="OrderItemRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_order_item 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getOrderItemList" resultMap="OrderItemRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_order_item  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="oid!=null">
+	        AND oid = #{oid}
+	        </if>
+			<if test="cid!=null">
+	        AND cid = #{cid}
+	        </if>
+			<if test="cname!=null">
+	        AND cname = #{cname}
+	        </if>
+			<if test="attr1Id!=null">
+	        AND attr1Id = #{attr1Id}
+	        </if>
+			<if test="attr1Val!=null">
+	        AND attr1Val = #{attr1Val}
+	        </if>
+			<if test="attr2Id!=null">
+	        AND attr2Id = #{attr2Id}
+	        </if>
+			<if test="attr2Val!=null">
+	        AND attr2Val = #{attr2Val}
+	        </if>
+			<if test="buyNum!=null">
+	        AND buyNum = #{buyNum}
+	        </if>
+			<if test="cprice!=null">
+	        AND cprice = #{cprice}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getOrderItemCount" resultType="int">
+		SELECT count(*) FROM t_order_item
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitOrderItemList" resultMap="OrderItemRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_order_item
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

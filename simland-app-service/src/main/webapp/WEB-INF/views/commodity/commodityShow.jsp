@@ -50,7 +50,7 @@
 							<span>单价</span>
 						</div>
 						<div class="ui-block-b s_2">
-							<span>${commodity.marketPrice}</span>
+							<span>￥${commodity.marketPrice}</span>
 						</div>
 					</div>
 		
@@ -139,15 +139,23 @@
 								<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
 							</div>
 							<div class="info">
-								<span class="s1">$123</span>
-								<span class="s2">库存 126件</span>
+								
+								<c:set var="inventoryNum" value="0"/>
+							
+								<!-- 库存信息 -->
+								<c:forEach items="${commodity.inventoryMap}" var="item">
+									<input type="hidden" value="${item.value}" id="${item.key}"/>
+									<c:set var="inventoryNum" value="${inventoryNum+item.value}"/>
+								</c:forEach>
+							
+								<span class="s1">￥${commodity.marketPrice}</span>
+								<span class="s2">库存 <strong id="inventoryNum">${inventoryNum}</strong>件</span>
 								<span class="s3">已选 <span id="attr1ValShow">请选择</span> <span id="attr2ValShow"></span></span>
 								<input type="hidden" value="${commodity.id}" name="cid"/>
 								<input type="hidden" value="" id="buyTypeHid"/>
-								<input type="hidden" id="attr1" name="attr1" tit="" value=""/>
-								<input type="hidden" id="attr2" name="attr2" tit="" value=""/>
 								<input type="hidden" id="attr1Val" name="attr1Val" tit="${commodity.attr1.name}" value=""/>
 								<input type="hidden" id="attr2Val" name="attr2Val" tit="${commodity.attr2.name}" value=""/>
+
 							</div>
 						</div>
 						<div class="line"></div>
@@ -172,9 +180,9 @@
 						<div class="box">
 							<span class="title inline">购买数量</span>
 							<div class="number">
-								<a href="#" class="a1" id="addNum">-</a>
+								<a href="#" class="a1" id="revNum"></a>
 								<input id="buyNum" name="buyNum" class="input" type="number" data-role="none" value="1"/>
-								<a href="#" class="a2" id="revNum">+</a>
+								<a href="#" class="a2" id="addNum"></a>
 							</div>
 						</div>
 						<div class="line"></div>

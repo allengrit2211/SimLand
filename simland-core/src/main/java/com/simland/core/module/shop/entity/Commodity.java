@@ -1,12 +1,14 @@
 package com.simland.core.module.shop.entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import com.simland.core.base.SystemConstants;
+import com.simland.core.base.Utils;
 
 public class Commodity implements java.io.Serializable {
 	private static final long serialVersionUID = 5454155825314635342L;
@@ -35,8 +37,14 @@ public class Commodity implements java.io.Serializable {
 
 	private String[] defaultChose = new String[] { "", "", "", "" };// 默认选择颜色尺码
 																	// id,id,val,val
-
+	/***
+	 * 商品库存
+	 */
 	private List<CommodityInventory> cInventoryList;
+	/***
+	 * 库存MapN<_inventory_attr1_attr2,num>
+	 */
+	private Map<String, Integer> inventoryMap = new HashMap<String, Integer>();
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -226,10 +234,15 @@ public class Commodity implements java.io.Serializable {
 			attrMap1.put(String.valueOf(ci.getAttr1()), ci.getCpvalue1());
 			attrMap2.put(String.valueOf(ci.getAttr2()), ci.getCpvalue2());
 
-			if (flag && ci.getNums() > 0) {
-				defaultChose = new String[] { String.valueOf(ci.getAttr1()), String.valueOf(ci.getAttr2()), String.valueOf(ci.getCpvalue1()), String.valueOf(ci.getCpvalue2()) };
-				flag = false;
-			}
+			// if (flag && ci.getNums() > 0) {//默认颜色尺码
+			// defaultChose = new String[] { String.valueOf(ci.getAttr1()),
+			// String.valueOf(ci.getAttr2()), String.valueOf(ci.getCpvalue1()),
+			// String.valueOf(ci.getCpvalue2()) };
+			// flag = false;
+			// }
+
+			inventoryMap.put("_inventory_" + ci.getAttr1() + "_" + ci.getAttr2(), ci.getNums());
+
 		}
 
 		for (Entry<String, String> e : attrMap1.entrySet()) {
@@ -250,12 +263,14 @@ public class Commodity implements java.io.Serializable {
 	 * 获取商品sku
 	 * 
 	 * @param cid
-	 * @param attr1
-	 * @param attr2
+	 * @param attr1Val
+	 *            值小的
+	 * @param attr2Val
+	 *            值大的
 	 * @return
 	 */
-	public static String getCommoditySku(int cid, int attr1, int attr2) {
-		return String.valueOf(cid) + String.valueOf(Math.max(attr1, attr2)) + String.valueOf(Math.min(attr1, attr2));
+	public static String getCommoditySku(int cid, int attr1Val, int attr2Val) {
+		return String.valueOf(cid) + String.valueOf(Math.min(attr1Val, attr2Val)) + String.valueOf(Math.max(attr1Val, attr2Val));
 	}
 
 	/***
@@ -265,6 +280,16 @@ public class Commodity implements java.io.Serializable {
 	 * @return
 	 */
 	public static String getCommoditySku(Commodity c) {
-		return getCommoditySku(c.getId(), c.getAttr1() == null ? 0 : c.getAttr1().getId(), c.getAttr2() == null ? 0 : c.getAttr2().getId());
+		return getCommoditySku(c.getId(), c.getAttr1Val() == null ? 0 : Utils.strToInteger(c.getAttr1Val()), c.getAttr2Val() == null ? 0 : Utils.strToInteger(c.getAttr2Val()));
 	}
+
+	public Map<String, Integer> getInventoryMap() {
+		return inventoryMap;
+	}
+
+	public void setInventoryMap(Map<String, Integer> inventoryMap) {
+		this.inventoryMap = inventoryMap;
+	}
+	
+	
 }

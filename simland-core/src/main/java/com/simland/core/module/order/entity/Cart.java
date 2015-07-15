@@ -21,9 +21,14 @@ import com.simland.core.module.shop.entity.Shop;
 public class Cart {
 
 	/****
-	 * 商品列表 key店铺ID val购物车明细
+	 * 购物车名明细 <店铺ID,购物车明细>
 	 */
 	private ConcurrentMap<Shop, Vector<CartItem>> cartItems;
+
+	/***
+	 * 购物车中商品sku与店铺 k,v
+	 */
+	private Map<String, Shop> skuIndex = new HashMap<String, Shop>();// 购物车商品sky索引
 
 	public ConcurrentMap<Shop, Vector<CartItem>> getCartItems() {
 
@@ -36,8 +41,6 @@ public class Cart {
 	public void setCartItems(ConcurrentMap<Shop, Vector<CartItem>> cartItems) {
 		this.cartItems = cartItems;
 	}
-
-	private Map<String, Shop> skuIndex = new HashMap<String, Shop>();// 购物车商品sky索引
 
 	/***
 	 * 添加购物车
@@ -57,6 +60,9 @@ public class Cart {
 
 		ConcurrentMap<Shop, Vector<CartItem>> cartItems = cart.getCartItems();
 
+		/****
+		 * 每次添加购物车时，所有商品以 <sku,shop> 形式添加到 skuIndex中
+		 */
 		for (Entry<Shop, Vector<CartItem>> e : cartItems.entrySet()) {
 			Vector<CartItem> ci = e.getValue();
 			for (int i = 0; ci != null && i < ci.size(); i++) {
@@ -64,7 +70,11 @@ public class Cart {
 			}
 		}
 
+		/****
+		 * 添加购物车功能
+		 */
 		String sku = Commodity.getCommoditySku(c);
+		System.out.println(sku);
 		if (cart.skuIndex.containsKey(sku)) {// 存在该商品
 			Vector<CartItem> ciList = cartItems.get(cart.skuIndex.get(sku));
 			for (int i = 0; ciList != null && i < ciList.size(); i++) {

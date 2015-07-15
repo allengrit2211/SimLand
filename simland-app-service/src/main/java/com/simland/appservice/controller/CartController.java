@@ -1,9 +1,5 @@
 package com.simland.appservice.controller;
 
-import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -20,7 +16,6 @@ import com.simland.core.base.SysMessage;
 import com.simland.core.base.SystemConstants;
 import com.simland.core.base.Utils;
 import com.simland.core.module.order.entity.Cart;
-import com.simland.core.module.order.entity.CartItem;
 import com.simland.core.module.order.service.IOrderService;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Shop;
@@ -66,8 +61,8 @@ public class CartController {
 		SysMessage msg = new SysMessage();
 
 		String cid = request.getParameter("cid");
-		String attr1 = request.getParameter("attr1");
-		String attr2 = request.getParameter("attr2");
+		//String attr1 = request.getParameter("attr1");
+		//String attr2 = request.getParameter("attr2");
 		String attr1Val = request.getParameter("attr1Val");
 		String attr2Val = request.getParameter("attr2Val");
 		String buyNum = request.getParameter("buyNum");
@@ -81,8 +76,8 @@ public class CartController {
 		}
 
 		// 设置属性
-		c.setAttr1(SystemConstants.categoryPropertiesMap.get(attr1));
-		c.setAttr2(SystemConstants.categoryPropertiesMap.get(attr2));
+		//c.setAttr1(SystemConstants.categoryPropertiesMap.get(attr1));
+		//c.setAttr2(SystemConstants.categoryPropertiesMap.get(attr2));
 		c.setAttr1Val(attr1Val);
 		c.setAttr2Val(attr2Val);
 		if (c.getAttr1() == null || c.getAttr2() == null) {
