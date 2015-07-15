@@ -53,7 +53,7 @@
 									<div class="check">
 										<input type="checkbox" name="carShopCheck" data-cacheval="false" data-role="none">
 									</div>
-									<a class="a1" href="${pageContext.request.contextPath}/shop/showShop?id=${item.key.id}">${item.key.cname}</a> 
+									<a class="a1" data-transition="slide" href="${pageContext.request.contextPath}/shop/showShop?id=${item.key.id}">${item.key.cname}</a> 
 									<a class="a2" data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
 								</div>
 								
@@ -69,7 +69,7 @@
 														src="${pageContext.request.contextPath}/${item1.c.img}">
 												</div>
 												<div class="c_infobox">
-													<div class="c_title"><a href="${pageContext.request.contextPath}/commodity/show?id=${item1.c.id}">${item1.c.name}</a></div>
+													<div class="c_title"><a data-transition="slide" href="${pageContext.request.contextPath}/commodity/show?id=${item1.c.id}">${item1.c.name}</a></div>
 													<div class="c_price">
 														<p>
 															<span>${item1.c.attr1.name} : </span><span class="s_1">${item1.c.attr1Val}</span> <span>${item1.c.attr2.name} : </span><span
