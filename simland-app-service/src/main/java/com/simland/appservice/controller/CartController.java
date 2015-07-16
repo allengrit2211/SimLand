@@ -61,8 +61,8 @@ public class CartController {
 		SysMessage msg = new SysMessage();
 
 		String cid = request.getParameter("cid");
-		//String attr1 = request.getParameter("attr1");
-		//String attr2 = request.getParameter("attr2");
+		// String attr1 = request.getParameter("attr1");
+		// String attr2 = request.getParameter("attr2");
 		String attr1Val = request.getParameter("attr1Val");
 		String attr2Val = request.getParameter("attr2Val");
 		String buyNum = request.getParameter("buyNum");
@@ -76,8 +76,8 @@ public class CartController {
 		}
 
 		// 设置属性
-		//c.setAttr1(SystemConstants.categoryPropertiesMap.get(attr1));
-		//c.setAttr2(SystemConstants.categoryPropertiesMap.get(attr2));
+		// c.setAttr1(SystemConstants.categoryPropertiesMap.get(attr1));
+		// c.setAttr2(SystemConstants.categoryPropertiesMap.get(attr2));
 		c.setAttr1Val(attr1Val);
 		c.setAttr2Val(attr2Val);
 		if (c.getAttr1() == null || c.getAttr2() == null) {
@@ -114,5 +114,31 @@ public class CartController {
 
 		return reJson;
 
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/buy/delCart")
+	public String delCart(HttpServletRequest request, Model model) {
+
+		String skus = request.getParameter("skus");
+		String reJson = null;
+		SysMessage msg = new SysMessage();
+
+		if (Utils.isObjectEmpty(skus) || skus.split(",").length == 0) {
+			msg.setCode("-1");
+			msg.setMsg("删除失败");
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			return reJson;
+		}
+
+		User user = SessionManager.getUser();
+
+		Cart.delCart(user.getCart(), skus.split(","));
+
+		msg.setCode("1");
+		msg.setMsg("添加成功");
+		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+
+		return reJson;
 	}
 }

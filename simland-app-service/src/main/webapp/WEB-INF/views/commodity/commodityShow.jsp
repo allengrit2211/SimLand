@@ -129,32 +129,24 @@
 		</div>
 		
 		
-			<div id="addCartPopup" data-role="popup" >
+			<div id="addCartPopup" data-role="popup" class="popupBox">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"> Close</a>
 				<div class="popup">
-					<form action="${pageContext.request.contextPath}/buy/addCart" id="cartForm" method="post" data-transition="slide">
+					<form action="${pageContext.request.contextPath}/buy/addCart" class="cartForm" method="post" data-transition="slide">
 						<input type="hidden" name="_stype" value="ajax"/>
 						<div class="box">
 							<div class="img">
 								<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
 							</div>
-							<div class="info">
-								
-								<c:set var="inventoryNum" value="0"/>
-							
-								<!-- 库存信息 -->
-								<c:forEach items="${commodity.inventoryMap}" var="item">
-									<input type="hidden" value="${item.value}" id="${item.key}"/>
-									<c:set var="inventoryNum" value="${inventoryNum+item.value}"/>
-								</c:forEach>
+							<div class="info inventoryShowBox">
 							
 								<span class="s1">￥${commodity.marketPrice}</span>
-								<span class="s2">库存 <strong id="inventoryNum">${inventoryNum}</strong>件</span>
-								<span class="s3">已选 <span id="attr1ValShow">请选择</span> <span id="attr2ValShow"></span></span>
+								<span class="s2">库存 <strong class="inventoryNum"></strong> 件</span>
+								<span class="s3">已选 <span class="attr1ValShow">请选择</span> <span class="attr2ValShow"></span></span>
 								<input type="hidden" value="${commodity.id}" name="cid"/>
 								<input type="hidden" value="" id="buyTypeHid"/>
-								<input type="hidden" id="attr1Val" name="attr1Val" tit="${commodity.attr1.name}" value=""/>
-								<input type="hidden" id="attr2Val" name="attr2Val" tit="${commodity.attr2.name}" value=""/>
+								<input type="hidden" class="attr1Val" name="attr1Val" tit="${commodity.attr1.name}" value=""/>
+								<input type="hidden" class="attr2Val" name="attr2Val" tit="${commodity.attr2.name}" value=""/>
 
 							</div>
 						</div>
@@ -163,7 +155,7 @@
 							<span class="title">${commodity.attr1.name}</span>
 							<div class="attr1">
 								<c:forEach items="${commodity.attr1List}" var="item" varStatus="status">
-									<a aid="${item[0]}" href="#">${item[1]}</a>
+									<a class="choseAttr1" aid="${item[0]}" href="#">${item[1]}</a>
 								</c:forEach>
 							</div>
 						</div>
@@ -172,17 +164,26 @@
 							<span class="title">${commodity.attr2.name}</span>
 							<div class="attr2">
 								<c:forEach items="${commodity.attr2List}" var="item" varStatus="status">
-									<a aid="${item[0]}" href="#">${item[1]}</a>
+									<a class="choseAttr2" aid="${item[0]}" href="#">${item[1]}</a>
 								</c:forEach>
 							</div>
 						</div>
 						<div class="line"></div>
 						<div class="box">
 							<span class="title inline">购买数量</span>
-							<div class="number">
-								<a href="#" class="a1" id="revNum"></a>
-								<input id="buyNum" name="buyNum" class="input" type="number" data-role="none" value="1"/>
-								<a href="#" class="a2" id="addNum"></a>
+							<div class="number inventoryShowBox">
+							
+								<!-- 库存信息 -->
+								<c:forEach items="${commodity.inventoryMap}" var="item">
+									<input type="hidden" value="${item.value}" name="${item.key}"/>
+									<c:set var="inventoryNum" value="${inventoryNum+item.value}"/>
+								</c:forEach>
+								
+								<input type="hidden" value="${inventoryNum}" id="inventoryNum">
+							
+								<a href="#" class="a1 revNum"></a>
+								<input name="buyNum" class="input buyNum" type="number" data-role="none" value="1"/>
+								<a href="#" class="a2 addNum"></a>
 							</div>
 						</div>
 						<div class="line"></div>

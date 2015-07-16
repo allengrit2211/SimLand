@@ -19,33 +19,14 @@ var app = {
 		app.loadScript();
 	},
 	loadScript : function() {// 加载事件脚本
-		//if ($.mobile.activePage.is("#indexPage")) {
-			index.initialize();
-			//this.indexObj = index;
-		//}
-		//if ($.mobile.activePage.is("#sellerListPage")) {
-			sellerList.initialize();
-			//this.sellerListObj = sellerList;
-		//}
-		
-		//if ($.mobile.activePage.is("#CommodityPage")) {
-			commodity.initialize();
-			//this.commodityObj = commodity;
-			
-			cart.initialize();
-			//this.cartObj = cart;
-		//}		
-		
-		//if ($.mobile.activePage.is("#cartPage") && this.cartObj == null) {
-			
-		//}
+		// $.mobile.activePage.is("#indexPage")
 
-		//if ($.mobile.activePage.is("#shop1Page")) {
-			shop.initialize();
-			//this.shopObj = shop;
-		//}
-			
-			user.initialize();
+		index.initialize();
+		sellerList.initialize();
+		commodity.initialize();
+		cart.initialize();
+		shop.initialize();
+		user.initialize();
 		
 	},
 	loadIScroll : function() {// 加载局部滚动
@@ -69,7 +50,7 @@ var app = {
 				$("#message").html("");
 				$('#message').hide();
 			});
-		}, 2000);
+		}, 1500);
 	}
 }
 

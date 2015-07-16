@@ -1,6 +1,9 @@
 package com.simland.core.module.order.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Vector;
@@ -28,7 +31,7 @@ public class Cart {
 	/***
 	 * 购物车中商品sku与店铺 k,v
 	 */
-	private Map<String, Shop> skuIndex = new HashMap<String, Shop>();// 购物车商品sky索引
+	private Map<String, Shop> skuIndex = new HashMap<String, Shop>();// 购物车商品sku索引
 
 	public ConcurrentMap<Shop, Vector<CartItem>> getCartItems() {
 
@@ -61,16 +64,6 @@ public class Cart {
 		ConcurrentMap<Shop, Vector<CartItem>> cartItems = cart.getCartItems();
 
 		/****
-		 * 每次添加购物车时，所有商品以 <sku,shop> 形式添加到 skuIndex中
-		 */
-		for (Entry<Shop, Vector<CartItem>> e : cartItems.entrySet()) {
-			Vector<CartItem> ci = e.getValue();
-			for (int i = 0; ci != null && i < ci.size(); i++) {
-				cart.skuIndex.put(ci.get(i).getSku(), e.getKey());
-			}
-		}
-
-		/****
 		 * 添加购物车功能
 		 */
 		String sku = Commodity.getCommoditySku(c);
@@ -94,6 +87,40 @@ public class Cart {
 				Vector<CartItem> cl = new Vector<CartItem>();
 				cl.add(cartItem);
 				cartItems.put(shop, cl);
+			}
+		}
+		
+		/****
+		 * 每次添加购物车时，所有商品以 <sku,shop> 形式添加到 skuIndex中
+		 */
+		for (Entry<Shop, Vector<CartItem>> e : cartItems.entrySet()) {
+			Vector<CartItem> ci = e.getValue();
+			for (int i = 0; ci != null && i < ci.size(); i++) {
+				cart.skuIndex.put(ci.get(i).getSku(), e.getKey());
+			}
+		}
+
+		return cart;
+	}
+
+	/**
+	 * 删除元素
+	 */
+	public static Cart delCart(Cart cart, String[] skus) {
+
+		if (cart == null || skus == null)
+			return null;
+
+		for (String sku : skus) {
+			
+			cart.skuIndex.remove(sku);// 从sku索引中移除
+
+			List<Shop> cshops = new ArrayList<Shop>(cart.getCartItems().keySet());
+
+			cshops.removeAll(cart.skuIndex.values());
+
+			for (int i = 0; cshops != null && i < cshops.size(); i++) {
+				cart.getCartItems().remove(cshops.get(i));
 			}
 		}
 

@@ -114,10 +114,10 @@
 		
 						<div class="input2">
 							<div class="msg_1">
-								<a  href="${pageContext.request.contextPath}/user/messageCenter"><span>12</span></a>
+								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/messageCenter"><span>12</span></a>
 							</div>
 							<div class="msg_2">
-								<a  href="${pageContext.request.contextPath}/user/collectShopShow"><span>56</span></a>
+								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/collectShopShow"><span>56</span></a>
 							</div>
 						</div>
 					</div>

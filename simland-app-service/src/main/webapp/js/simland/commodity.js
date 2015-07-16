@@ -1,9 +1,9 @@
 var commodity = {
 	initialize : function() {
-		
+		$.mobile.activePage.find(".inventoryNum").text($.mobile.activePage.find("#inventoryNum").val());
 	},
 	collectEvent : function() {//收藏事件加载
-		$(".shop .commodityList .s3").unbind().click(function(){
+		$.mobile.activePage.find(".shop .commodityList .s3").unbind().click(function(){
 			commodity.collectCommodity($(this))
 			return false;
 		});

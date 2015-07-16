@@ -2,6 +2,7 @@ package com.simland.core.module.shop.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -29,11 +30,14 @@ public class Commodity implements java.io.Serializable {
 	private CategoryProperties attr1;// 属性1
 	private CategoryProperties attr2;// 属性2
 
-	private String attr1Val;// 属性值
-	private String attr2Val;// 属性值
+	private String attr1Val;// 属性值ID
+	private String attr2Val;// 属性值ID
 
-	private List<String[]> attr1List = new ArrayList<String[]>();// 属性1值
-	private List<String[]> attr2List = new ArrayList<String[]>();// 属性2值
+	private String attr1Value;// 属性值
+	private String attr2Value;// 属性值
+
+	private List<String[]> attr1List = new ArrayList<String[]>();// 属性1值[id,val]
+	private List<String[]> attr2List = new ArrayList<String[]>();// 属性2值[id,val]
 
 	private String[] defaultChose = new String[] { "", "", "", "" };// 默认选择颜色尺码
 																	// id,id,val,val
@@ -218,6 +222,41 @@ public class Commodity implements java.io.Serializable {
 		this.attr2Val = attr2Val;
 	}
 
+	public String getAttr1Value() {
+		if (attr1Value != null)
+			return attr1Value;
+
+		for (int i = 0; attr1List != null && i < attr1List.size(); i++) {
+			if (Utils.isObjectNotEmpty(attr1Val) && attr1Val.equals(attr1List.get(i)[0])) {
+				attr1Value = attr1List.get(i)[1];
+				break;
+			}
+		}
+
+		return attr1Value;
+	}
+
+	public void setAttr1Value(String attr1Value) {
+		this.attr1Value = attr1Value;
+	}
+
+	public String getAttr2Value() {
+		if (attr2Value != null)
+			return attr2Value;
+
+		for (int i = 0; attr2List != null && i < attr2List.size(); i++) {
+			if (Utils.isObjectNotEmpty(attr2Val)&&attr2Val.equals(attr2List.get(i)[0])) {
+				attr2Value = attr2List.get(i)[1];
+				break;
+			}
+		}
+		return attr2Value;
+	}
+
+	public void setAttr2Value(String attr2Value) {
+		this.attr2Value = attr2Value;
+	}
+
 	/***
 	 * 商品库存查询
 	 * 
@@ -290,6 +329,5 @@ public class Commodity implements java.io.Serializable {
 	public void setInventoryMap(Map<String, Integer> inventoryMap) {
 		this.inventoryMap = inventoryMap;
 	}
-	
-	
+
 }

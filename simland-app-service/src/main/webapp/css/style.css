@@ -1337,6 +1337,21 @@ span {
 	background: url("../images/bg/add.png") no-repeat 50% 50%;
 }
 
+#CommodityPage .popup .buyBtn {
+	text-align: center;
+}
+
+#CommodityPage .popup .buyBtn .a1 {
+	margin-top: 10px;
+	display: inline-block;
+	padding: 10px 80px;
+	background-color: #41AC98;
+	border: 1px solid #2AA28B;
+	border-radius: 5px;
+	color: #FFF !important;
+}
+
+
 #CommodityPage .ui-footer .btn, #CommodityPage .menu_height {
 	height: 35px;
 }
@@ -1386,19 +1401,7 @@ span {
 	color: #41AC98;
 }
 
-#CommodityPage .buyBtn {
-	text-align: center;
-}
 
-#CommodityPage .buyBtn .a1 {
-	margin-top: 10px;
-	display: inline-block;
-	padding: 10px 80px;
-	background-color: #41AC98;
-	border: 1px solid #2AA28B;
-	border-radius: 5px;
-	color: #FFF !important;
-}
 
 /************CommodityPage end***************/
 
@@ -1511,7 +1514,6 @@ span {
 	vertical-align: top;	
 	display: none;
 	margin-top:1.5em;
-	text-indent: 2em;
 }
 
 #cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number {
@@ -1554,6 +1556,93 @@ span {
 
 #cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .p2{
 	margin-top:1em;
+}
+
+
+#cartPage .popup {
+	min-height: 236px;
+	margin: 0 auto;
+	padding-bottom: 0.75em;
+}
+
+#cartPage .popup .box {
+	width: 100%;
+	padding: 0.75em 0;
+}
+
+#cartPage .popup .box .img {
+	width: 5.5em;
+	margin: 0.625em 0 0 1.625em;
+	display: inline-block;
+	width: 33%;
+}
+
+#cartPage .popup .box .img img {
+	width: 100%;
+}
+
+#cartPage .popup .box .info {
+	display: inline-block;
+	width: 50%;
+	vertical-align: top;
+	margin: 2em 0 0 3%;
+	text-indent: 13%;
+}
+
+#cartPage .popup .box .info span {
+	display: block;
+	margin: 0.175em 0;
+}
+
+#cartPage .popup .box .info .s1 {
+	color: #EE3939;
+}
+
+#cartPage .popup .box .info .s3 span {
+	display: inline;
+}
+
+#cartPage .popup .box .title {
+	display: block;
+	margin: 0.375em 0;
+	text-indent: 1.45em;
+}
+
+#cartPage .popup .box .inline {
+	display: inline-block;
+}
+
+#cartPage .popup .box .attr1, #cartPage .popup .box .attr2 {
+	padding-left: 1em;
+}
+
+#cartPage .popup .box .attr1 a, #cartPage .popup .box .attr2 a
+	{
+	font-size: 0.75em;
+	padding: 0.175em 0.75em;
+	display: inline-block;
+	border: 1px solid #EEE;
+	margin: 0.15em;
+	color: #666;
+}
+
+#cartPage .popup .box .attrOn {
+	background-color: #41AC98;
+	color: #FFF !important;
+}
+
+#cartPage .popup .buyBtn {
+	text-align: center;
+}
+
+#cartPage .popup .buyBtn .a1 {
+	margin-top: 10px;
+	display: inline-block;
+	padding: 10px 80px;
+	background-color: #41AC98;
+	border: 1px solid #2AA28B;
+	border-radius: 5px;
+	color: #FFF !important;
 }
 
 
