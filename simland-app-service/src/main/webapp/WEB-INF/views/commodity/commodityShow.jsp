@@ -113,8 +113,8 @@
 			data-theme="d" style="border-top:none;">
 
 			<div class="btn">
-				<a  class="a1" id="addCartBtn" data-transition="none" href="#addCartPopup" data-rel="popup" data-position-to="window">加入进货单</a> 
-				<a  class="a2" id="goBuyBtn" data-transition="none" href="#addCartPopup" data-rel="popup" data-position-to="window">直接购买</a>
+				<a  class="a1" id="addCartBtn" data-transition="pop" href="#addCartPopup" data-rel="popup" data-position-to="window">加入进货单</a> 
+				<a  class="a2" id="goBuyBtn" data-transition="pop" href="#addCartPopup" data-rel="popup" data-position-to="window">直接购买</a>
 			</div>
 			
 			<div data-role="navbar" class="myfooter bgEDEDED">
@@ -130,9 +130,9 @@
 		
 		
 			<div id="addCartPopup" data-role="popup" class="popupBox">
-				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"> Close</a>
+				<a href="#" data-rel="back" data-role="button" data-theme="a" data-transition="slideup" data-icon="delete" data-iconpos="notext" class="ui-btn-right"> Close</a>
 				<div class="popup">
-					<form action="${pageContext.request.contextPath}/buy/addCart" class="cartForm" method="post" data-transition="slide">
+					<form action="${pageContext.request.contextPath}/buy/addCart" class="cartForm" method="post" data-transition="slideup">
 						<input type="hidden" name="_stype" value="ajax"/>
 						<div class="box">
 							<div class="img">

@@ -1,11 +1,14 @@
 package com.simland.core.module.order.entity;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -89,7 +92,7 @@ public class Cart {
 				cartItems.put(shop, cl);
 			}
 		}
-		
+
 		/****
 		 * 每次添加购物车时，所有商品以 <sku,shop> 形式添加到 skuIndex中
 		 */
@@ -106,21 +109,31 @@ public class Cart {
 	/**
 	 * 删除元素
 	 */
-	public static Cart delCart(Cart cart, String[] skus) {
+	public static Cart delCart(Cart cart, String... skus) {
 
-		if (cart == null || skus == null)
+		if (cart == null || skus == null || skus.length == 0)
 			return null;
 
+		Set<String> removeSkus = new HashSet<String>();
 		for (String sku : skus) {
-			
 			cart.skuIndex.remove(sku);// 从sku索引中移除
+			removeSkus.add(sku);
+		}
 
-			List<Shop> cshops = new ArrayList<Shop>(cart.getCartItems().keySet());
+		Iterator<Shop> shops = cart.getCartItems().keySet().iterator();
+		while (shops.hasNext()) {
+			Shop shop = shops.next();
 
-			cshops.removeAll(cart.skuIndex.values());
+			Iterator<CartItem> cartItems = cart.getCartItems().get(shop).iterator();
+			while (cartItems.hasNext()) {
+				CartItem cartItem = cartItems.next();
+				if (removeSkus.contains(cartItem.getSku())) {
+					cartItems.remove();
+				}
+			}
 
-			for (int i = 0; cshops != null && i < cshops.size(); i++) {
-				cart.getCartItems().remove(cshops.get(i));
+			if (cart.getCartItems().get(shop) == null || cart.getCartItems().get(shop).size() == 0) {
+				shops.remove();
 			}
 		}
 

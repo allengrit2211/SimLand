@@ -116,6 +116,38 @@ public class CartController {
 
 	}
 
+	/***
+	 * 编辑购物车商品
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/buy/editCart")
+	public String editCart(HttpServletRequest request, Model model) {
+
+		String sku = request.getParameter("sku");
+		SysMessage msg = new SysMessage();
+		String reJson = null;
+		if (Utils.isObjectEmpty(sku)) {
+			msg.setCode("-1");
+			msg.setMsg("删除失败");
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			return reJson;
+		}
+
+		User user = SessionManager.getUser();
+		user.setCart(Cart.delCart(user.getCart(), sku));
+		SessionManager.setUser(user, request);
+		
+		addCart(request, model);
+
+		// 删除愿商品sku
+		return this.delCart(request, model);
+
+	}
+
 	@ResponseBody
 	@RequestMapping(value = "/buy/delCart")
 	public String delCart(HttpServletRequest request, Model model) {

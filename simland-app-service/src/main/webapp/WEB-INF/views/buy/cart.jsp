@@ -76,9 +76,9 @@
 															<a href="#" class="a1 revNum"></a> <input name="buyNum" class="input buyNum" type="number" data-role="none" value="1" /> <a href="#" class="a2 addNum"></a>
 														</div>
 														<p class="p2">
-															<a id="attrShowBtn_${item1.sku}" class="cartPopupBtn" data-rel="popup" data-position-to="window"  data-transition="slide" href="#addCartPopup${item1.sku}">${item1.c.attr1.name}:${item1.c.attr1Value};${item1.c.attr2.name}:${item1.c.attr2Value}</a>
+															<a id="attrShowBtn_${item1.sku}" class="cartPopupBtn" data-rel="popup" data-position-to="window"  data-transition="pop" href="#addCartPopup${item1.sku}">${item1.c.attr1.name}:${item1.c.attr1Value};${item1.c.attr2.name}:${item1.c.attr2Value}</a>
 														</p>
-														<div id="addCartPopup${item1.sku}" data-role="popup" class="popupBox" data-transition="slide">
+														<div id="addCartPopup${item1.sku}" data-role="popup" class="popupBox" data-transition="pop">
 															<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"> Close</a>
 															<div class="popup">
 																<form action="${pageContext.request.contextPath}/buy/addCart" class="cartForm" method="post" data-transition="slide">
@@ -93,6 +93,8 @@
 																			<span class="s3">已选 <span class="attr1ValShow">请选择</span> <span class="attr2ValShow"></span></span> 
 																			<input type="hidden" value="${item1.c.id}" name="cid" /> 
 																			<input type="hidden" value="" id="buyTypeHid" /> 
+																			<input type="hidden" value="1" name="buyNum" />
+																			<input type="hidden" value="${item1.sku}" name="sku" />
 																			<input type="hidden" class="attr1Val" name="attr1Val" tit="${item1.c.attr1.name}" value="" /> 
 																			<input type="hidden" class="attr2Val" name="attr2Val" tit="${item1.c.attr2.name}" value="" />
 																		</div>

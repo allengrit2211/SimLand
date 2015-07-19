@@ -136,6 +136,27 @@ var cart = {
 		}
 
 	},
+	editCartAjax : function(form){
+		
+		$.ajax({
+			type : "get",
+			url : app.servicerURL + "buy/editCart",
+			data : $(form).serialize(),
+			cache : false,
+			async : true,
+			dataType : 'jsonp',
+			success : editCartAjaxCallBack,
+			error : function(data, df, d) {
+				app.message("数据加载失败")
+			}
+		});
+		
+		function editCartAjaxCallBack(data){
+			
+		}
+		
+		
+	},
 	delCart : function(){//删除购物车商品
 		
 		var skus = new Array();
@@ -261,6 +282,8 @@ var cart = {
 	},
 	confirmCommodityBtn : function() {// 编辑购物车选择商品属性
 
+		
+		var cid = $(this).parents(".popup").find("input[name='cid']");
 		var attr1Val = $(this).parents(".popup").find(".attr1Val");
 		if (attr1Val.val() == '') {
 			app.message("请选择" + attr1Val.attr("tit"))
@@ -277,7 +300,7 @@ var cart = {
 		var attr2ValShow = $(this).parents(".popup").find(".attr2ValShow").text();
 
 		var str = attr1Val.attr("tit") + ":" + attr1ValShow + ";" + attr2Val.attr("tit") + ":" + attr2ValShow
-
+		
 		$.mobile.activePage.find("#attrShowBtn_" + $(this).attr("sku")).html(str);
 		//显示选择的属性 END
 		
@@ -289,19 +312,17 @@ var cart = {
 		
 		
 		//删除重复sku
-		
-		var cid = $(this).parents(".popup").find("input[name='cid']");
-
 		//alert(cid.val()+attr1Val.val()+attr2Val.val())
-		//var _comm = $("#commodity_" + cid.val()+attr1Val.val()+attr2Val.val());
-		
-		//if (_comm.length > 0) {
-			//$(_comm).hide(500,function(){alert("演示完毕！");});
-		//}
+		var _comm = $("#commodity_" + cid.val()+attr1Val.val()+attr2Val.val());
+		if (_comm.length > 0) {
+			$(_comm).hide(500,function(){/*alert("演示完毕！");*/});
+		}
 		//删除重复sku END
 		
 		//提交修改
-		cart.addCartAjax($(this).parents(".cartForm"));
+		cart.editCartAjax($(this).parents(".cartForm"));
+		
+		$.mobile.activePage.find(".popupBox").popup("close");
 
 	}
 }
