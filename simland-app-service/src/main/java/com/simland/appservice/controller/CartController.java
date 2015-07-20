@@ -140,11 +140,9 @@ public class CartController {
 		User user = SessionManager.getUser();
 		user.setCart(Cart.delCart(user.getCart(), sku));
 		SessionManager.setUser(user, request);
-		
-		addCart(request, model);
 
-		// 删除愿商品sku
-		return this.delCart(request, model);
+		// 添加修改过的商品
+		return addCart(request, model);
 
 	}
 

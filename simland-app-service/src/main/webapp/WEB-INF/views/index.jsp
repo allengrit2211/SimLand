@@ -25,6 +25,7 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/sellerList.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/user.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/cart.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
 </head>
 
 <body>

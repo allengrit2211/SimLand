@@ -25,10 +25,13 @@
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-			
-			<div class="mapdiv">
-				<a  class="a1" href="${pageContext.request.contextPath}/map/map3Page">&nbsp;</a>
-				<img alt="" src="${pageContext.request.contextPath}/images/tmp/map4page_r2_c2.jpg">
+			<div class="wrapper top">
+				<div class="scroller">
+					<div class="mapdiv">
+						<a  class="a1" href="${pageContext.request.contextPath}/map/map3Page">&nbsp;</a>
+						<img alt="" src="${pageContext.request.contextPath}/images/tmp/map4page_r2_c2.jpg">
+					</div>
+				</div>	
 			</div>
 			
 		</div>

@@ -2,7 +2,6 @@ package com.simland.core.module.shop.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -245,7 +244,7 @@ public class Commodity implements java.io.Serializable {
 			return attr2Value;
 
 		for (int i = 0; attr2List != null && i < attr2List.size(); i++) {
-			if (Utils.isObjectNotEmpty(attr2Val)&&attr2Val.equals(attr2List.get(i)[0])) {
+			if (Utils.isObjectNotEmpty(attr2Val) && attr2Val.equals(attr2List.get(i)[0])) {
 				attr2Value = attr2List.get(i)[1];
 				break;
 			}

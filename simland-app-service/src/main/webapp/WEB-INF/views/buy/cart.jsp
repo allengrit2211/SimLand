@@ -73,7 +73,7 @@
 															<c:forEach items="${item1.c.inventoryMap}" var="item2">
 																<input type="hidden" value="${item2.value}" name="${item2.key}" />
 															</c:forEach>
-															<a href="#" class="a1 revNum"></a> <input name="buyNum" class="input buyNum" type="number" data-role="none" value="1" /> <a href="#" class="a2 addNum"></a>
+															<a href="#" class="a1 revNum" sku="${item1.sku}"></a> <input sku="${item1.sku}" name="buyNum" class="input buyNum" type="number" data-role="none" value="1" /> <a sku="${item1.sku}" href="#" class="a2 addNum"></a>
 														</div>
 														<p class="p2">
 															<a id="attrShowBtn_${item1.sku}" class="cartPopupBtn" data-rel="popup" data-position-to="window"  data-transition="pop" href="#addCartPopup${item1.sku}">${item1.c.attr1.name}:${item1.c.attr1Value};${item1.c.attr2.name}:${item1.c.attr2Value}</a>

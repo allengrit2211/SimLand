@@ -8,6 +8,7 @@ public class CommodityInventory implements java.io.Serializable {
 	private java.lang.Integer attr1;
 	private java.lang.Integer attr2;
 	private java.lang.Integer nums;
+	private java.lang.Double price;
 	private java.lang.Integer sid;
 	private java.lang.String cpvalue1;
 	private java.lang.String cpvalue2;
@@ -67,7 +68,13 @@ public class CommodityInventory implements java.io.Serializable {
 	public void setCid(java.lang.Integer cid) {
 		this.cid = cid;
 	}
-	
-	
+
+	public java.lang.Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(java.lang.Double price) {
+		this.price = price;
+	}
 
 }

@@ -24,10 +24,14 @@
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-			<div class="map1">
-				<a  data-transition="none" href="${pageContext.request.contextPath}/map/map2Page"><img alt=""
-					src="${pageContext.request.contextPath}/images/tmp/map_1.jpg"></a>
-				<h3>点击字母直接查看板块地图的大图</h3>
+			<div class="wrapper top">
+				<div class="scroller">
+					<div class="map1">
+						<a  data-transition="none" href="${pageContext.request.contextPath}/map/map2Page"><img alt=""
+							src="${pageContext.request.contextPath}/images/tmp/map_1.jpg"></a>
+						<h3>点击字母直接查看板块地图的大图</h3>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
