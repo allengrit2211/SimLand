@@ -51,12 +51,12 @@
 							<br>
 							<span>团购</span>
 						</a>
-						<a class="a a2" href="#" data-transition="slide">
+						<a class="a a2" href="${pageContext.request.contextPath}/auction/auctionView" data-transition="slide">
 							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c5.jpg">
 							<br>
 							<span>拍卖</span>
 						</a>
-						<a class="a a3" href="">
+						<a class="a a3" href="${pageContext.request.contextPath}/publicChips/publicChipsView" data-transition="slide">
 							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c9.jpg">
 							<br>
 							<span>众筹</span>

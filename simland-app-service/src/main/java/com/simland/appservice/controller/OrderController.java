@@ -1,7 +1,5 @@
 package com.simland.appservice.controller;
 
-import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -12,10 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.simland.appservice.controller.security.SessionManager;
-import com.simland.core.base.Utils;
 import com.simland.core.module.order.entity.Cart;
 import com.simland.core.module.order.service.IOrderService;
-import com.simland.core.module.shop.entity.Shop;
 import com.simland.core.module.user.entity.Address;
 import com.simland.core.module.user.entity.User;
 import com.simland.core.module.user.service.IAddressService;

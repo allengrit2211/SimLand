@@ -484,11 +484,11 @@ span {
 
 #loginPopup-popup {
 	width: 80%;
-	margin:0;
+	margin: 0;
 }
 
-#loginPopup{
-	padding:5% 10%;
+#loginPopup {
+	padding: 5% 10%;
 }
 
 /******login end*********/
@@ -2551,6 +2551,168 @@ span {
 }
 
 /************addAddressPage end***************/
+
+/************auctionPage start***************/
+
+#auctionPage .add_height{
+	height: 55px;
+}
+
+#auctionPage .auctionBox .video {
+	width: 100%;
+}
+
+#auctionPage .auctionBox .video img {
+	width: 100%;
+}
+
+#auctionPage .auctionBox .tabs{
+	
+}
+
+
+
+#auctionPage .auctionBox .tabs ul{
+	background-color: #F9F9F9;
+}
+
+#auctionPage .auctionBox .tabs ul li{
+	display: inline-block;
+	width:48%;
+	margin: 0;
+	padding:0;
+}
+
+#auctionPage .auctionBox .tabs ul li a{
+	padding:1em 0;
+	display: block;
+	text-align: center;
+	text-decoration: underline;
+}
+
+#auctionPage .auctionBox .msgBox{
+}
+
+#auctionPage .auctionBox .msgBox .msg .u_msg{
+	background: url("../images/bg/auction_1_r4_c4.jpg") no-repeat 100% 100%;
+	display: inline-block;
+	width:78%;
+	margin:1em 0 1em 1em;
+	text-align: right;
+}
+#auctionPage .auctionBox .msgBox .msg .u_msg .u_out{
+  height: 35px;
+  line-height:35px;
+  padding:0 10px;
+  border: 1.6px solid #E4E4E4;
+  border-right: none;
+  border-radius: 5px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+
+
+
+#auctionPage .auctionBox .msgBox .msg .u_img{
+	height:40px;
+	display: inline-block;
+	float:right;
+	margin:1em 1em 1em 0;
+	width:10%;
+}
+
+
+
+
+#auctionPage .sendMsgBox {
+	height: 50px;
+	background-color: #F9F9F9;
+}
+
+#auctionPage .sendMsgBox .a1 {
+	display: inline-block;
+	margin: 7.5px; width : 35px;
+	height: 35px;
+	background: url("../images/bg/auction_1_r8_c2.jpg") no-repeat 100% 50%;
+	width: 35px;
+}
+
+#auctionPage .sendMsgBox .ui-input-text {
+	width: 60%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 8px 0 8px 0;
+	height: 34px;
+	border-radius: 5px;
+	border: 1px solid #EEE;
+}
+
+#auctionPage .sendMsgBox .a2 {
+	display: inline-block;
+	height: 35px;
+	width: 55px;
+	vertical-align: top;
+	background-color: #44BBAB;
+	color: #FFF;
+	line-height: 35px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 7.5px 0;
+}
+
+/************auctionPage end***************/
+
+
+/************publicChipsPage start***************/
+#publicChipsPage .publicChips{
+	
+}
+
+#publicChipsPage .publicChips .topMenu ul li{
+	display: inline-block;
+	width:23%;
+	height: 3em;
+	line-height:3em;
+	text-align: center;
+}
+
+#publicChipsPage .publicChips .box1 .img{
+	height:181px;
+	display: block;
+	width: 100%;
+}
+#publicChipsPage .publicChips .box1 .img img{
+	width:100%;
+}
+
+
+#publicChipsPage .publicChips .box1 .info{
+	
+}
+
+#publicChipsPage .publicChips .box1 .info .col{
+  display: inline-block;
+  width: 32%;
+  padding: 0.75em 0;
+  text-align: center;
+}
+#publicChipsPage .publicChips .box1 .info .col .s1{
+	display: block;
+}
+#publicChipsPage .publicChips .box1 .info .col .s2{
+	display: block;
+}
+
+
+
+
+/************publicChipsPage end***************/
+
+
+
+
+
 .wrapper {
 	position: absolute;
 	z-index: 1;
@@ -2571,6 +2733,7 @@ span {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	width: 100%;
 	padding: 0;
+	min-height:6em;
 }
 
 #pullUp {
