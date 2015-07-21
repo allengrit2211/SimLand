@@ -11,7 +11,7 @@ var commodity = {
 	collectCommodity : function(obj) {//收藏商品
 		$.ajax({
 			type : "get",
-			url : app.servicerURL + "user/collectCommodity",
+			url : app.servicerURL + "/user/collectCommodity",
 			data : {
 				cid : $(obj).attr("cid")
 			},

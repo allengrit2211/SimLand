@@ -76,7 +76,7 @@ var sellerList = {
 
 		$.ajax({
 			type : "get",
-			url : app.servicerURL + "shop/listAjax",
+			url : app.servicerURL + "/shop/listAjax",
 			data : $("#sellerListPage_form").serialize(),
 			cache : false,
 			async : false,

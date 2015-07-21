@@ -14,7 +14,7 @@ jQuery(function() {
 });
 
 var app = {
-	servicerURL : "http://192.168.10.129:8080/simland-app-service/",
+	servicerURL : contextPath,
 	initialize : function() {
 		
 		$.mobile.allowCrossDomainPages = true;

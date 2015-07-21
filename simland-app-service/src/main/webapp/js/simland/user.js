@@ -11,7 +11,7 @@ var user = {
 	loginAjax : function() {
 		$.ajax({
 			type : "get",
-			url : app.servicerURL + "loginAjax",
+			url : app.servicerURL + "/loginAjax",
 			data : $.mobile.activePage.find("#loginPage_form").serialize(),
 			cache : false,
 			async : true,

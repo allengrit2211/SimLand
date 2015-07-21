@@ -29,7 +29,7 @@ var shop = {
 		
 		$.ajax({
 			type : "get",
-			url : app.servicerURL + "user/collectShop",
+			url : app.servicerURL + "/user/collectShop",
 			data : {sid : sid,ajax:"ajax"},
 			cache : false,
 			async : false,
@@ -42,7 +42,7 @@ var shop = {
 
 		function collectShopCallBack(data) {
 			if (data && data.code == -100) {
-				$.mobile.changePage(app.servicerURL +"loginPage", "slideup");
+				$.mobile.changePage(app.servicerURL +"/loginPage", "slideup");
 			} else {
 				if (data.code == 1) {
 					app.message(data.msg)

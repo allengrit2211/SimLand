@@ -128,7 +128,7 @@ var cart = {
 			return;
 		}
 		
-		$.mobile.changePage(app.servicerURL + "order/confirmOrder?carCheck=" + carChecks.join(","), {
+		$.mobile.changePage(app.servicerURL + "/order/confirmOrder?carCheck=" + carChecks.join(","), {
 			transition : "slide"
 		});
 
@@ -136,7 +136,7 @@ var cart = {
 	addCartAjax : function(form) {
 		$.ajax({
 			type : "get",
-			url : app.servicerURL + "buy/addCart",
+			url : app.servicerURL + "/buy/addCart",
 			data : $(form).serialize(),
 			cache : false,
 			async : true,
@@ -154,7 +154,7 @@ var cart = {
 				// alert($.mobile.activePage.find("#loginPopup").html())
 
 				// $.mobile.activePage.find("#loginPopup").popup('open');
-				// $.mobile.changePage(app.servicerURL + "loginPage", {
+				// $.mobile.changePage(app.servicerURL + "/loginPage", {
 				// transition : "slideup"
 				// });
 
@@ -173,12 +173,12 @@ var cart = {
 
 				var type = $.mobile.activePage.find("#buyTypeHid").val();
 				if (type == 0) {
-					// $.mobile.changePage(app.servicerURL + "buy/cart", {
+					// $.mobile.changePage(app.servicerURL + "/buy/cart", {
 					// transition : "slide"
 					// });
 					app.message(data.msg);
 				} else {
-					$.mobile.changePage(app.servicerURL + "order/confirmOrder", {
+					$.mobile.changePage(app.servicerURL + "/order/confirmOrder", {
 						transition : "slide"
 					});
 				}
@@ -194,7 +194,7 @@ var cart = {
 
 		$.ajax({
 			type : "get",
-			url : app.servicerURL + "buy/editCart",
+			url : app.servicerURL + "/buy/editCart",
 			data : $(form).serialize(),
 			cache : false,
 			async : true,
@@ -252,7 +252,7 @@ var cart = {
 
 		$.ajax({
 			type : "get",
-			url : app.servicerURL + "buy/delCart",
+			url : app.servicerURL + "/buy/delCart",
 			data : {
 				skus : skus.join(",")
 			},
