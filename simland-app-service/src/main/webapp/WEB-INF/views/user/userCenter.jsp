@@ -43,36 +43,36 @@
 		
 						<div class="ui-grid-b collect">
 							<div class="ui-block-a">
-								<a  data-transition="none" href="${pageContext.request.contextPath}/user/collectCommodityShow"><span>8</span><span>收藏的宝贝</span></a>
+								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/collectCommodityShow"><span>8</span><span>收藏的宝贝</span></a>
 							</div>
 							<div class="ui-block-b">
-								<a  data-transition="none" href="${pageContext.request.contextPath}/user/collectShopShow"><span>8</span><span>收藏的店铺</span></a>
+								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/collectShopShow"><span>8</span><span>收藏的店铺</span></a>
 							</div>
 							<div class="ui-block-c">
-								<a  data-transition="none" href="#"><span>7</span><span>浏览历史</span></a>
+								<a  data-transition="slide" href="#"><span>7</span><span>浏览历史</span></a>
 							</div>
 						</div>
 						<div class="clear"></div>
 					</div>
 					<div class="ui-grid-d orderMenu" style="text-align:center;">
 						<div class="ui-block-a">
-							<a  data-transition="none" href="#"><img alt=""
+							<a  data-transition="slide" href="#"><img alt=""
 								src="${pageContext.request.contextPath}/images/bg/order_menu_1.jpg"><span>待付款</span></a>
 						</div>
 						<div class="ui-block-b">
-							<a  data-transition="none" href="#"><img alt=""
+							<a  data-transition="slide" href="#"><img alt=""
 								src="${pageContext.request.contextPath}/images/bg/order_menu_2.jpg"><span>待发货</span></a>
 						</div>
 						<div class="ui-block-c">
-							<a  data-transition="none" href="#"><img alt=""
+							<a  data-transition="slide" href="#"><img alt=""
 								src="${pageContext.request.contextPath}/images/bg/order_menu_3.jpg"><span>待收货</span></a>
 						</div>
 						<div class="ui-block-d">
-							<a  data-transition="none" href="${pageContext.request.contextPath}/commodity/assess"><img alt=""
+							<a  data-transition="slide" href="${pageContext.request.contextPath}/commodity/assess"><img alt=""
 								src="${pageContext.request.contextPath}/images/bg/order_menu_4.jpg"><span>待评价</span></a>
 						</div>
 						<div class="ui-block-e">
-							<a  data-transition="none" href="#"><img alt=""
+							<a  data-transition="slide" href="#"><img alt=""
 								src="${pageContext.request.contextPath}/images/bg/order_menu_5.jpg"><span>退货/售后</span></a>
 						</div>
 						<hr class="line">

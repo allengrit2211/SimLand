@@ -23,7 +23,7 @@
 				class="back" data-icon="arrow-l">&nbsp;</a>
 			<h1>
 				<div class="tags">
-					<a  class="left on" data-transition="none" href="${pageContext.request.contextPath}/user/collectShopShow" data-role="button">店铺</a><a  class="right" data-transition="none" href="${pageContext.request.contextPath}/user/collectCommodityShow" data-role="button">商品</a>
+					<a  class="left on" data-transition="flow" href="${pageContext.request.contextPath}/user/collectShopShow" data-role="button">店铺</a><a  class="right" data-transition="flow" href="${pageContext.request.contextPath}/user/collectCommodityShow" data-role="button">商品</a>
 				</div>
 			</h1>
 			<a  data-transition="none" href="#" data-role="button" class="back">筛选</a>
