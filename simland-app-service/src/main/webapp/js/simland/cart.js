@@ -9,6 +9,8 @@ var cart = {
 		// 确认按钮 商品页面
 		$.mobile.activePage.find("#confirmOrderBtn").unbind().click(cart.confirmOrder);
 
+		$.mobile.activePage.find("#cartConfirmOrder").unbind().click(cart.cartConfirmOrder);
+
 		cart.cartChoseAttr();// 购物车选择属性
 
 		cart.cartBuyNum();// 购物车数量控制
@@ -112,6 +114,25 @@ var cart = {
 		cart.addCartAjax($(".cartForm"));
 
 	},
+	cartConfirmOrder : function() {// 购物车结算按钮
+
+		// ${pageContext.request.contextPath}/order/confirmOrder
+
+		var carChecks = new Array();
+		$.mobile.activePage.find("input[name=carCheck]:checked").each(function(i, e) {
+			carChecks.push($(e).val());
+		});
+		
+		if(carChecks.length<=0){
+			app.message("请选择结算商品");
+			return;
+		}
+		
+		$.mobile.changePage(app.servicerURL + "order/confirmOrder?carCheck=" + carChecks.join(","), {
+			transition : "slide"
+		});
+
+	},
 	addCartAjax : function(form) {
 		$.ajax({
 			type : "get",
@@ -122,16 +143,32 @@ var cart = {
 			dataType : 'jsonp',
 			success : addCartAjaxCallBack,
 			error : function(data, df, d) {
-				app.message("数据加载失败")
+				app.message("网络请求失败，请检查您的网络设置")
 			}
 		});
 
 		function addCartAjaxCallBack(data) {
 
 			if (data.code == -100) {
-				$.mobile.changePage(app.servicerURL + "loginPage", {
-					transition : "slide"
-				});
+				$.mobile.activePage.find(".popupBox").popup("close");
+				// alert($.mobile.activePage.find("#loginPopup").html())
+
+				// $.mobile.activePage.find("#loginPopup").popup('open');
+				// $.mobile.changePage(app.servicerURL + "loginPage", {
+				// transition : "slideup"
+				// });
+
+				setTimeout(function() {
+					$.mobile.activePage.find("#loginPopup").popup('open', {
+						transition : "pop"
+					});
+					// $.mobile.activePage.find("#loginPopup").css({'width':content_width*0.8});
+				}, 500);
+
+				// $.mobile.changePage($.mobile.activePage.find("#loginPopup"),
+				// {
+				// transition : "slideup"
+				// });
 			} else if (data.code == 1) {
 
 				var type = $.mobile.activePage.find("#buyTypeHid").val();
@@ -164,18 +201,17 @@ var cart = {
 			dataType : 'jsonp',
 			success : editCartAjaxCallBack,
 			error : function(data, df, d) {
-				app.message("数据加载失败")
+				app.message("网络请求失败，请检查您的网络设置")
 			}
 		});
 
-		
 		function editCartAjaxCallBack(data) {
 			if (data.code == 1) {
-				
+
 				var cid = $(obj).parents(".popup").find("input[name='cid']");
 				var attr1Val = $(obj).parents(".popup").find(".attr1Val");
 				var attr2Val = $(obj).parents(".popup").find(".attr2Val");
-				
+
 				// 显示选择的属性
 				var attr1ValShow = $(obj).parents(".popup").find(".attr1ValShow").text();
 				var attr2ValShow = $(obj).parents(".popup").find(".attr2ValShow").text();
@@ -193,15 +229,13 @@ var cart = {
 					});
 				}
 				// 删除重复sku END
-				
-				
-				$("#commodity_"+$(obj).attr("sku")+" .c_price .s_1").html();
-				$("#commodity_"+$(obj).attr("sku")+" .c_price .s_2").html();
-				$("#commodity_"+$(obj).attr("sku")+" .c_price .s_3").html();
-				$("#commodity_"+$(obj).attr("sku")+" .c_price .s_4").html();
-				
-				
-			}else{
+
+				$("#commodity_" + $(obj).attr("sku") + " .c_price .s_1").html();
+				$("#commodity_" + $(obj).attr("sku") + " .c_price .s_2").html();
+				$("#commodity_" + $(obj).attr("sku") + " .c_price .s_3").html();
+				$("#commodity_" + $(obj).attr("sku") + " .c_price .s_4").html();
+
+			} else {
 				app.message(data.msg)
 			}
 		}
@@ -227,7 +261,7 @@ var cart = {
 			dataType : 'jsonp',
 			success : addDelCartCallBack,
 			error : function(data, df, d) {
-				app.message("数据加载失败")
+				app.message("网络请求失败，请检查您的网络设置")
 			}
 		});
 
@@ -348,7 +382,7 @@ var cart = {
 		}
 
 		// 提交修改
-		cart.editCartAjax($(this).parents(".cartForm"),this);
+		cart.editCartAjax($(this).parents(".cartForm"), this);
 
 		$.mobile.activePage.find(".popupBox").popup("close");
 

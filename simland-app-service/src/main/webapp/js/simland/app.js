@@ -14,8 +14,11 @@ jQuery(function() {
 });
 
 var app = {
-	servicerURL : "http://192.168.1.129:8080/simland-app-service/",
+	servicerURL : "http://192.168.10.129:8080/simland-app-service/",
 	initialize : function() {
+		
+		$.mobile.allowCrossDomainPages = true;
+		
 		app.loadScript();
 	},
 	loadScript : function() {// 加载事件脚本

@@ -65,7 +65,7 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
 
 		List users = userMapper.getUserList(param);
 		if (users == null || users.isEmpty()) {
-			throw new UsernameNotFoundException("user '" + username + "' not found...");
+			return null;
 		} else {
 			return (UserDetails) users.get(0);
 		}

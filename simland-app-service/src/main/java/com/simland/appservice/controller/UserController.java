@@ -91,6 +91,48 @@ public class UserController {
 		return "user/messageCenter";
 	}
 
+	@RequestMapping(value = "/loginAjax")
+	@ResponseBody
+	public String loginAjax(HttpServletRequest request, Model model) {
+		SysMessage msg = new SysMessage();
+		String uname = request.getParameter("uname");
+		String upw = request.getParameter("upw");
+
+		String reJson = null;
+		if (Utils.isObjectEmpty(uname) || Utils.isObjectEmpty(upw)) {
+			msg.setCode("-1");
+			msg.setMsg("用户名或密码不能为空");
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			return reJson;
+		}
+
+		// User user = userService.login(uname, upw, msg);
+		// if (Utils.isObjectNotEmpty(user)) {
+		// request.getSession().setAttribute(Constants.USER_SESSION, user);
+		// }
+
+		// spring security 将权限及用户信息存入securityContext
+		System.out.println("start ");
+		UserDetails userDetails = userService.loadUserByUsername(uname);
+		if (Utils.isObjectEmpty(userDetails)) {
+			msg.setCode("-2");
+			msg.setMsg("用户名或密码不存在");
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			return reJson;
+		}
+
+		System.out.println("userDetails end" + userDetails);
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		securityContext.setAuthentication(new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities()));
+		HttpSession session = request.getSession(true);
+		session.setAttribute(Constants.SPRING_SECURITY_CONTEXT, securityContext);
+
+		msg.setCode("1");
+		msg.setMsg("登录成功");
+		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+		return reJson;
+	}
+
 	@RequestMapping(value = "/logindo")
 	public String logindo(HttpServletRequest request, Model model) {
 
@@ -113,6 +155,12 @@ public class UserController {
 		// spring security 将权限及用户信息存入securityContext
 		System.out.println("start ");
 		UserDetails userDetails = userService.loadUserByUsername(uname);
+		if (Utils.isObjectEmpty(userDetails)) {
+			msg.setCode("-2");
+			msg.setMsg("用户名或密码不存在");
+			return "login";
+		}
+
 		System.out.println("userDetails end" + userDetails);
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 		securityContext.setAuthentication(new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities()));

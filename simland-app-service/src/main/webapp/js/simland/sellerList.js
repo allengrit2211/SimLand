@@ -82,7 +82,7 @@ var sellerList = {
 			async : false,
 			success : selerListPageShowCallBack,
 			error : function(data, df, d) {
-				app.message("数据加载失败")
+				app.message("网络请求失败，请检查您的网络设置")
 			}
 		});
 

@@ -92,7 +92,7 @@ span {
 	color: #666;
 }
 
-.ui-content a{
+.ui-content a {
 	color: #666;
 }
 
@@ -163,7 +163,7 @@ span {
 .myfooter {
 	height: 48px !important;
 	overflow: hidden !important;
-	width:100%;
+	width: 100%;
 }
 
 .myfooter .ui-grid-c {
@@ -480,6 +480,15 @@ span {
 	text-shadow: none;
 	background-color: #1F8C77;
 	border-radius: 8px;
+}
+
+#loginPopup-popup {
+	width: 80%;
+	margin:0;
+}
+
+#loginPopup{
+	padding:5% 10%;
 }
 
 /******login end*********/
@@ -1323,7 +1332,7 @@ span {
 	border: none;
 	padding: 0;
 	height: 100%;
-	width:28px;
+	width: 28px;
 	text-align: center;
 }
 
@@ -1350,7 +1359,6 @@ span {
 	border-radius: 5px;
 	color: #FFF !important;
 }
-
 
 #CommodityPage .ui-footer .btn, #CommodityPage .menu_height {
 	height: 35px;
@@ -1401,8 +1409,6 @@ span {
 	color: #41AC98;
 }
 
-
-
 /************CommodityPage end***************/
 
 /************cartPage start***************/
@@ -1415,7 +1421,7 @@ span {
 	
 }
 
-#cartPage .cartEdit{
+#cartPage .cartEdit {
 	display: none;
 }
 
@@ -1509,23 +1515,25 @@ span {
 	margin: 0.2em 0;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit{
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit {
 	width: 60%;
-	vertical-align: top;	
+	vertical-align: top;
 	display: none;
-	margin-top:1.5em;
+	margin-top: 1.5em;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number {
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number
+	{
 	border: 1px solid #EEE;
 	display: inline-flex;
 	height: 28px;
 	overflow: hidden;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a1, 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .a2,
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .input {
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a1,
+	#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .a2,
+	#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .input
+	{
 	width: 28px;
 	height: 28px;
 	display: inline-block;
@@ -1536,28 +1544,30 @@ span {
 	vertical-align: middle;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .input {
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .input
+	{
 	border: none;
 	padding: 0;
 	height: 100%;
-	width:28px;
+	width: 28px;
 	text-align: center;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a1 {
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a1
+	{
 	border-right: 1px solid #EEE;
 	background: url("../images/bg/subtract.png") no-repeat 50% 50%;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a2 {
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .number .a2
+	{
 	border-left: 1px solid #EEE;
 	background: url("../images/bg/add.png") no-repeat 50% 50%;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .p2{
-	margin-top:1em;
+#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .p2 {
+	margin-top: 1em;
 }
-
 
 #cartPage .popup {
 	min-height: 236px;
@@ -1616,8 +1626,7 @@ span {
 	padding-left: 1em;
 }
 
-#cartPage .popup .box .attr1 a, #cartPage .popup .box .attr2 a
-	{
+#cartPage .popup .box .attr1 a, #cartPage .popup .box .attr2 a {
 	font-size: 0.75em;
 	padding: 0.175em 0.75em;
 	display: inline-block;
@@ -1644,8 +1653,6 @@ span {
 	border-radius: 5px;
 	color: #FFF !important;
 }
-
-
 
 #cartPage .cartMenu {
 	height: 50px;
@@ -1709,17 +1716,17 @@ span {
 	display: block;
 	line-height: 2em;
 	height: 2em;
-	font-size:0.75em;
+	font-size: 0.75em;
 	overflow: hidden;
 	white-space: nowrap;
-	text-overflow: ellipsis;	
+	text-overflow: ellipsis;
 }
 
 #confirmOrderPage .adds h4 .s2 {
 	display: block;
 	line-height: 2em;
 	height: 2em;
-	font-size:0.75em;
+	font-size: 0.75em;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -1754,25 +1761,25 @@ span {
 #confirmOrderPage .plistBox .shopBox .title .a1 {
 	color: #666;
 	font-weight: normal;
-	width:68%;
+	width: 68%;
 	display: inline-block;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	font-size:1em;
-	height:3em;
-	line-height:3em;
+	font-size: 1em;
+	height: 3em;
+	line-height: 3em;
 }
 
 #confirmOrderPage .plistBox .shopBox .title .a2 {
-  color: #666;
-  font-weight: normal;
-  width: 22%;
-  display: inline-block;
-  font-size:1em;
-  vertical-align: top;
-  height: 3em;
-  line-height: 3em;
+	color: #666;
+	font-weight: normal;
+	width: 22%;
+	display: inline-block;
+	font-size: 1em;
+	vertical-align: top;
+	height: 3em;
+	line-height: 3em;
 }
 
 #confirmOrderPage .plistBox .shopBox .title .input {
@@ -1846,23 +1853,21 @@ span {
 	padding: 8px;
 }
 
-#confirmOrderPage .confirmOrderInfo, #confirmOrderPage .confirmOrderInfo_line{
-	height:1.5em;
+#confirmOrderPage .confirmOrderInfo, #confirmOrderPage .confirmOrderInfo_line
+	{
+	height: 1.5em;
 }
 
-#confirmOrderPage .right{
-	float:right;
+#confirmOrderPage .right {
+	float: right;
 }
 
-#confirmOrderPage .right #submitOrderBtn{
+#confirmOrderPage .right #submitOrderBtn {
 	padding: .8em 1em;
-	margin:0;
-	background-color:#41AC98;
-	color:#FFF;
+	margin: 0;
+	background-color: #41AC98;
+	color: #FFF;
 }
-
-
-
 
 /************confirmOrderPage end***************/
 

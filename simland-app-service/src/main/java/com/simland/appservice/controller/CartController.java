@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simland.appservice.controller.security.SessionManager;
 import com.simland.core.base.SysMessage;
-import com.simland.core.base.SystemConstants;
 import com.simland.core.base.Utils;
 import com.simland.core.module.order.entity.Cart;
 import com.simland.core.module.order.service.IOrderService;

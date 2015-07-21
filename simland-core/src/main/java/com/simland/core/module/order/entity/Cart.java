@@ -1,11 +1,8 @@
 package com.simland.core.module.order.entity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -13,6 +10,7 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import com.simland.core.base.Utils;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Shop;
 
@@ -32,9 +30,15 @@ public class Cart {
 	private ConcurrentMap<Shop, Vector<CartItem>> cartItems;
 
 	/***
+	 * 待结算商品明细
+	 */
+	private ConcurrentMap<Shop, Vector<CartItem>> settlementItems;
+
+	/***
+	 * 购物车商品sku索引<br>
 	 * 购物车中商品sku与店铺 k,v
 	 */
-	private Map<String, Shop> skuIndex = new HashMap<String, Shop>();// 购物车商品sku索引
+	private Map<String, Shop> skuIndex = new HashMap<String, Shop>();
 
 	public ConcurrentMap<Shop, Vector<CartItem>> getCartItems() {
 
@@ -42,6 +46,25 @@ public class Cart {
 			this.cartItems = new ConcurrentHashMap<Shop, Vector<CartItem>>();
 
 		return cartItems;
+	}
+
+	public ConcurrentMap<Shop, Vector<CartItem>> getSettlementItems() {
+		if (settlementItems == null)
+			this.settlementItems = new ConcurrentHashMap<Shop, Vector<CartItem>>();
+
+		return settlementItems;
+	}
+
+	public void setSettlementItems(ConcurrentMap<Shop, Vector<CartItem>> settlementItems) {
+		this.settlementItems = settlementItems;
+	}
+
+	public Map<String, Shop> getSkuIndex() {
+		return skuIndex;
+	}
+
+	public void setSkuIndex(Map<String, Shop> skuIndex) {
+		this.skuIndex = skuIndex;
 	}
 
 	public void setCartItems(ConcurrentMap<Shop, Vector<CartItem>> cartItems) {
@@ -112,7 +135,7 @@ public class Cart {
 	public static Cart delCart(Cart cart, String... skus) {
 
 		if (cart == null || skus == null || skus.length == 0)
-			return null;
+			return cart;
 
 		Set<String> removeSkus = new HashSet<String>();
 		for (String sku : skus) {
@@ -136,6 +159,47 @@ public class Cart {
 				shops.remove();
 			}
 		}
+
+		return cart;
+	}
+
+	/***
+	 * 添加结算商品<br>
+	 * 去除包含的sku
+	 * 
+	 * 
+	 * @return
+	 */
+	public static Cart addSettlementItems(Cart cart, String... skus) {
+
+		if (cart == null)
+			return cart;
+
+		boolean flagNull = false;// 直接购买时，默认全部结算
+		if (skus == null || skus.length == 0)
+			flagNull = true;
+
+		Set<String> set = Utils.toSet(skus);
+
+		cart.setSettlementItems(null);
+
+		for (Entry<Shop, Vector<CartItem>> e : cart.getCartItems().entrySet()) {
+			Vector<CartItem> cartItems = null;
+			for (CartItem e1 : e.getValue()) {
+				if (set.contains(e1.getSku()) || flagNull) {
+					cartItems = cart.getSettlementItems().get(e.getKey());
+					if (cartItems == null) {
+						cartItems = new Vector<CartItem>();
+						cartItems.add(e1);
+						cart.getSettlementItems().put(e.getKey(), cartItems);
+					} else {
+						cartItems.add(e1);
+					}
+				}
+			}
+		}
+
+		set = null;
 
 		return cart;
 	}

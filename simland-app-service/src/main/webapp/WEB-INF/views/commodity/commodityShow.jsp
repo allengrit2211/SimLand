@@ -196,7 +196,7 @@
 				</div>
 			</div>		
 		
-		
+			<c:import url="../user/loginPopup.jsp"/>
 	</div>
 	<!-- Product1Page end  -->
 

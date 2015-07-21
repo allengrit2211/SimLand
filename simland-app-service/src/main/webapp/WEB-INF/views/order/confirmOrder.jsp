@@ -51,7 +51,7 @@
 						<p class="p_title">货品清单</p>
 						<div class="line"></div>
 						
-						<c:forEach items="${cart.cartItems}" var="item">
+						<c:forEach items="${cart.settlementItems}" var="item">
 							<div class="shopBox">
 								<div class="title">
 									<a class="a1" href="#">${item.key.cname}</a> 
@@ -70,8 +70,8 @@
 													<div class="c_title">${item1.c.name}</div>
 													<div class="c_price">
 														<p>
-															<span>${item1.c.attr1.name} : </span><span class="s_1">${item1.c.attr1Val}</span> <span>${item1.c.attr2.name} : </span><span
-																class="s_2">${item1.c.attr2Val}</span>
+															<span>${item1.c.attr1.name} : </span><span class="s_1">${item1.c.attr1Value}</span> <span>${item1.c.attr2.name} : </span><span
+																class="s_2">${item1.c.attr2Value}</span>
 														</p>
 														<p>
 															<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x  ${item1.buyNum}</span>

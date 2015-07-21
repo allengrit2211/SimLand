@@ -274,7 +274,7 @@
 							<a data-transition="none" href="#" data-role="button">移致收藏</a> <a data-transition="none" id="delCartBtn" href="#" data-role="button">删除</a>
 						</div>
 						<div class="cartNormal">
-							<a data-transition="slide" href="${pageContext.request.contextPath}/order/confirmOrder" data-role="button">结算</a>
+							<a data-transition="slide" id="cartConfirmOrder" href="#" data-role="button">结算</a>
 						</div>
 					</div>
 					<div class="clear"></div>
