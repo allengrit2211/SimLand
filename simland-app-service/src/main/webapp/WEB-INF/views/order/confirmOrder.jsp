@@ -70,7 +70,7 @@
 													<div class="c_title">${item1.c.name}</div>
 													<div class="c_price">
 														<p>
-															<span>${item1.c.attr1.name} : </span><span class="s_1">${item1.c.attr1Value}</span> <span>${item1.c.attr2.name} : </span><span
+															<span>${item1.c.attr1.name}  </span><span class="s_1">${item1.c.attr1Value}</span> <span>${item1.c.attr2.name}  </span><span
 																class="s_2">${item1.c.attr2Value}</span>
 														</p>
 														<p>

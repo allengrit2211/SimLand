@@ -2,12 +2,14 @@ package com.simland.core.module.order.service.impl;
 
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.simland.core.module.order.mapper.OrderMapper;
 import com.simland.core.module.order.entity.Order;
+import com.simland.core.module.order.entity.OrderItem;
 import com.simland.core.module.order.service.IOrderService;
 
 @Service("orderService")
@@ -43,6 +45,11 @@ public class OrderServiceImpl implements IOrderService{
 	
 	public List<Order> getSplitOrderList(Map param) {
 		return orderMapper.getSplitOrderList(param);
+	}
+
+	@Override
+	public Integer insertOrder(Order order, OrderItem orderItem) {
+		return null;
 	}
 	
 }

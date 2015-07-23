@@ -71,14 +71,14 @@ public class CategoryProperties implements java.io.Serializable {
 	}
 
 	public CategoryProperties getCategoryProperties1() {
-		if (this.categoryPropertiesList != null && this.categoryPropertiesList.get(0) != null)
+		if (this.categoryPropertiesList != null && this.categoryPropertiesList.size() > 0)
 			return this.categoryPropertiesList.get(0);
 		else
 			return null;
 	}
 
 	public CategoryProperties getCategoryProperties2() {
-		if (this.categoryPropertiesList != null && this.categoryPropertiesList.get(1) != null)
+		if (this.categoryPropertiesList != null && this.categoryPropertiesList.size() > 1)
 			return this.categoryPropertiesList.get(1);
 		else
 			return null;

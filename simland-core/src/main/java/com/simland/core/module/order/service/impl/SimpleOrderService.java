@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.simland.core.module.order.entity.Order;
+import com.simland.core.module.order.entity.OrderItem;
 import com.simland.core.module.order.service.IOrderService;
 import com.simland.core.module.order.service.IOrderState;
 
@@ -78,6 +79,12 @@ public class SimpleOrderService implements IOrderState, IOrderService {
 
 	@Override
 	public List<Order> getSplitOrderList(Map param) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer insertOrder(Order order, OrderItem orderItem) {
 		// TODO Auto-generated method stub
 		return null;
 	}

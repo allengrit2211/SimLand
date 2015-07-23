@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.simland.appservice.controller.security.SessionManager;
+import com.simland.core.base.SysMessage;
+import com.simland.core.base.Utils;
 import com.simland.core.module.order.entity.Cart;
 import com.simland.core.module.order.service.IOrderService;
 import com.simland.core.module.user.entity.Address;
@@ -52,10 +55,18 @@ public class OrderController {
 	 * @param model
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/order/submitOrder")
 	public String submitOrder(HttpServletRequest request, Model model) {
 
-		return null;
+		String reJson = null;
+		SysMessage msg = new SysMessage();
+
+		msg.setCode("1");
+		msg.setMsg("订单创建成功");
+		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+
+		return reJson;
 	}
 
 }

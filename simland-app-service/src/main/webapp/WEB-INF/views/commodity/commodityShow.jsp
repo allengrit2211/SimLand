@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -151,6 +152,7 @@
 							</div>
 						</div>
 						<div class="line"></div>
+						<c:if test="${fn:length(commodity.attr1List)>0}">
 						<div class="box">
 							<span class="title">${commodity.attr1.name}</span>
 							<div class="attr1">
@@ -160,6 +162,9 @@
 							</div>
 						</div>
 						<div class="line"></div>
+						</c:if>
+						
+						<c:if test="${fn:length(commodity.attr2List)>0}">
 						<div class="box">
 							<span class="title">${commodity.attr2.name}</span>
 							<div class="attr2">
@@ -169,6 +174,8 @@
 							</div>
 						</div>
 						<div class="line"></div>
+						</c:if>
+						
 						<div class="box">
 							<span class="title inline">购买数量</span>
 							<div class="number inventoryShowBox">

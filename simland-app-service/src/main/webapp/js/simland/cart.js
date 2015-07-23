@@ -100,13 +100,13 @@ var cart = {
 	confirmOrder : function() {
 
 		var attr1Val = $.mobile.activePage.find(".attr1Val");
-		if (attr1Val.val() == '') {
+		if (attr1Val.attr("tit")!=''&&attr1Val.val() == '') {
 			app.message("请选择" + attr1Val.attr("tit"))
 			return;
 		}
 
 		var attr2Val = $.mobile.activePage.find(".attr2Val");
-		if (attr2Val.val() == '') {
+		if (attr2Val.attr("tit")!=''&&attr2Val.val() == '') {
 			app.message("请选择" + attr2Val.attr("tit"))
 			return;
 		}

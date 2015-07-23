@@ -134,7 +134,7 @@
 			
 			<div class="b_bottom_menu">
 				<ul>
-					<li><a  href="#" data-rel="back">返回</a></li>
+					<li><a  href="#" data-rel="back">店铺活动</a></li>
 					<li><a  href="${pageContext.request.contextPath}/shop/info?id=${shop.id}">公司简介</a></li>
 					<li><a  href="#anylink">买家评论</a></li>
 					<li><a  href="${pageContext.request.contextPath}/shop/showShop?id=${shop.id}">店铺首页</a></li>

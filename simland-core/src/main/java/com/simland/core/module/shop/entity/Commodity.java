@@ -154,7 +154,7 @@ public class Commodity implements java.io.Serializable {
 		if (cp != null && cp.getCategoryProperties1() != null)
 			this.attr1 = cp.getCategoryProperties1();
 
-		return attr1;
+		return attr1 == null ? new CategoryProperties() : attr1;
 	}
 
 	public void setAttr1(CategoryProperties attr1) {
@@ -170,7 +170,7 @@ public class Commodity implements java.io.Serializable {
 		if (cp != null && cp.getCategoryProperties2() != null)
 			return this.attr2 = cp.getCategoryProperties2();
 
-		return attr2;
+		return attr2 == null ? new CategoryProperties() : attr2;
 	}
 
 	public void setAttr2(CategoryProperties attr2) {
@@ -269,8 +269,11 @@ public class Commodity implements java.io.Serializable {
 		Map<String, String> attrMap2 = new TreeMap<String, String>();
 		for (int i = 0; cInventoryList != null && i < cInventoryList.size(); i++) {
 			CommodityInventory ci = cInventoryList.get(i);
-			attrMap1.put(String.valueOf(ci.getAttr1()), ci.getCpvalue1());
-			attrMap2.put(String.valueOf(ci.getAttr2()), ci.getCpvalue2());
+			if (ci.getAttr1() != null && ci.getCpvalue1() != null)
+				attrMap1.put(String.valueOf(ci.getAttr1()), ci.getCpvalue1());
+
+			if (ci.getAttr2() != null && ci.getCpvalue2() != null)
+				attrMap2.put(String.valueOf(ci.getAttr2()), ci.getCpvalue2());
 
 			// if (flag && ci.getNums() > 0) {//默认颜色尺码
 			// defaultChose = new String[] { String.valueOf(ci.getAttr1()),
