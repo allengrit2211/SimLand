@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fun"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 				
-						<c:if test="${fun:length(list) <= 0}">
+						<c:if test="${fn:length(list) <= 0}">
 							<p class="p5">没有查询到结果,请更换条件重新查询...</p>
 							<br>
 							<h4>为您推荐的店铺</h4>

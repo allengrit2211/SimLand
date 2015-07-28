@@ -10,25 +10,29 @@ public interface IOrderService {
 
 	public Integer insertOrder(Order order);
 
+	public Integer insertOrder(List<Order> orders);
+
 	/***
-	 * 保存订单s
+	 * 保存订单
 	 * 
 	 * @param order
 	 * @param orderItem
 	 * @return
 	 */
-	public Integer insertOrder(Order order, OrderItem orderItem);
+	public Integer insertOrder(Order order, List<OrderItem> orderItems);
 
 	public Integer updateOrder(Order order);
 
 	public Integer deleteOrder(Integer id);
 
-	public Order getOrder(Map param);
+	public Order getOrder(Map<String, Object> param);
 
-	public List<Order> getOrderList(Map param);
+	public List<Order> getOrderList(Map<String, Object> param);
 
-	public Integer getOrderCount(Map param);
+	public Integer getOrderCount(Map<String, Object> param);
 
-	public List<Order> getSplitOrderList(Map param);
+	public List<Order> getSplitOrderList(Integer uid, Map<String, Object> param);
+
+	public List<Order> getSplitOrderList(Map<String, Object> param);
 
 }

@@ -9,6 +9,8 @@ public interface OrderItemMapper{
 	
 	public Integer insertOrderItem(OrderItem orderItem);  	
 	
+	public Integer insertBatchOrderItem(List<OrderItem> orderItems);
+	
 	public Integer updateOrderItem(OrderItem orderItem);
 	
 	public Integer deleteOrderItem(Integer id);

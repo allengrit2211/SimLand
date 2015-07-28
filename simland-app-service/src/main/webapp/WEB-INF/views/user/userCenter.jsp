@@ -78,7 +78,7 @@
 						<hr class="line">
 						<div class="ucMenuList">
 							<ul data-role="listview" data-inset="false" data-theme="d">
-								<li><a  class="icon0" href="#">全部订单</a></li>
+								<li><a  class="icon0" href="${pageContext.request.contextPath}/user/orders">全部订单</a></li>
 							</ul>
 						</div>
 					</div>

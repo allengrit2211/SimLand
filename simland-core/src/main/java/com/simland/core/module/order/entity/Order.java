@@ -1,8 +1,10 @@
 package com.simland.core.module.order.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.simland.core.module.shop.entity.Commodity;
+import com.simland.core.module.shop.entity.Shop;
 import com.simland.core.module.user.entity.User;
 
 /**
@@ -31,12 +33,21 @@ public class Order implements IOrder, java.io.Serializable {
 	private java.lang.String receiverProvince;
 	private java.lang.String receiverCity;
 	private java.lang.String receiverDistrict;
-	private java.lang.String receiverAdress;
+	private java.lang.String receiverAddress;
 	private java.lang.String receiverZipCode;
 	private java.lang.Integer orderStatus;
+	private java.lang.Integer payStatus;// 支付状态
+	private java.util.Date payTime;// 支付时间
 	private java.lang.Integer logisticsStauts;
 	private java.lang.Integer isDel;
 	private java.lang.String remark;
+
+	private List<OrderItem> orderItems;
+
+	/***
+	 * 店铺信息
+	 */
+	private Shop shop;
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -48,6 +59,22 @@ public class Order implements IOrder, java.io.Serializable {
 
 	public java.lang.Integer getUid() {
 		return this.uid;
+	}
+
+	public java.lang.Integer getPayStatus() {
+		return payStatus;
+	}
+
+	public void setPayStatus(java.lang.Integer payStatus) {
+		this.payStatus = payStatus;
+	}
+
+	public java.util.Date getPayTime() {
+		return payTime;
+	}
+
+	public void setPayTime(java.util.Date payTime) {
+		this.payTime = payTime;
 	}
 
 	public void setUid(java.lang.Integer value) {
@@ -134,12 +161,12 @@ public class Order implements IOrder, java.io.Serializable {
 		this.receiverDistrict = value;
 	}
 
-	public java.lang.String getReceiverAdress() {
-		return this.receiverAdress;
+	public java.lang.String getReceiverAddress() {
+		return this.receiverAddress;
 	}
 
-	public void setReceiverAdress(java.lang.String value) {
-		this.receiverAdress = value;
+	public void setReceiverAddress(java.lang.String value) {
+		this.receiverAddress = value;
 	}
 
 	public java.lang.String getReceiverZipCode() {
@@ -196,6 +223,25 @@ public class Order implements IOrder, java.io.Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<OrderItem> getOrderItems() {
+		if (orderItems == null)
+			return new ArrayList<OrderItem>();
+
+		return orderItems;
+	}
+
+	public void setOrderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 
 }

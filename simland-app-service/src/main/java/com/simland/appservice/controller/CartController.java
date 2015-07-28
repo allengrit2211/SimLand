@@ -28,8 +28,8 @@ public class CartController {
 	public static final Log logger = LogFactory.getLog(CartController.class);
 
 	@Autowired
-	@Qualifier("simpleOrderService")
-	private IOrderService simpleOrderService;
+	@Qualifier("orderService")
+	private IOrderService orderService;
 
 	@Autowired
 	private ICommodityService commodityService;

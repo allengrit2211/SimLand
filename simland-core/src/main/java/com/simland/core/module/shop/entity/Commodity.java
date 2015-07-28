@@ -13,6 +13,8 @@ import com.simland.core.base.Utils;
 public class Commodity implements java.io.Serializable {
 	private static final long serialVersionUID = 5454155825314635342L;
 
+	public static final String INVENTORY_KEY = "_inventory_";
+
 	private java.lang.Integer id;
 	private java.lang.Integer sid;
 	private java.lang.String name;
@@ -45,9 +47,9 @@ public class Commodity implements java.io.Serializable {
 	 */
 	private List<CommodityInventory> cInventoryList;
 	/***
-	 * 库存MapN<_inventory_attr1_attr2,num>
+	 * 库存MapN<_inventory_attr1_attr2,String[]{"库存","价格","图片"}>
 	 */
-	private Map<String, Integer> inventoryMap = new HashMap<String, Integer>();
+	private Map<String, String[]> inventoryMap = new HashMap<String, String[]>();
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -282,7 +284,9 @@ public class Commodity implements java.io.Serializable {
 			// flag = false;
 			// }
 
-			inventoryMap.put("_inventory_" + ci.getAttr1() + "_" + ci.getAttr2(), ci.getNums());
+			String[] inStr = { String.valueOf(ci.getNums()), String.valueOf(ci.getPrice()), ci.getImage() };
+
+			inventoryMap.put(INVENTORY_KEY + Utils.notNullTrim(String.valueOf(ci.getAttr1())) + "_" + Utils.notNullTrim(String.valueOf(ci.getAttr2())), inStr);
 
 		}
 
@@ -324,11 +328,27 @@ public class Commodity implements java.io.Serializable {
 		return getCommoditySku(c.getId(), c.getAttr1Val() == null ? 0 : Utils.strToInteger(c.getAttr1Val()), c.getAttr2Val() == null ? 0 : Utils.strToInteger(c.getAttr2Val()));
 	}
 
-	public Map<String, Integer> getInventoryMap() {
+	/***
+	 * 根据商品sku获取商品价格
+	 * 
+	 * @param sku
+	 * @return
+	 */
+	public static Double getCommodityPrice(Commodity c, String sku) {
+
+		if (c.getInventoryMap() == null)
+			return 1000000000d;// 默认价格
+
+		String[] vals = c.getInventoryMap().get(INVENTORY_KEY + Utils.notNullTrim(String.valueOf(c.getAttr1Val())) + "_" + Utils.notNullTrim(String.valueOf(c.getAttr2Val())));
+
+		return Utils.strToDouble(Utils.getArrayVal(1, vals));
+	}
+
+	public Map<String, String[]> getInventoryMap() {
 		return inventoryMap;
 	}
 
-	public void setInventoryMap(Map<String, Integer> inventoryMap) {
+	public void setInventoryMap(Map<String, String[]> inventoryMap) {
 		this.inventoryMap = inventoryMap;
 	}
 

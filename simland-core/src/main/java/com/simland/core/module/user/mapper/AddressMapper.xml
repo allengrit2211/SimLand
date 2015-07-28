@@ -14,7 +14,7 @@
         <result property="receiverProvince" column="receiverProvince"/>
         <result property="receiverCity" column="receiverCity"/>
         <result property="receiverDistrict" column="receiverDistrict"/>
-        <result property="receiverAdress" column="receiverAdress"/>
+        <result property="receiverAddress" column="receiverAddress"/>
         <result property="receiverZipCode" column="receiverZipCode"/>
         <result property="isDefault" column="isDefault"/>
 	</resultMap>
@@ -28,7 +28,7 @@
         receiverProvince receiverProvince,
         receiverCity receiverCity,
         receiverDistrict receiverDistrict,
-        receiverAdress receiverAdress,
+        receiverAddress receiverAddress,
         receiverZipCode receiverZipCode,
         isDefault isDefault
 	    ]]>
@@ -45,7 +45,7 @@
 		        receiverProvince,
 		        receiverCity,
 		        receiverDistrict,
-		        receiverAdress,
+		        receiverAddress,
 		        receiverZipCode,
 		        isDefault
 	        ) VALUES (
@@ -55,7 +55,7 @@
 		        	#{receiverProvince},
 		        	#{receiverCity},
 		        	#{receiverDistrict},
-		        	#{receiverAdress},
+		        	#{receiverAddress},
 		        	#{receiverZipCode},
 		        	#{isDefault}
 	        )
@@ -87,8 +87,8 @@
 		<if test="receiverDistrict!=null">
         	receiverDistrict = #{receiverDistrict}
 		</if>
-		<if test="receiverAdress!=null">
-        	receiverAdress = #{receiverAdress}
+		<if test="receiverAddress!=null">
+        	receiverAddress = #{receiverAddress}
 		</if>
 		<if test="receiverZipCode!=null">
         	receiverZipCode = #{receiverZipCode}
@@ -149,8 +149,8 @@
 			<if test="receiverDistrict!=null">
 	        AND receiverDistrict = #{receiverDistrict}
 	        </if>
-			<if test="receiverAdress!=null">
-	        AND receiverAdress = #{receiverAdress}
+			<if test="receiverAddress!=null">
+	        AND receiverAddress = #{receiverAddress}
 	        </if>
 			<if test="receiverZipCode!=null">
 	        AND receiverZipCode = #{receiverZipCode}

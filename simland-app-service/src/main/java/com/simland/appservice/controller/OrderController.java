@@ -1,5 +1,9 @@
 package com.simland.appservice.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -13,8 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.simland.appservice.controller.security.SessionManager;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
+import com.simland.core.base.page.PageView;
 import com.simland.core.module.order.entity.Cart;
+import com.simland.core.module.order.entity.Order;
 import com.simland.core.module.order.service.IOrderService;
+import com.simland.core.module.order.service.IOrderState;
 import com.simland.core.module.user.entity.Address;
 import com.simland.core.module.user.entity.User;
 import com.simland.core.module.user.service.IAddressService;
@@ -26,6 +33,9 @@ public class OrderController {
 
 	@Autowired
 	private IAddressService addressService;
+
+	@Autowired
+	private IOrderState generalOrder;
 
 	@Autowired
 	private IOrderService orderService;
@@ -62,11 +72,60 @@ public class OrderController {
 		String reJson = null;
 		SysMessage msg = new SysMessage();
 
-		msg.setCode("1");
-		msg.setMsg("订单创建成功");
+		String addressId = request.getParameter("addressId");
+
+		User user = SessionManager.getUser();
+		Cart cart = user.getCart();
+
+		Address userAddress = addressService.getAddress(Utils.strToInteger(addressId), user.getId());
+		if (Utils.isObjectEmpty(userAddress)) {
+			msg.setCode("-2");
+			msg.setMsg("用户地址不存在");
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			return reJson;
+		}
+
+		String[] remarks = request.getParameterValues("remarks");
+
+		int id = generalOrder.create(user, userAddress, cart, msg, remarks);
+
+		if (id > 0) {
+			msg.setCode("1");
+			msg.setMsg("订单创建成功");
+		}
+
 		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
 
 		return reJson;
 	}
 
+	/***
+	 * 我的订单
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/user/orders")
+	public String myOrder(HttpServletRequest request, Model model) {
+
+		User user = SessionManager.getUser();
+		Map<String, Object> param = new HashMap<String, Object>();
+
+		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
+
+		param.put("uid", user.getId());
+		int totalRecord = orderService.getOrderCount(param);
+
+		PageView pageView = new PageView();
+		pageView.setCurrentPage(currentPage);
+		pageView.setPageSize(5);
+		pageView.setTotalRecord(totalRecord);
+		param.put("endSize", pageView.getFirstResult());
+		param.put("pageSize", pageView.getPageSize());
+
+		List<Order> list = orderService.getSplitOrderList(user.getId(), param);
+		model.addAttribute("list", list);
+		return "user/orders";
+	}
 }

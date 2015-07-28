@@ -1,6 +1,5 @@
 package com.simland.core.module.order.entity.build;
 
-
 /***
  * 订单创建者 ClassName: OrderDirector
  * 
@@ -18,7 +17,8 @@ public class Director {
 
 	public void construct() {
 		builder.buildUserInfo();
-		builder.buildCommodity();
+		builder.buildOrderItems();
+		builder.buildActivity();
 	}
 
 }

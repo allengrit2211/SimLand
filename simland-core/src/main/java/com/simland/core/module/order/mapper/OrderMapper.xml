@@ -19,12 +19,14 @@
         <result property="receiverProvince" column="receiverProvince"/>
         <result property="receiverCity" column="receiverCity"/>
         <result property="receiverDistrict" column="receiverDistrict"/>
-        <result property="receiverAdress" column="receiverAdress"/>
+        <result property="receiverAddress" column="receiverAddress"/>
         <result property="receiverZipCode" column="receiverZipCode"/>
         <result property="orderStatus" column="orderStatus"/>
         <result property="logisticsStauts" column="logisticsStauts"/>
         <result property="isDel" column="isDel"/>
         <result property="remark" column="remark"/>
+        <association property="shop" column="sid" select="com.simland.core.module.shop.mapper.ShopMapper.getShop"/>
+        <collection property="orderItems" column="id" ofType="OrderItem" select="com.simland.core.module.order.mapper.OrderItemMapper.getOrderItemListByOid" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -41,7 +43,7 @@
         receiverProvince receiverProvince,
         receiverCity receiverCity,
         receiverDistrict receiverDistrict,
-        receiverAdress receiverAdress,
+        receiverAddress receiverAddress,
         receiverZipCode receiverZipCode,
         orderStatus orderStatus,
         logisticsStauts logisticsStauts,
@@ -66,7 +68,7 @@
 		        receiverProvince,
 		        receiverCity,
 		        receiverDistrict,
-		        receiverAdress,
+		        receiverAddress,
 		        receiverZipCode,
 		        orderStatus,
 		        logisticsStauts,
@@ -84,7 +86,7 @@
 		        	#{receiverProvince},
 		        	#{receiverCity},
 		        	#{receiverDistrict},
-		        	#{receiverAdress},
+		        	#{receiverAddress},
 		        	#{receiverZipCode},
 		        	#{orderStatus},
 		        	#{logisticsStauts},
@@ -134,8 +136,8 @@
 		<if test="receiverDistrict!=null">
         	receiverDistrict = #{receiverDistrict}
 		</if>
-		<if test="receiverAdress!=null">
-        	receiverAdress = #{receiverAdress}
+		<if test="receiverAddress!=null">
+        	receiverAddress = #{receiverAddress}
 		</if>
 		<if test="receiverZipCode!=null">
         	receiverZipCode = #{receiverZipCode}
@@ -220,8 +222,8 @@
 			<if test="receiverDistrict!=null">
 	        AND receiverDistrict = #{receiverDistrict}
 	        </if>
-			<if test="receiverAdress!=null">
-	        AND receiverAdress = #{receiverAdress}
+			<if test="receiverAddress!=null">
+	        AND receiverAddress = #{receiverAddress}
 	        </if>
 			<if test="receiverZipCode!=null">
 	        AND receiverZipCode = #{receiverZipCode}

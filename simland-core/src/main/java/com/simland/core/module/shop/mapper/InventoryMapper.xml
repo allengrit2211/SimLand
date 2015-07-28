@@ -13,6 +13,8 @@
         <result property="attr2" column="attr2"/>
         <result property="nums" column="nums"/>
         <result property="price" column="price"/>
+        <result property="image" column="image"/>
+        <result property="productCode" column="productCode"/>
         <result property="status" column="status"/>
         <result property="type" column="type"/>
         <result property="sid" column="sid"/>
@@ -24,6 +26,8 @@
         <result property="attr2" column="attr2"/>
         <result property="nums" column="nums"/>
         <result property="price" column="price"/>
+        <result property="image" column="image"/>
+        <result property="productCode" column="productCode"/>
         <result property="sid" column="sid"/>
         <result property="cpvalue1" column="cpvalue1"/>
         <result property="cpvalue2" column="cpvalue2"/>
@@ -37,6 +41,8 @@
         attr2 attr2,
         nums nums,
         price price,
+        image image,
+        productCode productCode,
         status status,
         type type,
         sid sid
@@ -53,6 +59,8 @@
 		        attr2,
 		        nums,
 		        price,
+		        image,
+		        productCode,
 		        status,
 		        type,
 		        sid
@@ -62,6 +70,8 @@
 		        	#{attr2},
 		        	#{nums},
 		        	#{price},
+		        	#{image},
+		        	#{productCode},
 		        	#{status},
 		        	#{type},
 		        	#{sid}
@@ -175,7 +185,7 @@
 
 	<select id="getInventoryByCommodityId" resultMap="InventoryRM1">
 	    <![CDATA[
-			select t1.cid,t1.attr1,t1.attr2,t1.nums,t1.price,t1.sid,t2.cpvalue cpvalue1,t3.cpvalue cpvalue2 from t_inventory t1 
+			select t1.cid,t1.attr1,t1.attr2,t1.nums,t1.price,t1.image,t1.productCode,t1.sid,t2.cpvalue cpvalue1,t3.cpvalue cpvalue2 from t_inventory t1 
 			left join t_category_properties_val t2 on t1.attr1 = t2.id
 			left join t_category_properties_val t3 on t1.attr2 = t3.id
 	    ]]>	

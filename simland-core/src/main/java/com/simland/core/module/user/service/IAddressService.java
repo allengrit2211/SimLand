@@ -15,6 +15,8 @@ public interface IAddressService {
 
 	public Address getAddress(Map param);
 
+	public Address getAddress(Integer id, Integer uid);
+
 	public Address getUserDefaultAddress(Integer uid);
 
 	public List<Address> getAddressList(Map param);

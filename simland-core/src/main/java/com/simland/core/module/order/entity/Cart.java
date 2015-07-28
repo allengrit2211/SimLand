@@ -106,6 +106,7 @@ public class Cart {
 			cartItem.setC(c);
 			cartItem.setBuyNum(buyNum);
 			cartItem.setSku(Commodity.getCommoditySku(c));
+			cartItem.setPrice(Commodity.getCommodityPrice(c, sku));
 
 			if (cartItems.get(shop) != null) {
 				cartItems.get(shop).add(cartItem);

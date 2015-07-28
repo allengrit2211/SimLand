@@ -7,6 +7,7 @@ public class CartItem {
 	private Commodity c;// 商品
 	private Integer buyNum;// 购买数量
 	private String sku;// 商品sku
+	private Double price;// 商品价格
 
 	public Commodity getC() {
 		return c;
@@ -30,6 +31,14 @@ public class CartItem {
 
 	public void setSku(String sku) {
 		this.sku = sku;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 }

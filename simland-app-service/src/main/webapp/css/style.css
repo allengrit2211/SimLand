@@ -18,10 +18,12 @@ body {
 a {
 	text-decoration: none;
 	color: #666;
+	font-weight: normal;
 }
 
 span {
 	color: #666;
+	font-weight: normal;
 }
 
 .line {
@@ -282,7 +284,7 @@ span {
 
 #indexPage .box1 {
 	width: 90%;
-	margin: 8% auto 40% auto;
+	margin: 8% auto 13% auto;
 }
 
 #indexPage .ui-input-search {
@@ -538,7 +540,6 @@ span {
 }
 
 .uInfo .uInfoBox {
-	height: 120px;
 	background-color: #E0E0E0;
 }
 
@@ -1273,6 +1274,10 @@ span {
 
 #CommodityPage .popup .box .info .s1 {
 	color: #EE3939;
+}
+
+#CommodityPage .popup .box .info .s1 .price {
+	display: inline;
 }
 
 #CommodityPage .popup .box .info .s3 span {
@@ -2553,8 +2558,7 @@ span {
 /************addAddressPage end***************/
 
 /************auctionPage start***************/
-
-#auctionPage .add_height{
+#auctionPage .add_height {
 	height: 55px;
 }
 
@@ -2566,64 +2570,58 @@ span {
 	width: 100%;
 }
 
-#auctionPage .auctionBox .tabs{
+#auctionPage .auctionBox .tabs {
 	
 }
 
-
-
-#auctionPage .auctionBox .tabs ul{
+#auctionPage .auctionBox .tabs ul {
 	background-color: #F9F9F9;
 }
 
-#auctionPage .auctionBox .tabs ul li{
+#auctionPage .auctionBox .tabs ul li {
 	display: inline-block;
-	width:48%;
+	width: 48%;
 	margin: 0;
-	padding:0;
+	padding: 0;
 }
 
-#auctionPage .auctionBox .tabs ul li a{
-	padding:1em 0;
+#auctionPage .auctionBox .tabs ul li a {
+	padding: 1em 0;
 	display: block;
 	text-align: center;
 	text-decoration: underline;
 }
 
-#auctionPage .auctionBox .msgBox{
+#auctionPage .auctionBox .msgBox {
+	
 }
 
-#auctionPage .auctionBox .msgBox .msg .u_msg{
+#auctionPage .auctionBox .msgBox .msg .u_msg {
 	background: url("../images/bg/auction_1_r4_c4.jpg") no-repeat 100% 100%;
 	display: inline-block;
-	width:78%;
-	margin:1em 0 1em 1em;
+	width: 78%;
+	margin: 1em 0 1em 1em;
 	text-align: right;
 }
-#auctionPage .auctionBox .msgBox .msg .u_msg .u_out{
-  height: 35px;
-  line-height:35px;
-  padding:0 10px;
-  border: 1.6px solid #E4E4E4;
-  border-right: none;
-  border-radius: 5px;
-  margin-right: 8px;
-  display: inline-block;
-}
 
-
-
-
-#auctionPage .auctionBox .msgBox .msg .u_img{
-	height:40px;
+#auctionPage .auctionBox .msgBox .msg .u_msg .u_out {
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	border: 1.6px solid #E4E4E4;
+	border-right: none;
+	border-radius: 5px;
+	margin-right: 8px;
 	display: inline-block;
-	float:right;
-	margin:1em 1em 1em 0;
-	width:10%;
 }
 
-
-
+#auctionPage .auctionBox .msgBox .msg .u_img {
+	height: 40px;
+	display: inline-block;
+	float: right;
+	margin: 1em 1em 1em 0;
+	width: 10%;
+}
 
 #auctionPage .sendMsgBox {
 	height: 50px;
@@ -2632,7 +2630,8 @@ span {
 
 #auctionPage .sendMsgBox .a1 {
 	display: inline-block;
-	margin: 7.5px; width : 35px;
+	margin: 7.5px;
+	width: 35px;
 	height: 35px;
 	background: url("../images/bg/auction_1_r8_c2.jpg") no-repeat 100% 50%;
 	width: 35px;
@@ -2663,54 +2662,158 @@ span {
 
 /************auctionPage end***************/
 
-
 /************publicChipsPage start***************/
-#publicChipsPage .publicChips{
+#publicChipsPage .publicChips {
 	
 }
 
-#publicChipsPage .publicChips .topMenu ul li{
+#publicChipsPage .publicChips .topMenu ul li {
 	display: inline-block;
-	width:23%;
+	width: 23%;
 	height: 3em;
-	line-height:3em;
+	line-height: 3em;
 	text-align: center;
 }
 
-#publicChipsPage .publicChips .box1 .img{
-	height:181px;
+#publicChipsPage .publicChips .box1 .img {
+	height: 181px;
 	display: block;
 	width: 100%;
 }
-#publicChipsPage .publicChips .box1 .img img{
-	width:100%;
+
+#publicChipsPage .publicChips .box1 .img img {
+	width: 100%;
 }
 
-
-#publicChipsPage .publicChips .box1 .info{
+#publicChipsPage .publicChips .box1 .info {
 	
 }
 
-#publicChipsPage .publicChips .box1 .info .col{
-  display: inline-block;
-  width: 32%;
-  padding: 0.75em 0;
-  text-align: center;
+#publicChipsPage .publicChips .box1 .info .col {
+	display: inline-block;
+	width: 32%;
+	padding: 0.75em 0;
+	text-align: center;
 }
-#publicChipsPage .publicChips .box1 .info .col .s1{
+
+#publicChipsPage .publicChips .box1 .info .col .s1 {
 	display: block;
 }
-#publicChipsPage .publicChips .box1 .info .col .s2{
+
+#publicChipsPage .publicChips .box1 .info .col .s2 {
 	display: block;
 }
-
-
-
 
 /************publicChipsPage end***************/
 
+/************myOrdersPage start***************/
+#myOrdersPage  .wrapper.top{
+	background-color: #EEEEEE;
+}
 
+#myOrdersPage .orderBox {
+	
+}
 
+#myOrdersPage .orderBox .order {
+	margin: 0 0 0.75em 0;
+	background-color:#FFF;
+	border-top:1px solid #E5E5E5;
+}
+
+#myOrdersPage .orderBox .order .o_header {
+	padding: 1em 0;
+	text-indent:2%;
+}
+
+#myOrdersPage .orderBox .order .o_header .a1 {
+	display: block;
+	padding: 1em 0;
+}
+
+#myOrdersPage .orderBox .order .o_header .a1 .s1 {
+	width: 2em;
+	display: inline-block;
+}
+
+#myOrdersPage .orderBox .order .o_header .a1 .s1 img {
+	width: 100%;
+	height: 100%;
+}
+
+#myOrdersPage .orderBox .order .o_header .a1 .s2{
+	display: inline-block;
+	vertical-align: top;
+}
+#myOrdersPage .orderBox .order .o_header .a1 .s2 .gt{
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 2px;
+}
+
+#myOrdersPage .orderBox .order .o_header .a1 .s3{
+	display: inline-block;
+	vertical-align: top;
+	margin-right:1em;
+	float: right;
+}
+
+#myOrdersPage .orderBox .order .o_content{
+	background-color: #F9F9F9;
+
+}
+#myOrdersPage .orderBox .order .o_content .a2{
+	padding: 1em 0;
+	display: block;
+}
+#myOrdersPage .orderBox .order .o_content .a2 .s1{
+    width: 23%;
+    display: inline-block;
+    margin-left: 3%;
+}
+#myOrdersPage .orderBox .order .o_content .a2 .s1 img{
+	width:100%;
+}
+#myOrdersPage .orderBox .order .o_content .a2 .s2{
+	vertical-align: top;
+	width: 48%;
+	display: inline-block;
+	padding-left:1%;
+}
+#myOrdersPage .orderBox .order .o_content .a2 .s3{
+    vertical-align: top;
+    width: 15%;
+    display: inline-block;
+    text-align: right;
+    margin-right: 1em;
+}
+
+#myOrdersPage .orderBox .order .o_sum{
+	text-align: right;
+	padding:0.75em 0;
+	margin-right: 1em;
+}
+#myOrdersPage .orderBox .order .o_option{
+	display: block;
+	padding:1em 0;
+	text-align: right;
+	margin-right: 1em;
+}
+
+#myOrdersPage .orderBox .order .o_option .a1{
+	padding: 0.5em 1em;
+	border: 1px solid #EEE;
+}
+
+#myOrdersPage .orderBox .order .o_option .a2{
+	padding: 0.5em 1em;
+	border: 1px solid red;
+}
+
+/************myOrdersPage end***************/
 
 
 .wrapper {
@@ -2733,7 +2836,7 @@ span {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	width: 100%;
 	padding: 0;
-	min-height:6em;
+	min-height: 6em;
 }
 
 #pullUp {

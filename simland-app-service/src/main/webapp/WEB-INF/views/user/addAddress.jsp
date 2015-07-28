@@ -25,12 +25,13 @@
 			
 			<div class="wrapper top">
 				<div class="scroller">
-					<form id="addressForm" action="${pageContext.request.contextPath}/user/addAddress" method="post" data-transition="slidefade">
+					<form id="addressForm" action="${pageContext.request.contextPath}/user/addAddress" method="get" data-transition="slidefade">
+						<input type="hidden" name="toUrl" value="${toUrl}">
 						<div class="addressBox">
 							<p><input type="text" name="receiverName" placeholder="收货人姓名"></p>
 							<p><input type="text" name="receiverPhone" placeholder="收货人手机号码"></p>
 							<p><input type="text" name="receiverCity" placeholder="收货人地区"></p>
-							<p><input type="text" name="receiverAdress" placeholder="街道地址"></p>
+							<p><input type="text" name="receiverAddress" placeholder="街道地址"></p>
 							<p><input type="text" name="receiverZipCode" placeholder="邮编"></p>
 						</div>
 					</form>

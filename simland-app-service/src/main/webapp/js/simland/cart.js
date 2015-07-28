@@ -295,6 +295,7 @@ var cart = {
 
 		if (inv.length > 0) {
 			$.mobile.activePage.find(".inventoryShowBox .inventoryNum").html(inv.val());
+			$.mobile.activePage.find(".inventoryShowBox .price").html(inv.attr("price"));
 		}
 	},
 	carShopCheckAll : function() {// 商家商品全选

@@ -18,6 +18,8 @@ public class OrderItem implements java.io.Serializable {
 	private java.lang.Double cprice;
 	private java.util.Date createTime;
 	
+	private Order order;
+	
 	public java.lang.Integer getId(){
 		return this.id;
 	}
@@ -94,6 +96,14 @@ public class OrderItem implements java.io.Serializable {
 	
 	public void setCreateTime(java.util.Date value) {
 		this.createTime = value;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 	
 

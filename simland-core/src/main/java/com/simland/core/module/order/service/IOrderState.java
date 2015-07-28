@@ -1,6 +1,10 @@
 package com.simland.core.module.order.service;
 
+import com.simland.core.base.SysMessage;
+import com.simland.core.module.order.entity.Cart;
 import com.simland.core.module.order.entity.Order;
+import com.simland.core.module.user.entity.Address;
+import com.simland.core.module.user.entity.User;
 
 /****
  * 订单状态 抽象类
@@ -11,12 +15,17 @@ import com.simland.core.module.order.entity.Order;
  */
 public interface IOrderState {
 
-	/***
+	/****
 	 * 创建新订单
 	 * 
-	 * @param order
+	 * @param user
+	 * @param address
+	 * @param cart
+	 * @param remarks
+	 *            备注
+	 * @return
 	 */
-	void create(Order order);
+	int create(User user, Address address, Cart cart,SysMessage msg, String... remarks);
 
 	/***
 	 * 确认订单
@@ -38,4 +47,12 @@ public interface IOrderState {
 	 * @param order
 	 */
 	void pay(Order order);
+
+	/****
+	 * 订单完成
+	 * 
+	 * @param order
+	 */
+	void complete(Order order);
+
 }

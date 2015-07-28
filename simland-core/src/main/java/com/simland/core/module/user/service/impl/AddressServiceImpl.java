@@ -67,4 +67,13 @@ public class AddressServiceImpl implements IAddressService {
 
 	}
 
+	@Override
+	public Address getAddress(Integer id,Integer uid) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("uid", uid);
+		param.put("id", id);
+		return addressMapper.getAddress(param);
+		
+	}
+
 }

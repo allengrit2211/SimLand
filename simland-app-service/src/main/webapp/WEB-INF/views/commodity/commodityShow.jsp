@@ -141,7 +141,7 @@
 							</div>
 							<div class="info inventoryShowBox">
 							
-								<span class="s1">￥${commodity.marketPrice}</span>
+								<span class="s1">￥<span class="price">${commodity.marketPrice}</span></span>
 								<span class="s2">库存 <strong class="inventoryNum"></strong> 件</span>
 								<span class="s3">已选 <span class="attr1ValShow">请选择</span> <span class="attr2ValShow"></span></span>
 								<input type="hidden" value="${commodity.id}" name="cid"/>
@@ -182,8 +182,8 @@
 							
 								<!-- 库存信息 -->
 								<c:forEach items="${commodity.inventoryMap}" var="item">
-									<input type="hidden" value="${item.value}" name="${item.key}"/>
-									<c:set var="inventoryNum" value="${inventoryNum+item.value}"/>
+									<input type="hidden" value="${item.value[0]}" price="${item.value[1]}" img="${item.value[2]}" name="${item.key}"/>
+									<c:set var="inventoryNum" value="${inventoryNum+item.value[0]}"/>
 								</c:forEach>
 								
 								<input type="hidden" value="${inventoryNum}" id="inventoryNum">

@@ -9,7 +9,7 @@ var order = {
 		$.ajax({
 			type : "get",
 			url : app.servicerURL + "/order/submitOrder",
-			data : $.mobile.activePage.find("#orderForm").serialize(),
+			data : $.mobile.activePage.find("#confirmOrderForm").serialize(),
 			cache : false,
 			async : true,
 			dataType : 'jsonp',
@@ -18,11 +18,14 @@ var order = {
 				app.message("网络请求失败，请检查您的网络设置")
 			}
 		});
-		
-		function submitOrderCallBack(data){
-			if(data.code==1){
-				app.message(data.msg)
-			}else{
+
+		function submitOrderCallBack(data) {
+			if (data.code == 1) {
+				app.message(data.msg);
+				$.mobile.changePage(app.servicerURL + "/user/orders", {
+					transition : "slide"
+				});
+			} else {
 				app.message(data.msg)
 			}
 		}

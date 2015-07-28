@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,22 @@
 </head>
 
 <body>
+	
+	<div data-role="page" id="">
+		<div data-role="header" class="header_1 bg41AC98">
+			<a  data-transition="slide" href="#" data-role="button" data-rel="back"
+				class="back bg41AC98" data-icon="arrow-l">&nbsp;</a>
+			<h1 class="colorFFF">xxx</h1>
+		</div>
+	
+		<div data-role="content">
+
+			<div class="wrapper top">
+				<div class="scroller">
+				</div>
+			</div>
+		</div>		
+	</div>	
 	
 
 

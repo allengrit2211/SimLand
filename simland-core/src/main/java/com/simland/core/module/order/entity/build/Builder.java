@@ -1,5 +1,7 @@
 package com.simland.core.module.order.entity.build;
 
+import java.util.List;
+
 import com.simland.core.module.order.entity.Order;
 
 /***
@@ -11,11 +13,20 @@ import com.simland.core.module.order.entity.Order;
  */
 public interface Builder {
 
-	// 用户信息
+	/***
+	 * 设置订单用户信息
+	 */
 	void buildUserInfo();
 
-	// 商品信息
-	void buildCommodity();
+	/****
+	 * 设置订单商品信息
+	 */
+	void buildOrderItems();
 
-	Order getResult();
+	/***
+	 * 设置订单活动信息
+	 */
+	void buildActivity();
+
+	List<Order> getResult();
 }

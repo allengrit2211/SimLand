@@ -1,5 +1,7 @@
 package com.simland.appservice.controller;
 
+import java.lang.ProcessBuilder.Redirect;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,10 +17,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.simland.appservice.controller.security.SessionManager;
 import com.simland.core.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.module.user.entity.Address;
+import com.simland.core.module.user.entity.User;
 import com.simland.core.module.user.service.IAddressService;
 import com.simland.core.module.user.service.ICollectShopService;
 import com.simland.core.module.user.service.IUserService;
@@ -209,7 +213,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/user/addAddressShow")
 	public String addAddressShow(HttpServletRequest request, Model model) {
-
+		model.addAttribute("toUrl", request.getHeader("referer"));
 		return "user/addAddress";
 	}
 
@@ -223,8 +227,20 @@ public class UserController {
 	@RequestMapping(value = "/user/addAddress")
 	public String addAddress(HttpServletRequest request, Model model) {
 		Address address = new Address();
+		address.setIsDefault(1);
+		address.setUid(SessionManager.getUser().getId());
+		address.setReceiverName(request.getParameter("receiverName"));
+		address.setReceiverPhone(request.getParameter("receiverPhone"));
+		address.setReceiverCity(request.getParameter("receiverCity"));
+		address.setReceiverAddress(request.getParameter("receiverAddress"));
+		address.setReceiverZipCode(request.getParameter("receiverZipCode"));
+
 		addressService.insertAddress(address);
-		return "order/confirmOrder";
+		String toUrl = request.getParameter("toUrl");
+		if (Utils.isObjectNotEmpty(Utils.notNullTrim(toUrl))) {
+			return  "redirect:"+toUrl;
+		} else
+			return "order/confirmOrder";
 	}
 
 }

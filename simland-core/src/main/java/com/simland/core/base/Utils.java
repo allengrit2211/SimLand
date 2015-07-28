@@ -58,6 +58,14 @@ public class Utils {
 		}
 	}
 
+	public static Double strToDouble(String str) {
+		try {
+			return Double.parseDouble(str);
+		} catch (Exception e) {
+			return 0d;
+		}
+	}
+
 	/**
 	 * @Title：产生指定位数的随机字符串
 	 * @author John @date 2014-03-18
@@ -363,6 +371,22 @@ public class Utils {
 		}
 
 		return set;
+	}
+
+	public static String getArrayVal(String str, String split, Integer index) {
+		try {
+			return str.split(split)[index];
+		} catch (Exception e) {
+			return "";
+		}
+	}
+
+	public static String getArrayVal(int index, String... vals) {
+		try {
+			return vals[index];
+		} catch (Exception e) {
+			return "";
+		}
 	}
 
 	public static void main(String[] args) {

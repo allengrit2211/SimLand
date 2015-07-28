@@ -28,84 +28,89 @@
 			<div class="wrapper top">
 				<div class="scroller">
 
-					<div class="adds">
-						<c:choose>
-							<c:when test="${address!=null}">
-							<div class="line">&nbsp;</div>
-							<h4>
-								<span class="s1">收货人:${address.receiverName} ${address.receiverPhone}</span>
-								<span class="s2">${address.receiverProvince}${address.receiverCity}${address.receiverDistrict}${address.receiverAdress} ${address.receiverZipCode}</span>
-							</h4>
-							<div class="line">&nbsp;</div>
-							</c:when>
-							<c:otherwise>
+					<form action="" id="confirmOrderForm" method="post">
+							
+						<div class="adds">
+							<c:choose>
+								<c:when test="${address!=null}">
 								<div class="line">&nbsp;</div>
-								<h4><a href="${pageContext.request.contextPath}/user/addAddressShow" data-transition="slide" class="a1">请填写你的收货地址</a></h4>
+								<h4>
+									<span class="s1">收货人:${address.receiverName} ${address.receiverPhone}</span>
+									<span class="s2">${address.receiverProvince}${address.receiverCity}${address.receiverDistrict}${address.receiverAddress} ${address.receiverZipCode}</span>
+								</h4>
 								<div class="line">&nbsp;</div>
-							</c:otherwise>
-						</c:choose>
-					</div>
-					
-					
-					<div class="plistBox">
-						<p class="p_title">货品清单</p>
-						<div class="line"></div>
+								</c:when>
+								<c:otherwise>
+									<div class="line">&nbsp;</div>
+									<h4><a href="${pageContext.request.contextPath}/user/addAddressShow?${pageContext.request.queryString}" data-transition="slide" class="a1">请填写你的收货地址</a></h4>
+									<div class="line">&nbsp;</div>
+								</c:otherwise>
+							</c:choose>
+							<input type="hidden" name="addressId" value="${address.id}">
+						</div>
 						
-						<c:forEach items="${cart.settlementItems}" var="item">
-							<div class="shopBox">
-								<div class="title">
-									<a class="a1" href="#">${item.key.cname}</a> 
-									<a class="a2" data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
-								</div>
-								
-								<c:forEach items="${item.value}" var="item1">
-									<div class="commodity">
-										<div class="box">
-											<div class="c_info">
-												<div class="c_img">
-													<img width="53" alt=""
-														src="${pageContext.request.contextPath}/${item1.c.img}">
-												</div>
-												<div class="c_infobox">
-													<div class="c_title">${item1.c.name}</div>
-													<div class="c_price">
-														<p>
-															<span>${item1.c.attr1.name}  </span><span class="s_1">${item1.c.attr1Value}</span> <span>${item1.c.attr2.name}  </span><span
-																class="s_2">${item1.c.attr2Value}</span>
-														</p>
-														<p>
-															<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x  ${item1.buyNum}</span>
-														</p>
+						
+						<div class="plistBox">
+							<p class="p_title">货品清单</p>
+							<div class="line"></div>
+							
+							<c:forEach items="${cart.settlementItems}" var="item">
+								<div class="shopBox">
+									<div class="title">
+										<a class="a1" href="#">${item.key.cname}</a> 
+										<a class="a2" data-transition="none" href="#preferential" data-rel="popup" data-position-to="window">优惠说明</a>
+									</div>
+									
+									<c:forEach items="${item.value}" var="item1">
+										<div class="commodity">
+											<div class="box">
+												<div class="c_info">
+													<div class="c_img">
+														<img width="53" alt=""
+															src="${pageContext.request.contextPath}/${item1.c.img}">
+													</div>
+													<div class="c_infobox">
+														<div class="c_title">${item1.c.name}</div>
+														<div class="c_price">
+															<p>
+																<span>${item1.c.attr1.name}  </span><span class="s_1">${item1.c.attr1Value}</span> <span>${item1.c.attr2.name}  </span><span
+																	class="s_2">${item1.c.attr2Value}</span>
+															</p>
+															<p>
+																<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x  ${item1.buyNum}</span>
+															</p>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
+									</c:forEach>
+									<!-- 配送方式 -->
+									<div class="title">
+										<span class="left">配送方式</span>
+										<span class="right"></span>
 									</div>
-								</c:forEach>
-								<!-- 配送方式 -->
-								<div class="title">
-									<span class="left">配送方式</span>
-									<span class="right"></span>
-								</div>
-								<div class="title">
-									<div class="input">
-										<input type="text" placeholder="给商家留言">
+									<div class="title">
+										<div class="input">
+											<input type="text" name="remarks" placeholder="给商家留言">
+										</div>
+									</div>
+									<div class="title">
+										<span class="left"></span>
+										<span class="right">共${fn:length(cart.cartItems)}件商品,合计￥<span class="red">89</span></span>
 									</div>
 								</div>
-								<div class="title">
-									<span class="left"></span>
-									<span class="right">共${fn:length(cart.cartItems)}件商品,合计￥<span class="red">89</span></span>
-								</div>
-							</div>
-		
-						</c:forEach>
-						
-					</div>
-					
-					<div class="confirmOrderInfo_line">
-					
-					</div>
 			
+							</c:forEach>
+							
+						</div>
+						
+						<div class="confirmOrderInfo_line">
+						
+						</div>
+				
+				
+					</form>
 			
 				</div>
 			</div>
