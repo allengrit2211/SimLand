@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.smap.mapper.RingMapper">
+
+	<resultMap id="RingRM" type="com.simland.core.module.smap.entity.Ring">
+		<result property="id" column="id" />
+		<result property="cityid" column="cityid" />
+		<result property="provinceid" column="provinceid" />
+		<result property="name" column="name" />
+		<result property="status" column="status" />
+		<result property="createtime" column="createtime" />
+		<result property="sort" column="sort" />
+		<result property="color" column="color" />
+		<association property="ringDetailss" column="id"
+			select="com.simland.core.module.smap.mapper.RingDetailsMapper.getRingDetailsListByRid" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        cityid cityid,
+        provinceid provinceid,
+        name name,
+        status status,
+        createtime createtime,
+        sort sort,
+        color color
+	    ]]>
+	</sql>
+
+
+	<insert id="insertRing" useGeneratedKeys="true" keyProperty="id"
+		parameterType="com.simland.core.module.smap.entity.Ring">
+	    <![CDATA[
+	        INSERT INTO t_ring (
+		        cityid,
+		        provinceid,
+		        name,
+		        status,
+		        createtime,
+		        sort,
+		        color
+	        ) VALUES (
+		        	#{cityid},
+		        	#{provinceid},
+		        	#{name},
+		        	#{status},
+		        	#{createtime},
+		        	#{sort},
+		        	#{color}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER"
+			keyProperty="id">
+			SELECT LAST_INSERT_ID() as id
+		</selectKey>
+	</insert>
+
+	<update id="updateRing">
+	    <![CDATA[
+        UPDATE t_ring
+        ]]>
+		<set>
+			<if test="cityid!=null">
+				cityid = #{cityid},
+			</if>
+			<if test="provinceid!=null">
+				provinceid = #{provinceid},
+			</if>
+			<if test="name!=null">
+				name = #{name},
+			</if>
+			<if test="status!=null">
+				status = #{status},
+			</if>
+			<if test="createtime!=null">
+				createtime = #{createtime},
+			</if>
+			<if test="sort!=null">
+				sort = #{sort},
+			</if>
+			<if test="color!=null">
+				color = #{color},
+			</if>
+		</set>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteRing">
+    <![CDATA[
+        DELETE FROM t_ring WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+
+	<select id="getRing" resultMap="RingRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_ring 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getRingList" resultMap="RingRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_ring
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+				AND id = #{id}
+			</if>
+			<if test="cityid!=null">
+				AND cityid = #{cityid}
+			</if>
+			<if test="provinceid!=null">
+				AND provinceid = #{provinceid}
+			</if>
+			<if test="name!=null">
+				AND name = #{name}
+			</if>
+			<if test="status!=null">
+				AND status = #{status}
+			</if>
+			<if test="createtime!=null">
+				AND createtime = #{createtime}
+			</if>
+			<if test="sort!=null">
+				AND sort = #{sort}
+			</if>
+			<if test="color!=null">
+				AND color = #{color}
+			</if>
+		</where>
+	</sql>
+
+	<select id="getRingCount" resultType="int">
+		SELECT count(*) FROM t_ring
+		<include refid="pageWhere" />
+	</select>
+
+	<select id="getSplitRingList" resultMap="RingRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_ring
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

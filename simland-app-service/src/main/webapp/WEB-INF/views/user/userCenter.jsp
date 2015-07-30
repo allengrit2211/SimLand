@@ -28,18 +28,22 @@
 					<div class="uInfo">
 						<div class="uInfoBox">
 							<div class="u_img">
-								<img alt="" width="60" src="${pageContext.request.contextPath}/images/user/myindex_r2_c2.jpg">
+								<img alt="" width="60" src="${pageContext.request.contextPath}/${user.images}">
 							</div>
 							<div class="u_info">
-								<p class="u_p_1">我是大富翁</p>
+								<p class="u_p_1">${user.nickName}</p>
+								<!-- 
 								<p class="u_p_2">
 									<img alt="" src="${pageContext.request.contextPath}/images/user/myindex_r3_c10.jpg">
 								</p>
+								 -->
 								<p class="u_p_3">
 									<span>总订单:2笔</span> <span>总金额:12589元</span>
 								</p>
 							</div>
 						</div>
+						
+						<div class="line"></div>
 		
 						<div class="ui-grid-b collect">
 							<div class="ui-block-a">
@@ -78,16 +82,16 @@
 						<hr class="line">
 						<div class="ucMenuList">
 							<ul data-role="listview" data-inset="false" data-theme="d">
-								<li><a  class="icon0" href="${pageContext.request.contextPath}/user/orders">全部订单</a></li>
+								<li><a  class="icon0" data-transition="slide" href="${pageContext.request.contextPath}/user/orders">全部订单</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="ucMenuList" style="min-height:200px;">
 						<ul data-role="listview" data-inset="false" data-theme="d">
-							<li><a  class="icon1" href="#">我的账户与安全</a></li>
-							<li><a  class="icon2" href="#">我的收货地址</a></li>
-							<li><a  class="icon3" href="#">我的银行卡管理</a></li>
-							<li><a  class="icon4" href="#">个人信息修改</a></li>
+							<li><a  class="icon1" data-transition="slide" href="#">我的账户与安全</a></li>
+							<li><a  class="icon2" data-transition="slide" href="${pageContext.request.contextPath}/user/listAddress">我的收货地址</a></li>
+							<li><a  class="icon3" data-transition="slide" href="#">我的银行卡管理</a></li>
+							<li><a  class="icon4" data-transition="slide" href="#">个人信息修改</a></li>
 						</ul>
 					</div>
 				</div>

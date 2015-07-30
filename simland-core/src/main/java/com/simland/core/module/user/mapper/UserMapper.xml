@@ -3,13 +3,18 @@
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
 <mapper namespace="com.simland.core.module.user.mapper.UserMapper">
 
 	<resultMap id="UserRM" type="com.simland.core.module.user.entity.User">
-		<result property="id" column="id" />
-		<result property="uname" column="uname" />
-		<result property="password" column="password" />
-		<result property="lastLoginTime" column="lastLoginTime" />
+        <result property="id" column="id"/>
+        <result property="uname" column="uname"/>
+        <result property="password" column="password"/>
+        <result property="lastLoginTime" column="lastLoginTime"/>
+        <result property="nickName" column="nickName"/>
+        <result property="sex" column="sex"/>
+        <result property="birthday" column="birthday"/>
+        <result property="images" column="images"/>
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -17,43 +22,68 @@
         id id,
         uname uname,
         password password,
-        lastLoginTime lastLoginTime
+        lastLoginTime lastLoginTime,
+        nickName nickName,
+        sex sex,
+        birthday birthday,
+        images images
 	    ]]>
 	</sql>
 
 
 	<insert id="insertUser" useGeneratedKeys="true" keyProperty="id"
-		parameterType="com.simland.core.module.user.entity.User">
+	parameterType="com.simland.core.module.user.entity.User">
 	    <![CDATA[
 	        INSERT INTO t_user (
 		        uname,
 		        password,
-		        lastLoginTime
+		        lastLoginTime,
+		        nickName,
+		        sex,
+		        birthday,
+		        images
 	        ) VALUES (
 		        	#{uname},
 		        	#{password},
-		        	#{lastLoginTime}
+		        	#{lastLoginTime},
+		        	#{nickName},
+		        	#{sex},
+		        	#{birthday},
+		        	#{images}
 	        )
 	    ]]>
-		<selectKey resultType="java.lang.Integer" order="AFTER"
-			keyProperty="id">
-			SELECT LAST_INSERT_ID() as id
-		</selectKey>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
 	</insert>
 
 	<update id="updateUser">
 	    <![CDATA[
-        UPDATE t_user SET
+        UPDATE t_user
         ]]>
+        <set>
 		<if test="uname!=null">
-			uname = #{uname}
+        	uname = #{uname},
 		</if>
 		<if test="password!=null">
-			password = #{password}
+        	password = #{password},
 		</if>
 		<if test="lastLoginTime!=null">
-			lastLoginTime = #{lastLoginTime}
+        	lastLoginTime = #{lastLoginTime},
 		</if>
+		<if test="nickName!=null">
+        	nickName = #{nickName},
+		</if>
+		<if test="sex!=null">
+        	sex = #{sex},
+		</if>
+		<if test="birthday!=null">
+        	birthday = #{birthday},
+		</if>
+		<if test="images!=null">
+        	images = #{images},
+		</if>
+        </set>
 	    <![CDATA[  
         WHERE 
 	        id = #{id}
@@ -66,47 +96,50 @@
         id = #{id} 
     ]]>
 	</delete>
-
+	
 	<select id="getUser" resultMap="UserRM">
 		SELECT
 		<include refid="Base_Column_List" />
 	    <![CDATA[
 		    FROM t_user 
+	        WHERE 
+	        id = #{id} 
 	    ]]>
-		<where>
-			<choose>
-				<when test="uname!=null">
-					uname = #{uname}
-				</when>
-				<otherwise>
-					id = #{id}
-				</otherwise>
-			</choose>
-		</where>
-
 	</select>
 
 	<select id="getUserList" resultMap="UserRM">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM t_user
+		FROM t_user  
 		<include refid="pageWhere" />
 	</select>
 
 	<sql id="pageWhere">
 		<where>
 			<if test="id!=null">
-				AND id = #{id}
-			</if>
+	        AND id = #{id}
+	        </if>
 			<if test="uname!=null">
-				AND uname = #{uname}
-			</if>
+	        AND uname = #{uname}
+	        </if>
 			<if test="password!=null">
-				AND password = #{password}
-			</if>
+	        AND password = #{password}
+	        </if>
 			<if test="lastLoginTime!=null">
-				AND lastLoginTime = #{lastLoginTime}
-			</if>
+	        AND lastLoginTime = #{lastLoginTime}
+	        </if>
+			<if test="nickName!=null">
+	        AND nickName = #{nickName}
+	        </if>
+			<if test="sex!=null">
+	        AND sex = #{sex}
+	        </if>
+			<if test="birthday!=null">
+	        AND birthday = #{birthday}
+	        </if>
+			<if test="images!=null">
+	        AND images = #{images}
+	        </if>
 		</where>
 	</sql>
 
@@ -114,7 +147,7 @@
 		SELECT count(*) FROM t_user
 		<include refid="pageWhere" />
 	</select>
-
+	
 	<select id="getSplitUserList" resultMap="UserRM">
 		SELECT
 		<include refid="Base_Column_List" />

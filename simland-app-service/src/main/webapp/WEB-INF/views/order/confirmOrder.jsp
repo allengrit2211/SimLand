@@ -35,14 +35,17 @@
 								<c:when test="${address!=null}">
 								<div class="line">&nbsp;</div>
 								<h4>
+									<a data-transition="slide" href="${pageContext.request.contextPath}/user/listAddress?toUrl=/order/confirmOrder?${pageContext.request.queryString}">
 									<span class="s1">收货人:${address.receiverName} ${address.receiverPhone}</span>
 									<span class="s2">${address.receiverProvince}${address.receiverCity}${address.receiverDistrict}${address.receiverAddress} ${address.receiverZipCode}</span>
+									</a>
 								</h4>
 								<div class="line">&nbsp;</div>
 								</c:when>
 								<c:otherwise>
 									<div class="line">&nbsp;</div>
-									<h4><a href="${pageContext.request.contextPath}/user/addAddressShow?${pageContext.request.queryString}" data-transition="slide" class="a1">请填写你的收货地址</a></h4>
+									
+									<h4><a href="${pageContext.request.contextPath}/user/addAddressShow?toUrl=/order/confirmOrder?${pageContext.request.queryString}" data-transition="slide" class="a1">请填写你的收货地址</a></h4>
 									<div class="line">&nbsp;</div>
 								</c:otherwise>
 							</c:choose>

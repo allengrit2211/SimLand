@@ -9,6 +9,8 @@ public interface IAddressService {
 
 	public Integer insertAddress(Address address);
 
+	public Integer updateAddress(Map param);
+	
 	public Integer updateAddress(Address address);
 
 	public Integer deleteAddress(Integer id);
@@ -24,5 +26,14 @@ public interface IAddressService {
 	public Integer getAddressCount(Map param);
 
 	public List<Address> getSplitAddressList(Map param);
+
+	/***
+	 * 设置默认地址
+	 * 
+	 * @param uid
+	 * @param id
+	 * @return
+	 */
+	public Integer setUserDefaultAddress(Integer uid, Integer id);
 
 }

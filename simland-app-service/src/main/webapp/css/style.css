@@ -18,7 +18,7 @@ body {
 a {
 	text-decoration: none;
 	color: #666;
-	font-weight: normal;
+	font-weight: normal!important;
 }
 
 span {
@@ -316,7 +316,7 @@ span {
 #indexPage .box1 .input1 .txt {
 	margin: 0px;
 	border: none;
-	padding: 8px 0;
+	padding: 11px 0;
 	width: 100%;
 	font-size: 0.875em;
 	text-indent: 3px;
@@ -531,56 +531,57 @@ span {
 }
 
 /************uInfo**************/
-#userCenterPage a {
-	
+#userCenterPage .wrapper {
+	background-color: #EEEEEE;
 }
 
-.uInfo {
-	
+
+#userCenterPage .uInfo {
+	background-color:#FFF;
 }
 
-.uInfo .uInfoBox {
-	background-color: #E0E0E0;
+#userCenterPage .uInfo .uInfoBox {
+	/*background-color: #E0E0E0;*/
 }
 
-.uInfo .u_img {
+#userCenterPage .uInfo .u_img {
 	display: inline-block;
 	margin: 5% 2% 5% 5%;
-	width: 25%;
+	width: 5em;
 }
 
-.uInfo .u_img img {
+#userCenterPage .uInfo .u_img img {
 	width: 100%;
 }
 
-.uInfo .u_info {
+#userCenterPage .uInfo .u_info {
 	margin: 1.4em 0 0 1.25em;
 	display: inline-block;
 	width: 50%;
 	vertical-align: top;
 }
 
-.uInfo .u_info p {
+#userCenterPage .uInfo .u_info p {
 	margin: 2px 0;
 }
 
-.uInfo .u_info .u_p_1 {
+#userCenterPage .uInfo .u_info .u_p_1 {
 	color: #E9849B;
 }
 
-.uInfo .u_info .u_p_2 {
+#userCenterPage .uInfo .u_info .u_p_2 {
 	padding-top: 5px;
 }
 
-.uInfo .u_info .u_p_3 {
+#userCenterPage .uInfo .u_info .u_p_3 {
 	font-size: 0.875em;
 }
 
-.uInfo .u_info .u_p_3 span {
+#userCenterPage .uInfo .u_info .u_p_3 span {
 	font-size: 0.75em;
 }
 
-.uInfo .collect {
+#userCenterPage .uInfo .collect {
 	width: 80%;
 	margin: 0 auto;
 	text-align: center;
@@ -588,14 +589,13 @@ span {
 	font-size: 0.75em;
 }
 
-.uInfo .collect span {
+#userCenterPage .uInfo .collect span {
 	padding: 5px 0 0 0 !important;
 	display: block;
 }
 
 #userCenterPage .orderMenu {
 	padding: 15px 0;
-	background-color: #EEE;
 	font-size: 0.75em;
 }
 
@@ -1904,6 +1904,10 @@ span {
 /************messageCenterPage end***************/
 
 /************Map Page start***************/
+#map1Page .ui-content{
+	min-height: 500px;
+}
+
 #map1Page .map1 img {
 	width: 100%;
 }
@@ -2815,6 +2819,69 @@ span {
 
 /************myOrdersPage end***************/
 
+
+/************listAddressPage start***************/
+#listAddressPage  .wrapper.top{
+	background-color: #EEEEEE;
+}
+
+#listAddressPage .addressBox{
+	
+}
+
+#listAddressPage .addressBox .address{
+	padding: 2%;
+	background-color:#FFF;
+	margin-bottom:1em;
+}
+
+#listAddressPage .addressBox .address h3{
+	margin:0.375em 0;
+}
+#listAddressPage .addressBox .address h4{
+	margin:0.375em 0;
+	font-weight: normal;
+}
+
+#listAddressPage .addressBox .address .option{
+	margin:0.75em 0 0 0;
+}
+
+#listAddressPage .addressBox .address .option .left{
+	width:26%;
+	display: inline-block;
+}
+#listAddressPage .addressBox .address .option .right{
+	width:68%;
+	display: inline-block;
+	text-align: right;
+}
+
+#listAddressPage .addressBox .address .option .left .a1{
+	background: url("../images/bg/IMG_0543_r4_c2.png") no-repeat 0 50%;
+	padding:2px 0 2px 22px;
+	display: inline-block;
+}
+
+#listAddressPage .addressBox .address .option .left .a1.check{
+	background: url("../images/bg/right_1.jpg") no-repeat 0 50%;
+	padding-left:22px;
+	display: inline-block;
+}
+
+#listAddressPage .addressBox .address .option .right .a2{
+	background: url("../images/bg/listAddress_r2_c2.jpg") no-repeat 0 50%;
+	padding-left:20px;
+	display: inline-block;
+}
+
+#listAddressPage .addressBox .address .option .right .a3{
+	background: url("../images/bg/listAddress_r2_c4.jpg") no-repeat 0 50%;
+	padding-left:20px;
+	display: inline-block;
+}
+
+/************listAddressPage end***************/
 
 .wrapper {
 	position: absolute;

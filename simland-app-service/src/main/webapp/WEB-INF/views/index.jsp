@@ -32,6 +32,7 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/cart.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/order.js"></script>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/smap.js"></script>
 </head>
 
 <body>
@@ -140,10 +141,10 @@
 			data-theme="d" id="footer">
 			<div data-role="navbar" class="myfooter no-top-border bg41AC98">
 				<ul>
-					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/main" class="ui-icon-index ui-btn-active">首页</a></li>
-					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map">地图</a></li>
-					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase">进货单</a></li>
-					<li><a  data-transition="flow" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my">我的</a></li>
+					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/main" class="ui-icon-index ui-btn-active">首页</a></li>
+					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map">地图</a></li>
+					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase">进货单</a></li>
+					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my">我的</a></li>
 				</ul>
 			</div>
 		</div>

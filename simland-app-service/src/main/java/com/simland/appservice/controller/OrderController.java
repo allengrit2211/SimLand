@@ -123,7 +123,7 @@ public class OrderController {
 		pageView.setTotalRecord(totalRecord);
 		param.put("endSize", pageView.getFirstResult());
 		param.put("pageSize", pageView.getPageSize());
-
+		param.put("sortColumns", "id");
 		List<Order> list = orderService.getSplitOrderList(user.getId(), param);
 		model.addAttribute("list", list);
 		return "user/orders";

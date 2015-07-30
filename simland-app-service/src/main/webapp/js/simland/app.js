@@ -31,6 +31,7 @@ var app = {
 		shop.initialize();
 		user.initialize();
 		order.initialize();
+		smap.initialize();
 	},
 	loadIScroll : function() {// 加载局部滚动
 		if (location.href.indexOf("shop/list") <= -1) {

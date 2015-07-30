@@ -71,4 +71,15 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
 		}
 	}
 
+	@Override
+	public User getUser(Integer id) {
+
+		if (id == null)
+			return null;
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("id", id);
+		return userMapper.getUser(param);
+	}
+
 }

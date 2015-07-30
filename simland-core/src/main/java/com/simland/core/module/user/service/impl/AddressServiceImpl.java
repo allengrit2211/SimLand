@@ -20,9 +20,18 @@ public class AddressServiceImpl implements IAddressService {
 	private AddressMapper addressMapper;
 
 	public Integer insertAddress(Address address) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("uid", address.getUid());
+		param.put("isDefault", 0);
+		addressMapper.updateAddressByUserId(param);
+		
 		return addressMapper.insertAddress(address);
 	}
 
+	public Integer updateAddress(Map param) {
+		return addressMapper.updateAddress(param);
+	}
+	
 	public Integer updateAddress(Address address) {
 		return addressMapper.updateAddress(address);
 	}
@@ -68,12 +77,26 @@ public class AddressServiceImpl implements IAddressService {
 	}
 
 	@Override
-	public Address getAddress(Integer id,Integer uid) {
+	public Address getAddress(Integer id, Integer uid) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("uid", uid);
 		param.put("id", id);
 		return addressMapper.getAddress(param);
-		
+
+	}
+
+	@Override
+	public Integer setUserDefaultAddress(Integer uid, Integer id) {
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("uid", uid);
+		param.put("isDefault", 0);
+		addressMapper.updateAddressByUserId(param);
+
+		param.put("id", id);
+		param.put("isDefault", 1);
+		return addressMapper.updateAddress(param);
+
 	}
 
 }

@@ -9,6 +9,8 @@ public interface AddressMapper{
 	
 	public Integer insertAddress(Address address);  	
 	
+	public Integer updateAddress(Map param);
+	
 	public Integer updateAddress(Address address);
 	
 	public Integer deleteAddress(Integer id);
@@ -20,5 +22,7 @@ public interface AddressMapper{
 	public Integer getAddressCount(Map param);
 	
 	public List getSplitAddressList(Map param);
+	
+	public Integer updateAddressByUserId(Map param);
 
 }

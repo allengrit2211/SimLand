@@ -67,38 +67,79 @@
 
 	<update id="updateAddress">
 	    <![CDATA[
-        UPDATE t_address SET
+        UPDATE t_address
         ]]>
-		<if test="uid!=null">
-        	uid = #{uid}
-		</if>
-		<if test="receiverName!=null">
-        	receiverName = #{receiverName}
-		</if>
-		<if test="receiverPhone!=null">
-        	receiverPhone = #{receiverPhone}
-		</if>
-		<if test="receiverProvince!=null">
-        	receiverProvince = #{receiverProvince}
-		</if>
-		<if test="receiverCity!=null">
-        	receiverCity = #{receiverCity}
-		</if>
-		<if test="receiverDistrict!=null">
-        	receiverDistrict = #{receiverDistrict}
-		</if>
-		<if test="receiverAddress!=null">
-        	receiverAddress = #{receiverAddress}
-		</if>
-		<if test="receiverZipCode!=null">
-        	receiverZipCode = #{receiverZipCode}
-		</if>
-		<if test="isDefault!=null">
-        	isDefault = #{isDefault}
-		</if>
+        <set>
+			<if test="uid!=null">
+	        	uid = #{uid},
+			</if>
+			<if test="receiverName!=null">
+	        	receiverName = #{receiverName},
+			</if>
+			<if test="receiverPhone!=null">
+	        	receiverPhone = #{receiverPhone},
+			</if>
+			<if test="receiverProvince!=null">
+	        	receiverProvince = #{receiverProvince},
+			</if>
+			<if test="receiverCity!=null">
+	        	receiverCity = #{receiverCity},
+			</if>
+			<if test="receiverDistrict!=null">
+	        	receiverDistrict = #{receiverDistrict},
+			</if>
+			<if test="receiverAddress!=null">
+	        	receiverAddress = #{receiverAddress},
+			</if>
+			<if test="receiverZipCode!=null">
+	        	receiverZipCode = #{receiverZipCode},
+			</if>
+			<if test="isDefault!=null">
+	        	isDefault = #{isDefault},
+			</if>
+		</set>
 	    <![CDATA[  
         WHERE 
-	        id = #{id}
+	        id = #{id} and uid = #{uid}
+    	]]>
+	</update>
+	
+	<update id="updateAddressByUserId">
+	    <![CDATA[
+        UPDATE t_address
+        ]]>
+        <set>
+			<if test="uid!=null">
+	        	uid = #{uid},
+			</if>
+			<if test="receiverName!=null">
+	        	receiverName = #{receiverName},
+			</if>
+			<if test="receiverPhone!=null">
+	        	receiverPhone = #{receiverPhone},
+			</if>
+			<if test="receiverProvince!=null">
+	        	receiverProvince = #{receiverProvince},
+			</if>
+			<if test="receiverCity!=null">
+	        	receiverCity = #{receiverCity},
+			</if>
+			<if test="receiverDistrict!=null">
+	        	receiverDistrict = #{receiverDistrict},
+			</if>
+			<if test="receiverAddress!=null">
+	        	receiverAddress = #{receiverAddress},
+			</if>
+			<if test="receiverZipCode!=null">
+	        	receiverZipCode = #{receiverZipCode},
+			</if>
+			<if test="isDefault!=null">
+	        	isDefault = #{isDefault},
+			</if>
+		</set>
+	    <![CDATA[  
+        WHERE 
+	        uid = #{uid}
     	]]>
 	</update>
 
@@ -173,7 +214,7 @@
 		<include refid="pageWhere" />
 
 		<if test="sortColumns!=null">
-			ORDER BY #{sortColumns}
+			ORDER BY #{sortColumns} DESC
 		</if>
 		limit #{endSize},#{pageSize}
 	</select>

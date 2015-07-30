@@ -23,6 +23,8 @@ public interface IUserService {
 
 	public List<User> getUserList(Map<String, Object> param);
 	
+	public User getUser(Integer id);
+	
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
 }

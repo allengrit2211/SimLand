@@ -1,6 +1,8 @@
 package com.simland.appservice.controller;
 
-import java.lang.ProcessBuilder.Redirect;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,11 +18,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.simland.appservice.controller.security.SessionManager;
 import com.simland.core.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
+import com.simland.core.base.page.PageView;
 import com.simland.core.module.user.entity.Address;
 import com.simland.core.module.user.entity.User;
 import com.simland.core.module.user.service.IAddressService;
@@ -81,7 +85,11 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/user/userCenter")
-	public String userCenter() {
+	public String userCenter(HttpServletRequest request, Model model) {
+
+		User user = SessionManager.getUser();
+		User user1 = userService.getUser(user.getId());
+		model.addAttribute("user", user1);
 		return "user/userCenter";
 	}
 
@@ -213,7 +221,15 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/user/addAddressShow")
 	public String addAddressShow(HttpServletRequest request, Model model) {
-		model.addAttribute("toUrl", request.getHeader("referer"));
+		model.addAttribute("toUrl", request.getParameter("toUrl"));
+
+		String id = request.getParameter("id");
+		User user = SessionManager.getUser();
+		if (id != null) {
+			Address adderss = addressService.getAddress(Utils.strToInteger(id), user.getId());
+			model.addAttribute("address", adderss);
+		}
+
 		return "user/addAddress";
 	}
 
@@ -225,7 +241,10 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/user/addAddress")
-	public String addAddress(HttpServletRequest request, Model model) {
+	public ModelAndView addAddress(HttpServletRequest request, Model model) {
+
+		String id = request.getParameter("id");
+
 		Address address = new Address();
 		address.setIsDefault(1);
 		address.setUid(SessionManager.getUser().getId());
@@ -235,12 +254,85 @@ public class UserController {
 		address.setReceiverAddress(request.getParameter("receiverAddress"));
 		address.setReceiverZipCode(request.getParameter("receiverZipCode"));
 
-		addressService.insertAddress(address);
+		if (Utils.isObjectNotEmpty(id) && Utils.strToInteger(id) != 0) {
+			address.setId(Utils.strToInteger(id));
+			address.setIsDefault(0);
+			addressService.updateAddress(address);
+		} else {
+			addressService.insertAddress(address);
+		}
+
 		String toUrl = request.getParameter("toUrl");
 		if (Utils.isObjectNotEmpty(Utils.notNullTrim(toUrl))) {
-			return  "redirect:"+toUrl;
+			return new ModelAndView("redirect:" + toUrl);
 		} else
-			return "order/confirmOrder";
+			return new ModelAndView("order/confirmOrder");
 	}
 
+	/***
+	 * 用户地址列表
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/user/listAddress")
+	public ModelAndView listAddress(HttpServletRequest request, Model model) {
+
+		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
+
+		User user = SessionManager.getUser();
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("uid", user.getId());
+		param.put("pageSize", 5);
+		param.put("endSize", 10);
+
+		int totalRecord = addressService.getAddressCount(param);
+
+		PageView pageView = new PageView();
+		pageView.setCurrentPage(currentPage);
+		pageView.setPageSize(5);
+		pageView.setTotalRecord(totalRecord);
+		param.put("endSize", pageView.getFirstResult());
+		param.put("pageSize", pageView.getPageSize());
+		param.put("sortColumns", "id");
+
+		List<Address> list = addressService.getSplitAddressList(param);
+		model.addAttribute("list", list);
+
+		return new ModelAndView("user/listAddress");
+
+	}
+
+	/***
+	 * 设置用户默认地址
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/user/defualtAddress")
+	@ResponseBody
+	public String defualtAddress(HttpServletRequest request, Model model) {
+
+		String reJson = null;
+
+		SysMessage msg = new SysMessage();
+		User user = SessionManager.getUser();
+		String id = request.getParameter("id");
+		if (Utils.isObjectEmpty(id) || Utils.strToInteger(id) == 0) {
+			msg.setCode("-1");
+			msg.setMsg("参数错误");
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			return reJson;
+		}
+
+		addressService.setUserDefaultAddress(user.getId(), Utils.strToInteger(id));
+		msg.setCode("1");
+		msg.setMsg("设置成功");
+		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+		return reJson;
+
+	}
 }

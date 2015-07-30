@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.smap.mapper.RingDetailsMapper">
+
+	<resultMap id="RingDetailsRM" type="com.simland.core.module.smap.entity.RingDetails">
+        <result property="id" column="id"/>
+        <result property="rid" column="rid"/>
+        <result property="point" column="point"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        rid rid,
+        point point
+	    ]]>
+	</sql>
+
+
+	<insert id="insertRingDetails" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.smap.entity.RingDetails">
+	    <![CDATA[
+	        INSERT INTO t_ring_details (
+		        rid,
+		        point
+	        ) VALUES (
+		        	#{rid},
+		        	#{point}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateRingDetails">
+	    <![CDATA[
+        UPDATE t_ring_details
+        ]]>
+        <set>
+		<if test="rid!=null">
+        	rid = #{rid},
+		</if>
+		<if test="point!=null">
+        	point = #{point},
+		</if>
+        </set>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteRingDetails">
+    <![CDATA[
+        DELETE FROM t_ring_details WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getRingDetails" resultMap="RingDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_ring_details 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getRingDetailsList" resultMap="RingDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_ring_details  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="rid!=null">
+	        AND rid = #{rid}
+	        </if>
+			<if test="point!=null">
+	        AND point = #{point}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getRingDetailsCount" resultType="int">
+		SELECT count(*) FROM t_ring_details
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getRingDetailsListByRid" resultMap="RingDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_ring_details  
+		<where>
+			rid = #{rid}
+		</where>
+	</select>
+	
+	
+	<select id="getSplitRingDetailsList" resultMap="RingDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_ring_details
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

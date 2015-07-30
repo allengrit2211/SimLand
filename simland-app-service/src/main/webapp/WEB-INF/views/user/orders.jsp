@@ -33,7 +33,7 @@
 								<div class="o_header">
 									<a href="${pageContext.request.contextPath}/shop/showShop?id=${item.shop.id}" class="a1">
 										<span class="s1"><img alt="" src="${pageContext.request.contextPath}/${item.shop.clogo}"></span>
-										<span class="s2">${item.shop.name}<span class="gt">&gt;</span></span>
+										<span class="s2">${item.shop.cname}<span class="gt">&gt;</span></span>
 										<span class="s3 red">交易成功</span>
 									</a>
 								</div>

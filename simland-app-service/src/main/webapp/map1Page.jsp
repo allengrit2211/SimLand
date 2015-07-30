@@ -9,15 +9,14 @@
 	<title>Single-Page Application</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.mobile-1.4.3.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
-	
+
 </head>
 
 <body>
 	
 	<!-- 一览图 -->
 	<!-- map1Page start  -->
-	<div data-role="page" id="map1Page">	
-
+	<div data-role="page" id="map1Page">
 		<div data-role="header" class="header_1">
 			<a data-transition="slide" href="#" data-role="button"
 				data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
@@ -27,15 +26,15 @@
 		<div data-role="content">
 			<div class="wrapper top">
 				<div class="scroller">
+					<textarea rows="1" cols="1" style="display:none;" id="ringlist">${ringlist}</textarea>
 					<div class="map1">
 						<!-- 
 						<a  data-transition="none" href="${pageContext.request.contextPath}/map/map2Page"><img alt=""
 							src="${pageContext.request.contextPath}/images/tmp/map_1.jpg"></a>
 						<h3>点击字母直接查看板块地图的大图</h3>
 						 -->
-						<div id="map1PageMap" style="height:500px;width:100%;"></div>
+						<div id="allmap" style="height:500px;width:100%;"></div>
 					</div>
-					<textarea rows="1" cols="1" id="ringlist" style="display:none;">${ringlist}</textarea>
 				</div>
 			</div>
 		</div>
@@ -50,6 +49,52 @@
 				</ul>
 			</div>
 		</div>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			// 百度地图API功能
+			var map = new BMap.Map("allmap"); // 创建Map实例
+			var point =	new BMap.Point(114.140414, 22.570663);
+			map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别。
+			//var marker = new BMap.Marker(point);
+			//map.addOverlay(marker);
+			map.setCurrentCity("深圳");
+			//map.addControl(new BMap.NavigationControl());               // 添加平移缩放控件
+			//map.addControl(new BMap.ScaleControl());                    // 添加比例尺控件
+			//map.addControl(new BMap.OverviewMapControl());              //添加缩略地图控件
+			map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+
+			
+			//加载地图坐标数据
+			var secRingArray = new Array();
+			var ringlist = $("#ringlist");
+			if(ringlist.length>0){
+				var ringlistJson = eval($(ringlist).text());
+				$(ringlistJson).each(function(i,ring){
+					if($(ring.ringDetailss).length>0){
+						var secRing = new Array();
+						
+						$(ring.ringDetailss).each(function(ii,ringDetail){
+							if(ringDetail.point)
+								secRing.push(new BMap.Point(ringDetail.point.split(",")[0],ringDetail.point.split(",")[1]));
+						});
+						if(secRing.length>0)
+							secRingArray.push(secRing);
+						
+					}
+				});
+			}
+			
+			//设置坐标
+			$(secRingArray).each(function(i,e){
+				var color = ["Blue","Green","Red","Indigo","orange","DarkSlateGray"];
+				var secRingPolygon1 = new BMap.Polygon(secRingArray[i], {strokeColor:color[i],fillColor:'', strokeWeight:3, strokeOpacity:0.8});//创建多边形
+				map.addOverlay(secRingPolygon1);//添加多边形到地图上
+			});
+			
+		});
+		
+
+		</script>
 		
 	</div>
 	<!-- map1Page end  -->

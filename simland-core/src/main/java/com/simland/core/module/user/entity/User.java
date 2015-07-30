@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,7 +13,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.simland.core.module.order.entity.Cart;
-import com.simland.core.module.order.entity.Order;
 
 /***
  * 用户类， 实现Spring security 接口类
@@ -32,8 +30,12 @@ public class User implements Serializable, UserDetails {
 	private String password;
 	private String authorities;
 	private Timestamp lastLoginTime;
-	
-	private Cart cart;//购物车
+	private java.lang.String nickName;
+	private java.lang.Integer sex;
+	private java.util.Date birthday;
+	private java.lang.String images;
+
+	private Cart cart;// 购物车
 
 	public int getId() {
 		return id;
@@ -122,7 +124,40 @@ public class User implements Serializable, UserDetails {
 		this.cart = cart;
 	}
 
-	
-	
+	public java.lang.String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(java.lang.String nickName) {
+		this.nickName = nickName;
+	}
+
+	public java.lang.Integer getSex() {
+		return sex;
+	}
+
+	public void setSex(java.lang.Integer sex) {
+		this.sex = sex;
+	}
+
+	public java.util.Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(java.util.Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public java.lang.String getImages() {
+		return images;
+	}
+
+	public void setImages(java.lang.String images) {
+		this.images = images;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

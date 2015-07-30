@@ -2,6 +2,7 @@ package com.simland.core.module.order.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Vector;
@@ -40,6 +41,8 @@ public class GeneralOrder implements IOrderState {
 
 	@Override
 	public int create(User user, Address address, Cart cart, SysMessage msg, String... remark) {
+
+		List<String> _waitClearSku = new LinkedList<String>();
 
 		List<Order> orders = new ArrayList<Order>();
 
@@ -81,6 +84,7 @@ public class GeneralOrder implements IOrderState {
 				orderItem.setBuyNum(ci.getBuyNum());
 				orderItem.setCprice(ci.getPrice());
 				orderItem.setCreateTime(new Date());
+				_waitClearSku.add(ci.getSku());
 
 				orderItems.add(orderItem);
 			}
@@ -99,6 +103,12 @@ public class GeneralOrder implements IOrderState {
 		} catch (Exception e) {
 			return -1;
 		}
+
+		/****
+		 * 清除购物车
+		 */
+		Cart.delCart(cart, _waitClearSku.toArray(new String[_waitClearSku.size()]));
+
 		return 1;
 	}
 
