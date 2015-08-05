@@ -62,14 +62,12 @@
 				</div>	
 			</div>		
 		</div>
-		<c:import url="../footer.jsp"/>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed" data-theme="d">
+			<c:import url="../footer.jsp"/>
+		</div>
 	</div>
 	<!--   messageCenterPage end  -->
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
 
 </body>
 </html>

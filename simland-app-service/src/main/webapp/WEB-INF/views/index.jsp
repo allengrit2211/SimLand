@@ -44,41 +44,37 @@
 				<div class="scroller">
 				
 					<div class="logodiv">
-						<img alt="" src="${pageContext.request.contextPath}/images/bg/logo.jpg">
+						<span class="img">
+							<img alt="" src="${pageContext.request.contextPath}/images/bg/logo.jpg">
+						</span>
 					</div>
 		
 					<div class="box">
 						<a class="a a1" href="${pageContext.request.contextPath}/tuan/list" data-transition="slide">
-							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c3.jpg">
-							<br>
+							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r4_c2.jpg"></span>
 							<span>团购</span>
 						</a>
 						<a class="a a2" href="${pageContext.request.contextPath}/auction/auctionView" data-transition="slide">
-							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c5.jpg">
-							<br>
+							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r4_c5.jpg"></span>
 							<span>拍卖</span>
 						</a>
 						<a class="a a3" href="${pageContext.request.contextPath}/publicChips/publicChipsView" data-transition="slide">
-							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c9.jpg">
-							<br>
+							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r4_c10.jpg"></span>
 							<span>众筹</span>
 						</a>
 					</div>
 		
 					<div class="box">
-						<a class="a a1" href="${pageContext.request.contextPath}/tuan/list">
-							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c2.jpg">
-							<br>
+						<a class="a a1" href="#">
+							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r6_c2.jpg"></span>
 							<span>清仓</span>
 						</a>
-						<a class="a a2" href="">
-							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c4.jpg">
-							<br>
+						<a class="a a2" href="#">
+							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r7_c6.jpg"></span>
 							<span>虚拟店铺</span>
 						</a>
-						<a class="a a3" href="">
-							<img src="${pageContext.request.contextPath}/images/bg/index_r2_c6.jpg">
-							<br>
+						<a class="a a3" href="#">
+							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r7_c10.jpg"></span>
 							<span>微商街</span>
 						</a>
 					</div>
@@ -119,7 +115,7 @@
 						</form>
 		
 						<div class="clear"></div>
-		
+						<!-- 
 						<div class="input2">
 							<div class="msg_1">
 								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/messageCenter"><span>12</span></a>
@@ -128,6 +124,7 @@
 								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/collectShopShow"><span>56</span></a>
 							</div>
 						</div>
+						 -->
 					</div>
 					
 				</div>
@@ -141,7 +138,7 @@
 			data-theme="d" id="footer">
 			<div data-role="navbar" class="myfooter no-top-border bg41AC98">
 				<ul>
-					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/main" class="ui-icon-index ui-btn-active">首页</a></li>
+					<li><a  data-transition="slide" data-direction="reverse" href="${pageContext.request.contextPath}/main" class="ui-icon-index ui-btn-active">首页</a></li>
 					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map">地图</a></li>
 					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase">进货单</a></li>
 					<li><a  data-transition="slide" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my">我的</a></li>

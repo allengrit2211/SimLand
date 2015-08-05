@@ -22,10 +22,10 @@
 <!-- 登录页面 -->
 	<!-- login page start -->
 	<div data-role="page" id="loginPage">
-		<div data-role="header" class="header_1">
+		<div data-role="header" class="header_1 bg41AC98">
 			<a data-transition="slide" href="#" data-role="button"
-				data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>		
-			<h1>登录</h1>
+				data-rel="back" class="back bg41AC98 colorFFF" data-icon="arrow-l">&nbsp;</a>		
+			<h1 class="colorFFF">登录</h1>
 		</div>
 		<div data-role="content">
 			<div class="wrapper top">
@@ -51,7 +51,9 @@
 			</div>
 				
 		</div>
-		<c:import url="footer.jsp"/>
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed" data-theme="d">
+			<c:import url="footer.jsp"/>
+		</div>
 	</div>
 	<!-- login page end -->
 

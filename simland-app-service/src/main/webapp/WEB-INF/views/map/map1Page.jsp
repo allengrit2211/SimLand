@@ -18,10 +18,10 @@
 	<!-- map1Page start  -->
 	<div data-role="page" id="map1Page">	
 
-		<div data-role="header" class="header_1">
+		<div data-role="header" class="header_1 bg41AC98">
 			<a data-transition="slide" href="#" data-role="button"
-				data-rel="back" class="back" data-icon="arrow-l">&nbsp;</a>
-			<h1>水贝一览图</h1>
+				data-rel="back" class="back bg41AC98" data-icon="arrow-l">&nbsp;</a>
+			<h1 class="colorFFF">水贝一览图</h1>
 		</div>
 		<!-- /header -->
 		<div data-role="content">
@@ -41,14 +41,7 @@
 		</div>
 		<div data-role="footer" data-tap-toggle="false" data-position="fixed"
 			data-theme="d">
-			<div data-role="navbar" class="myfooter bgEDEDED">
-				<ul>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/main" class="ui-icon-index_1 ui-btn-active1">首页</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map_1">地图</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase_1">进货单</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my_1">我的</a></li>
-				</ul>
-			</div>
+			<c:import url="../footer.jsp"/>
 		</div>
 		
 	</div>

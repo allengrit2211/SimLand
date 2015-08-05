@@ -46,7 +46,9 @@
 				</div>
 			</div>
 		</div>	
-		<c:import url="../footer.jsp"/>	
+		<div data-role="footer" data-tap-toggle="false" data-position="fixed" data-theme="d">
+			<c:import url="../footer.jsp"/>
+		</div>
 	</div>	
 
 </body>
