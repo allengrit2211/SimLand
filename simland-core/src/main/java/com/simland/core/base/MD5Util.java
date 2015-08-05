@@ -3,10 +3,15 @@ package com.simland.core.base;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 
 public class MD5Util {
 	private static Logger logger = Logger.getLogger(MD5Util.class);
+
+	public static String encode(String text) {
+		return DigestUtils.md5Hex(text);
+	}
 
 	public static String encode(byte[] source) {
 		String s = null;
@@ -64,4 +69,33 @@ public class MD5Util {
 		return md5(data.getBytes());
 	}
 
+	/**
+	 * Calculates the MD5 digest and returns the value as a 32 character hex
+	 * string.
+	 * 
+	 * @param data
+	 *            Data to digest
+	 * @return MD5 digest as a hex string
+	 */
+	public static String md5Hex(byte[] data) {
+		return HexUtil.toHexString(md5(data));
+	}
+
+	/**
+	 * Calculates the MD5 digest and returns the value as a 32 character hex
+	 * string.
+	 * 
+	 * @param data
+	 *            Data to digest
+	 * @return MD5 digest as a hex string
+	 */
+	public static String md5Hex(String data) {
+		return HexUtil.toHexString(md5(data));
+	}
+
+	public static void main(String[] args) {
+		MD5Util md5 = new MD5Util();
+		String str = "123456";
+		logger.info("##md5:" + md5.md5Hex("pay李太白100fbb44b4487415b134bce9c790a27fe5e"));
+	}
 }

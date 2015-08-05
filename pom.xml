@@ -15,7 +15,8 @@
 		<module>simland-core</module>
 		<module>simland-test</module>
 		<module>simland-app</module>
-		<module>simland-backstage</module>
+		<module>simland-backstage-shop</module>
+		<module>simland-backstage-platform</module>
 		<module>simland-app-service</module>
 		<module>simland-app-search</module>
 	</modules>

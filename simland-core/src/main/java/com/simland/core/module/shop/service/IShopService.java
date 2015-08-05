@@ -3,6 +3,7 @@ package com.simland.core.module.shop.service;
 import java.util.List;
 import java.util.Map;
 
+import com.simland.core.base.SysMessage;
 import com.simland.core.module.shop.entity.Shop;
 
 /***
@@ -36,5 +37,15 @@ public interface IShopService {
 	 * @return
 	 */
 	public Shop getShop(Integer id);
+
+	/***
+	 * 商家登陆
+	 * 
+	 * @param loginName
+	 * @param pwd
+	 * @param msg
+	 * @return
+	 */
+	public Shop shopLogin(String loginName, String pwd, SysMessage msg);
 
 }

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.simland.core.base.MD5Util;
+import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.module.shop.entity.Shop;
 import com.simland.core.module.shop.mapper.ShopMapper;
@@ -40,6 +42,22 @@ public class ShopService implements IShopService {
 		Shop shop = shopMapper.getShop(param);
 		param = null;
 		return shop;
+	}
+
+	@Override
+	public Shop shopLogin(String loginName, String pwd, SysMessage msg) {
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("loginName", loginName);
+		List<Shop> shops = shopMapper.getShopList(param);
+		if (shops == null || shops.size() == 0)
+			return null;
+
+		if (shops.get(0).getLoginPwd().equalsIgnoreCase(MD5Util.md5Hex(Utils.notNullTrim(pwd)))) {
+			return shops.get(0);
+		}
+
+		return null;
 	}
 
 }
