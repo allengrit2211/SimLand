@@ -21,4 +21,6 @@ public interface InventoryMapper{
 	
 	public List getSplitInventoryList(Map param);
 
+	public void insertBatchInventory(List<Inventory> inventorys);
+
 }

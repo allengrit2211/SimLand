@@ -81,6 +81,46 @@
 		SELECT LAST_INSERT_ID() as id
 		</selectKey>     
 	</insert>
+	
+	<insert id="insertBatchInventory" parameterType="com.simland.core.module.shop.entity.Inventory">
+		<selectKey keyProperty="fetchTime" order="BEFORE"
+			resultType="java.lang.String">
+			SELECT CURRENT_TIMESTAMP()
+		</selectKey>
+
+			INSERT INTO t_inventory (
+		        cid,
+		        attr1,
+		        attr2,
+		        nums,
+		        price,
+		        image,
+		        productCode,
+		        status,
+		        type,
+		        sid
+	        ) VALUES 
+		<foreach collection="list" item="item" index="index" separator=",">
+			<![CDATA[
+ 				(
+					#{item.cid},
+		        	#{item.attr1},
+		        	#{item.attr2},
+		        	#{item.nums},
+		        	#{item.price},
+		        	#{item.image},
+		        	#{item.productCode},
+		        	#{item.status},
+		        	#{item.type},
+		        	#{item.sid}
+		        )
+		    ]]>
+		</foreach>
+
+	</insert>
+	
+	
+	
 
 	<update id="updateInventory">
 	    <![CDATA[

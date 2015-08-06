@@ -41,6 +41,32 @@
 		</selectKey>     
 	</insert>
 
+
+	<insert id="insertBatchCategoryPropertiesVal" parameterType="com.simland.core.module.shop.entity.CategoryPropertiesVal">
+		<selectKey keyProperty="fetchTime" order="BEFORE"
+			resultType="java.lang.String">
+			SELECT CURRENT_TIMESTAMP()
+		</selectKey>
+
+			INSERT INTO t_category_properties_val (
+		        cid,
+		        cpid,
+		        cpvalue
+	        ) VALUES 
+		<foreach collection="list" item="item" index="index" separator=",">
+			<![CDATA[
+ 				(
+		        	#{item.cid},
+		        	#{item.cpid},
+		        	#{item.cpvalue}
+		        )
+		    ]]>
+		</foreach>
+
+	</insert>
+
+
+
 	<update id="updateCategoryPropertiesVal">
 	    <![CDATA[
         UPDATE t_category_properties_val SET

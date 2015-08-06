@@ -9,80 +9,98 @@ public class Inventory implements java.io.Serializable {
 	private java.lang.Integer attr2;
 	private java.lang.Integer nums;
 	private java.lang.Double price;
+	private java.lang.String image;
+	private java.lang.String productCode;
 	private java.lang.Integer status;
 	private java.lang.Integer type;
 	private java.lang.Integer sid;
 
 	public java.lang.Integer getId() {
-		return this.id;
+		return id;
 	}
 
-	public void setId(java.lang.Integer value) {
-		this.id = value;
+	public void setId(java.lang.Integer id) {
+		this.id = id;
 	}
 
 	public java.lang.Integer getCid() {
-		return this.cid;
+		return cid;
 	}
 
-	public void setCid(java.lang.Integer value) {
-		this.cid = value;
+	public void setCid(java.lang.Integer cid) {
+		this.cid = cid;
 	}
 
 	public java.lang.Integer getAttr1() {
-		return this.attr1;
+		return attr1;
 	}
 
-	public void setAttr1(java.lang.Integer value) {
-		this.attr1 = value;
+	public void setAttr1(java.lang.Integer attr1) {
+		this.attr1 = attr1;
 	}
 
 	public java.lang.Integer getAttr2() {
-		return this.attr2;
+		return attr2;
 	}
 
-	public void setAttr2(java.lang.Integer value) {
-		this.attr2 = value;
+	public void setAttr2(java.lang.Integer attr2) {
+		this.attr2 = attr2;
 	}
 
 	public java.lang.Integer getNums() {
-		return this.nums;
+		return nums;
 	}
 
-	public void setNums(java.lang.Integer value) {
-		this.nums = value;
+	public void setNums(java.lang.Integer nums) {
+		this.nums = nums;
 	}
 
-	public java.lang.Integer getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(java.lang.Integer value) {
-		this.status = value;
-	}
-
-	public java.lang.Integer getType() {
-		return this.type;
-	}
-
-	public void setType(java.lang.Integer value) {
-		this.type = value;
-	}
-
-	public java.lang.Integer getSid() {
-		return this.sid;
-	}
-
-	public void setSid(java.lang.Integer value) {
-		this.sid = value;
-	}
-
-	public Double getPrice() {
+	public java.lang.Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(java.lang.Double price) {
 		this.price = price;
+	}
+
+	public java.lang.Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(java.lang.Integer status) {
+		this.status = status;
+	}
+
+	public java.lang.Integer getType() {
+		return type;
+	}
+
+	public void setType(java.lang.Integer type) {
+		this.type = type;
+	}
+
+	public java.lang.Integer getSid() {
+		return sid;
+	}
+
+	public void setSid(java.lang.Integer sid) {
+		this.sid = sid;
+	}
+
+	public java.lang.String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(java.lang.String productCode) {
+		this.productCode = productCode;
+	}
+
+	public java.lang.String getImage() {
+		return image;
+	}
+
+	public void setImage(java.lang.String image) {
+		this.image = image;
 	}
 
 }
