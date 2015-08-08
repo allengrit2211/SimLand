@@ -49,7 +49,12 @@ $(function(){
 	var contextPath = '${pageContext.request.contextPath}';
 	var images = new Array();//图片地址数组
 	
-	$("#categoryType").change(function(){
+	$("#categoryType").find("option").each(function(i,e){
+		var id = $(e).val();
+		images[id] = new Array();
+	});
+	
+	$("#categoryType").change(function(){//类别切换
 		var typeId = $(this).find("option:selected").val();
 		$("#attrBox_"+typeId).removeAttr("display")
 		$("#attrBox_"+typeId).siblings(".attrBox").removeClass('show').end().addClass('show');
@@ -58,13 +63,14 @@ $(function(){
 	});
 	
 	
-	$(".addAttr").click(function(){
+	$(".addAttr").click(function(){//属性输入框添加
+		var typeId = $("select[name='categoryType']").find("option:selected").val();
 		var span = $(this).parent("span").next();
-		alert($(this).attr("index"))
-		span.append("<input class='_input' name='attr"+$(this).attr("index")+"' size='5' type='text' cpid='"+$(this).attr("cpid")+"'><input name='attr"+$(this).attr("index")+"Val' value='"+$(this).attr("cpid")+"' size=\"8\" type=\"hidden\">");
+		span.append("<input class='_input' name='attr"+$(this).attr("index")+"_"+typeId+"' cpid='"+$(this).attr("cpid")+"' size='5' type='text'><input name='attr"+$(this).attr("index")+"Val_"+typeId+"' value='"+$(this).attr("cpid")+"' size=\"8\" type=\"hidden\">");
 		span.attr("num",span.find("._input").length);
 		loadInventoryView();
 	});
+	
 	$(".removeAttr").click(function(){
 		var span = $(this).parent("span").next();
 		var last = span.find("._input:last");
@@ -81,24 +87,30 @@ $(function(){
 		var typeId = $("#categoryType").find("option:selected").val();
 		var trl = $("#inventoryTable_"+typeId).find("tbody tr").length;
 		//清理图片数组
-		images = images.slice(0,trl);
+		images[typeId] = images[typeId].slice(0,trl);
 	});
+
 	
-	$(".allPrice").bind("input propertychange",function(){
+	$(".allPrice").bind("input propertychange",allPrice);//设置所有价格
+	
+	
+	function allPrice(){
 		var typeId = $("#categoryType").find("option:selected").val();
 		var tmp = this;
-		$("#inventoryTable_"+typeId).find("tbody tr input[name='price']").each(function(i,e){
+		$("#inventoryTable_"+typeId).find("tbody tr input[name='price_"+typeId+"']").each(function(i,e){
 			$(e).val($(tmp).val());
 		});
-	});
+	}
 	
-	$(".allInventoryNum").bind("input propertychange",function(){
+	$(".allInventoryNum").bind("input propertychange",allInventoryNum);	///设置所有库存数量
+	
+	function allInventoryNum(){
 		var typeId = $("#categoryType").find("option:selected").val();
 		var tmp = this;
-		$("#inventoryTable_"+typeId).find("tbody tr input[name='nums']").each(function(i,e){
+		$("#inventoryTable_"+typeId).find("tbody tr input[name='nums_"+typeId+"']").each(function(i,e){
 			$(e).val($(tmp).val());
 		});
-	});	
+	}
 	
 	
 	//加载库存显示table
@@ -121,50 +133,43 @@ $(function(){
 			});
 		}
 
-		var htmlStr = "";
 		var _index = 0;
+		var htmlStr = "";
 		if(attr1s.length>0&&attr2s.length>0){
 			$(attr1s).each(function(i,e){
 				$(attr2s).each(function(ii,ee){
+					images[typeId][_index] = images[typeId][_index]?(images[typeId][_index]):'';
 					htmlStr+="<tr>";
-					htmlStr+="<td>"+e.split("_")[0]+"</td>";
-					htmlStr+="<td>"+ee.split("_")[0]+"</td>";
-					htmlStr+="<td><input name='price' size=\"7\" type=\"text\"></td>";
-					htmlStr+="<td><input name='nums' size=\"7\" type=\"text\"></td>";
-					htmlStr+="<td><input name='productCode' size=\"7\" type=\"text\"></td>";
-					htmlStr+="<td><input type='hidden' name='imageName' value='"+(images[_index]?(images[_index]):(images[_index]=''))+"'><img src='"+(images[_index]?(contextPath+images[_index]):(images[_index]=''))+"' width='30' height='30' id='showimg"+_index+"'><input index='"+_index+"' name='file' id='file"+_index+"' class='upfile' type='file'></td>";
+					htmlStr+="<td>"+e.split("_")[0]+"<input type='hidden' name='iAttr1_"+typeId+"' value='"+e.split("_")[0]+"'><input type='hidden' name='iAttr1Val_"+typeId+"' value='"+e.split("_")[1]+"'></td>";
+					htmlStr+="<td>"+ee.split("_")[0]+"<input type='hidden' name='iAttr2_"+typeId+"' value='"+ee.split("_")[0]+"'><input type='hidden' name='iAttr2Val_"+typeId+"' value='"+ee.split("_")[1]+"'></td>";
+					htmlStr+="<td><input name='price_"+typeId+"' size=\"7\" type=\"text\"></td>";
+					htmlStr+="<td><input name='nums_"+typeId+"' size=\"7\" type=\"text\"></td>";
+					htmlStr+="<td><input name='productCode_"+typeId+"' size=\"7\" type=\"text\"></td>";
+					htmlStr+="<td><input type='hidden' name='imageName_"+typeId+"' value='"+(images[typeId,_index])+"'><img src='"+((images[typeId][_index])?(contextPath+images[typeId][_index]):'')+"' width='30' height='30' id='showimg_"+typeId+"_"+_index+"'><input index='"+_index+"' name='file' id='file_"+typeId+"_"+_index+"' class='upfile' type='file'></td>";
 					htmlStr+="</tr>";
 					_index = _index+1;
 				});
 			});		
 		}
 		
-		if(attr1s.length>0&&attr2s.length==0){
+		
+		if(attr1s.length>0&&$(option).attr("attr2id")==""){
 			$(attr1s).each(function(i,e){
+				images[typeId][_index] = images[typeId][_index]?(images[typeId][_index]):'';
 				htmlStr+="<tr>";
-				htmlStr+="<td>"+e.split("_")[0]+"</td>";
-				htmlStr+="<td><input name='price' size=\"7\" type=\"text\"></td>";
-				htmlStr+="<td><input name='nums' size=\"7\" type=\"text\"></td>";
-				htmlStr+="<td><input name='productCode' size=\"7\" type=\"text\"></td>";
-				htmlStr+="<td><input type='hidden' name='imageName' value='"+(images[_index]?(images[_index]):(images[_index]=''))+"'><img src='"+(images[_index]?(contextPath+images[_index]):(images[_index]=''))+"' width='30' height='30' id='showimg"+_index+"'><input index='"+_index+"' name='file' id='file"+_index+"' class='upfile' type='file'></td>";
+				htmlStr+="<td>"+e.split("_")[0]+"<input type='hidden' name='iAttr1_"+typeId+"' value='"+e.split("_")[0]+"'><input type='hidden' name='iAttr1Val_"+typeId+"' value='"+e.split("_")[1]+"'></td>";
+				htmlStr+="<td><input name='price_"+typeId+"' size=\"7\" type=\"text\"></td>";
+				htmlStr+="<td><input name='nums_"+typeId+"' size=\"7\" type=\"text\"></td>";
+				htmlStr+="<td><input name='productCode_"+typeId+"' size=\"7\" type=\"text\"></td>";
+				htmlStr+="<td><input type='hidden' name='imageName_"+typeId+"' value='"+(images[typeId][_index])+"'><img src='"+((images[typeId][_index])?(contextPath+images[typeId][_index]):'')+"' width='30' height='30' id='showimg_"+typeId+"_"+_index+"'><input index='"+_index+"' name='file' id='file_"+typeId+"_"+_index+"' class='upfile' type='file'></td>";
 				htmlStr+="</tr>";
 				_index = _index+1;
 			});		
 		}
 		
-		
-		if(attr1s.length==0&&attr2s.length==0){
-			htmlStr+="<tr>";
-			htmlStr+="<td><input name='price' size=\"7\" type=\"text\"></td>";
-			htmlStr+="<td><input name='nums' size=\"7\" type=\"text\"></td>";
-			htmlStr+="<td><input name='productCode' size=\"7\" type=\"text\"></td>";
-			htmlStr+="<td><input type='hidden' name='imageName' value='"+(images[_index]?(images[_index]):(images[_index]=''))+"'><img src='"+(images[_index]?(contextPath+images[_index]):(images[_index]=''))+"' width='30' height='30' id='showimg"+_index+"'><input index='"+_index+"' name='file' id='file"+_index+"' class='upfile' type='file'></td>";
-			htmlStr+="</tr>";
-			_index = _index+1;
+		if($(option).attr("attr1id")!=""||$(option).attr("attr2id")!=""){
+			$("#inventoryTable_"+typeId+" tbody").html("");
 		}
-		
-		
-		$("#inventoryTable_"+typeId+" tbody").html("");
 		$("#inventoryTable_"+typeId+" tbody").append(htmlStr);
 
 		$(".inventoryInput input").unbind("input propertychange");
@@ -172,7 +177,6 @@ $(function(){
 			loadInventoryView();
 			event.stopPropagation(); 
 		});
-		
 		
 		
 		$(".upfile").unbind("change");
@@ -222,9 +226,10 @@ $(function(){
 	
 	function upCommImage(obj){
 	
+		var typeId = $("select[name='categoryType']").find("option:selected").val();
+	
 		var fileId = $(obj).attr("id");
 		var index = $(obj).attr("index");
-		
 		$.ajaxFileUpload({
              url: contextPath+'/commodity/uploadImage', //用于文件上传的服务器端请求地址
              type: 'post',
@@ -241,7 +246,7 @@ $(function(){
 	                 	//alert(data1.msg);
 	                 	$("#"+fileId).prev().attr("src",contextPath+data.toUrl);
 	                 	$("#"+fileId).prev().prev().val(data.toUrl);
-	                 	images[index] = data.toUrl;
+	                 	images[typeId][index] = data.toUrl;
 	                 }else{
 	                 	alert(data1.msg)
 	                 }
@@ -319,14 +324,10 @@ $(function(){
 									<div id="attrBox_${item.id}" class="attrBox ${status0.index==0?"show":""}" >
 										<c:forEach items="${item.categoryPropertiesList}" var="item1" varStatus="status">
 											<div class="attr${status.index+1}">
-												<span style="display: block;padding-bottom:10px;">  <a href="#" class="removeAttr" cpid="${item1.id}" index="${status.index+1}">-</a> ${item1.name} <a href="#"  class="addAttr" cpid="${item1.id}" tindex="${status0.index}" index="${status.index+1}">+</a></span>
+												<span style="display: block;padding-bottom:10px;">  <a href="#" class="removeAttr" index="${status.index+1}" cpid="${item1.id}">-</a> ${item1.name} <a href="#"  class="addAttr" index="${status.index+1}" cpid="${item1.id}">+</a></span>
 												<span num="0" class="inventoryInput"></span>
 											</div>
 										</c:forEach>
-										<c:if test="${fn:length(item.categoryPropertiesList)==0}">
-											<span style="display: block;padding-bottom:10px;">  <a href="#" class="removeAttr" cpid="${item1.id}" index="${status.index+1}">-</a> 数量 <a href="#"  class="addAttr" cpid="${item1.id}" tindex="${status0.index}" index="${status.index+1}">+</a></span>
-											<span num="0" class="inventoryInput"></span>
-										</c:if>
 									</div>
 									<div id="inventoryBox_${item.id}" class="inventoryBox ${status0.index==0?"show":""}">
 										<table class="gridtable" id="inventoryTable_${item.id}" width="90%" border="0" cellspacing="0" cellpadding="0">
@@ -346,9 +347,19 @@ $(function(){
 												</tr>
 											</thead>
 											<tbody>
-												
+												<c:if test="${fn:length(item.categoryPropertiesList)==0}">
+													<tr>
+														<td><input name="price_${item.id}" size="7" type="text"></td>
+														<td><input name="nums_${item.id}" size="7" type="text"></td>
+														<td><input name="productCode_${item.id}" size="7" type="text"></td>
+														<td>
+															<input type="hidden" name="imageName_${item.id}" value="">
+															<img src="" width="30" height="30" id="showimg_${item.id}_1">
+															<input index="1" name="file" id="file_${item.id}_1" class="upfile" type="file">
+														</td>
+													</tr>
+												</c:if>
 											</tbody>
-
 											
 											<!-- 
 											<tr>
@@ -390,7 +401,7 @@ $(function(){
 						</tr>
 						<tr>
 							<th>&nbsp;</th>
-							<td><input type="button" id="addCommodityBtn" value="添加" style="width:80px;height:40px;font-size:16px;"></td>
+							<td><input type="button" id="addCommodityBtn" value="保存" style="width:80px;height:40px;font-size:16px;"></td>
 						</tr>
 					</table>
 				

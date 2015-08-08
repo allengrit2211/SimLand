@@ -9,7 +9,7 @@
 <link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#loginBtn").live("click",function(){
+	$("#loginBtn").bind("click",function(){
 		
 	
 		/*

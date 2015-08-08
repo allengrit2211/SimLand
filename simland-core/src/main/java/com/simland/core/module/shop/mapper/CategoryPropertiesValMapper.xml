@@ -42,8 +42,8 @@
 	</insert>
 
 
-	<insert id="insertBatchCategoryPropertiesVal" parameterType="com.simland.core.module.shop.entity.CategoryPropertiesVal">
-		<selectKey keyProperty="fetchTime" order="BEFORE"
+	<insert id="insertBatchCategoryPropertiesVal" useGeneratedKeys="true" parameterType="com.simland.core.module.shop.entity.CategoryPropertiesVal">
+		<selectKey keyProperty="id" order="AFTER"
 			resultType="java.lang.String">
 			SELECT CURRENT_TIMESTAMP()
 		</selectKey>

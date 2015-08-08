@@ -47,6 +47,9 @@ public class CommodityController {
 	@Autowired
 	private IInventoryService inventoryService;
 
+	String reJson = null;
+	SysMessage msg = new SysMessage();
+
 	@RequestMapping(value = "/commodity/addShow")
 	public String addCommodityShow(HttpServletRequest request, Model model) {
 
@@ -62,41 +65,39 @@ public class CommodityController {
 	@ResponseBody
 	public String addommodity(HttpServletRequest request, Model model) {
 
-		String[] attr1 = request.getParameterValues("attr1");
-		String[] attr1Val = request.getParameterValues("attr1Val");
-		String[] attr2 = request.getParameterValues("attr2");
-		String[] attr2Val = request.getParameterValues("attr2Val");
-		String[] price = request.getParameterValues("price");
-		String[] nums = request.getParameterValues("nums");
-		String[] productCode = request.getParameterValues("productCode");
-		String cname = request.getParameter("cname");
-		String marketPrice = request.getParameter("marketPrice");
-		String realPrice = request.getParameter("realPrice");
 		String categoryType = request.getParameter("categoryType");
-		String editor1 = request.getParameter("editor1");
-
-		String reJson = null;
-		SysMessage msg = new SysMessage();
-
-		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
-
-		boolean c1 = (attr1 == null || attr1Val == null || attr2 == null || attr2Val == null || price == null || nums == null);
-		if (c1) {
+		if (Utils.isObjectEmpty(categoryType) || Utils.strToInteger(categoryType) <= 0) {
 			msg.setCode("-1");
 			msg.setMsg("参数错误");
 			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
 			return reJson;
 		}
 
-		boolean c3 = attr1.length == 0 || attr1Val.length == 0 || attr2.length == 0 || attr2Val.length == 0
-				|| price.length == 0 || nums.length == 0;
+		String[] attr1 = request.getParameterValues(String.valueOf("attr1_" + categoryType));
+		String[] attr1Val = request.getParameterValues("attr1Val_" + categoryType);
+		String[] attr2 = request.getParameterValues("attr2_" + categoryType);
+		String[] attr2Val = request.getParameterValues("attr2Val_" + categoryType);
+		String[] price = request.getParameterValues("price_" + categoryType);
+		String[] nums = request.getParameterValues("nums_" + categoryType);
+		String[] productCode = request.getParameterValues("productCode_" + categoryType);
+		String[] imageName = request.getParameterValues("imageName_" + categoryType);
 
-		boolean c2 = attr1.length != attr1Val.length || attr2.length != attr2Val.length
-				|| (attr1.length * attr2.length != price.length) || (attr1.length * attr2.length != nums.length);
+		String[] iAttr1 = request.getParameterValues(String.valueOf("iAttr1_" + categoryType));
+		String[] iAttr1Val = request.getParameterValues(String.valueOf("iAttr1Val_" + categoryType));
+		String[] iAttr2 = request.getParameterValues(String.valueOf("iAttr2_" + categoryType));
+		String[] iAttr2Val = request.getParameterValues(String.valueOf("iAttr2Val_" + categoryType));
 
-		if (c3 || c2) {
+		String cname = request.getParameter("cname");
+		String marketPrice = request.getParameter("marketPrice");
+		String realPrice = request.getParameter("realPrice");
+		String editor1 = request.getParameter("editor1");
+
+		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+
+		boolean c1 = (price == null || nums == null || productCode == null || imageName == null);
+		if (c1) {
 			msg.setCode("-2");
-			msg.setMsg("参数数量不一致");
+			msg.setMsg("参数错误");
 			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
 			return reJson;
 		}
@@ -105,35 +106,41 @@ public class CommodityController {
 		List<CategoryPropertiesVal> cpList = new LinkedList<CategoryPropertiesVal>();
 		List<Inventory> ilist = new LinkedList<Inventory>();
 
-		for (int i = 0; i < attr1.length; i++) {
+		for (int i = 0; attr1 != null && i < attr1.length; i++) {
+			
+			String attr1Str = Utils.getArrayVal(i, attr1);
+			if(Utils.isObjectEmpty(attr1Str))
+				continue;
+			
 			CategoryPropertiesVal cp = new CategoryPropertiesVal();
 			cp.setCpid(Utils.strToInteger(Utils.getArrayVal(i, attr1Val)));
-			cp.setCpvalue(attr1[i]);
+			cp.setCpvalue(attr1Str);
 			cpList.add(cp);
 		}
-		for (int i = 0; i < attr2.length; i++) {
+		for (int i = 0; attr2 != null && i < attr2.length; i++) {
+			
+			String attr2Str = Utils.getArrayVal(i, attr2);
+			if(Utils.isObjectEmpty(attr2Str))
+				continue;
+			
 			CategoryPropertiesVal cp = new CategoryPropertiesVal();
 			cp.setCpid(Utils.strToInteger(Utils.getArrayVal(i, attr2Val)));
-			cp.setCpvalue(attr2[i]);
+			cp.setCpvalue(attr2Str);
 			cpList.add(cp);
 		}
 
 		int index = 0;
 
-		for (int i = 0; i < attr1.length; i++) {
-			for (int j = 0; j < attr2.length; j++) {
-				Inventory inventory = new Inventory();
-				inventory.setAttr1(Utils.strToInteger(Utils.getArrayVal(i, attr1Val)));
-				inventory.setAttr2(Utils.strToInteger(Utils.getArrayVal(i, attr2Val)));
-				inventory.setSid(shop.getId());
-				inventory.setNums(Utils.strToInteger(Utils.getArrayVal(index, nums)));
-				inventory.setPrice(Utils.strToDouble(Utils.getArrayVal(index, price)));
-				inventory.setProductCode(Utils.getArrayVal(index, productCode));
-				ilist.add(inventory);
-				index++;
-
-			}
-
+		for (int i = 0; iAttr1 != null && i < iAttr1.length; i++) {
+			Inventory inventory = new Inventory();
+			inventory.setAttr1(Utils.strToInteger(Utils.getArrayVal(i, iAttr1Val)));
+			inventory.setAttr2(Utils.strToInteger(Utils.getArrayVal(i, iAttr2Val)));
+			inventory.setSid(shop.getId());
+			inventory.setNums(Utils.strToInteger(Utils.getArrayVal(i, nums)));
+			inventory.setPrice(Utils.strToDouble(Utils.getArrayVal(i, price)));
+			inventory.setProductCode(Utils.getArrayVal(index, productCode));
+			ilist.add(inventory);
+			index++;
 		}
 
 		commodity.setSid(shop.getId());
@@ -148,7 +155,7 @@ public class CommodityController {
 
 		boolean flag = false;
 		try {
-			int id = inventoryService.insertInventory(commodity, ilist, cpList);
+			int id = inventoryService.insertInventory(commodity, ilist, cpList, msg);
 			flag = (id > 0) ? true : false;
 		} catch (Exception e) {
 			logger.error(this.getClass() + " addommodity error:" + e.getMessage());
@@ -169,9 +176,6 @@ public class CommodityController {
 	@RequestMapping(value = "/commodity/uploadImage")
 	@ResponseBody
 	public String uploadImage(HttpServletRequest request, Model model, @RequestParam MultipartFile file) {
-
-		String reJson = null;
-		SysMessage msg = new SysMessage();
 		if (file == null || file.getSize() == 0) {
 			msg.setCode("-1");
 			msg.setMsg("文件长度为空");
@@ -182,7 +186,9 @@ public class CommodityController {
 		System.out.println(file);
 
 		String webPath = null;
-		String path = request.getSession().getServletContext()
+		String path = request
+				.getSession()
+				.getServletContext()
 				.getRealPath(webPath = "/images/tmp/commodity/" + new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
 
 		try {
@@ -193,7 +199,7 @@ public class CommodityController {
 			FileUtils.copyInputStreamToFile(file.getInputStream(), new File(path, fileName));
 			msg.setCode("1");
 			msg.setMsg("添加成功");
-			msg.setToUrl(webPath+"/"+fileName);
+			msg.setToUrl(webPath + "/" + fileName);
 		} catch (IOException e) {
 			msg.setCode("-10");
 			msg.setMsg("添加异常");
