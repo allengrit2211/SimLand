@@ -25,6 +25,7 @@
         <result property="logisticsStauts" column="logisticsStauts"/>
         <result property="isDel" column="isDel"/>
         <result property="remark" column="remark"/>
+        <association property="user" column="uid" select="com.simland.core.module.user.mapper.UserMapper.getUser"/>
         <association property="shop" column="sid" select="com.simland.core.module.shop.mapper.ShopMapper.getShop"/>
         <collection property="orderItems" column="id" ofType="OrderItem" select="com.simland.core.module.order.mapper.OrderItemMapper.getOrderItemListByOid" />
 	</resultMap>

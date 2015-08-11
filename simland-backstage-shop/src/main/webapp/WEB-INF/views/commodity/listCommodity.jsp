@@ -1,10 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="stag" uri="http://simland-tags.sf.net"  %>  
+
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
+
 <link type="text/css" href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet"  />
+<link type="text/css" href="${pageContext.request.contextPath}/css/pageView.css" rel="stylesheet"  />
 <title></title>
 </head>
 	
@@ -39,15 +43,19 @@
 						<th width="50">商品ID</th>
 						<th width="50">商品名称</th>
 						<th width="50">商品图片</th>
+						<th>操作</th>
 					</tr>
-					<c:forEach items="${list}" var="item">
+					<c:forEach items="${pageView.records}" var="item">
 						<tr>
-							<td width="50">${item.id}</td>
-							<td width="50">${item.name}</td>
-							<td width="50">${pageContext.request.contextPath}${item.img}</td>
+							<td width="20">${item.id}</td>
+							<td width="220">${item.name}</td>
+							<td width="120">${pageContext.request.contextPath}${item.img}</td>
+							<td width="30"><a href="javascript:;">[编辑]</a></td>
 						</tr>
 					</c:forEach>
 				</table>
+
+				<stag:PageViewTag baseUrl="${pageContext.request.contextPath}/commodity/list" pageView="${pageView}" />
 
 			</div>
 			

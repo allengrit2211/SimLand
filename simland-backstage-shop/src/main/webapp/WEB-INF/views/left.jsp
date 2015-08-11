@@ -29,8 +29,8 @@
 	       <div class="left_menu"><strong class="strong_1">订单管理</strong></div>
 		   <div class="left_tree">
 				<div class="tree_text">
-				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/purview/powerList">待下单</a></li>
-				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/purview/powerList">订单列表</a></li>	
+				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/shop/waitOrderList">待下单</a></li>
+				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/shop/orderList">订单列表</a></li>	
 				</div>
 		   </div>
 		   <div id="tree_down"></div>

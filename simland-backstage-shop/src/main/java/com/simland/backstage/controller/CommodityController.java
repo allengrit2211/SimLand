@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.simland.backstage.util.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
+import com.simland.core.base.page.PageView;
 import com.simland.core.module.shop.entity.CategoryPropertiesVal;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Inventory;
@@ -107,22 +109,22 @@ public class CommodityController {
 		List<Inventory> ilist = new LinkedList<Inventory>();
 
 		for (int i = 0; attr1 != null && i < attr1.length; i++) {
-			
+
 			String attr1Str = Utils.getArrayVal(i, attr1);
-			if(Utils.isObjectEmpty(attr1Str))
+			if (Utils.isObjectEmpty(attr1Str))
 				continue;
-			
+
 			CategoryPropertiesVal cp = new CategoryPropertiesVal();
 			cp.setCpid(Utils.strToInteger(Utils.getArrayVal(i, attr1Val)));
 			cp.setCpvalue(attr1Str);
 			cpList.add(cp);
 		}
 		for (int i = 0; attr2 != null && i < attr2.length; i++) {
-			
+
 			String attr2Str = Utils.getArrayVal(i, attr2);
-			if(Utils.isObjectEmpty(attr2Str))
+			if (Utils.isObjectEmpty(attr2Str))
 				continue;
-			
+
 			CategoryPropertiesVal cp = new CategoryPropertiesVal();
 			cp.setCpid(Utils.strToInteger(Utils.getArrayVal(i, attr2Val)));
 			cp.setCpvalue(attr2Str);
@@ -223,14 +225,59 @@ public class CommodityController {
 	// }
 
 	@RequestMapping(value = "/commodity/list")
-	public String list(HttpServletRequest request, Model model) {
+	public ModelAndView list(HttpServletRequest request, Model model, PageView pageView) {
 
 		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("sid", shop.getId());
-		List list = commodityService.getCommodityList(param);
-		model.addAttribute("list", list);
-		return "commodity/listCommodity";
+
+		int totalRecord = commodityService.getCommodityCount(param);
+		if (totalRecord == 0) {
+			model.addAttribute("msg", "无数据");
+			return new ModelAndView("commodity/listCommodity");
+		}
+
+		pageView.setPageSize(10);
+
+		param.put("endSize", pageView.getFirstResult());
+		param.put("pageSize", pageView.getPageSize());
+		param.put("sortColumns", "id");
+
+		List list = commodityService.getSplitCommodityList(param);
+
+		pageView.setTotalRecord(totalRecord);
+		pageView.setRecords(list);
+
+		model.addAttribute("pageView", pageView);
+		return new ModelAndView("commodity/listCommodity");
+	}
+
+	@RequestMapping(value = "/commodity/popupList")
+	public ModelAndView popupList(HttpServletRequest request, Model model, PageView pageView) {
+
+		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("sid", shop.getId());
+
+		int totalRecord = commodityService.getCommodityCount(param);
+		if (totalRecord == 0) {
+			return new ModelAndView("commodity/listCommodityPopup");
+		}
+
+		pageView.setPageSize(5);
+
+		param.put("endSize", pageView.getFirstResult());
+		param.put("pageSize", pageView.getPageSize());
+		param.put("sortColumns", "id");
+
+		List list = commodityService.getSplitCommodityList(param);
+
+		pageView.setTotalRecord(totalRecord);
+		pageView.setRecords(list);
+
+		model.addAttribute("pageView", pageView);
+		return new ModelAndView("commodity/listCommodityPopup");
 	}
 }

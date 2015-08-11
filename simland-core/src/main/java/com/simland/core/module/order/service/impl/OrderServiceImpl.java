@@ -92,4 +92,16 @@ public class OrderServiceImpl implements IOrderService {
 		return orderMapper.getSplitOrderList(param);
 	}
 
+	@Override
+	public Order getOrder(Integer id) {
+		if (id == null || id == 0)
+			return null;
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("id", id);
+		Order order = orderMapper.getOrder(param);
+		param = null;
+		return order;
+	}
+
 }

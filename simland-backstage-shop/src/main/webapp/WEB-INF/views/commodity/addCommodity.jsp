@@ -349,7 +349,10 @@ $(function(){
 											<tbody>
 												<c:if test="${fn:length(item.categoryPropertiesList)==0}">
 													<tr>
-														<td><input name="price_${item.id}" size="7" type="text"></td>
+														<td>
+														<input type='hidden' name='iAttr1_${item.id}' value='0'><input type='hidden' name='iAttr1Val_${item.id}' value='0'>
+														<input type='hidden' name='iAttr2_${item.id}' value='0'><input type='hidden' name='iAttr2Val_${item.id}' value='0'>
+														<input name="price_${item.id}" size="7" type="text"></td>
 														<td><input name="nums_${item.id}" size="7" type="text"></td>
 														<td><input name="productCode_${item.id}" size="7" type="text"></td>
 														<td>

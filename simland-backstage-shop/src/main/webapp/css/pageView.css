@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+.pageView {
+	float: left;
+	clear: both;
+}
+.pageView li {
+	line-height: 23px;
+	display: block;
+	float: left;
+	margin: 0px 3px;
+	font-size: 12px;
+	text-align:center;
+}
+.pageView li.pageInfo {
+	margin-right: 5px;
+	color: #464646;
+	border: none;
+	background: none;
+}
+.pageView li a {
+	color: #464646 !important;display:inline-block;padding:2px 5px;border: 1px solid #cccccc;
+}
+.pageView li a:hover {
+	color: #ff9900 !important;border: 1px solid #ff9900;
+}
+.pageView li a.currentPage {
+	background-color:#dddddd;color:#FFFFFF !important;cursor: default;border: 1px solid #cccccc;
+}
+.pageView li.firstPage a,.pageView li.prePage a,.pageView li.nextPage a,.pageView li.lastPage a {
+	width:52px;background-color:#ffffff !important;
+}
+.pageView li.firstPage a.currentPage,.pageView li.prePage a.currentPage,.pageView li.nextPage a.currentPage,.pageView li.lastPage a.currentPage {
+	color: #CFCFCF !important;
+}
+.pageView2 {float: right; padding-top: 18px;}
+.pageView3 {float: none; padding-top: 18px;}
+.pageView3 li {width:42px;}

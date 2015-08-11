@@ -26,6 +26,10 @@
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
 
+	<listener>
+		<listener-class>com.simland.backstage.listener.ServletListener</listener-class>
+	</listener>
+
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -84,6 +88,15 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://simland-tags.sf.net</taglib-uri>
+			<taglib-location>/WEB-INF/tld/simland-tags.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+
+
 	<error-page>
 		<error-code>403</error-code>
 		<location>/403.htm</location>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.shop.mapper.WaitOrderMapper">
+
+	<resultMap id="WaitOrderRM" type="com.simland.core.module.shop.entity.WaitOrder">
+        <result property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="username" column="username"/>
+        <result property="sid" column="sid"/>
+        <result property="createTime" column="createTime"/>
+        <result property="remark" column="remark"/>
+        <result property="isDel" column="isDel"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        uid uid,
+        username username,
+        sid sid,
+        createTime createTime,
+        remark remark,
+        isDel isDel
+	    ]]>
+	</sql>
+
+
+	<insert id="insertWaitOrder" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.shop.entity.WaitOrder">
+	    <![CDATA[
+	        INSERT INTO t_wait_order (
+		        uid,
+		        username,
+		        sid,
+		        createTime,
+		        remark,
+		        isDel
+	        ) VALUES (
+		        	#{uid},
+		        	#{username},
+		        	#{sid},
+		        	#{createTime},
+		        	#{remark},
+		        	#{isDel}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateWaitOrder">
+	    <![CDATA[
+        UPDATE t_wait_order
+        ]]>
+        <set>
+		<if test="uid!=null">
+        	uid = #{uid},
+		</if>
+		<if test="username!=null">
+        	username = #{username},
+		</if>
+		<if test="sid!=null">
+        	sid = #{sid},
+		</if>
+		<if test="createTime!=null">
+        	createTime = #{createTime},
+		</if>
+		<if test="remark!=null">
+        	remark = #{remark},
+		</if>
+		<if test="isDel!=null">
+        	isDel = #{isDel},
+		</if>
+        </set>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteWaitOrder">
+    <![CDATA[
+        DELETE FROM t_wait_order WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getWaitOrder" resultMap="WaitOrderRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_wait_order 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getWaitOrderList" resultMap="WaitOrderRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_wait_order  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="uid!=null">
+	        AND uid = #{uid}
+	        </if>
+			<if test="username!=null">
+	        AND username = #{username}
+	        </if>
+			<if test="sid!=null">
+	        AND sid = #{sid}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime}
+	        </if>
+			<if test="remark!=null">
+	        AND remark = #{remark}
+	        </if>
+			<if test="isDel!=null">
+	        AND isDel = #{isDel}
+			</if>
+		</where>
+	</sql>
+
+	<select id="getWaitOrderCount" resultType="int">
+		SELECT count(*) FROM t_wait_order
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitWaitOrderList" resultMap="WaitOrderRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_wait_order
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns} DESC
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

@@ -27,6 +27,8 @@ public interface IOrderService {
 
 	public Order getOrder(Map<String, Object> param);
 
+	public Order getOrder(Integer id);
+
 	public List<Order> getOrderList(Map<String, Object> param);
 
 	public Integer getOrderCount(Map<String, Object> param);

@@ -204,7 +204,7 @@
 		<include refid="pageWhere" />
 
 		<if test="sortColumns!=null">
-			ORDER BY #{sortColumns}
+			ORDER BY #{sortColumns} desc
 		</if>
 		limit #{endSize},#{pageSize}
 	</select>
