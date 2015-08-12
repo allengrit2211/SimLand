@@ -23,35 +23,6 @@ import com.simland.core.module.shop.service.IShopService;
 @Controller
 public class ShopController {
 
-	@Autowired
-	private IShopService shopService;
 
-	@RequestMapping(value = "/shop/login")
-	public String login() {
-		return "login";
-	}
-
-	@RequestMapping(value = "/shop/logindo")
-	public ModelAndView logindo(HttpServletRequest request, Model model) {
-
-		String loginName = request.getParameter("userName");
-		String pwd = request.getParameter("passWord");
-		if (Utils.isObjectEmpty(loginName) || Utils.isObjectEmpty(pwd)) {
-			model.addAttribute("msg", "用户名或密码不能为空");
-			return new ModelAndView("login", model.asMap());
-		}
-
-		SysMessage msg = new SysMessage();
-		Shop shop = shopService.shopLogin(loginName, pwd, msg);
-
-		if (Utils.isObjectEmpty(shop)) {
-			model.addAttribute("msg", "用户名或密码错误");
-			return new ModelAndView("login", model.asMap());
-		}
-
-		request.getSession().setAttribute(Constants.USER_SESSION, shop);
-
-		return new ModelAndView("redirect:/main");
-	}
 
 }

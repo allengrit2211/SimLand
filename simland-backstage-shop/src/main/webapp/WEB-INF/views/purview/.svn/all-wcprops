@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Titan/!svn/ver/9724/trunk/FsGmV2Manager/FsGmV2Manager/src/main/webapp/WEB-INF/pages/purview
+END
+roleList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Titan/!svn/ver/9791/trunk/FsGmV2Manager/FsGmV2Manager/src/main/webapp/WEB-INF/pages/purview/roleList.ftl
+END
+adminUserList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Titan/!svn/ver/9791/trunk/FsGmV2Manager/FsGmV2Manager/src/main/webapp/WEB-INF/pages/purview/adminUserList.ftl
+END
+powerList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Titan/!svn/ver/9791/trunk/FsGmV2Manager/FsGmV2Manager/src/main/webapp/WEB-INF/pages/purview/powerList.ftl
+END
+roleAdd.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Titan/!svn/ver/9724/trunk/FsGmV2Manager/FsGmV2Manager/src/main/webapp/WEB-INF/pages/purview/roleAdd.ftl
+END

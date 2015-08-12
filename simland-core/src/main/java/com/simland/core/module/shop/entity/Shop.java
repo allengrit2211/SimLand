@@ -32,8 +32,6 @@ public class Shop implements java.io.Serializable {
 	private java.lang.Integer commodityNum;
 	private java.lang.Integer collectNum;
 	private java.lang.String recomm;
-	
-	private Cart cart;
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -234,16 +232,6 @@ public class Shop implements java.io.Serializable {
 	public void setRecomm(java.lang.String recomm) {
 		this.recomm = recomm;
 	}
-	
-	
-
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
 
 	@Override
 	public int hashCode() {
@@ -414,6 +402,4 @@ public class Shop implements java.io.Serializable {
 		return true;
 	}
 
-	
-	
 }

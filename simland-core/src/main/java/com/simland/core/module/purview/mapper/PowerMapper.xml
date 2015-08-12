@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.purview.mapper.PowerMapper">
+
+	<resultMap id="PowerRM" type="com.simland.core.module.purview.entity.Power">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="url" column="url"/>
+        <result property="pid" column="pid"/>
+        <result property="createTime" column="createTime"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id,
+        name,
+        url,
+        pid,
+        createTime
+	    ]]>
+	</sql>
+
+
+	<insert id="insertPower" useGeneratedKeys="true" keyProperty="id">
+    <![CDATA[
+        INSERT INTO t_power (name,url,pid) VALUES (#{name},#{url},#{pid})
+    ]]>
+	</insert>
+
+	<update id="updatePower">
+	    <![CDATA[
+        UPDATE t_power SET
+	        id = #{id},
+	        name = #{name},
+	        url = #{url},
+	        pid = #{pid},
+	        createTime = #{createTime}
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deletePower">
+    <![CDATA[
+        DELETE FROM t_power WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getPower" resultMap="PowerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_power 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getPowerList" resultMap="PowerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_power  
+	    <include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="name!=null">
+	        AND name = #{name}
+	        </if>
+			<if test="url!=null">
+	        AND url = #{url}
+	        </if>
+			<if test="pid!=null">
+	        AND pid = #{pid}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime} 
+	        </if>
+			<if test="nameLike!=null">
+				AND name like "%"#{nameLike}"%"
+			</if>		
+		</where>
+	</sql>
+
+	<select id="getPowerCount" resultType="int">
+		SELECT count(*) FROM t_power
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitPowerList" resultMap="PowerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_power
+		<include refid="pageWhere" />
+
+		ORDER BY id desc
+		
+		limit #{endSize},#{pageSize}
+	</select>
+
+	<select id="getPowerListByRid" resultMap="PowerRM">
+		select t1.* from t_power t1,t_role_power t2 where t1.id =t2.pid
+		and t2.rid=#{rid}
+	</select>
+
+</mapper>

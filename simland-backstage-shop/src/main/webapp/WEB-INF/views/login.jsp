@@ -37,8 +37,8 @@ $(document).ready(function(){
 		      <div id="top_left"><img src="${pageContext.request.contextPath}/images/login_03.gif" /></div>
 			  <div id="top_center"></div>
 		 </div>
-		 <form method="post" action="${pageContext.request.contextPath}/shop/logindo" id="loginForm">
-		 <input type="hidden" name="method" value="">
+		 <form method="post" action="${pageContext.request.contextPath}/shop/login" id="loginForm">
+		 <input type="hidden" name="method" value="${method}">
 		 <div id="center">
 		      <div id="center_left"></div>
 

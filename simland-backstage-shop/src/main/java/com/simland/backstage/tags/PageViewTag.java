@@ -56,8 +56,10 @@ public class PageViewTag extends TagSupport {
 			String parameter = "";
 			parameter = parameter + "&pageSize=" + pageSize;
 
-			for (Entry<String, String> e : parameterMap.entrySet()) {
-				parameter = parameter + "&" + e.getKey() + "=" + e.getValue();
+			if (parameterMap != null) {
+				for (Entry<String, String> e : parameterMap.entrySet()) {
+					parameter = parameter + "&" + e.getKey() + "=" + e.getValue();
+				}
 			}
 
 			if (baseUrl.contains("?"))
@@ -122,7 +124,8 @@ public class PageViewTag extends TagSupport {
 				for (int index = startcurrentPage; index <= endcurrentPage; index++) {
 					if (currentPage != index) {
 						out.println("<li>");
-						out.println("<a href=\"" + baseUrl + "currentPage=" + index + parameter + "\">"+index+"</a>");
+						out.println("<a href=\"" + baseUrl + "currentPage=" + index + parameter + "\">" + index
+								+ "</a>");
 						out.println("</li>");
 					} else {
 						out.println("<li>");
@@ -134,7 +137,8 @@ public class PageViewTag extends TagSupport {
 				// <#-- 下一组 -->
 				if (endcurrentPage < totalPage) {
 					out.println("<li>");
-					out.println("<a href=\"" + baseUrl + "currentPage=" + (endcurrentPage + 1) + parameter + "\">...</a>");
+					out.println("<a href=\"" + baseUrl + "currentPage=" + (endcurrentPage + 1) + parameter
+							+ "\">...</a>");
 					out.println("</li>");
 				}
 

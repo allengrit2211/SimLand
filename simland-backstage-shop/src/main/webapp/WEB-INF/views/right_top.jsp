@@ -15,6 +15,6 @@
 				   		
 			        </div>
 			        <div id="loginoutimg"><img src="${pageContext.request.contextPath}/images/loginout.gif" /></div>
-			        <span class="logintext"><a href="${pageContext.request.contextPath}/user/loginout" style="color:#FFF;">退出</a></span>	 
+			        <span class="logintext"><a href="${pageContext.request.contextPath}/shop/loginout" style="color:#FFF;">退出</a></span>	 
 			   </div>			   		
 			   </div>

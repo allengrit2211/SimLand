@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.purview.mapper.RolePowerMapper">
+
+	<resultMap id="RolePowerRM" type="com.simland.core.module.purview.entity.RolePower">
+        <result property="id" column="id"/>
+        <result property="rid" column="rid"/>
+        <result property="pid" column="pid"/>
+        <result property="createTime" column="createTime"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id,
+        rid,
+        pid,
+        createTime
+	    ]]>
+	</sql>
+
+
+	<insert id="insertRolePower" useGeneratedKeys="true" keyProperty="id">
+    <![CDATA[
+        INSERT INTO t_role_power (
+	        rid,
+	        pid,
+	        createTime
+        ) VALUES (
+	        	#{rid},
+	        	#{pid},
+	        	#{createTime}
+        )
+    ]]>
+	</insert>
+
+	<insert id="insertBatchRolePower" useGeneratedKeys="true" parameterType="java.util.List">
+	    insert into t_role_power (rid,pid)   
+	    values  
+	    <foreach collection="list" item="item" index="index" separator="," >  
+	        (#{item.rid},#{item.pid})  
+	    </foreach>  
+	</insert>
+
+	<update id="updateRolePower">
+	    <![CDATA[
+        UPDATE t_role_power SET
+	        id = #{id},
+	        rid = #{rid},
+	        pid = #{pid},
+	        createTime = #{createTime}
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteRolePower">
+    <![CDATA[
+        DELETE FROM t_role_power WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getRolePower" resultMap="RolePowerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_role_power 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+
+	<select id="getRolePowerList" resultMap="RolePowerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		 FROM t_role_power  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="rid!=null">
+	        AND rid = #{rid}
+	        </if>
+			<if test="pid!=null">
+	        AND pid = #{pid}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getRolePowerCount" resultType="int">
+		SELECT count(*) FROM t_role_power
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitRolePowerList" resultMap="RolePowerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_role_power
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns}
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+	
+	<delete id="delRolePowerByRid">
+		delete from t_role_power where rid=#{rid}
+	</delete>
+
+</mapper>

@@ -34,5 +34,16 @@
 				</div>
 		   </div>
 		   <div id="tree_down"></div>
-	   </div>			
+	   </div>
+	   <div class="menuShow">
+	       <div class="left_menu"><strong class="strong_1">权限管理</strong></div>
+		   <div class="left_tree">
+				<div class="tree_text">
+				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/purview/powerList"> 权限管理 </a></li>
+				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/purview/roleList"> 角色管理 </a></li>
+				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/purview/shopUserList"> 用户管理 </a></li>
+				</div>
+		   </div>
+		   <div id="tree_down"></div>
+	   </div>	   		
 </div>

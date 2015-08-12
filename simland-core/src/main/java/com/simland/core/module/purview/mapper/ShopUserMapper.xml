@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.purview.mapper.ShopUserMapper">
+
+	<resultMap id="ShopUserRM" type="com.simland.core.module.purview.entity.ShopUser">
+        <result property="id" column="id"/>
+        <result property="userName" column="userName"/>
+        <result property="passWord" column="passWord"/>
+        <result property="rid" column="rid"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="createTime"/>
+        <result property="sid" column="sid"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id,
+        userName,
+        passWord,
+        rid,
+        type,
+        createTime,
+        sid
+	    ]]>
+	</sql>
+
+
+	<insert id="insertShopUser" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey> 	
+    <![CDATA[
+        INSERT INTO t_shop_user (
+	        userName,
+	        passWord,
+	        rid,
+	        type,
+	        createTime,
+	        sid
+        ) VALUES (
+	        	#{userName},
+	        	#{passWord},
+	        	#{rid},
+	        	#{type},
+	        	#{createTime},
+	        	#{sid}
+        )
+    ]]>
+	</insert>
+
+	<update id="updateShopUser">
+	    <![CDATA[
+        UPDATE t_shop_user SET
+	        id = #{id},
+	        userName = #{userName},
+	        passWord = #{passWord},
+	        rid = #{rid},
+	        type = #{type},
+	        createTime = #{createTime}
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteShopUser">
+    <![CDATA[
+        DELETE FROM t_shop_user WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getShopUser" resultMap="ShopUserRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_shop_user 
+		<include refid="pageWhere" />
+	</select>
+
+	<select id="getShopUserList" resultMap="ShopUserRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_shop_user  
+	    <include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="userName!=null">
+	        AND userName = #{userName}
+	        </if>
+			<if test="passWord!=null">
+	        AND passWord = #{passWord}
+	        </if>
+			<if test="rid!=null">
+	        AND rid = #{rid}
+	        </if>
+			<if test="type!=null">
+	        AND type = #{type}
+	        </if>
+			<if test="createTime!=null">
+	        AND createTime = #{createTime}
+	        </if>
+			<if test="sid!=null">
+	        AND sid = #{sid}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getShopUserCount" resultType="int">
+		SELECT count(*) FROM t_shop_user
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitShopUserList" resultMap="ShopUserRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_shop_user
+		<include refid="pageWhere" />
+
+		ORDER BY id desc
+			
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

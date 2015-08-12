@@ -14,9 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.simland.backstage.util.Constants;
+import com.simland.core.base.Constants;
 import com.simland.core.base.page.PageView;
-import com.simland.core.module.shop.entity.Shop;
+import com.simland.core.module.purview.entity.ShopUser;
 import com.simland.core.module.shop.entity.WaitOrder;
 import com.simland.core.module.shop.service.IWaitOrderService;
 
@@ -36,10 +36,10 @@ public class WaitOrderController {
 	@RequestMapping(value = "/shop/waitOrderList")
 	public ModelAndView list(HttpServletRequest request, Model model, PageView pageView) {
 
-		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shop.getId());
+		param.put("sid", shopUser.getId());
 		param.put("isDel", WaitOrder.ISDEL_0);
 
 		int totalRecord = waitOrderService.getWaitOrderCount(param);

@@ -23,10 +23,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.simland.backstage.util.Constants;
+import com.simland.core.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
+import com.simland.core.module.purview.entity.ShopUser;
 import com.simland.core.module.shop.entity.CategoryPropertiesVal;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Inventory;
@@ -94,7 +95,7 @@ public class CommodityController {
 		String realPrice = request.getParameter("realPrice");
 		String editor1 = request.getParameter("editor1");
 
-		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		boolean c1 = (price == null || nums == null || productCode == null || imageName == null);
 		if (c1) {
@@ -137,7 +138,7 @@ public class CommodityController {
 			Inventory inventory = new Inventory();
 			inventory.setAttr1(Utils.strToInteger(Utils.getArrayVal(i, iAttr1Val)));
 			inventory.setAttr2(Utils.strToInteger(Utils.getArrayVal(i, iAttr2Val)));
-			inventory.setSid(shop.getId());
+			inventory.setSid(shopUser.getId());
 			inventory.setNums(Utils.strToInteger(Utils.getArrayVal(i, nums)));
 			inventory.setPrice(Utils.strToDouble(Utils.getArrayVal(i, price)));
 			inventory.setProductCode(Utils.getArrayVal(index, productCode));
@@ -145,7 +146,7 @@ public class CommodityController {
 			index++;
 		}
 
-		commodity.setSid(shop.getId());
+		commodity.setSid(shopUser.getId());
 		commodity.setCreateTime(new Date());
 		commodity.setName(cname);
 		commodity.setRealPrice(Utils.strToDouble(realPrice));
@@ -227,10 +228,10 @@ public class CommodityController {
 	@RequestMapping(value = "/commodity/list")
 	public ModelAndView list(HttpServletRequest request, Model model, PageView pageView) {
 
-		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shop.getId());
+		param.put("sid", shopUser.getId());
 
 		int totalRecord = commodityService.getCommodityCount(param);
 		if (totalRecord == 0) {
@@ -256,10 +257,10 @@ public class CommodityController {
 	@RequestMapping(value = "/commodity/popupList")
 	public ModelAndView popupList(HttpServletRequest request, Model model, PageView pageView) {
 
-		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shop.getId());
+		param.put("sid", shopUser.getId());
 
 		int totalRecord = commodityService.getCommodityCount(param);
 		if (totalRecord == 0) {

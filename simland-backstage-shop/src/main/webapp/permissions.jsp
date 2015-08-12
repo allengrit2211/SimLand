@@ -94,7 +94,7 @@ ul,li {
 				您没有权限请联系管理员!
 				</div>
 				<div style="margin-top:30px;">
-					<input type="button" value="重新登录" onclick="javascript:location.href='<%=basePath%>user/login';" style="padding:5px 10px;"/>
+					<input type="button" value="重新登录" onclick="javascript:location.href='<%=basePath%>shop/login';" style="padding:5px 10px;"/>
 					<input type="button" value="返 回" onclick="history.back()" style="padding:5px 10px;"/>
 				</div>
 			</div>

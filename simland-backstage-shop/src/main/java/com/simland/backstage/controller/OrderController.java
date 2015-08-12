@@ -3,6 +3,7 @@ package com.simland.backstage.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.simland.backstage.util.Constants;
+import com.simland.core.base.Constants;
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
@@ -25,6 +26,7 @@ import com.simland.core.module.order.entity.CartItem;
 import com.simland.core.module.order.entity.Order;
 import com.simland.core.module.order.service.IOrderService;
 import com.simland.core.module.order.service.IOrderState;
+import com.simland.core.module.purview.entity.ShopUser;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Shop;
 import com.simland.core.module.shop.entity.WaitOrder;
@@ -147,9 +149,9 @@ public class OrderController {
 			return reJson;
 		}
 
-		Shop sessionShop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
-		sessionShop.setCart(Cart.addCart(sessionShop.getCart(), sessionShop, c, Utils.strToInteger(buyNum)));
+		sessionShop.setCart(Cart.addCart(sessionShop.getCart(), shop, c, Utils.strToInteger(buyNum)));
 		request.getSession().setAttribute(Constants.USER_SESSION, sessionShop);
 
 		msg.setCode("1");
@@ -182,7 +184,7 @@ public class OrderController {
 			return reJson;
 		}
 
-		Shop sessionShop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Cart.delCart(sessionShop.getCart(), skus.split(","));
 
@@ -204,11 +206,15 @@ public class OrderController {
 
 	@RequestMapping(value = "/shop/viewCartAjax")
 	public String viewCart(HttpServletRequest request, Model model) {
-		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Vector<CartItem> v = null;
 		try {
-			v = shop.getCart().getCartItems().get(shop);
+			
+			for (Entry<Shop, Vector<CartItem>> cartItem : shopUser.getCart().getCartItems().entrySet()) {
+				v = cartItem.getValue();
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -234,7 +240,7 @@ public class OrderController {
 		String uid = request.getParameter("uid");
 		String wid = request.getParameter("wid");
 
-		Shop sessionShop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 		Cart cart = sessionShop.getCart();
 
 		Map<String, Object> param = new HashMap<String, Object>();
@@ -300,10 +306,10 @@ public class OrderController {
 	 */
 	@RequestMapping(value = "/shop/orderList")
 	public ModelAndView orderList(HttpServletRequest request, Model model, PageView pageView) {
-		Shop shop = (Shop) request.getSession().getAttribute(Constants.USER_SESSION);
+		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shop.getId());
+		param.put("sid", shopUser.getId());
 
 		int totalRecord = orderService.getOrderCount(param);
 		if (totalRecord == 0) {
