@@ -52,9 +52,6 @@ public class OrderController {
 	private ICommodityService commodityService;
 
 	@Autowired
-	private IShopService shopService;
-
-	@Autowired
 	private IUserService userService;
 
 	@Autowired
@@ -126,8 +123,9 @@ public class OrderController {
 		// return reJson;
 		// }
 
-		Shop shop = shopService.getShop(c.getSid());
-		if (Utils.isObjectEmpty(shop)) {
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
+
+		if (Utils.isObjectEmpty(sessionShop.getShop())) {
 			msg.setCode("-3");
 			msg.setMsg("店铺不存在");
 			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
@@ -149,9 +147,7 @@ public class OrderController {
 			return reJson;
 		}
 
-		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
-
-		sessionShop.setCart(Cart.addCart(sessionShop.getCart(), shop, c, Utils.strToInteger(buyNum)));
+		sessionShop.setCart(Cart.addCart(sessionShop.getCart(), sessionShop.getShop(), c, Utils.strToInteger(buyNum)));
 		request.getSession().setAttribute(Constants.USER_SESSION, sessionShop);
 
 		msg.setCode("1");
@@ -210,11 +206,11 @@ public class OrderController {
 
 		Vector<CartItem> v = null;
 		try {
-			
+
 			for (Entry<Shop, Vector<CartItem>> cartItem : shopUser.getCart().getCartItems().entrySet()) {
 				v = cartItem.getValue();
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

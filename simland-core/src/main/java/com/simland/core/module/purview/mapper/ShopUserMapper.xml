@@ -14,6 +14,7 @@
         <result property="type" column="type"/>
         <result property="createTime" column="createTime"/>
         <result property="sid" column="sid"/>
+        <association column="sid" property="shop" select="com.simland.core.module.shop.mapper.ShopMapper.getShop" />
 	</resultMap>
 
 	<sql id="Base_Column_List">

@@ -3,6 +3,7 @@ package com.simland.core.module.purview.entity;
 import java.util.Map;
 
 import com.simland.core.module.order.entity.Cart;
+import com.simland.core.module.shop.entity.Shop;
 
 public class ShopUser implements java.io.Serializable {
 	private static final long serialVersionUID = 5454155825314635342L;
@@ -16,8 +17,10 @@ public class ShopUser implements java.io.Serializable {
 	private java.util.Date createTime;
 	private java.lang.Integer sid;
 
+	private Shop shop;// 店铺
+
 	private Map<String, String> powers;// 用户所有权限
-	
+
 	private Cart cart;
 
 	public java.lang.Integer getId() {
@@ -100,6 +103,12 @@ public class ShopUser implements java.io.Serializable {
 		this.cart = cart;
 	}
 
-	
-	
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
+
 }

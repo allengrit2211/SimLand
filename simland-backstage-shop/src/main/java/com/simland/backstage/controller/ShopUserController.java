@@ -22,6 +22,8 @@ import com.simland.core.module.purview.entity.Power;
 import com.simland.core.module.purview.entity.ShopUser;
 import com.simland.core.module.purview.service.IPowerService;
 import com.simland.core.module.purview.service.IShopUserService;
+import com.simland.core.module.shop.entity.Shop;
+import com.simland.core.module.shop.service.IShopService;
 
 @Controller
 public class ShopUserController {
@@ -144,7 +146,6 @@ public class ShopUserController {
 	public String permissions() {
 		return "purview/permissions";
 	}
-	
 
 	@RequestMapping(value = "/shop/login")
 	public ModelAndView login(HttpServletRequest request, Model model) {
@@ -165,24 +166,30 @@ public class ShopUserController {
 			}
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("userName", userName);
-			ShopUser ua = shopUserService.getShopUser(params);
-			if (Utils.isObjectEmpty(ua)) {
+			ShopUser shopUser = shopUserService.getShopUser(params);
+			if (Utils.isObjectEmpty(shopUser)) {
 				model.addAttribute("msg", "用户名或密码不存在");
 				model.addAttribute("method", "option");
 				return new ModelAndView("login", model.asMap());
 			}
-			if (!MD5Util.md5Hex(passWord).equalsIgnoreCase(ua.getPassWord())) {
+			if (!MD5Util.md5Hex(passWord).equalsIgnoreCase(shopUser.getPassWord())) {
 				model.addAttribute("msg", "用户名或密码错误");
 				model.addAttribute("method", "option");
 				return new ModelAndView("login", model.asMap());
 			}
 
+			if (Utils.isObjectEmpty(shopUser.getShop())) {
+				model.addAttribute("msg", "商铺不存在");
+				model.addAttribute("method", "option");
+				return new ModelAndView("login", model.asMap());
+			}
+
 			List<Power> list = null;
-			if (ua.getType() == 1) {
+			if (shopUser.getType() == 1) {
 				list = powerService.getPowerList(null);
 			} else {
-				if (Utils.isObjectNotEmpty(ua.getRid())) {
-					list = powerService.getPowerListByRid(ua.getRid());
+				if (Utils.isObjectNotEmpty(shopUser.getRid())) {
+					list = powerService.getPowerListByRid(shopUser.getRid());
 				}
 			}
 
@@ -191,8 +198,8 @@ public class ShopUserController {
 				Power p = list.get(i);
 				powers.put(p.getUrl(), p.getId() + "_" + p.getName());
 			}
-			ua.setPowers(powers);
-			request.getSession().setAttribute(Constants.USER_SESSION, ua);
+			shopUser.setPowers(powers);
+			request.getSession().setAttribute(Constants.USER_SESSION, shopUser);
 			return new ModelAndView("redirect:/main");
 		}
 		model.addAttribute("method", "option");
