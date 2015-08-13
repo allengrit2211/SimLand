@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.Cartesian;
@@ -17,12 +18,12 @@ import com.simland.core.module.shop.entity.CategoryPropertiesVal;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Inventory;
 import com.simland.core.module.shop.mapper.CategoryPropertiesValMapper;
+import com.simland.core.module.shop.mapper.CommodityDetailsMapper;
 import com.simland.core.module.shop.mapper.CommodityMapper;
 import com.simland.core.module.shop.mapper.InventoryMapper;
 import com.simland.core.module.shop.service.IInventoryService;
 
 @Service("inventoryService")
-@Transactional(rollbackFor = java.lang.Exception.class)
 public class InventoryServiceImpl implements IInventoryService {
 
 	@Autowired
@@ -31,19 +32,23 @@ public class InventoryServiceImpl implements IInventoryService {
 	@Autowired
 	private CommodityMapper commodityMapper;
 
-	DataSourceTransactionManager transactionManager;
+	@Autowired
+	private CommodityDetailsMapper commodityDetailsMapper;
 
 	@Autowired
 	private CategoryPropertiesValMapper categoryPropertiesValMapper;
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer insertInventory(Inventory inventory) {
 		return inventoryMapper.insertInventory(inventory);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer updateInventory(Inventory inventory) {
 		return inventoryMapper.updateInventory(inventory);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer deleteInventory(Integer id) {
 		return inventoryMapper.deleteInventory(id);
 	}
@@ -65,11 +70,16 @@ public class InventoryServiceImpl implements IInventoryService {
 	}
 
 	@Override
-	@Transactional
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer insertInventory(Commodity commodity, List<Inventory> inventorys,
 			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage) {
 
 		int id = commodityMapper.insertCommodity(commodity);
+
+		if (Utils.isObjectNotEmpty(commodity.getCommodityDetails().getInfo())) {
+			commodity.getCommodityDetails().setCid(commodity.getId());
+			commodityDetailsMapper.insertCommodityDetails(commodity.getCommodityDetails());
+		}
 
 		Map<String, List<String>> map = new TreeMap<String, List<String>>();
 		for (CategoryPropertiesVal categoryPropertiesVal : categoryPropertiesVals) {
@@ -96,16 +106,16 @@ public class InventoryServiceImpl implements IInventoryService {
 		}
 
 		List<String[]> skuAttr = Cartesian.cartesian(array);
-//		if (skuAttr.size() != inventorys.size()) {
-//			sysMessage.setCode("-102");
-//			String msg = "生成sku数量与库存集合数量不等";
-//			sysMessage.setMsg(msg);
-//			throw new RuntimeException(msg);
-//		}
+		// if (skuAttr.size() != inventorys.size()) {
+		// sysMessage.setCode("-102");
+		// String msg = "生成sku数量与库存集合数量不等";
+		// sysMessage.setMsg(msg);
+		// throw new RuntimeException(msg);
+		// }
 
 		int index = 0;
 		for (Inventory inventory : inventorys) {
-			String[] sku = index<skuAttr.size()  ? skuAttr.get(index) : null;
+			String[] sku = index < skuAttr.size() ? skuAttr.get(index) : null;
 			inventory.setCid(commodity.getId());
 			int attr1 = Utils.strToInteger(Utils.getArrayVal(0, sku));
 			int attr2 = Utils.strToInteger(Utils.getArrayVal(1, sku));

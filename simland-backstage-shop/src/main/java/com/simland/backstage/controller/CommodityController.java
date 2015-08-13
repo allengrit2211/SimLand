@@ -32,6 +32,7 @@ import com.simland.core.base.page.PageView;
 import com.simland.core.module.purview.entity.ShopUser;
 import com.simland.core.module.shop.entity.CategoryPropertiesVal;
 import com.simland.core.module.shop.entity.Commodity;
+import com.simland.core.module.shop.entity.CommodityDetails;
 import com.simland.core.module.shop.entity.Inventory;
 import com.simland.core.module.shop.service.ICategoryPropertiesService;
 import com.simland.core.module.shop.service.ICommodityService;
@@ -100,7 +101,6 @@ public class CommodityController {
 		String isNew = request.getParameter("isNew");
 		String isSpecial = request.getParameter("isSpecial");
 		String isVip = request.getParameter("isVip");
-		;
 
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
@@ -163,6 +163,9 @@ public class CommodityController {
 		commodity.setIsNew(Utils.strToInteger(isNew));
 		commodity.setIsSpecial(Utils.strToInteger(isSpecial));
 		commodity.setIsVip(Utils.strToInteger(isVip));
+		CommodityDetails commodityDetails = new CommodityDetails();
+		commodityDetails.setInfo(editor1);
+		commodity.setCommodityDetails(commodityDetails);
 		if (ilist.size() > 0) {
 			commodity.setImg(ilist.get(0).getImage());
 		}
@@ -199,8 +202,6 @@ public class CommodityController {
 			logger.info(this.getClass().getName() + (reJson = Utils.objToJson(msg)));
 			return reJson;
 		}
-
-		System.out.println(file);
 
 		String webPath = null;
 		String path = request
@@ -259,7 +260,7 @@ public class CommodityController {
 
 			FileUtils.copyInputStreamToFile(is, new File(newFile, fileName));
 
-			return webPath +File.separator+ fileName;
+			return webPath + File.separator + fileName;
 		} catch (Exception e) {
 			logger.error("copyFile error:" + e.getMessage());
 			return "";

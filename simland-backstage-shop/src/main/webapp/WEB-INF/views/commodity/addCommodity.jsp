@@ -37,7 +37,6 @@ margin:2px;
 }
 
 
-
 </style>
 
 <script type="text/javascript">
@@ -149,6 +148,7 @@ $(function(){
 				attr2s.push($(e).val()+"_"+$(e).attr("cpid"));
 			});
 		}
+
 
 		var _index = 0;
 		var htmlStr = "";
@@ -299,7 +299,13 @@ $(function(){
 	
 	
 	loadInventoryView();
-	var editor1 = CKEDITOR.replace('editor1'); //参数‘content’是textarea元素的name属性值，而非id属性值
+	var editor1 = CKEDITOR.replace('editor1',{
+		height : 560,
+		width : 320
+	}); //参数‘content’是textarea元素的name属性值，而非id属性值
+	setTimeout(function(){
+		$("#cke_editor1").css({"width":"346"});
+	},100);
 });
 
 
@@ -435,7 +441,7 @@ $(function(){
 									<p>
 										<label for="editor1">
 											Editor 1:</label>
-										<textarea cols="80" id="editor1" name="editor1" rows="10">请编辑商品图文</textarea>
+										<textarea  id="editor1" name="editor1" rows="10">请编辑商品图文</textarea>
 									</p>
 							</td>
 						</tr>

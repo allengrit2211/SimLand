@@ -1187,7 +1187,7 @@ span {
 /************contactPage end***************/
 
 /************CommodityPage start***************/
-#CommodityPage .p_img img {
+#CommodityPage .commodityBx .p_img img {
 	width: 100%;
 }
 
@@ -1195,64 +1195,64 @@ span {
 	margin: 5px 0;
 }
 
-#CommodityPage .onePrice0 .ui-block-a {
+#CommodityPage .commodityBx .onePrice0 .ui-block-a {
 	width: 60%;
 }
 
-#CommodityPage .onePrice0 .ui-block-b {
+#CommodityPage .commodityBx .onePrice0 .ui-block-b {
 	width: 13%;
 }
 
-#CommodityPage .onePrice0 .ui-block-c {
+#CommodityPage .commodityBx .onePrice0 .ui-block-c {
 	width: 13%;
 }
 
-#CommodityPage .onePrice0 .ui-block-d {
+#CommodityPage .commodityBx .onePrice0 .ui-block-d {
 	width: 13%;
 }
 
-#CommodityPage .onePrice {
+#CommodityPage .commodityBx .onePrice {
 	height: 40px;
 	line-height: 40px;
 }
 
-#CommodityPage .onePrice .s_1 {
+#CommodityPage .commodityBx .onePrice .s_1 {
 	display: block;
 	width: 20%;
 	text-align: center;
 	font-size: 1em;
 }
 
-#CommodityPage .onePrice .s_2 {
+#CommodityPage .commodityBx .onePrice .s_2 {
 	display: block;
 	color: #E76714;
 	font-size: 1em;
 	font-weight: bold;
 }
 
-#CommodityPage .onePrice2 .s_1, #CommodityPage .onePrice2 .s_2,
+#CommodityPage .commodityBx .onePrice2 .s_1, #CommodityPage .commodityBx .onePrice2 .s_2,
 	#CommodityPage .onePrice2 .s_3 {
 	height: 40px;
 	line-height: 40px;
 	display: inline-block;
 }
 
-#CommodityPage .onePrice2 .s2 {
+#CommodityPage .commodityBx .onePrice2 .s2 {
 	padding-left: 25px;
 	background: url("../images/bg/star1.jpg") no-repeat 0px 50%;
 }
 
-#CommodityPage .p_appraisal_line {
+#CommodityPage .commodityBx .p_appraisal_line {
 	border-bottom: 1px solid #EEE;
 	text-indent: 3%;
 	padding: 5px 0;
 }
 
-#CommodityPage .p_appraisal_line p {
+#CommodityPage .commodityBx .p_appraisal_line p {
 	margin-top: 5px;
 }
 
-#CommodityPage .p_appraisal_line .time {
+#CommodityPage .commodityBx .p_appraisal_line .time {
 	float: right;
 	margin-right: 10px;
 }
@@ -1261,6 +1261,21 @@ span {
 	width: 98%;
 	margin: 0 auto;
 }
+
+#CommodityPage .c_infoBox{
+	
+}
+
+
+#CommodityPage .c_infoBox .c_infoBox_tag{
+	display: none;
+	width:100%;
+}
+#CommodityPage .c_infoBox .c_infoBox_tag.on{
+	display: block;
+}
+
+
 
 #CommodityPage .popup {
 	min-height: 236px;

@@ -23,6 +23,8 @@
 
 		<association property="cInventoryList" column="id"
 			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventoryByCommodityId" />
+			
+		<association property="commodityDetails" column="id" select="com.simland.core.module.shop.mapper.CommodityDetailsMapper.getCommodityDetailsByCid"/>
 
 		<!-- <association property="categoryPropertiesValList" column="id" select="com.simland.core.module.shop.mapper.CategoryPropertiesValMapper.getCategoryPropertiesValByCid" 
 			/> -->

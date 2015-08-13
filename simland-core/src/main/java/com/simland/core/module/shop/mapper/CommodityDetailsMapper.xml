@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.shop.mapper.CommodityDetailsMapper">
+
+	<resultMap id="CommodityDetailsRM" type="com.simland.core.module.shop.entity.CommodityDetails">
+        <result property="id" column="id"/>
+        <result property="cid" column="cid"/>
+        <result property="info" column="info"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        cid cid,
+        info info
+	    ]]>
+	</sql>
+
+
+	<insert id="insertCommodityDetails" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.shop.entity.CommodityDetails">
+	    <![CDATA[
+	        INSERT INTO t_commodity_details (
+		        cid,
+		        info
+	        ) VALUES (
+		        	#{cid},
+		        	#{info}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateCommodityDetails">
+	    <![CDATA[
+        UPDATE t_commodity_details
+        ]]>
+        <set>
+		<if test="cid!=null">
+        	cid = #{cid},
+		</if>
+		<if test="info!=null">
+        	info = #{info},
+		</if>
+        </set>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteCommodityDetails">
+    <![CDATA[
+        DELETE FROM t_commodity_details WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getCommodityDetails" resultMap="CommodityDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_commodity_details 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+	
+	<select id="getCommodityDetailsByCid" resultMap="CommodityDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_commodity_details 
+	        WHERE 
+	        cid = #{cid} 
+	    ]]>
+	</select>
+	
+
+	<select id="getCommodityDetailsList" resultMap="CommodityDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_commodity_details  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="cid!=null">
+	        AND cid = #{cid}
+	        </if>
+			<if test="info!=null">
+	        AND info = #{info}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getCommodityDetailsCount" resultType="int">
+		SELECT count(*) FROM t_commodity_details
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitCommodityDetailsList" resultMap="CommodityDetailsRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_commodity_details
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns} DESC
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>

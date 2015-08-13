@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.MD5Util;
 import com.simland.core.base.SysMessage;
@@ -16,7 +15,6 @@ import com.simland.core.module.shop.mapper.ShopMapper;
 import com.simland.core.module.shop.service.IShopService;
 
 @Service("shopService")
-@Transactional(rollbackFor = java.lang.Exception.class)
 public class ShopService implements IShopService {
 
 	@Autowired

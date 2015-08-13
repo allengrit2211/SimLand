@@ -27,6 +27,12 @@
 		<div data-role="content">
 			<div class="wrapper top">
 				<div class="scroller">
+				
+					<div class="commodityBx">
+						
+					
+					</div>
+				
 					<div class="p_img">
 						<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
 					</div>
@@ -69,38 +75,44 @@
 						</div>
 					</div>
 					<div class="tags" data-role="controlgroup" data-type="horizontal" data-mini="true">
-						<a  class="a1" data-transition="none" href="#" data-role="button">产品详情</a> 
-						<a  class="a2 on" data-transition="none" href="#" data-role="button">产品评价</a>
+						<a  class="a1 on" data-transition="none" href="#" data-role="button">产品详情</a> 
+						<a  class="a2" data-transition="none" href="#" data-role="button">产品评价</a>
 					</div>
-					<div class="p_appraisal">
-						<div class="p_appraisal_line">
-							<b>很好</b>
-							<p>颜色分类：深紫色</p>
-							<p>
-								叶****2<span class="time">2015-06-03</span>
-							</p>
+					<div class="c_infoBox">
+						<div class="c_infoBox_tag on">
+							${commodity.commodityDetails.info}
 						</div>
-						<div class="p_appraisal_line">
-							<b>很好</b>
-							<p>颜色分类：深紫色</p>
-							<p>
-								叶****2<span class="time">2015-06-03</span>
-							</p>
+						<div class="c_infoBox_tag">
+							<div class="p_appraisal_line">
+								<b>很好</b>
+								<p>颜色分类：深紫色</p>
+								<p>
+									叶****2<span class="time">2015-06-03</span>
+								</p>
+							</div>
+							<div class="p_appraisal_line">
+								<b>很好</b>
+								<p>颜色分类：深紫色</p>
+								<p>
+									叶****2<span class="time">2015-06-03</span>
+								</p>
+							</div>
+							<div class="p_appraisal_line">
+								<b>很好</b>
+								<p>颜色分类：深紫色</p>
+								<p>
+									叶****2<span class="time">2015-06-03</span>
+								</p>
+							</div>
+							<div class="p_appraisal_line">
+								<b>很好</b>
+								<p>颜色分类：深紫色</p>
+								<p>
+									叶****2<span class="time">2015-06-03</span>
+								</p>
+							</div>
 						</div>
-						<div class="p_appraisal_line">
-							<b>很好</b>
-							<p>颜色分类：深紫色</p>
-							<p>
-								叶****2<span class="time">2015-06-03</span>
-							</p>
-						</div>
-						<div class="p_appraisal_line">
-							<b>很好</b>
-							<p>颜色分类：深紫色</p>
-							<p>
-								叶****2<span class="time">2015-06-03</span>
-							</p>
-						</div>
+						
 					</div>
 					<div class="menu_height"></div>
 					<div class="bottom_height"></div>

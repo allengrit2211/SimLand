@@ -29,6 +29,8 @@ public class Commodity implements java.io.Serializable {
 	private java.lang.Integer isSpecial;
 	private java.lang.Integer isVip;
 
+	private CommodityDetails commodityDetails;
+
 	private CategoryProperties attr1;// 属性1
 	private CategoryProperties attr2;// 属性2
 
@@ -154,6 +156,14 @@ public class Commodity implements java.io.Serializable {
 
 	public void setIsVip(java.lang.Integer isVip) {
 		this.isVip = isVip;
+	}
+
+	public CommodityDetails getCommodityDetails() {
+		return commodityDetails;
+	}
+
+	public void setCommodityDetails(CommodityDetails commodityDetails) {
+		this.commodityDetails = commodityDetails;
 	}
 
 	public CategoryProperties getAttr1() {
