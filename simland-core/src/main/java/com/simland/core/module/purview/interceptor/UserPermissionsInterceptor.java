@@ -83,7 +83,8 @@ public class UserPermissionsInterceptor implements HandlerInterceptor {
 
 	private void redirect(HttpServletRequest request, HttpServletResponse response, String url) throws IOException {
 		String requestType = request.getHeader("X-Requested-With");
-		if (Utils.isObjectEmpty(Utils.notNullTrim(requestType))) {
+		String ajax = request.getParameter("ajax");
+		if (Utils.isObjectEmpty(Utils.notNullTrim(requestType))&&Utils.isObjectEmpty(ajax)) {
 			response.sendRedirect(request.getContextPath() + url);
 		} else {
 

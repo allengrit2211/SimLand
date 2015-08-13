@@ -1,6 +1,3 @@
-<%@ taglib uri="http://ckeditor.com" prefix="ckeditor" %>
-<%@page import="java.util.HashMap"%>
-<%@page import="java.util.Map"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -9,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/ckeditor/ckeditor.js"></script>
 <link type="text/css" href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet"  />
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/js/ckeditor/_samples/sample.css" />
 <style type="text/css">
@@ -44,6 +42,9 @@ margin:2px;
 
 <script type="text/javascript">
 
+
+var editor1 = null;
+
 $(function(){
 	
 	var contextPath = '${pageContext.request.contextPath}';
@@ -72,6 +73,8 @@ $(function(){
 	});
 	
 	$(".removeAttr").click(function(){
+	
+		var typeId = $("#categoryType").find("option:selected").val();
 		var span = $(this).parent("span").next();
 		var last = span.find("._input:last");
 		if(span.find("._input").index(last)==0){
@@ -80,11 +83,13 @@ $(function(){
 		}
 		
 		last.remove();
+		span.find("input[name='attr1Val_"+typeId+"']:last").remove();
+		span.find("input[name='attr2Val_"+typeId+"']:last").remove();
 		span.attr("num",span.find("._input").length);
 		
 		loadInventoryView();
 		
-		var typeId = $("#categoryType").find("option:selected").val();
+		
 		var trl = $("#inventoryTable_"+typeId).find("tbody tr").length;
 		//清理图片数组
 		images[typeId] = images[typeId].slice(0,trl);
@@ -97,6 +102,12 @@ $(function(){
 	function allPrice(){
 		var typeId = $("#categoryType").find("option:selected").val();
 		var tmp = this;
+		
+		if(!$.isNumeric($(this).val())){
+			$(this).val("");
+			return;
+		}
+		
 		$("#inventoryTable_"+typeId).find("tbody tr input[name='price_"+typeId+"']").each(function(i,e){
 			$(e).val($(tmp).val());
 		});
@@ -107,6 +118,12 @@ $(function(){
 	function allInventoryNum(){
 		var typeId = $("#categoryType").find("option:selected").val();
 		var tmp = this;
+		
+		if(!$.isNumeric($(this).val())){
+			$(this).val("");
+			return;
+		}
+		
 		$("#inventoryTable_"+typeId).find("tbody tr input[name='nums_"+typeId+"']").each(function(i,e){
 			$(e).val($(tmp).val());
 		});
@@ -197,6 +214,7 @@ $(function(){
 		flag = true;
 		$("#addCommodityBtn").attr("disabled","disabled");
 		
+		editor1.updateElement();
 		$.ajax({
 			type : "post",
 			url : contextPath + "/commodity/addCommodity",
@@ -231,10 +249,10 @@ $(function(){
 		var fileId = $(obj).attr("id");
 		var index = $(obj).attr("index");
 		$.ajaxFileUpload({
-             url: contextPath+'/commodity/uploadImage', //用于文件上传的服务器端请求地址
+             url: contextPath+'/commodity/uploadImage?ajax=ajax', //用于文件上传的服务器端请求地址
              type: 'post',
              cache : false,
-             data: { Id: '123', name: 'lunis' }, //此参数非常严谨，写错一个引号都不行
+             data: { }, //此参数非常严谨，写错一个引号都不行
              secureuri: false, //一般设置为false
              fileElementId: fileId, //文件上传空间的id属性  <input type="file" id="file" name="file" />
              dataType: 'json', //返回值类型 一般设置为json
@@ -250,10 +268,6 @@ $(function(){
 	                 }else{
 	                 	alert(data1.msg)
 	                 }
-	                 
-				    $("#"+fileId).bind("change",function(e){
-						upCommImage(this);
-					});
              	}else{
              		alert("上传错误");
              	}
@@ -264,12 +278,28 @@ $(function(){
              }
 		})
 		
+			                 
+	    $("#"+fileId).bind("change",function(e){
+			upCommImage(this);
+		});
+		
 	}
 	
 	
+	$("input[name='marketPrice']").bind("input propertychange",function(){
+			if(!$.isNumeric($(this).val())){
+				$(this).val("");
+			}
+	});
+	$("input[name='realPrice']").bind("input propertychange",function(){
+			if(!$.isNumeric($(this).val())){
+				$(this).val("");
+			}
+	});
+	
 	
 	loadInventoryView();
-	
+	var editor1 = CKEDITOR.replace('editor1'); //参数‘content’是textarea元素的name属性值，而非id属性值
 });
 
 
@@ -312,6 +342,14 @@ $(function(){
 										<option value="${item.id}" attr1="${item.categoryPropertiesList[0].name}" attr1Id="${item.categoryPropertiesList[0].id}" attr2="${item.categoryPropertiesList[1].name}" attr2Id="${item.categoryPropertiesList[1].id}">${item.name}</option>
 									</c:forEach>
 								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>相关</th>
+							<td>
+								<input type="checkbox" name="isNew" value="1"> <span style="vertical-align:top;">新品</span>
+								<input type="checkbox" name="isSpecial" value="1"> <span style="vertical-align:top;">特价</span>
+								<input type="checkbox" name="isVip" value="1"> <span style="vertical-align:top;">VIP</span>
 							</td>
 						</tr>
 						<tr>
@@ -399,7 +437,6 @@ $(function(){
 											Editor 1:</label>
 										<textarea cols="80" id="editor1" name="editor1" rows="10">请编辑商品图文</textarea>
 									</p>
-									<ckeditor:replace  replace="editor1" basePath="${pageContext.request.contextPath}/js/ckeditor/" />
 							</td>
 						</tr>
 						<tr>

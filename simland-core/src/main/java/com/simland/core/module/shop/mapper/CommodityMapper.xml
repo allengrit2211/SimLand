@@ -19,6 +19,7 @@
 		<result property="creater" column="creater" />
 		<result property="isNew" column="isNew" />
 		<result property="isSpecial" column="isSpecial" />
+		<result property="isVip" column="isVip" />
 
 		<association property="cInventoryList" column="id"
 			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventoryByCommodityId" />
@@ -40,7 +41,8 @@
         createTime createTime,
         creater creater,
         isNew isNew,
-        isSpecial isSpecial
+        isSpecial isSpecial,
+        isVip isVip
 	    ]]>
 	</sql>
 
@@ -59,7 +61,8 @@
 		        createTime,
 		        creater,
 		        isNew,
-		        isSpecial
+		        isSpecial,
+		        isVip
 	        ) VALUES (
 		        	#{sid},
 		        	#{name},
@@ -71,7 +74,8 @@
 		        	#{createTime},
 		        	#{creater},
 		        	#{isNew},
-		        	#{isSpecial}
+		        	#{isSpecial},
+		        	#{isVip}
 	        )
 	    ]]>
 		<selectKey resultType="java.lang.Integer" order="AFTER"
@@ -116,6 +120,9 @@
 		</if>
 		<if test="isSpecial!=null">
 			isSpecial = #{isSpecial}
+		</if>
+		<if test="isVip!=null">
+			isVip = #{isVip}
 		</if>
 	    <![CDATA[  
         WHERE 
@@ -187,6 +194,9 @@
 			</if>
 			<if test="ids!=null">
 				AND id in (${ids})
+			</if>
+			<if test="isVip!=null">
+				AND isVip = #{isVip}
 			</if>
 
 		</where>

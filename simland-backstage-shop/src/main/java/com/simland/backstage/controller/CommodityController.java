@@ -1,7 +1,9 @@
 package com.simland.backstage.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,7 +33,6 @@ import com.simland.core.module.purview.entity.ShopUser;
 import com.simland.core.module.shop.entity.CategoryPropertiesVal;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Inventory;
-import com.simland.core.module.shop.entity.Shop;
 import com.simland.core.module.shop.service.ICategoryPropertiesService;
 import com.simland.core.module.shop.service.ICommodityService;
 import com.simland.core.module.shop.service.IInventoryService;
@@ -49,6 +50,8 @@ public class CommodityController {
 
 	@Autowired
 	private IInventoryService inventoryService;
+
+	public static final String IMAGE_URL = "/simland-app-service";
 
 	String reJson = null;
 	SysMessage msg = new SysMessage();
@@ -94,6 +97,10 @@ public class CommodityController {
 		String marketPrice = request.getParameter("marketPrice");
 		String realPrice = request.getParameter("realPrice");
 		String editor1 = request.getParameter("editor1");
+		String isNew = request.getParameter("isNew");
+		String isSpecial = request.getParameter("isSpecial");
+		String isVip = request.getParameter("isVip");
+		;
 
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
@@ -142,6 +149,7 @@ public class CommodityController {
 			inventory.setNums(Utils.strToInteger(Utils.getArrayVal(i, nums)));
 			inventory.setPrice(Utils.strToDouble(Utils.getArrayVal(i, price)));
 			inventory.setProductCode(Utils.getArrayVal(index, productCode));
+			inventory.setImage(copyFile(request, Utils.getArrayVal(i, imageName)));
 			ilist.add(inventory);
 			index++;
 		}
@@ -152,6 +160,12 @@ public class CommodityController {
 		commodity.setRealPrice(Utils.strToDouble(realPrice));
 		commodity.setMarketPrice(Utils.strToDouble(marketPrice));
 		commodity.setType(Utils.strToInteger(categoryType));
+		commodity.setIsNew(Utils.strToInteger(isNew));
+		commodity.setIsSpecial(Utils.strToInteger(isSpecial));
+		commodity.setIsVip(Utils.strToInteger(isVip));
+		if (ilist.size() > 0) {
+			commodity.setImg(ilist.get(0).getImage());
+		}
 
 		logger.info(cpList);
 		logger.info(ilist);
@@ -211,6 +225,45 @@ public class CommodityController {
 
 		logger.info(this.getClass().getName() + (reJson = Utils.objToJson(msg)));
 		return reJson;
+	}
+
+	/***
+	 * 复制商品图到新目录
+	 * 
+	 * @param srcFile
+	 *            源文件目录
+	 * @param newFile
+	 *            新文件目录
+	 * @return
+	 */
+	private String copyFile(HttpServletRequest request, String srcFile) {
+		try {
+
+			String path = request.getSession().getServletContext().getRealPath("/") + srcFile;
+			path = path.replaceAll("\\\\", "/");
+
+			String webPath = null;
+			String newFile = request
+					.getSession()
+					.getServletContext()
+					.getRealPath(webPath = "/images/commodity/" + new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
+
+			newFile = newFile.replaceAll("\\\\", "/");
+			newFile = newFile.replaceAll(request.getSession().getServletContext().getContextPath(), IMAGE_URL);
+
+			InputStream is = new FileInputStream(new File(path));
+
+			String type = srcFile.substring(srcFile.lastIndexOf(".") + 1);
+			// file.getOriginalFilename()
+			String fileName = java.util.UUID.randomUUID() + "." + type;
+
+			FileUtils.copyInputStreamToFile(is, new File(newFile, fileName));
+
+			return webPath +File.separator+ fileName;
+		} catch (Exception e) {
+			logger.error("copyFile error:" + e.getMessage());
+			return "";
+		}
 	}
 
 	//

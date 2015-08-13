@@ -27,6 +27,7 @@ public class Commodity implements java.io.Serializable {
 	private java.lang.String creater;
 	private java.lang.Integer isNew;
 	private java.lang.Integer isSpecial;
+	private java.lang.Integer isVip;
 
 	private CategoryProperties attr1;// 属性1
 	private CategoryProperties attr2;// 属性2
@@ -145,6 +146,14 @@ public class Commodity implements java.io.Serializable {
 
 	public void setIsSpecial(java.lang.Integer value) {
 		this.isSpecial = value;
+	}
+
+	public java.lang.Integer getIsVip() {
+		return isVip;
+	}
+
+	public void setIsVip(java.lang.Integer isVip) {
+		this.isVip = isVip;
 	}
 
 	public CategoryProperties getAttr1() {
@@ -286,7 +295,9 @@ public class Commodity implements java.io.Serializable {
 
 			String[] inStr = { String.valueOf(ci.getNums()), String.valueOf(ci.getPrice()), ci.getImage() };
 
-			inventoryMap.put(INVENTORY_KEY + Utils.notNullTrim(String.valueOf(ci.getAttr1())) + "_" + Utils.notNullTrim(String.valueOf(ci.getAttr2())), inStr);
+			inventoryMap.put(
+					INVENTORY_KEY + Utils.notNullTrim(String.valueOf(ci.getAttr1())) + "_"
+							+ Utils.notNullTrim(String.valueOf(ci.getAttr2())), inStr);
 
 		}
 
@@ -315,7 +326,8 @@ public class Commodity implements java.io.Serializable {
 	 * @return
 	 */
 	public static String getCommoditySku(int cid, int attr1Val, int attr2Val) {
-		return String.valueOf(cid) + String.valueOf(Math.min(attr1Val, attr2Val)) + String.valueOf(Math.max(attr1Val, attr2Val));
+		return String.valueOf(cid) + String.valueOf(Math.min(attr1Val, attr2Val))
+				+ String.valueOf(Math.max(attr1Val, attr2Val));
 	}
 
 	/***
@@ -325,7 +337,8 @@ public class Commodity implements java.io.Serializable {
 	 * @return
 	 */
 	public static String getCommoditySku(Commodity c) {
-		return getCommoditySku(c.getId(), c.getAttr1Val() == null ? 0 : Utils.strToInteger(c.getAttr1Val()), c.getAttr2Val() == null ? 0 : Utils.strToInteger(c.getAttr2Val()));
+		return getCommoditySku(c.getId(), c.getAttr1Val() == null ? 0 : Utils.strToInteger(c.getAttr1Val()),
+				c.getAttr2Val() == null ? 0 : Utils.strToInteger(c.getAttr2Val()));
 	}
 
 	/***
@@ -339,7 +352,9 @@ public class Commodity implements java.io.Serializable {
 		if (c.getInventoryMap() == null)
 			return 1000000000d;// 默认价格
 
-		String[] vals = c.getInventoryMap().get(INVENTORY_KEY + Utils.notNullTrim(String.valueOf(c.getAttr1Val())) + "_" + Utils.notNullTrim(String.valueOf(c.getAttr2Val())));
+		String[] vals = c.getInventoryMap().get(
+				INVENTORY_KEY + Utils.notNullTrim(String.valueOf(c.getAttr1Val())) + "_"
+						+ Utils.notNullTrim(String.valueOf(c.getAttr2Val())));
 
 		return Utils.strToDouble(Utils.getArrayVal(1, vals));
 	}
