@@ -55,9 +55,11 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
 	<!-- AOP 方式事务管理 -->
 	<!-- 
-	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 		<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
