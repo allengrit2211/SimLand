@@ -335,4 +335,36 @@ public class CommodityController {
 		model.addAttribute("pageView", pageView);
 		return new ModelAndView("commodity/listCommodityPopup");
 	}
+
+	/***
+	 * 发布商品
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/commodity/issueCommodityList")
+	public ModelAndView issueCommodityList(HttpServletRequest request, Model model, PageView pageView) {
+		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("sid", shopUser.getId());
+
+		int totalRecord = commodityService.getSplitCommodityByInventoryCount(param);
+		if (totalRecord == 0) {
+			return new ModelAndView("commodity/listCommodityPopup");
+		}
+
+		pageView.setPageSize(15);
+
+		param.put("endSize", pageView.getFirstResult());
+		param.put("pageSize", pageView.getPageSize());
+		param.put("sortColumns", "id");
+
+		List list = commodityService.getSplitCommodityByInventory(param);
+
+		pageView.setTotalRecord(totalRecord);
+		pageView.setRecords(list);
+
+		model.addAttribute("pageView", pageView);
+		return new ModelAndView("commodity/issueCommodityList");
+	}
 }

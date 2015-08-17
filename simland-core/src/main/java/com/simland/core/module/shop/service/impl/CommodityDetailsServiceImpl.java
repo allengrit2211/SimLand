@@ -13,22 +13,23 @@ import com.simland.core.module.shop.entity.CommodityDetails;
 import com.simland.core.module.shop.service.ICommodityDetailsService;
 
 @Service("commodityDetailsService")
+@Transactional(readOnly=true)
 public class CommodityDetailsServiceImpl implements ICommodityDetailsService {
 
 	@Autowired
 	private CommodityDetailsMapper commodityDetailsMapper;
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertCommodityDetails(CommodityDetails commodityDetails) {
 		return commodityDetailsMapper.insertCommodityDetails(commodityDetails);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateCommodityDetails(CommodityDetails commodityDetails) {
 		return commodityDetailsMapper.updateCommodityDetails(commodityDetails);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteCommodityDetails(Integer id) {
 		return commodityDetailsMapper.deleteCommodityDetails(id);
 	}

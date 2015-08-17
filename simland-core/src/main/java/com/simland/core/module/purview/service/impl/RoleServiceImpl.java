@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.Utils;
@@ -16,7 +17,7 @@ import com.simland.core.module.purview.mapper.RolePowerMapper;
 import com.simland.core.module.purview.service.IRoleService;
 
 @Service("roleService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class RoleServiceImpl implements IRoleService {
 
 	@Autowired
@@ -25,14 +26,17 @@ public class RoleServiceImpl implements IRoleService {
 	@Autowired
 	private RolePowerMapper rolePowerMapper;
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertRole(Role role) {
 		return roleMapper.insertRole(role);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateRole(Role role) {
 		return roleMapper.updateRole(role);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteRole(Integer id) {
 		return roleMapper.deleteRole(id);
 	}
@@ -54,6 +58,7 @@ public class RoleServiceImpl implements IRoleService {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertRole(Role role, List<Integer> powers) {
 		int id = roleMapper.insertRole(role);
 		if (Utils.isObjectEmpty(role.getId()))
@@ -70,6 +75,7 @@ public class RoleServiceImpl implements IRoleService {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateRole(Role role, List<Integer> powers) {
 
 		if (Utils.isObjectEmpty(role) || Utils.isObjectEmpty(role.getId())) {

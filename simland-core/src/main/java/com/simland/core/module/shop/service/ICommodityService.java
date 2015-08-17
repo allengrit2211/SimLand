@@ -23,4 +23,8 @@ public interface ICommodityService {
 
 	public List<Commodity> getSplitCommodityList(Map param);
 
+	public List<Commodity> getSplitCommodityByInventory(Map<String, Object> param);
+
+	public Integer getSplitCommodityByInventoryCount(Map<String, Object> param);
+
 }

@@ -12,7 +12,7 @@
 
 
 </head>
-	
+<body>
 	<c:import url="../top.jsp"/>
 	<div style="clear:both;"></div>
 	<div id="content">
@@ -100,10 +100,6 @@
 		</div>
 	</div>
 
-	
-
-
-<body>
 </body>
 </html>
 

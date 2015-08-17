@@ -42,6 +42,10 @@ public class Commodity implements java.io.Serializable {
 
 	private List<String[]> attr1List = new ArrayList<String[]>();// 属性1值[id,val]
 	private List<String[]> attr2List = new ArrayList<String[]>();// 属性2值[id,val]
+	
+	
+	private CategoryPropertiesVal categoryPropertiesVal1;
+	private CategoryPropertiesVal categoryPropertiesVal2;
 
 	private String[] defaultChose = new String[] { "", "", "", "" };// 默认选择颜色尺码
 																	// id,id,val,val
@@ -53,6 +57,8 @@ public class Commodity implements java.io.Serializable {
 	 * 库存MapN<_inventory_attr1_attr2,String[]{"库存","价格","图片"}>
 	 */
 	private Map<String, String[]> inventoryMap = new HashMap<String, String[]>();
+
+	private Inventory inventory;
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -164,6 +170,32 @@ public class Commodity implements java.io.Serializable {
 
 	public void setCommodityDetails(CommodityDetails commodityDetails) {
 		this.commodityDetails = commodityDetails;
+	}
+
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
+	
+	
+
+	public CategoryPropertiesVal getCategoryPropertiesVal1() {
+		return categoryPropertiesVal1;
+	}
+
+	public void setCategoryPropertiesVal1(CategoryPropertiesVal categoryPropertiesVal1) {
+		this.categoryPropertiesVal1 = categoryPropertiesVal1;
+	}
+
+	public CategoryPropertiesVal getCategoryPropertiesVal2() {
+		return categoryPropertiesVal2;
+	}
+
+	public void setCategoryPropertiesVal2(CategoryPropertiesVal categoryPropertiesVal2) {
+		this.categoryPropertiesVal2 = categoryPropertiesVal2;
 	}
 
 	public CategoryProperties getAttr1() {

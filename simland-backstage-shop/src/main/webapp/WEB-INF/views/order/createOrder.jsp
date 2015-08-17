@@ -216,7 +216,7 @@ $(function(){
 
 </script>
 </head>
-	
+<body>	
 	<c:import url="../top.jsp"/>
 	<div style="clear:both;"></div>
 	<div id="content">
@@ -299,10 +299,7 @@ $(function(){
 			
 		</div>
 	</div>
-	
 
-
-<body>
 </body>
 </html>
 

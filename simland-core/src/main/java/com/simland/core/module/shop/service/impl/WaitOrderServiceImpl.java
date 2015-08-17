@@ -13,22 +13,23 @@ import com.simland.core.module.shop.entity.WaitOrder;
 import com.simland.core.module.shop.service.IWaitOrderService;
 
 @Service("waitOrderService")
+@Transactional(readOnly=true)
 public class WaitOrderServiceImpl implements IWaitOrderService {
 
 	@Autowired
 	private WaitOrderMapper waitOrderMapper;
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertWaitOrder(WaitOrder waitOrder) {
 		return waitOrderMapper.insertWaitOrder(waitOrder);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateWaitOrder(WaitOrder waitOrder) {
 		return waitOrderMapper.updateWaitOrder(waitOrder);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteWaitOrder(Integer id) {
 		return waitOrderMapper.deleteWaitOrder(id);
 	}

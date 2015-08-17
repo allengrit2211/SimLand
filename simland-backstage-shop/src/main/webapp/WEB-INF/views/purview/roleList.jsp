@@ -11,7 +11,7 @@
 <link type="text/css" href="${pageContext.request.contextPath}/css/pageView.css" rel="stylesheet"  />
 <title></title>
 </head>
-	
+<body>
 	<c:import url="../top.jsp"/>
 	<div style="clear:both;"></div>
 	<div id="content">
@@ -77,8 +77,6 @@
 		</div>
 	</div>
 
-
-<body>
 </body>
 </html>
 

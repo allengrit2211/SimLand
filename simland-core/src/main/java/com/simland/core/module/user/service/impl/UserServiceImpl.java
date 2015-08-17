@@ -19,7 +19,7 @@ import com.simland.core.module.user.mapper.UserMapper;
 import com.simland.core.module.user.service.IUserService;
 
 @Service("userService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class UserServiceImpl implements IUserService, UserDetailsService {
 
 	@Autowired

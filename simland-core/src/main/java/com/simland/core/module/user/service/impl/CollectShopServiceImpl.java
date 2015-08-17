@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.Utils;
@@ -17,7 +18,7 @@ import com.simland.core.module.user.mapper.CollectShopMapper;
 import com.simland.core.module.user.service.ICollectShopService;
 
 @Service("collectShopService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class CollectShopServiceImpl implements ICollectShopService {
 
 	@Autowired
@@ -29,6 +30,7 @@ public class CollectShopServiceImpl implements ICollectShopService {
 	@Autowired
 	private CommodityMapper commodityMapper;
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer insertCollectShop(CollectShop collectShop) {
 
 		int id = collectShopMapper.insertCollectShop(collectShop);
@@ -47,10 +49,12 @@ public class CollectShopServiceImpl implements ICollectShopService {
 
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer updateCollectShop(CollectShop collectShop) {
 		return collectShopMapper.updateCollectShop(collectShop);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer deleteCollectShop(Integer id) {
 		return collectShopMapper.deleteCollectShop(id);
 	}

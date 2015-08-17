@@ -18,6 +18,9 @@
         <result property="status" column="status"/>
         <result property="type" column="type"/>
         <result property="sid" column="sid"/>
+        <result property="issueTime" column="issueTime"/>
+        <result property="cause" column="cause"/>
+        
 	</resultMap>
 	
 	<resultMap id="InventoryRM1" type="com.simland.core.module.shop.entity.CommodityInventory">
@@ -45,7 +48,9 @@
         productCode productCode,
         status status,
         type type,
-        sid sid
+        sid sid,
+        issueTime issueTime,
+        cause cause
 	    ]]>
 	</sql>
 
@@ -63,7 +68,9 @@
 		        productCode,
 		        status,
 		        type,
-		        sid
+		        sid,
+		        issueTime,
+		        cause
 	        ) VALUES (
 		        	#{cid},
 		        	#{attr1},
@@ -74,7 +81,9 @@
 		        	#{productCode},
 		        	#{status},
 		        	#{type},
-		        	#{sid}
+		        	#{sid},
+		        	#{issueTime},
+		        	#{cause}
 	        )
 	    ]]>
 		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
@@ -98,7 +107,9 @@
 		        productCode,
 		        status,
 		        type,
-		        sid
+		        sid,
+		        issueTime,
+		        cause
 	        ) VALUES 
 		<foreach collection="list" item="item" index="index" separator=",">
 			<![CDATA[
@@ -112,7 +123,9 @@
 		        	#{item.productCode},
 		        	#{item.status},
 		        	#{item.type},
-		        	#{item.sid}
+		        	#{item.sid},
+		        	#{item.issueTime},
+		        	#{item.cause}
 		        )
 		    ]]>
 		</foreach>

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.module.user.entity.Address;
@@ -13,12 +14,13 @@ import com.simland.core.module.user.mapper.AddressMapper;
 import com.simland.core.module.user.service.IAddressService;
 
 @Service("addressService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class AddressServiceImpl implements IAddressService {
 
 	@Autowired
 	private AddressMapper addressMapper;
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer insertAddress(Address address) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("uid", address.getUid());
@@ -28,14 +30,17 @@ public class AddressServiceImpl implements IAddressService {
 		return addressMapper.insertAddress(address);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer updateAddress(Map param) {
 		return addressMapper.updateAddress(param);
 	}
 	
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer updateAddress(Address address) {
 		return addressMapper.updateAddress(address);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer deleteAddress(Integer id) {
 		return addressMapper.deleteAddress(id);
 	}

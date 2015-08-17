@@ -23,12 +23,39 @@
 
 		<association property="cInventoryList" column="id"
 			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventoryByCommodityId" />
-			
-		<association property="commodityDetails" column="id" select="com.simland.core.module.shop.mapper.CommodityDetailsMapper.getCommodityDetailsByCid"/>
+
+		<association property="commodityDetails" column="id"
+			select="com.simland.core.module.shop.mapper.CommodityDetailsMapper.getCommodityDetailsByCid" />
 
 		<!-- <association property="categoryPropertiesValList" column="id" select="com.simland.core.module.shop.mapper.CategoryPropertiesValMapper.getCategoryPropertiesValByCid" 
 			/> -->
 	</resultMap>
+
+	<resultMap id="CommodityRM1" type="com.simland.core.module.shop.entity.Commodity">
+		<result property="id" column="id" />
+		<result property="sid" column="sid" />
+		<result property="name" column="name" />
+		<result property="img" column="img" />
+		<result property="type" column="type" />
+		<result property="collectNum" column="collectNum" />
+		<result property="marketPrice" column="marketPrice" />
+		<result property="realPrice" column="realPrice" />
+		<result property="createTime" column="createTime" />
+		<result property="creater" column="creater" />
+		<result property="isNew" column="isNew" />
+		<result property="isSpecial" column="isSpecial" />
+		<result property="isVip" column="isVip" />
+
+		<association property="inventory" column="iid"
+			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventory" />
+
+		<association property="categoryPropertiesVal1" column="attr1"
+			select="com.simland.core.module.shop.mapper.CategoryPropertiesValMapper.getCategoryPropertiesVal" />
+		<association property="categoryPropertiesVal2" column="attr2"
+			select="com.simland.core.module.shop.mapper.CategoryPropertiesValMapper.getCategoryPropertiesVal" />
+
+	</resultMap>
+
 
 	<sql id="Base_Column_List">
 	    <![CDATA[
@@ -159,60 +186,60 @@
 	<sql id="pageWhere">
 		<where>
 			<if test="id!=null">
-				AND id = #{id}
+				AND t1.id = #{id}
 			</if>
 			<if test="sid!=null">
-				AND sid = #{sid}
+				AND t1.sid = #{sid}
 			</if>
 			<if test="name!=null">
-				AND name = #{name}
+				AND t1.name = #{name}
 			</if>
 			<if test="img!=null">
-				AND img = #{img}
+				AND t1.img = #{img}
 			</if>
 			<if test="type!=null">
-				AND type = #{type}
+				AND t1.type = #{type}
 			</if>
 			<if test="collectNum!=null">
-				AND collectNum = #{collectNum}
+				AND t1.collectNum = #{collectNum}
 			</if>
 			<if test="marketPrice!=null">
-				AND marketPrice = #{marketPrice}
+				AND t1.marketPrice = #{marketPrice}
 			</if>
 			<if test="realPrice!=null">
-				AND realPrice = #{realPrice}
+				AND t1.realPrice = #{realPrice}
 			</if>
 			<if test="createTime!=null">
-				AND createTime = #{createTime}
+				AND t1.createTime = #{createTime}
 			</if>
 			<if test="creater!=null">
-				AND creater = #{creater}
+				AND t1.creater = #{creater}
 			</if>
 			<if test="isNew!=null">
-				AND isNew = #{isNew}
+				AND t1.isNew = #{isNew}
 			</if>
 			<if test="isSpecial!=null">
-				AND isSpecial = #{isSpecial}
+				AND t1.isSpecial = #{isSpecial}
 			</if>
 			<if test="ids!=null">
-				AND id in (${ids})
+				AND t1.id in (${ids})
 			</if>
 			<if test="isVip!=null">
-				AND isVip = #{isVip}
+				AND t1.isVip = #{isVip}
 			</if>
 
 		</where>
 	</sql>
 
 	<select id="getCommodityCount" resultType="int">
-		SELECT count(*) FROM t_commodity
+		SELECT count(*) FROM t_commodity t1
 		<include refid="pageWhere" />
 	</select>
 
 	<select id="getSplitCommodityList" resultMap="CommodityRM">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM t_commodity
+		FROM t_commodity t1
 		<include refid="pageWhere" />
 
 		<if test="sortColumns!=null">
@@ -220,5 +247,26 @@
 		</if>
 		limit #{endSize},#{pageSize}
 	</select>
+
+	<!-- 关联库存查询 -->
+	<select id="getSplitCommodityByInventory" resultMap="CommodityRM1">
+	    <![CDATA[
+	    	select t1.*,t2.id iid,t2.attr1,t2.attr2 from t_inventory t2 left join t_commodity t1 on t1.id = t2.cid
+	    ]]>
+		<include refid="pageWhere" />
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns} desc
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+
+	<select id="getSplitCommodityByInventoryCount" resultType="int">
+	    <![CDATA[
+	    	select count(*) from t_inventory t2 left join t_commodity t1 on t1.id = t2.cid
+	    ]]>
+		<include refid="pageWhere" />
+	</select>
+
 
 </mapper>

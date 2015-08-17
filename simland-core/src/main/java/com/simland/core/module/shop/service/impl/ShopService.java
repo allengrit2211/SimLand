@@ -6,6 +6,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.MD5Util;
 import com.simland.core.base.SysMessage;
@@ -15,6 +18,7 @@ import com.simland.core.module.shop.mapper.ShopMapper;
 import com.simland.core.module.shop.service.IShopService;
 
 @Service("shopService")
+@Transactional(readOnly = true)
 public class ShopService implements IShopService {
 
 	@Autowired
@@ -56,6 +60,12 @@ public class ShopService implements IShopService {
 		}
 
 		return null;
+	}
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	public Integer updateShop(Shop shop) {
+		return shopMapper.updateShop(shop);
 	}
 
 }

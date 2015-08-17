@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +23,7 @@ import com.simland.core.module.shop.mapper.InventoryMapper;
 import com.simland.core.module.shop.service.IInventoryService;
 
 @Service("inventoryService")
+@Transactional(readOnly=true)
 public class InventoryServiceImpl implements IInventoryService {
 
 	@Autowired
@@ -38,17 +38,17 @@ public class InventoryServiceImpl implements IInventoryService {
 	@Autowired
 	private CategoryPropertiesValMapper categoryPropertiesValMapper;
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertInventory(Inventory inventory) {
 		return inventoryMapper.insertInventory(inventory);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateInventory(Inventory inventory) {
 		return inventoryMapper.updateInventory(inventory);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteInventory(Integer id) {
 		return inventoryMapper.deleteInventory(id);
 	}
@@ -70,7 +70,7 @@ public class InventoryServiceImpl implements IInventoryService {
 	}
 
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertInventory(Commodity commodity, List<Inventory> inventorys,
 			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage) {
 

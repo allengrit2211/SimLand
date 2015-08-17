@@ -15,6 +15,7 @@ import com.simland.core.module.shop.mapper.CommodityMapper;
 import com.simland.core.module.shop.service.ICommodityService;
 
 @Service("commodityService")
+@Transactional(readOnly = true)
 public class CommodityServiceImpl implements ICommodityService {
 
 	@Autowired
@@ -23,17 +24,17 @@ public class CommodityServiceImpl implements ICommodityService {
 	@Autowired
 	private CategoryPropertiesMapper categoryPropertiesMapper;
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertCommodity(Commodity commodity) {
 		return commodityMapper.insertCommodity(commodity);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateCommodity(Commodity commodity) {
 		return commodityMapper.updateCommodity(commodity);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteCommodity(Integer id) {
 		return commodityMapper.deleteCommodity(id);
 	}
@@ -65,6 +66,20 @@ public class CommodityServiceImpl implements ICommodityService {
 		Commodity c = commodityMapper.getCommodity(param);
 		param = null;
 		return c;
+	}
+
+	/***
+	 * 根据库存获取商品
+	 * 
+	 * @param param
+	 * @return
+	 */
+	public List getSplitCommodityByInventory(Map param) {
+		return commodityMapper.getSplitCommodityByInventory(param);
+	}
+
+	public Integer getSplitCommodityByInventoryCount(Map param) {
+		return commodityMapper.getSplitCommodityByInventoryCount(param);
 	}
 
 }

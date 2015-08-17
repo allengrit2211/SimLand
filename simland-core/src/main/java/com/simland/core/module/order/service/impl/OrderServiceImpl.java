@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.Utils;
@@ -16,7 +17,7 @@ import com.simland.core.module.order.mapper.OrderMapper;
 import com.simland.core.module.order.service.IOrderService;
 
 @Service("orderService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class OrderServiceImpl implements IOrderService {
 
 	@Autowired
@@ -25,14 +26,17 @@ public class OrderServiceImpl implements IOrderService {
 	@Autowired
 	private OrderItemMapper orderItemMapper;
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertOrder(Order order) {
 		return orderMapper.insertOrder(order);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateOrder(Order order) {
 		return orderMapper.updateOrder(order);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteOrder(Integer id) {
 		return orderMapper.deleteOrder(id);
 	}
@@ -54,11 +58,13 @@ public class OrderServiceImpl implements IOrderService {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertOrder(Order order, List<OrderItem> orderItems) {
 		return null;
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertOrder(List<Order> orders) {
 
 		if (orders == null || orders.size() == 0)

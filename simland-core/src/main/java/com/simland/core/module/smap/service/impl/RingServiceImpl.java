@@ -2,7 +2,9 @@ package com.simland.core.module.smap.service.impl;
 
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,20 +13,23 @@ import com.simland.core.module.smap.entity.Ring;
 import com.simland.core.module.smap.service.IRingService;
 
 @Service("ringService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class RingServiceImpl implements IRingService{
 
 	@Autowired
 	private RingMapper ringMapper;
 	
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer insertRing(Ring ring) {
 		return ringMapper.insertRing(ring);
 	}
-
+	
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer updateRing(Ring ring) {
 		return ringMapper.updateRing(ring);
 	}
 	
+	@Transactional(propagation = Propagation.REQUIRED)
 	public Integer deleteRing(Integer id) {
 		return ringMapper.deleteRing(id);
 	}

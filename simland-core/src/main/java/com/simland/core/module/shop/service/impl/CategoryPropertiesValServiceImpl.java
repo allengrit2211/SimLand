@@ -13,22 +13,23 @@ import com.simland.core.module.shop.entity.CategoryPropertiesVal;
 import com.simland.core.module.shop.service.ICategoryPropertiesValService;
 
 @Service("categoryPropertiesValService")
+@Transactional(readOnly=true)
 public class CategoryPropertiesValServiceImpl implements ICategoryPropertiesValService {
 
 	@Autowired
 	private CategoryPropertiesValMapper categoryPropertiesValMapper;
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertCategoryPropertiesVal(CategoryPropertiesVal categoryPropertiesVal) {
 		return categoryPropertiesValMapper.insertCategoryPropertiesVal(categoryPropertiesVal);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateCategoryPropertiesVal(CategoryPropertiesVal categoryPropertiesVal) {
 		return categoryPropertiesValMapper.updateCategoryPropertiesVal(categoryPropertiesVal);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteCategoryPropertiesVal(Integer id) {
 		return categoryPropertiesValMapper.deleteCategoryPropertiesVal(id);
 	}

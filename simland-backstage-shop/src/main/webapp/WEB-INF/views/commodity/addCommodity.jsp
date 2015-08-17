@@ -312,7 +312,7 @@ $(function(){
 </script>
 <title>添加商品</title>
 </head>
-	
+<body>
 	<c:import url="../top.jsp"/>
 	<div style="clear:both;"></div>
 	<div id="content">
@@ -460,8 +460,6 @@ $(function(){
 		</div>
 	</div>
 
-
-<body>
 </body>
 </html>
 

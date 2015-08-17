@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.module.purview.entity.ShopUser;
@@ -12,20 +13,23 @@ import com.simland.core.module.purview.mapper.ShopUserMapper;
 import com.simland.core.module.purview.service.IShopUserService;
 
 @Service("shopUserService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class ShopUserServiceImpl implements IShopUserService{
 
 	@Autowired
 	private ShopUserMapper shopUserMapper;
 	
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertShopUser(ShopUser shopUser) {
 		return shopUserMapper.insertShopUser(shopUser);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateShopUser(ShopUser shopUser) {
 		return shopUserMapper.updateShopUser(shopUser);
 	}
 	
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteShopUser(Integer id) {
 		return shopUserMapper.deleteShopUser(id);
 	}

@@ -1,7 +1,5 @@
 package com.simland.core.module.shop.entity;
 
-import com.simland.core.module.order.entity.Cart;
-
 public class Shop implements java.io.Serializable {
 
 	private static final long serialVersionUID = 5454155825314635342L;
@@ -32,6 +30,7 @@ public class Shop implements java.io.Serializable {
 	private java.lang.Integer commodityNum;
 	private java.lang.Integer collectNum;
 	private java.lang.String recomm;
+	private java.lang.Integer status;
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -233,6 +232,14 @@ public class Shop implements java.io.Serializable {
 		this.recomm = recomm;
 	}
 
+	public java.lang.Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(java.lang.Integer status) {
+		this.status = status;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -262,6 +269,7 @@ public class Shop implements java.io.Serializable {
 		result = prime * result + ((regAddress == null) ? 0 : regAddress.hashCode());
 		result = prime * result + ((salesArea == null) ? 0 : salesArea.hashCode());
 		result = prime * result + ((score == null) ? 0 : score.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
 
@@ -398,6 +406,11 @@ public class Shop implements java.io.Serializable {
 			if (other.score != null)
 				return false;
 		} else if (!score.equals(other.score))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
 			return false;
 		return true;
 	}

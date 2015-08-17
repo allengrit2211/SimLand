@@ -60,8 +60,7 @@
 	
 	<!-- AOP 方式事务管理 -->
 	<!-- 
-	
-		<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="update*" propagation="REQUIRED" read-only="false" />
 			<tx:method name="save*" propagation="REQUIRED" read-only="false" />
@@ -80,7 +79,8 @@
 
 
 	<aop:config>
-		<aop:pointcut id="txInterceptor" expression="execution(* com.luckcart..*.service.*.*(..))" />
+		<aop:pointcut id="txInterceptor"
+			expression="execution(* com.luckcart..*.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txInterceptor" />
 	</aop:config>
 	 -->

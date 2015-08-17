@@ -48,4 +48,12 @@ public interface IShopService {
 	 */
 	public Shop shopLogin(String loginName, String pwd, SysMessage msg);
 
+	/***
+	 * 更新店铺信息
+	 * 
+	 * @param shop
+	 * @return
+	 */
+	public Integer updateShop(Shop shop);
+
 }

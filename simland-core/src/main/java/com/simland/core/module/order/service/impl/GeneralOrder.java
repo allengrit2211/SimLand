@@ -9,6 +9,8 @@ import java.util.Vector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.SysMessage;
 import com.simland.core.base.Utils;
@@ -34,12 +36,14 @@ import com.simland.core.module.user.entity.User;
  */
 
 @Component
+@Transactional(readOnly=true)
 public class GeneralOrder implements IOrderState {
 
 	@Autowired
 	private IOrderService orderService;
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public int create(User user, Address address, Cart cart, SysMessage msg, String... remark) {
 
 		List<String> _waitClearSku = new LinkedList<String>();

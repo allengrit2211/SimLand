@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.module.purview.entity.RolePower;
@@ -12,20 +13,23 @@ import com.simland.core.module.purview.mapper.RolePowerMapper;
 import com.simland.core.module.purview.service.IRolePowerService;
 
 @Service("rolePowerService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class RolePowerServiceImpl implements IRolePowerService{
 
 	@Autowired
 	private RolePowerMapper rolePowerMapper;
 	
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertRolePower(RolePower rolePower) {
 		return rolePowerMapper.insertRolePower(rolePower);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateRolePower(RolePower rolePower) {
 		return rolePowerMapper.updateRolePower(rolePower);
 	}
 	
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteRolePower(Integer id) {
 		return rolePowerMapper.deleteRolePower(id);
 	}

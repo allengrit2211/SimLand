@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.Utils;
@@ -14,20 +15,23 @@ import com.simland.core.module.purview.mapper.PowerMapper;
 import com.simland.core.module.purview.service.IPowerService;
 
 @Service("powerService")
-@Transactional(rollbackFor = java.lang.Exception.class)
+@Transactional(readOnly=true)
 public class PowerServiceImpl implements IPowerService {
 
 	@Autowired
 	private PowerMapper powerMapper;
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertPower(Power power) {
 		return powerMapper.insertPower(power);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updatePower(Power power) {
 		return powerMapper.updatePower(power);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deletePower(Integer id) {
 		return powerMapper.deletePower(id);
 	}

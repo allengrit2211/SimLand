@@ -33,6 +33,7 @@
         <result property="commodityNum" column="commodityNum"/>
         <result property="collectNum" column="collectNum"/>
         <result property="recomm" column="recomm"/>
+        <result property="status" column="status"/>
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -61,7 +62,8 @@
         score score,
         commodityNum commodityNum,
         collectNum collectNum,
-        recomm recomm
+        recomm recomm,
+        status status
 	    ]]>
 	</sql>
 
@@ -93,7 +95,8 @@
 		        score,
 		        commodityNum,
 		        collectNum,
-		        recomm
+		        recomm,
+		        status
 	        ) VALUES (
 		        	#{name},
 		        	#{cname},
@@ -118,7 +121,8 @@
 		        	#{score},
 		        	#{commodityNum},
 		        	#{collectNum},
-		        	#{recomm}
+		        	#{recomm},
+		        	#{status}
 	        )
 	    ]]>
 		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
@@ -128,82 +132,85 @@
 
 	<update id="updateShop">
 	    <![CDATA[
-        UPDATE t_shop SET
+        UPDATE t_shop
         ]]>
+        <set>
 		<if test="name!=null">
-        	name = #{name}
+        	name = #{name},
 		</if>
 		<if test="cname!=null">
-        	cname = #{cname}
+        	cname = #{cname},
 		</if>
 		<if test="caddress!=null">
-        	caddress = #{caddress}
+        	caddress = #{caddress},
 		</if>
 		<if test="coordinates!=null">
-        	coordinates = #{coordinates}
+        	coordinates = #{coordinates},
 		</if>
 		<if test="bmodel!=null">
-        	bmodel = #{bmodel}
+        	bmodel = #{bmodel},
 		</if>
 		<if test="brand!=null">
-        	brand = #{brand}
+        	brand = #{brand},
 		</if>
 		<if test="salesArea!=null">
-        	salesArea = #{salesArea}
+        	salesArea = #{salesArea},
 		</if>
 		<if test="clientrGroup!=null">
-        	clientrGroup = #{clientrGroup}
+        	clientrGroup = #{clientrGroup},
 		</if>
 		<if test="regAddress!=null">
-        	regAddress = #{regAddress}
+        	regAddress = #{regAddress},
 		</if>
 		<if test="corporate!=null">
-        	corporate = #{corporate}
+        	corporate = #{corporate},
 		</if>
 		<if test="people!=null">
-        	people = #{people}
+        	people = #{people},
 		</if>
 		<if test="engage!=null">
-        	engage = #{engage}
+        	engage = #{engage},
 		</if>
 		<if test="loginName!=null">
-        	loginName = #{loginName}
+        	loginName = #{loginName},
 		</if>
 		<if test="loginPwd!=null">
-        	loginPwd = #{loginPwd}
+        	loginPwd = #{loginPwd},
 		</if>
 		<if test="email!=null">
-        	email = #{email}
+        	email = #{email},
 		</if>
 		<if test="phone!=null">
-        	phone = #{phone}
+        	phone = #{phone},
 		</if>
 		<if test="contact!=null">
-        	contact = #{contact}
+        	contact = #{contact},
 		</if>
 		<if test="contactPeople!=null">
-        	contactPeople = #{contactPeople}
+        	contactPeople = #{contactPeople},
 		</if>
 		<if test="clogo!=null">
-        	cLogo = #{clogo}
+        	cLogo = #{clogo},
 		</if>
 		<if test="licenseImg!=null">
-        	licenseImg = #{licenseImg}
+        	licenseImg = #{licenseImg},
 		</if>
 		<if test="score!=null">
-        	score = #{score}
+        	score = #{score},
 		</if>
-		
 		<if test="commodityNum!=null">
-        	commodityNum = #{commodityNum}
+        	commodityNum = #{commodityNum},
 		</if>
 		<if test="collectNum!=null">
-        	collectNum = #{collectNum}
+        	collectNum = #{collectNum},
 		</if>
 		<if test="recomm!=null">
-        	recomm = #{recomm}
+        	recomm = #{recomm},
 		</if>
-		
+		<if test="status!=null">
+        	status = #{status},
+		</if>
+        </set>
 	    <![CDATA[  
         WHERE 
 	        id = #{id}
@@ -318,6 +325,9 @@
 	        </if>
 			<if test="recomm!=null">
 	        AND recomm = #{recomm}
+	        </if>
+			<if test="status!=null">
+	        AND status = #{status}
 	        </if>
 	        
 		</where>
