@@ -117,8 +117,12 @@ span {
 	border-radius: 0 !important;
 }
 
+.ui-header{
+	height: 52px;
+}
+
 .header_1 {
-	border-bottom: 1px solid #B2B2B2 !important;
+	border-bottom: 1px solid #EEE !important;
 	background-color: #FFF !important;
 	color: #5F646E !important;
 	font-size: 1em;
@@ -130,7 +134,7 @@ span {
 	color: #666;
 	text-shadow: none;
 	margin: 0 !important;
-	padding: 12px 0 !important;
+	padding: 18px 0 !important;
 }
 
 .header_1 .back {
@@ -139,6 +143,7 @@ span {
 	border: none !important;
 	box-shadow: none;
 	background-color: #FFF;
+	padding: 14px 15px;
 }
 
 .ui-footer {
@@ -243,7 +248,7 @@ span {
 .logodiv {
 	background-color: #FFF;
 	text-align: center;
-	margin-top: 8%;
+	margin-top: 12%;
 	padding: 2% 0;
 }
 
@@ -278,7 +283,8 @@ span {
 
 #indexPage .box {
 	text-align: center;
-	margin: 4% 1%;
+	margin: 6% 1%;
+	height: 15%;
 }
 
 #indexPage .box .a {
@@ -304,7 +310,7 @@ span {
 
 #indexPage .box1 {
 	width: 90%;
-	margin: 8% auto 13% auto;
+	margin: 9% auto 13% auto;
 }
 
 #indexPage .ui-input-search {
@@ -1262,20 +1268,18 @@ span {
 	margin: 0 auto;
 }
 
-#CommodityPage .c_infoBox{
+#CommodityPage .c_infoBox {
 	
 }
 
-
-#CommodityPage .c_infoBox .c_infoBox_tag{
+#CommodityPage .c_infoBox .c_infoBox_tag {
 	display: none;
-	width:100%;
+	width: 100%;
 }
-#CommodityPage .c_infoBox .c_infoBox_tag.on{
+
+#CommodityPage .c_infoBox .c_infoBox_tag.on {
 	display: block;
 }
-
-
 
 #CommodityPage .popup {
 	min-height: 236px;
@@ -2182,12 +2186,12 @@ span {
 /************shopListPage end***************/
 
 /************sellerListPage start***************/
-#sellerListPage .header_1 h1 {
+#sellerListPage .header_1 h1.h0 {
 	display: inline-block;
 	position: relative;
-	width: 30%;
+	width: 55%;
 	left: 18%;
-	padding: 0 !important;
+	padding: 7px 0!important;
 }
 
 #sellerListPage .header_1 .ui-input-search {
@@ -2206,13 +2210,16 @@ span {
 	margin: 2px 0;
 	text-indent: 15px;
 	font-size: 0.75em;
-	line-height: 28px;
 }
 
 #sellerListPage .header_1 .h {
-	width: 50%;
 	height: 30px;
 	left: 15%;
+	display: inline-block;
+	position: relative;
+	left: 18%;
+	padding: 16px 0!important;	
+	vertical-align:top;
 }
 
 #sellerListPage .header_1 .h a {
@@ -2241,7 +2248,7 @@ span {
 }
 
 #sellerListPage .boxList {
-	padding: 20px 20px 0 20px;
+	margin-top: 20px;
 }
 
 #sellerListPage .boxList .p5 {
@@ -2249,11 +2256,34 @@ span {
 }
 
 #sellerListPage .boxList .box {
-	margin: 0 0 30px 0;
+	margin: 15px 0 25px 0;
 }
 
 #sellerListPage .boxList .box p {
 	margin: 6px 0;
+	padding: 0 20px;
+}
+
+#sellerListPage .boxList .box p.p3, #sellerListPage .boxList .box p.p2,
+	#sellerListPage .boxList .box p.p1 {
+	font-size: 0.875em;
+}
+
+#sellerListPage .boxList .box p.p3 .s1, #sellerListPage .boxList .box p.p1 .s1
+	{
+	color: #808080;
+}
+
+#sellerListPage .boxList .box .p1 .s1 {
+	display: inline-block;
+}
+
+#sellerListPage .boxList .box .p1 .s2 {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 75%;
+	display: inline-block;
 }
 
 #sellerListPage .boxList .box p a {
@@ -2262,6 +2292,7 @@ span {
 }
 
 #sellerListPage .boxList .box .p4 a.a0 {
+	color: #808080;
 	font-size: 1.125em;
 }
 
@@ -2298,7 +2329,6 @@ span {
 
 #sellerListPage .boxList .box .p3 a {
 	font-weight: normal;
-	font-size: 0.75em;
 }
 
 .star {
@@ -2933,14 +2963,14 @@ span {
 	position: absolute;
 	z-index: 1;
 	top: 0px;
-	bottom: 60px;
+	bottom: 0px;
 	left: 0px;
 	right: 0px;
 	overflow: auto;
 }
 
 .wrapper.top {
-	top: 45px;
+	top: 52px;
 }
 
 .scroller {
@@ -2948,13 +2978,13 @@ span {
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	width: 100%;
-	padding: 0;
+	padding:0 0 70px 0;
 	min-height: 6em;
 }
 
 #pullUp {
 	font-size: 0.875em;
-	padding-left: 10px;
+	padding:10px 10px;
 }
 
 #pullUp.loading {

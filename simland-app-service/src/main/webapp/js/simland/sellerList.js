@@ -1,7 +1,11 @@
 var sellerList = {
-	totalPage : $("#totalPage").val(),// 总页数,
+	totalPage : 0,// 总页数,
 	myScroll : {},
 	initialize : function() {
+		
+		//总页数
+		sellerList.totalPage = $.mobile.activePage.find("#totalPage").val();
+		
 		// 商家星级排序
 		$("#sellerListPage_score_btn").unbind().click(sellerList.scoreOrder);
 
@@ -45,7 +49,12 @@ var sellerList = {
 			});
 
 			sellerList.myScroll.on('scrollEnd', updatePosition);
-
+			sellerList.myScroll.on('scroll', function(){
+				
+				alert(0)
+			});
+			
+			
 			function updatePosition() {
 				if (this.y - this.maxScrollY == 0) {
 					var currentPage = parseInt($("#sellerListPage_currentPage").val()) + 1;
@@ -58,8 +67,32 @@ var sellerList = {
 						currentPage : currentPage
 					});
 				}
-
+				
+				
 			}
+			
+
+			sellerList.myScroll.on("slideDown",function(){
+				//当下拉，使得边界超出时，如果手指从屏幕移开，则会触发该事件
+				if(this.y > 40){
+					//获取内容于屏幕拉开的距离
+					//可以在该部分中，修改样式，并且仅限ajax或者其他的一些操作
+					//此时只是为了能演示该功能，只添加了一个alert功能。
+					//并且，由于alert会阻塞后续的动画效果，所以，
+					//添加了后面的一行代码，移除之前添加上的一个样式
+					alert("slideDown");
+					upIcon.removeClass("reverse_icon");
+				}
+			});
+
+			sellerList.myScroll.on("slideUp",function(){
+				if(this.maxScrollY - this.y > 40){
+					//与slideDown相同的，maxScrollY表示文档区域的最大高度
+					alert("slideUp");
+					upIcon.removeClass("reverse_icon")
+				}
+			});
+			
 
 		}
 

@@ -35,24 +35,22 @@
 
 						<c:forEach var="item" items="${list}" varStatus="status">   
 							<div class='box'>
-							<p class="p4">
-								<a  sid='${item.id}' href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide" class='toShop a0 ui-link'>${item.cname}</a>
-								<a  href='#' class='a1 ui-link'>260M</a>
-							</p>
-							<p class="p3">
-								<a href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide">
-									${item.caddress}
-								</a>
-							</p>
-							<p class='p1'>
-								<span>主营产品:</span><span>${item.engage}</span>
-							</p>
-							<div class='line'></div>
-							<p class='p2'>
-								<span class='s1'>${item.commodityNum}</span> <span>件产品</span> |
-								<a  href='#' class='a2' sid='${item.id}'><span class='s2'>&nbsp;</span>
-								<span class='s3'>${item.collectNum}</span></a> <span>次</span>
-								<span class='s4 star star${item.score}'>&nbsp;</span>
-							</p>
+								<p class="p4">
+									<a  sid='${item.id}' href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide" class='toShop a0 ui-link'>${item.cname}</a>
+									<a  href='#' class='a1 ui-link'>260M</a>
+								</p>
+								<p class="p3">
+									<span class="s1">经营模式：</span><a href='${pageContext.request.contextPath}/shop/showShop?id=${item.id}' data-transition="slide">${item.bmodel}</a>
+								</p>
+								<p class='p1'>
+									<span class="s1">主营产品：</span><span class="s2">${item.engage}</span>
+								</p>
+								<p class='p2'>
+									<span class='s1'>${item.commodityNum}</span> <span>件产品</span> |
+									<a  href='#' class='a2' sid='${item.id}'><span class='s2'>&nbsp;</span>
+									<span class='s3'>${item.collectNum}</span></a> <span>次</span>
+									<span class='s4 star star${item.score}'>&nbsp;</span>
+								</p>
 							</div>
+							<div class='line'></div>
 						</c:forEach> 

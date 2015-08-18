@@ -87,6 +87,7 @@ public class ShopController {
 			param.clear();
 			param.put("endSize", pageView.getFirstResult());
 			param.put("pageSize", pageView.getPageSize());
+			model.addAttribute("totalPage", pageView.getTotalPage());
 			List<Shop> list1 = shopService.getSplitShopList(param);
 			model.addAttribute("list1", list1);
 		}
