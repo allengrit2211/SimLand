@@ -82,4 +82,10 @@ public class CommodityServiceImpl implements ICommodityService {
 		return commodityMapper.getSplitCommodityByInventoryCount(param);
 	}
 
+	@Override
+	@Transactional(readOnly = false)
+	public Integer updateCommodityStatusByIds(Map param) {
+		return commodityMapper.updateCommodityStatusByIds(param);
+	}
+
 }

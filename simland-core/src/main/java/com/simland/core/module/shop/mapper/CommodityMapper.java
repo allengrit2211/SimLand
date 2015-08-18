@@ -24,5 +24,7 @@ public interface CommodityMapper {
 	public List getSplitCommodityByInventory(Map param);
 
 	public Integer getSplitCommodityByInventoryCount(Map param);
+	
+	public Integer updateCommodityStatusByIds(Map param);
 
 }

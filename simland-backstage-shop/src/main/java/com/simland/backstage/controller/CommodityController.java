@@ -4,12 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ProcessBuilder.Redirect;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -112,6 +114,9 @@ public class CommodityController {
 			return reJson;
 		}
 
+		ReentrantLock reentrantLock = new ReentrantLock();
+		reentrantLock.lock();
+
 		Commodity commodity = new Commodity();
 		List<CategoryPropertiesVal> cpList = new LinkedList<CategoryPropertiesVal>();
 		List<Inventory> ilist = new LinkedList<Inventory>();
@@ -178,9 +183,12 @@ public class CommodityController {
 			int id = inventoryService.insertInventory(commodity, ilist, cpList, msg);
 			flag = (id > 0) ? true : false;
 		} catch (Exception e) {
+			reentrantLock.unlock();
 			logger.error(this.getClass() + " addommodity error:" + e.getMessage());
 			e.printStackTrace();
 		}
+
+		reentrantLock.unlock();
 
 		if (flag) {
 			msg.setCode("1");
@@ -348,9 +356,9 @@ public class CommodityController {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("sid", shopUser.getId());
 
-		int totalRecord = commodityService.getSplitCommodityByInventoryCount(param);
+		int totalRecord = commodityService.getCommodityCount(param);
 		if (totalRecord == 0) {
-			return new ModelAndView("commodity/listCommodityPopup");
+			return new ModelAndView("commodity/issueCommodityList");
 		}
 
 		pageView.setPageSize(15);
@@ -359,12 +367,44 @@ public class CommodityController {
 		param.put("pageSize", pageView.getPageSize());
 		param.put("sortColumns", "id");
 
-		List list = commodityService.getSplitCommodityByInventory(param);
+		List list = commodityService.getSplitCommodityList(param);
 
 		pageView.setTotalRecord(totalRecord);
 		pageView.setRecords(list);
 
 		model.addAttribute("pageView", pageView);
 		return new ModelAndView("commodity/issueCommodityList");
+	}
+
+	/***
+	 * 发布商品
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/commodity/issueCommodity")
+	public ModelAndView issueCommodity(HttpServletRequest request, Model model, PageView pageView) {
+
+		String[] ids = request.getParameterValues("ids");
+		String issueType = request.getParameter("issueType");
+		if (Utils.isObjectEmpty(ids) || ids.length == 0 || Utils.isObjectEmpty(issueType)) {
+			return new ModelAndView("redirect:/commodity/issueCommodityList");
+		}
+
+		ReentrantLock reentrantLock = new ReentrantLock();
+		reentrantLock.lock();
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("ids", Utils.toIntegerArray(ids));
+		if (Utils.strToInteger(issueType) == 1) {// 上架
+			param.put("status", Commodity.status_1);
+		} else if (Utils.strToInteger(issueType) == 2) {// 下架
+			param.put("status", Commodity.status_2);
+		}
+		commodityService.updateCommodityStatusByIds(param);
+		reentrantLock.unlock();
+
+		return new ModelAndView("redirect:/commodity/issueCommodityList");
 	}
 }

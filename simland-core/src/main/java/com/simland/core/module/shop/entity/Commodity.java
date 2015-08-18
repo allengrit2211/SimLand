@@ -1,5 +1,6 @@
 package com.simland.core.module.shop.entity;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +30,14 @@ public class Commodity implements java.io.Serializable {
 	private java.lang.Integer isSpecial;
 	private java.lang.Integer isVip;
 
+	public static final Integer status_0 = 0;// 默认状态
+	public static final Integer status_1 = 1;// 上架
+	public static final Integer status_2 = 2;// 下架
+
+	private java.lang.Integer status;
+	private Timestamp issueTime;// 发布时间
+	private java.lang.String cause;// 下架原因
+
 	private CommodityDetails commodityDetails;
 
 	private CategoryProperties attr1;// 属性1
@@ -42,10 +51,6 @@ public class Commodity implements java.io.Serializable {
 
 	private List<String[]> attr1List = new ArrayList<String[]>();// 属性1值[id,val]
 	private List<String[]> attr2List = new ArrayList<String[]>();// 属性2值[id,val]
-	
-	
-	private CategoryPropertiesVal categoryPropertiesVal1;
-	private CategoryPropertiesVal categoryPropertiesVal2;
 
 	private String[] defaultChose = new String[] { "", "", "", "" };// 默认选择颜色尺码
 																	// id,id,val,val
@@ -178,24 +183,6 @@ public class Commodity implements java.io.Serializable {
 
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
-	}
-	
-	
-
-	public CategoryPropertiesVal getCategoryPropertiesVal1() {
-		return categoryPropertiesVal1;
-	}
-
-	public void setCategoryPropertiesVal1(CategoryPropertiesVal categoryPropertiesVal1) {
-		this.categoryPropertiesVal1 = categoryPropertiesVal1;
-	}
-
-	public CategoryPropertiesVal getCategoryPropertiesVal2() {
-		return categoryPropertiesVal2;
-	}
-
-	public void setCategoryPropertiesVal2(CategoryPropertiesVal categoryPropertiesVal2) {
-		this.categoryPropertiesVal2 = categoryPropertiesVal2;
 	}
 
 	public CategoryProperties getAttr1() {
@@ -408,5 +395,31 @@ public class Commodity implements java.io.Serializable {
 	public void setInventoryMap(Map<String, String[]> inventoryMap) {
 		this.inventoryMap = inventoryMap;
 	}
+
+	public Timestamp getIssueTime() {
+		return issueTime;
+	}
+
+	public void setIssueTime(Timestamp issueTime) {
+		this.issueTime = issueTime;
+	}
+
+	public java.lang.String getCause() {
+		return cause;
+	}
+
+	public void setCause(java.lang.String cause) {
+		this.cause = cause;
+	}
+
+	public java.lang.Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(java.lang.Integer status) {
+		this.status = status;
+	}
+	
+	
 
 }

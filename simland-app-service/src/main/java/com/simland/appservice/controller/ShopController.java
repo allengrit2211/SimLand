@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
 import com.simland.core.module.shop.entity.Commodity;
+import com.simland.core.module.shop.entity.Inventory;
 import com.simland.core.module.shop.entity.Shop;
 import com.simland.core.module.shop.service.ICommodityService;
 import com.simland.core.module.shop.service.IShopService;
@@ -154,6 +155,7 @@ public class ShopController {
 			param.put("isSpecial", "1");
 		}
 
+		param.put("status", Commodity.status_1);
 		int totalRecord = commodityService.getCommodityCount(param);
 
 		PageView pageView = new PageView();

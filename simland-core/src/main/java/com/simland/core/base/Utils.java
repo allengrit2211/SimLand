@@ -81,7 +81,8 @@ public class Utils {
 		}
 		if (randGen == null) {
 			randGen = new Random();
-			numbersAndLetters = ("0123456789abcdefghijklmnopqrstuvwxyz" + "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
+			numbersAndLetters = ("0123456789abcdefghijklmnopqrstuvwxyz" + "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+					.toCharArray();
 		}
 		char[] randBuffer = new char[length];
 		for (int i = 0; i < randBuffer.length; i++) {
@@ -387,6 +388,18 @@ public class Utils {
 		} catch (Exception e) {
 			return "";
 		}
+	}
+
+	public static Integer[] toIntegerArray(String[] arrays) {
+		if (Utils.isObjectEmpty(arrays) || arrays.length == 0) {
+			return new Integer[0];
+		}
+
+		Integer[] ids = new Integer[arrays.length];
+		for (int i = 0; i < arrays.length; i++) {
+			ids[i] = Utils.strToInteger(arrays[i]);
+		}
+		return ids;
 	}
 
 	public static void main(String[] args) {

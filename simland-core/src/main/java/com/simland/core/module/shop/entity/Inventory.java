@@ -17,13 +17,6 @@ public class Inventory implements java.io.Serializable {
 	private java.lang.Integer type;// 状态 0默认状态 1上架 2下架
 	private java.lang.Integer sid;
 
-	public static final Integer status_0 = 0;// 默认状态
-	public static final Integer status_1 = 1;// 上架
-	public static final Integer status_2 = 2;// 下架
-
-	private Timestamp issueTime;// 发布时间
-	private java.lang.String cause;// 下架原因
-
 	private Commodity commodity;
 
 	public java.lang.Integer getId() {
@@ -114,28 +107,12 @@ public class Inventory implements java.io.Serializable {
 		this.image = image;
 	}
 
-	public Timestamp getIssueTime() {
-		return issueTime;
-	}
-
-	public void setIssueTime(Timestamp issueTime) {
-		this.issueTime = issueTime;
-	}
-
 	public Commodity getCommodity() {
 		return commodity;
 	}
 
 	public void setCommodity(Commodity commodity) {
 		this.commodity = commodity;
-	}
-
-	public java.lang.String getCause() {
-		return cause;
-	}
-
-	public void setCause(java.lang.String cause) {
-		this.cause = cause;
 	}
 
 }

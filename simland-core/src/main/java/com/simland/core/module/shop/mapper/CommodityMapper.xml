@@ -20,7 +20,9 @@
 		<result property="isNew" column="isNew" />
 		<result property="isSpecial" column="isSpecial" />
 		<result property="isVip" column="isVip" />
-
+        <result property="issueTime" column="issueTime"/>
+        <result property="cause" column="cause"/>
+        <result property="status" column="status" />
 		<association property="cInventoryList" column="id"
 			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventoryByCommodityId" />
 
@@ -45,7 +47,8 @@
 		<result property="isNew" column="isNew" />
 		<result property="isSpecial" column="isSpecial" />
 		<result property="isVip" column="isVip" />
-
+        <result property="issueTime" column="issueTime"/>
+        <result property="cause" column="cause"/>
 		<association property="inventory" column="iid"
 			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventory" />
 
@@ -71,7 +74,10 @@
         creater creater,
         isNew isNew,
         isSpecial isSpecial,
-        isVip isVip
+        isVip isVip,
+        issueTime issueTime,
+        cause cause,
+        status status
 	    ]]>
 	</sql>
 
@@ -91,7 +97,10 @@
 		        creater,
 		        isNew,
 		        isSpecial,
-		        isVip
+		        isVip,
+		        issueTime,
+		        cause,
+		        status
 	        ) VALUES (
 		        	#{sid},
 		        	#{name},
@@ -104,7 +113,10 @@
 		        	#{creater},
 		        	#{isNew},
 		        	#{isSpecial},
-		        	#{isVip}
+		        	#{isVip},
+		        	#{issueTime},
+		        	#{cause},
+		        	#{status}
 	        )
 	    ]]>
 		<selectKey resultType="java.lang.Integer" order="AFTER"
@@ -153,6 +165,17 @@
 		<if test="isVip!=null">
 			isVip = #{isVip}
 		</if>
+		
+		<if test="issueTime!=null">
+			issueTime = #{issueTime}
+		</if>
+		<if test="cause!=null">
+			cause = #{cause}
+		</if>	
+		<if test="status!=null">
+			status = #{status}
+		</if>	
+		
 	    <![CDATA[  
         WHERE 
 	        id = #{id}
@@ -227,6 +250,9 @@
 			<if test="isVip!=null">
 				AND t1.isVip = #{isVip}
 			</if>
+			<if test="status!=null">
+				AND t1.status = #{status}
+			</if>
 
 		</where>
 	</sql>
@@ -268,5 +294,26 @@
 		<include refid="pageWhere" />
 	</select>
 
+	<!-- 批量更新商品上下架状态 -->
+	<update id="updateCommodityStatusByIds" parameterType="java.util.Map">
+		<![CDATA[
+			UPDATE t_commodity
+		]]>
+		<set>
+			status = #{status},
+			issueTime = CURDATE(),
+			<if test="cause!=null">
+				cause = #{cause}
+			</if>
+		</set>
+		<where>
+			id in
+		<foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+			<![CDATA[
+ 				#{item}
+		    ]]>
+		</foreach>	
+		</where>
+	</update>
 
 </mapper>
