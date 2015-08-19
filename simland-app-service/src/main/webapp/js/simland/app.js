@@ -80,7 +80,7 @@ var app = {
 			app.myScroll = new IScroll($.mobile.activePage
 					.find(".wrapper")[0], {
 				scrollbarClass : 'myScrollbar', /* 重要样式 */
-				useTransition : false, /* 此属性不知用意，本人从true改为false */
+				useTransition : true, /* 此属性不知用意，本人从true改为false */
 				checkDOMChanges : true,
 				mouseWheel : true,
 				preventDefault : false,
@@ -91,58 +91,42 @@ var app = {
 				startY : -pullDownOffset
 			});		
 			
-			var isScrolling = false;
-			// Event: scrollStart
-			app.myScroll.on("scrollStart", function() {
-				if (this.y == this.startY) {
-					isScrolling = true;
-				}
-			});		
-			
 			 //Event: scroll
 			app.myScroll.on('scroll', function(){
 					var length = 2;
 		    	  	if (this.y >= length && pullDownEl && !pullDownEl.className.match('flip')) {
 		    	  		pullDownEl.className = 'flip';
 		    	  		pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
-		              //this.minScrollY = 0;
+		    	  		this.minScrollY = 0;
 		    	  	} else if (this.y < length && pullDownEl && pullDownEl.className.match('flip')) {
 		    	  		pullDownEl.className = '';
 		    	  		pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
-		              //this.minScrollY = -pullDownOffset;
+		    	  		this.minScrollY = -pullDownOffset;
 		    	  	}else if (this.y <= (this.maxScrollY - length) && pullUpEl && !pullUpEl.className.match('flip')) {
 		    	  		pullUpEl.className = 'flip';
 		    	  		pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
-		    	  		//this.maxScrollY = this.maxScrollY;
 		    	  		this.maxScrollY = this.maxScrollY;
 		    	  	} else if (this.y > (this.maxScrollY +length) && pullUpEl && pullUpEl.className.match('flip')) {
 		    	  		pullUpEl.className = '';
 		    	  		pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载更多...';
-		              //this.maxScrollY = pullUpOffset;
 		    	  		this.maxScrollY = pullUpOffset;
 		    	  	}
 		     });
 			
 		      //Event: scrollEnd
 			app.myScroll.on("scrollEnd", function() {
-		    	  if (pullDownEl && !pullDownEl.className.match('flip') && this.y > this.options.startY) {
-		    		  this.scrollTo(0, this.options.startY,800);
-		    	  }
-		          else if (pullDownEl && pullDownEl.className.match('flip')){
+		          if (pullDownEl && pullDownEl.className.match('flip')){
 		        	  	pullDownEl.className = 'loading';
 		        	  	pullDownEl.querySelector('.pullDownLabel').innerHTML = '努力加载中...';                
 		        	  	// Execute custom function (ajax call?)
-		        	  		pullDownAction();
+			        		  pullDownAction();    
 		          }
 		          else if (pullUpEl && pullUpEl.className.match('flip')) {
 		        	  pullUpEl.className = 'loading';
 		        	  pullUpEl.querySelector('.pullUpLabel').innerHTML = '努力加载中...';    
 		        	  // Execute custom function (ajax call?)
-		        	  if (isScrolling) {            
 		        		  pullUpAction();    
-		        	  }
 		          }
-		          isScrolling = false;
 		      });
 
 		      //Event: refresh
@@ -150,11 +134,12 @@ var app = {
 		           if (pullDownEl  && pullDownEl.className.match('loading')) {
 		                  pullDownEl.className = '';
 		                  pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+		                  //alert(this.options.startY);
 		                  this.scrollTo(0,this.options.startY,0);
 		           } else if (pullUpEl && pullUpEl.className.match('loading')) {
 		                  pullUpEl.className = '';
 		                  pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载更多...';
-		                  this.scrollTo(0,this.maxScrollY,0);
+		                 this.scrollTo(0,this.maxScrollY,0);
 		           }
 		           
 		      });

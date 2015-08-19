@@ -12,7 +12,7 @@ var index = {
 		// 历史记载
 		index.loadHistoryList(3);
 		
-		$.mobile.activePage.find("#searchShop").unbind().bind("change", function(event, ui) {
+		$.mobile.activePage.find("#searchShop").unbind().bind("blur", function(event, ui) {
 			if($(this).val()!=''){
 				index.searchShop();
 			}

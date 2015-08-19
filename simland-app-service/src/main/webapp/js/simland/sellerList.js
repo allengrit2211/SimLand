@@ -6,39 +6,36 @@ var sellerList = {
 		sellerList.totalPage = $.mobile.activePage.find("#totalPage").val();
 
 		// 商家星级排序
-		$("#sellerListPage_score_btn").unbind().click(sellerList.scoreOrder);
+		$.mobile.activePage.find("#sellerListPage_score_btn").unbind().click(sellerList.scoreOrder);
 
 		// 滚动翻页
-		sellerList.scroll();
+		//sellerList.scroll();
 
 		// 页面初始数据加载
 		// $(document).on("pageinit", initPage2);
 
 		// function initPage2(event) {
 		// $(document).off('pageinit', initPage2);
-		$("#sellerListPage_currentPage").val(1);
+		$.mobile.activePage.find("#sellerListPage_currentPage").val(1);
 		// }
 
 		// 加载店铺收藏事件
 		shop.collectShopEvent();
 
-		$("#sellerListPage_search_k").unbind().bind("change",
-				function(event, ui) {
-					$("#sellerListPage_form").submit();
-				});
+		$.mobile.activePage.find("#sellerListPage_search_k").unbind().bind("change",function(event, ui) {
+			sellerList.selerListPageShow({currentPage : 1,reset:0});	
+		});
 
-		sellerList.textSeach();
+		
 	},
 	pullUpAction : function(){
 		
-		var currentPage = parseInt($("#sellerListPage_currentPage").val()) + 1;
-
-		if (currentPage > sellerList.totalPage) {
-			return;
-		}
-
+		var currentPage = parseInt($.mobile.activePage.find("#sellerListPage_currentPage").val()) + 1;
+		currentPage = $.isNumeric(currentPage) ? currentPage : 1;
+		
 		sellerList.selerListPageShow({
-			currentPage : currentPage
+			currentPage : currentPage,
+			reset:1
 		});		
 	},
 	scroll : function() {// 商家列表页面，滚动分页
@@ -216,12 +213,18 @@ var sellerList = {
 	 */
 	selerListPageShow : function(option) {// 商家列表显示
 
-		$("#sellerListPage_currentPage").val(option.currentPage);
+		$.mobile.activePage.find("#sellerListPage_currentPage").val(option.currentPage);
 
+		if (option.currentPage > sellerList.totalPage) {
+			$.mobile.activePage.find("#pullUp").html("已经到达最后一页...");
+			return;
+		}		
+		
 		$.ajax({
 			type : "get",
 			url : app.servicerURL + "/shop/listAjax",
-			data : $("#sellerListPage_form").serialize(),
+			data : $.mobile.activePage.find("#sellerListPage_form").serialize(),
+			dataType:'html',
 			cache : false,
 			async : false,
 			success : selerListPageShowCallBack,
@@ -232,15 +235,27 @@ var sellerList = {
 
 		// 回掉
 		function selerListPageShowCallBack(data) {
-
-			$("#sellerListPage .boxList").append(data);
+			
+			if(option.reset==0||!option.reset){
+				$.mobile.activePage.find(".boxList").html(data);
+			}else{
+				$.mobile.activePage.find(".boxList").append(data);
+			}
+			
+			if(data){
+				// 总页数
+				sellerList.totalPage = parseInt($.mobile.activePage.find("#totalPageAjax").val()) ;
+			}
+			
 			sellerList.textSeach();
 
 			// 加载店铺收藏事件
 			shop.collectShopEvent();
+			
+			app.myScroll.refresh();
 
 			if (option.currentPage >= sellerList.totalPage) {
-				$("#pullUp").html("已经到达最后一页...");
+				$.mobile.activePage.find("#pullUp").html("已经到达最后一页...");
 				return;
 			}
 
@@ -248,21 +263,21 @@ var sellerList = {
 
 	},
 	textSeach : function() {
-		if ($("#sellerListPage_stype").val() == 1) {
-			$("#sellerListPage .boxList .box .p1").textSearch(
-					$("#sellerListPage_search_k").val(), {
+		if ($.mobile.activePage.find("#sellerListPage_stype").val() == 1) {
+			$.mobile.activePage.find("#sellerListPage .boxList .box .p1").textSearch(
+					$.mobile.activePage.find("#sellerListPage_search_k").val(), {
 						markColor : "#44BBAB"
 					});
 		} else {
-			$("#sellerListPage .boxList .box .a0").textSearch(
-					$("#sellerListPage_search_k").val(), {
+			$.mobile.activePage.find("#sellerListPage .boxList .box .a0").textSearch(
+					$.mobile.activePage.find("#sellerListPage_search_k").val(), {
 						markColor : "#44BBAB"
 					});
 		}
 	},
 	scoreOrder : function() {// 商家星级排序
-		$("#sellerListPage_score").val("score");
-		$("#sellerListPage_scoreType").val(1);
-		$("#sellerListPage_form").submit();
+		$.mobile.activePage.find("#sellerListPage_score").val("score");
+		$.mobile.activePage.find("#sellerListPage_scoreType").val(1);
+		sellerList.selerListPageShow({currentPage : 1,reset:0});		
 	}
 }

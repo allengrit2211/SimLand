@@ -345,7 +345,7 @@ span {
 	font-size: 1em;
 	height: 100%;
 	display: inline-block;
-	text-indent: 50px;
+	text-indent: 60px;
 }
 
 #indexPage .box1 .input1 .btn {
@@ -2253,6 +2253,11 @@ span {
 
 #sellerListPage .boxList .p5 {
 	font-size: 0.875em;
+	margin:0 20px;
+}
+
+#sellerListPage .boxList .h_r {
+	margin:10px 20px;
 }
 
 #sellerListPage .boxList .box {
@@ -2278,22 +2283,20 @@ span {
 	display: inline-block;
 }
 
-#sellerListPage .boxList .box .p1 .s2 {
+#sellerListPage .boxList .box .s2 {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	width: 75%;
 	display: inline-block;
+	color:#333;
 }
 
-#sellerListPage .boxList .box p a {
-	color: #666;
-	background: url("../images/bg/map_dianpu_r4_c9.jpg") no-repeat 0 96%;
-}
 
 #sellerListPage .boxList .box .p4 a.a0 {
-	color: #808080;
+	color: #333;
 	font-size: 1.125em;
+	font-weight:bold;
 }
 
 #sellerListPage .boxList .box p a.a1 {
@@ -2993,7 +2996,6 @@ span {
 	height:40px;
 	line-height:40px;
 	padding:5px 10px;
-	border-bottom:1px solid #ccc;
 	font-weight:bold;
 	font-size:14px;
 	color:#888;

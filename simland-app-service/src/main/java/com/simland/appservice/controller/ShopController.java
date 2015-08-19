@@ -45,7 +45,6 @@ public class ShopController {
 		String sort = request.getParameter("sort");
 		String sortType = request.getParameter("sortType");
 		String k = request.getParameter("k");
-		String k1 = request.getParameter("k1");
 		String stype = request.getParameter("stype");// 搜索类型
 
 		int currentPage = Utils.strToInteger(request.getParameter("icurrentPage"));
@@ -56,8 +55,8 @@ public class ShopController {
 			param.put("sortColumns", "score");
 		param.put("sortType", sortType);
 
-		if ("1".equals(stype) && Utils.isObjectNotEmpty(k1)) {
-			param.put("engageLike", (k1 + "").trim());
+		if ("1".equals(stype) && Utils.isObjectNotEmpty(k)) {
+			param.put("engageLike", (k + "").trim());
 		}
 
 		if ("0".equals(stype) && Utils.isObjectNotEmpty(k)) {
@@ -80,7 +79,6 @@ public class ShopController {
 		model.addAttribute("sort", sort);
 		model.addAttribute("sortType", sortType);
 		model.addAttribute("k", k);
-		model.addAttribute("k1", k1);
 		model.addAttribute("stype", stype);
 
 		if (totalRecord == 0) {// 搜索结果为0时默认显示

@@ -115,7 +115,7 @@
 						</form>
 		
 						<div class="clear"></div>
-						<!-- 
+						
 						<div class="input2">
 							<div class="msg_1">
 								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/messageCenter"><span>12</span></a>
@@ -124,7 +124,7 @@
 								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/collectShopShow"><span>56</span></a>
 							</div>
 						</div>
-						 -->
+						
 					</div>
 					
 				</div>

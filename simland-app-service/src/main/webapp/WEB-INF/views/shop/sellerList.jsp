@@ -20,11 +20,11 @@
 	<div data-role="page" id="sellerListPage">
 		<div data-role="header" class="header_1" data-tap-toggle="false" data-position="fixed">
 			
-				<a  data-transition="slide" href="#" data-role="button" data-rel="back"
+				<a data-transition="slide" href="#" data-role="button" data-rel="back"
 					class="back" data-icon="arrow-l">&nbsp;</a>
 				<h1 class="h0">
 				<form action="${pageContext.request.contextPath}/shop/list" method="get" id="sellerListPage_form">
-					<input type="search" name="k1" id="sellerListPage_search_k" placeholder="商家名称" value="${k1}${k}">
+					<input type="search" name="k" id="sellerListPage_search_k" placeholder="商家名称" value="${k}">
 					<input type="hidden" name="icurrentPage" id="sellerListPage_currentPage" value="1">
 					<input type="hidden" name="sort" id="sellerListPage_score" value="${sort}">
 					<input type="hidden" name="sortType" id="sellerListPage_scoreType" value="${sortType}">
@@ -33,7 +33,7 @@
 				</form>
 				</h1>
 				<h1 class="h">
-					<a  href="#" id="sellerListPage_score_btn">商家星级<span class="arrow"></span></a>
+					<a data-transition="none" href="javascript:;" id="sellerListPage_score_btn">商家星级<span class="arrow"></span></a>
 				</h1>
 			
 		</div>
