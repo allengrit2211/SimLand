@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.textSearch-1.0.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll-probe.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.slides.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>

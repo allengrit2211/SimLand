@@ -123,11 +123,16 @@
 
 			<div class="wrapper top">
 				<div class="scroller">
+					<div id="pullDown">
+						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+					</div>				
 					<div class="boxList">
 						<c:import url="sellerListAjax.jsp"/>
 					</div>
 					<div class="line"></div>
-					<div id="pullUp">&nbsp;</div>
+					<div id="pullUp">
+						<span class="pullUpIcon"></span><span class="pullUpLabel">加载更多...</span>
+					</div>
 				</div>
 			</div>
 
