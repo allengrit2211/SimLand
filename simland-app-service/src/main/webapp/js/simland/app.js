@@ -135,11 +135,18 @@ var app = {
 		                  pullDownEl.className = '';
 		                  pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
 		                  //alert(this.options.startY);
-		                  this.scrollTo(0,this.options.startY,0);
+		                  var tmp = this;
+		                  setTimeout(function(){
+		                	  tmp.scrollTo(0,tmp.options.startY,0); 
+		                  },10);
 		           } else if (pullUpEl && pullUpEl.className.match('loading')) {
 		                  pullUpEl.className = '';
 		                  pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载更多...';
-		                 this.scrollTo(0,this.maxScrollY,0);
+		                  var tmp = this;
+		                  setTimeout(function(){
+		                	  this.scrollTo(0,tmp.maxScrollY,0);
+		                  },10);
+		                 
 		           }
 		           
 		      });
