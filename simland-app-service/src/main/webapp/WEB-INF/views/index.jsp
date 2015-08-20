@@ -51,30 +51,30 @@
 		
 					<div class="box">
 						<a class="a a1" href="${pageContext.request.contextPath}/tuan/list" data-transition="slide">
-							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r4_c2.jpg"></span>
+							<span class="img img1"></span>
 							<span>团购</span>
 						</a>
 						<a class="a a2" href="${pageContext.request.contextPath}/auction/auctionView" data-transition="slide">
-							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r4_c5.jpg"></span>
+							<span class="img img2"></span>
 							<span>拍卖</span>
 						</a>
 						<a class="a a3" href="${pageContext.request.contextPath}/publicChips/publicChipsView" data-transition="slide">
-							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r4_c10.jpg"></span>
+							<span class="img img3"></span>
 							<span>众筹</span>
 						</a>
 					</div>
 		
 					<div class="box">
 						<a class="a a1" href="#">
-							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r6_c2.jpg"></span>
+							<span class="img img4"></span>
 							<span>清仓</span>
 						</a>
 						<a class="a a2" href="#">
-							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r7_c6.jpg"></span>
+							<span class="img img5"></span>
 							<span>虚拟店铺</span>
 						</a>
 						<a class="a a3" href="#">
-							<span class="img"><img src="${pageContext.request.contextPath}/images/bg/index_1_r7_c10.jpg"></span>
+							<span class="img img6"></span>
 							<span>微商街</span>
 						</a>
 					</div>

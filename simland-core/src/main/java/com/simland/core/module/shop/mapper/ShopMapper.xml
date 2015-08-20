@@ -34,6 +34,8 @@
         <result property="collectNum" column="collectNum"/>
         <result property="recomm" column="recomm"/>
         <result property="status" column="status"/>
+        
+        <association property="shopBanners" column="id" select="com.simland.core.module.shop.mapper.ShopBannerMapper.getShopBannerBySid"/>
 	</resultMap>
 
 	<sql id="Base_Column_List">

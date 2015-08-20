@@ -265,8 +265,6 @@ $(function(){
 	                 	$("#"+fileId).prev().attr("src",contextPath+data.toUrl);
 	                 	$("#"+fileId).prev().prev().val(data.toUrl);
 	                 	images[typeId][index] = data.toUrl;
-	                 }else{
-	                 	alert(data1.msg)
 	                 }
              	}else{
              		alert("上传错误");

@@ -117,7 +117,7 @@ span {
 	border-radius: 0 !important;
 }
 
-.ui-header{
+.ui-header {
 	height: 52px;
 }
 
@@ -181,6 +181,7 @@ span {
 	.myfooter .ui-grid-c .ui-block-c a, .myfooter .ui-grid-c .ui-block-d a
 	{
 	color: #37524D;
+	font-size: 0.75em;
 }
 
 .myfooter .ui-btn-inner {
@@ -189,6 +190,11 @@ span {
 
 .myfooter .ui-btn-hover-d {
 	border: none;
+}
+
+.ui-footer-fixed {
+	bottom: 0;
+	padding-bottom: 0;
 }
 
 .bottom_height {
@@ -296,12 +302,44 @@ span {
 
 #indexPage .box .a .img {
 	width: 37px;
-	height: 38px;
+	height: 37px;
 	margin: auto;
 }
 
-#indexPage .box .a .img img {
-	width: 100%;
+#indexPage .box .a .img1 {
+	background: url("../images/bg/bg.png") no-repeat -82px -145px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+}
+
+#indexPage .box .a .img2 {
+	background: url("../images/bg/bg.png") no-repeat -6px -145px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+}
+
+#indexPage .box .a .img3 {
+	background: url("../images/bg/bg.png") no-repeat -45px -145px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+}
+
+#indexPage .box .a .img4 {
+	background: url("../images/bg/bg.png") no-repeat -121px -145px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+}
+
+#indexPage .box .a .img5 {
+	background: url("../images/bg/bg.png") no-repeat -159px -145px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+}
+
+#indexPage .box .a .img6 {
+	background: url("../images/bg/bg.png") no-repeat -196px -145px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 }
 
 #indexPage .box .a span {
@@ -757,9 +795,11 @@ span {
 #assess1Page .star5 {
 	margin-top: 10px;
 	background: url("../images/bg/star.png") repeat 50% 50%;
+	-webkit-background-size: 245px auto; background-size : 245px 199px;
 	width: 100px;
 	height: 20px;
 	display: block;
+	background-size: 245px auto;
 }
 
 #assess1Page .table1 {
@@ -799,6 +839,7 @@ span {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	font-size: 0.75em;
+	text-indent: initial;
 }
 
 .shop .shop_top .b_btn {
@@ -2191,7 +2232,7 @@ span {
 	position: relative;
 	width: 55%;
 	left: 18%;
-	padding: 7px 0!important;
+	padding: 7px 0 !important;
 }
 
 #sellerListPage .header_1 .ui-input-search {
@@ -2218,8 +2259,8 @@ span {
 	display: inline-block;
 	position: relative;
 	left: 18%;
-	padding: 16px 0!important;	
-	vertical-align:top;
+	padding: 16px 0 !important;
+	vertical-align: top;
 }
 
 #sellerListPage .header_1 .h a {
@@ -2253,11 +2294,11 @@ span {
 
 #sellerListPage .boxList .p5 {
 	font-size: 0.875em;
-	margin:0 20px;
+	margin: 0 20px;
 }
 
 #sellerListPage .boxList .h_r {
-	margin:10px 20px;
+	margin: 10px 20px;
 }
 
 #sellerListPage .boxList .box {
@@ -2283,20 +2324,23 @@ span {
 	display: inline-block;
 }
 
+#sellerListPage .boxList .box p.p2 {
+	line-height: 28px;
+}
+
 #sellerListPage .boxList .box .s2 {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	width: 75%;
 	display: inline-block;
-	color:#333;
+	color: #333;
 }
-
 
 #sellerListPage .boxList .box .p4 a.a0 {
 	color: #333;
 	font-size: 1.125em;
-	font-weight:bold;
+	font-weight: bold;
 }
 
 #sellerListPage .boxList .box p a.a1 {
@@ -2335,40 +2379,59 @@ span {
 }
 
 .star {
-	width: 80px;
+	width: 85px;
 	overflow: hidden;
-	height: 16px;
+	height: 21px;
 	display: inline-block;
 }
 
 .star0 {
-	background: url("../images/bg/map_dianpu_r6_c4_a.png") no-repeat -80px
-		50%;
+	background: url("../images/bg/bg.png") no-repeat -px -93px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 }
 
 .star1 {
-	background: url("../images/bg/map_dianpu_r6_c4_a.png") no-repeat -64px
-		50%;
+	background: url("../images/bg/bg.png") no-repeat -78px -93px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 }
 
 .star2 {
-	background: url("../images/bg/map_dianpu_r6_c4_a.png") no-repeat -48px
-		50%;
+	background: url("../images/bg/bg.png") no-repeat -61px -93px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 }
 
 .star3 {
-	background: url("../images/bg/map_dianpu_r6_c4_a.png") no-repeat -32px
-		50%;
+	background: url("../images/bg/bg.png") no-repeat -44px -93px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 }
 
 .star4 {
-	background: url("../images/bg/map_dianpu_r6_c4_a.png") no-repeat -16px
-		50%;
+	background: url("../images/bg/bg.png") no-repeat -27px -93px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 }
 
 .star5 {
-	background: url("../images/bg/map_dianpu_r6_c4_a.png") no-repeat 0 50%;
+	background: url("../images/bg/bg.png") no-repeat -10px -93px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 }
+
+/*
+.star .img{
+	width:100%;
+	background: url("../images/bg/bg.png") no-repeat 0 50%;
+	display: inline-block;
+	width:90px;
+	height: 16px;
+	-moz-background-size:400% 900%;
+   	background-size:400% 900%;
+}
+*/
 
 /************sellerListPage end***************/
 
@@ -2981,7 +3044,7 @@ span {
 	z-index: 1;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	width: 100%;
-	padding:0 0 80px 0;
+	padding: 0 0 80px 0;
 	min-height: 6em;
 }
 
@@ -2992,108 +3055,118 @@ span {
  *
  */
 #pullDown, #pullUp {
-	background:#fff;
-	height:40px;
-	line-height:40px;
-	padding:5px 10px;
-	font-weight:bold;
-	font-size:14px;
-	color:#888;
+	background: #fff;
+	height: 20px;
+	line-height: 20px;
+	padding: 5px 10px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #888;
+	width: 150px;
+	margin: 0 auto;
 }
-#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
-	display:block; float:left;
-	width:40px; height:40px;
-	background:url(../js/iscroll/pull-icon@2x.png) 0 0 no-repeat;
-	-webkit-background-size:40px 80px; background-size:40px 80px;
-	-webkit-transition-property:-webkit-transform;
-	-webkit-transition-duration:250ms;	
+
+#pullDown .pullDownIcon, #pullUp .pullUpIcon {
+	display: block;
+	float: left;
+	width: 20px;
+	height: 20px;
+	background: url(../js/iscroll/pull-icon@2x.png) 0 2px no-repeat;
+	-webkit-background-size: 20px 40px;
+	background-size: 20px 40px;
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 250ms;
 }
+
 #pullDown .pullDownIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transform: rotate(0deg) translateZ(0);
 }
-#pullUp .pullUpIcon  {
-	-webkit-transform:rotate(-180deg) translateZ(0);
+
+#pullUp .pullUpIcon {
+	-webkit-transform: rotate(-180deg) translateZ(0);
 }
 
 #pullDown.flip .pullDownIcon {
-	-webkit-transform:rotate(-180deg) translateZ(0);
+	-webkit-transform: rotate(-180deg) translateZ(0);
 }
 
 #pullUp.flip .pullUpIcon {
-	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transform: rotate(0deg) translateZ(0);
 }
 
 #pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
-	background-position:0 100%;
-	-webkit-transform:rotate(0deg) translateZ(0);
-	-webkit-transition-duration:0ms;
-
-	-webkit-animation-name:loading;
-	-webkit-animation-duration:2s;
-	-webkit-animation-iteration-count:infinite;
-	-webkit-animation-timing-function:linear;
+	background-position: 0 100%;
+	-webkit-transform: rotate(0deg) translateZ(0);
+	-webkit-transition-duration: 0ms;
+	-webkit-animation-name: loading;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
 }
 
-@-webkit-keyframes loading {
-	from { -webkit-transform:rotate(0deg) translateZ(0); }
-	to { -webkit-transform:rotate(360deg) translateZ(0); }
+@
+-webkit-keyframes loading {from { -webkit-transform:rotate(0deg)translateZ(0);
+	
 }
-/*------------- E 默认必须样式  -------------*/		
 
+to {
+	-webkit-transform: rotate(360deg) translateZ(0);
+}
 
-/*------------- S 以下css主要是仿IOS滚动条样式(可选样式)  -------------*/		
+}
+/*------------- E 默认必须样式  -------------*/
+
+/*------------- S 以下css主要是仿IOS滚动条样式(可选样式)  -------------*/
 /**
  * Horizontal Scrollbar
  */
 .myScrollbarH {
-	position:absolute;
-	z-index:100;
-	height:7px;
-	bottom:1px;
-	left:2px;
-	right:7px
+	position: absolute;
+	z-index: 100;
+	height: 7px;
+	bottom: 1px;
+	left: 2px;
+	right: 7px
 }
 
-.myScrollbarH > div {
-	height:100%;
+.myScrollbarH>div {
+	height: 100%;
 }
 
 /**
  * Vertical Scrollbar
  */
 .myScrollbarV {
-	position:absolute;
-	z-index:100;
-	width:7px;bottom:7px;top:2px;right:1px
+	position: absolute;
+	z-index: 100;
+	width: 7px;
+	bottom: 7px;
+	top: 2px;
+	right: 1px
 }
 
-.myScrollbarV > div {
-	width:100%;
+.myScrollbarV>div {
+	width: 100%;
 }
 
 /**
  * Both Scrollbars
  */
-.myScrollbarH > div,
-.myScrollbarV > div {
-	position:absolute;
-	z-index:100;
-
+.myScrollbarH>div, .myScrollbarV>div {
+	position: absolute;
+	z-index: 100;
 	/* The following is probably what you want to customize */
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-o-box-sizing:border-box;
-	box-sizing:border-box;
-	
-	border-width:3px;
-	-webkit-border-image:url(scrollbar.png) 6 6 6 6;
-	-moz-border-image:url(scrollbar.png) 6 6 6 6;
-	-o-border-image:url(scrollbar.png) 6 6 6 6;
-	border-image:url(scrollbar.png) 6 6 6 6;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	border-width: 3px;
+	-webkit-border-image: url(scrollbar.png) 6 6 6 6;
+	-moz-border-image: url(scrollbar.png) 6 6 6 6;
+	-o-border-image: url(scrollbar.png) 6 6 6 6;
+	border-image: url(scrollbar.png) 6 6 6 6;
 }
 /*------------- E 以上css主要是仿IOS滚动条样式  -------------*/
-
-
 
 /*Solve Jquery mobile header show and hide when click the long body*/
 .in {

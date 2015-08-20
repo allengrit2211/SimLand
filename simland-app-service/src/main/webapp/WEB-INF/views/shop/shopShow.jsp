@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +40,14 @@
 					</div>
 					<div class="slides_container">
 						<div class="slides2">
+							<c:if test="${fn:length(shop.shopBanners)==0}">
 							<img src="${pageContext.request.contextPath}/images/activity/shop1_r6_c1.jpg"> 
 							<img src="${pageContext.request.contextPath}/images/activity/shop1_r6_c1.jpg"> 
 							<img src="${pageContext.request.contextPath}/images/activity/shop1_r6_c1.jpg">
+							</c:if>
+							<c:forEach items="${shop.shopBanners}" var="item">
+								<img src="${pageContext.request.contextPath}/${item.picUrl}"> 
+							</c:forEach>
 						</div>
 					</div>
 		

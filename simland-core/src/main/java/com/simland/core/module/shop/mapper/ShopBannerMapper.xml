@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.simland.core.module.shop.mapper.ShopBannerMapper">
+
+	<resultMap id="ShopBannerRM" type="com.simland.core.module.shop.entity.ShopBanner">
+        <result property="id" column="id"/>
+        <result property="sid" column="sid"/>
+        <result property="picUrl" column="picUrl"/>
+        <result property="linkUrl" column="linkUrl"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+	    <![CDATA[
+        id id,
+        sid sid,
+        picUrl picUrl,
+        linkUrl linkUrl
+	    ]]>
+	</sql>
+
+
+	<insert id="insertShopBanner" useGeneratedKeys="true" keyProperty="id"
+	parameterType="com.simland.core.module.shop.entity.ShopBanner">
+	    <![CDATA[
+	        INSERT INTO t_shop_banner (
+		        sid,
+		        picUrl,
+		        linkUrl
+	        ) VALUES (
+		        	#{sid},
+		        	#{picUrl},
+		        	#{linkUrl}
+	        )
+	    ]]>
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() as id
+		</selectKey>     
+	</insert>
+
+	<update id="updateShopBanner">
+	    <![CDATA[
+        UPDATE t_shop_banner
+        ]]>
+        <set>
+		<if test="sid!=null">
+        	sid = #{sid},
+		</if>
+		<if test="picUrl!=null">
+        	picUrl = #{picUrl},
+		</if>
+		<if test="linkUrl!=null">
+        	linkUrl = #{linkUrl},
+		</if>
+        </set>
+	    <![CDATA[  
+        WHERE 
+	        id = #{id}
+    	]]>
+	</update>
+
+	<delete id="deleteShopBanner">
+    <![CDATA[
+        DELETE FROM t_shop_banner WHERE
+        id = #{id} 
+    ]]>
+	</delete>
+	
+	<select id="getShopBanner" resultMap="ShopBannerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_shop_banner 
+	        WHERE 
+	        id = #{id} 
+	    ]]>
+	</select>
+	
+	<select id="getShopBannerBySid" resultMap="ShopBannerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM t_shop_banner 
+	        WHERE 
+	        sid = #{sid} 
+	    ]]>
+	</select>	
+
+	<select id="getShopBannerList" resultMap="ShopBannerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_shop_banner  
+		<include refid="pageWhere" />
+	</select>
+
+	<sql id="pageWhere">
+		<where>
+			<if test="id!=null">
+	        AND id = #{id}
+	        </if>
+			<if test="sid!=null">
+	        AND sid = #{sid}
+	        </if>
+			<if test="picUrl!=null">
+	        AND picUrl = #{picUrl}
+	        </if>
+			<if test="linkUrl!=null">
+	        AND linkUrl = #{linkUrl}
+	        </if>
+		</where>
+	</sql>
+
+	<select id="getShopBannerCount" resultType="int">
+		SELECT count(*) FROM t_shop_banner
+		<include refid="pageWhere" />
+	</select>
+	
+	<select id="getSplitShopBannerList" resultMap="ShopBannerRM">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_shop_banner
+		<include refid="pageWhere" />
+
+		<if test="sortColumns!=null">
+			ORDER BY #{sortColumns} DESC
+		</if>
+		limit #{endSize},#{pageSize}
+	</select>
+
+</mapper>
