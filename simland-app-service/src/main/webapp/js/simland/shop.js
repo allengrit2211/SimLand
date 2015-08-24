@@ -13,8 +13,6 @@ var shop = {
 		
 		// 加载店铺收藏事件
 		shop.collectShopEvent();
-		
-		shop.loadSlide();
 
 		shop.loadMoreBtn();//店铺下拉菜单
 		
@@ -33,30 +31,6 @@ var shop = {
 			}
 		});
 		
-	},
-	loadSlide : function(){
-		
-		var wrapper1 = $.mobile.activePage.find(".wrapperRow")[0];
-		
-		if($(wrapper1).length>0){
-			function loaded () {
-				shop.myScroll = new IScroll(wrapper1, {
-					scrollX: true,
-					scrollY: false,
-					momentum: false,
-					snap: true,
-					snapSpeed: 400,
-					keyBindings: true
-				});
-			}
-			setTimeout(function(){
-				$(wrapper1).css("width",$(window).width()+"px");
-				$.mobile.activePage.find(".scrollerRow .slide").css("width",$(window).width()+"px");
-				$.mobile.activePage.find(".scrollerRow").css("width",($.mobile.activePage.find(".scrollerRow .slide").length*$.mobile.activePage.find(".scrollerRow .slide:eq(0)").width())+"px")
-				loaded();
-			},200);
-		}
-
 	},
 	collectShopEvent : function(){// 加载店铺收藏事件
 		$.mobile.activePage.find(".listMenu li:first a").unbind().click(function() {

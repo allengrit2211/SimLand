@@ -51,7 +51,33 @@
 							</div>
 							<div class="t2">
 								<span class="s1"></span>
-								<span class="s2"></span>
+								<span class="s2 c_listMenu"></span>
+								<ul class="listMenu">
+									<li>
+										<a href="javascript:;" data-role="none" sid="1">
+											<span class="img1"></span>
+											<span>产品二维码</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;" data-role="none" sid="1">
+											<span class="img1"></span>
+											<span>分享</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;" data-role="none" sid="1">
+											<span class="img1"></span>
+											<span>收藏</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;" data-role="none" sid="1">
+											<span class="img1"></span>
+											<span>进入收藏夹</span>
+										</a>
+									</li>
+								</ul>
 							</div>
 						</div>
 						
@@ -115,14 +141,7 @@
 				<a  class="a2" id="goBuyBtn" data-transition="pop" href="#addCartPopup" data-rel="popup" data-position-to="window">直接购买</a>
 			</div>
 			
-			<div data-role="navbar" class="myfooter bgEDEDED">
-				<ul>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/main" class="ui-icon-index_1 ui-btn-active1">首页</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/map/map1Page" class="ui-icon-map_1">地图</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/buy/cart" class="ui-icon-purchase_1">进货单</a></li>
-					<li><a  data-transition="none" href="${pageContext.request.contextPath}/user/userCenter" class="ui-icon-my_1">我的</a></li>
-				</ul>
-			</div>
+			<c:import url="../footer.jsp"/>
 			
 		</div>
 		

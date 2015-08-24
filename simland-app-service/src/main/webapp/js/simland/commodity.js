@@ -1,6 +1,20 @@
 var commodity = {
 	initialize : function() {
 		$.mobile.activePage.find(".inventoryNum").text($.mobile.activePage.find("#inventoryNum").val());
+		
+		$.mobile.activePage.find(".c_listMenu").unbind().click(function() {
+			
+			var menu = $.mobile.activePage.find(".listMenu");
+			if(menu.is(":hidden")){
+				menu.show();
+				setTimeout(function(){
+					menu.hide();
+				},1500);
+			}else{
+				menu.hide();
+			}
+		});		
+		
 	},
 	collectEvent : function() {//收藏事件加载
 		$.mobile.activePage.find(".shop .commodityList .s3").unbind().click(function(){

@@ -173,6 +173,27 @@ var app = {
 			//}
 		//}
 	},
+	loadRowIScroll : function(){
+		var wrapper1 = $.mobile.activePage.find(".wrapperRow")[0];
+		
+		if($(wrapper1).length>0){
+			function loaded1 () {
+				var myRowScroll = new IScroll(wrapper1, {
+					scrollX: true,
+					scrollY: false,
+					momentum: false,
+					snap: true,
+					snapSpeed: 400,
+					keyBindings: true
+				});
+			}
+			
+			$(wrapper1).css("width",$(window).width()+"px");
+			$.mobile.activePage.find(".scrollerRow .slide").css("width",$(window).width()+"px");
+			$.mobile.activePage.find(".scrollerRow").css("width",($.mobile.activePage.find(".scrollerRow .slide").length*$.mobile.activePage.find(".scrollerRow .slide:eq(0)").width())+"px")
+			loaded1();
+		}
+	},
 	message : function(msg) {// 信息提示
 		$("#message").text(msg);
 		$("#message").show();
@@ -188,7 +209,9 @@ var app = {
 $(document).ready(app.initialize);
 
 $(document).on("pageinit", function(event) {
-	setTimeout(app.loadIScroll, 500);
+	setTimeout(app.loadIScroll, 200);
+	setTimeout(app.loadRowIScroll, 200);
+	
 });
 
 $(document).on("pagebeforehide", function(event) {
