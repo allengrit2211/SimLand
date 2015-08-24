@@ -24,7 +24,7 @@
 					class="back" data-icon="arrow-l">&nbsp;</a>
 				<h1 class="h0">
 				<form action="${pageContext.request.contextPath}/shop/list" method="get" id="sellerListPage_form">
-					<input type="search" name="k" id="sellerListPage_search_k" placeholder="商家名称" value="${k}">
+					<input type="search" name="k" id="sellerListPage_search_k" placeholder="店铺名称" value="${k}">
 					<input type="hidden" name="icurrentPage" id="sellerListPage_currentPage" value="1">
 					<input type="hidden" name="sort" id="sellerListPage_score" value="${sort}">
 					<input type="hidden" name="sortType" id="sellerListPage_scoreType" value="${sortType}">
@@ -39,88 +39,6 @@
 		</div>
 		<!-- /header -->
 		<div data-role="content">
-			<!-- 
-			<div id="sellerListPage_wrapper">
-				<div id="sellerListPage_scroller">
-					<div id="sellerListPage_pullDown" class="pullDown">
-						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
-					</div>
-
-					<div class="boxList">
-						<div class="box">
-							<h3>
-								<a  href="#shop1Page">水贝<span class="color41AC98">中瑞</span>宝石有限公司</a>
-								<a  href="#" class="a1">260M</a>
-							</h3>
-							<h6>深圳市水贝街珠宝商厦7-2</h6>
-							<p class="p1">
-								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-							</p>
-							<div class="line"></div>
-							<p class="p2">
-								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-								<span class="s4 star2">&nbsp;</span>
-							</p>
-						</div>
-						<div class="box">
-							<h3>
-								<a  href="#shop1Page">金丽<span class="color41AC98">中瑞</span>国际珠宝交易中心</a>
-								<a  href="#" class="a1">560M</a>
-							</h3>
-							<h6>深圳市水贝街珠宝商厦7-2</h6>
-							<p class="p1">
-								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-							</p>
-							<div class="line"></div>
-							<p class="p2">
-								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-								<span class="s4 star2">&nbsp;</span>
-							</p>
-						</div>
-						<div class="box">
-							<h3>
-								<a  href="#shop1Page">万山<span class="color41AC98">中瑞</span>珠宝有限公司</a>
-								<a  href="#" class="a1">750M</a>
-							</h3>
-							<h6>深圳市水贝街珠宝商厦7-2</h6>
-							<p class="p1">
-								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-							</p>
-							<div class="line"></div>
-							<p class="p2">
-								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-								<span class="s4 star2">&nbsp;</span>
-							</p>
-						</div>
-						<div class="box">
-							<h3>
-								<a  href="#shop1Page">瑞丰银泰<span class="color41AC98">中瑞</span>美珠有限公司</a>
-								<a  href="#" class="a1">780M</a>
-							</h3>
-							<h6>深圳罗湖区田贝4路68号</h6>
-							<p class="p1">
-								<span>主营产品:</span><span>水晶饰品;天然水晶首饰;天然珠宝</span>
-							</p>
-							<div class="line"></div>
-							<p class="p2">
-								<span class="s1">965</span> <span>件产品</span> | <span class="s2">&nbsp;</span> <span class="s3">236</span> <span>次</span>
-								<span class="s4 star2">&nbsp;</span>
-							</p>
-						</div>
-						
-					</div>
-					
-					<div id="sellerListPage_pullUp" class="pullUp">
-						<input hidden="hidden" id="sellerListPage_cp" value="1">
-						<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
-					</div>
-				</div>
-
-			</div>
-
-			-->
-
-
 			<div class="wrapper top">
 				<div class="scroller">
 					<div id="pullDown">

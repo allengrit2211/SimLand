@@ -30,7 +30,7 @@
 								</p>
 								<p class='p2'>
 									<span class='s1'>${item.commodityNum}</span> <span>件产品</span> |
-									<a  href='#' class='a2' sid='${item.id}'><span class='s2'>&nbsp;</span>
+									<a  href='#' class='a2'><span class='s2'>&nbsp;</span>
 									<span class='s3'>${item.collectNum}</span></a> <span>次</span>
 									<span class='s4 star star${item.score}'>
 										

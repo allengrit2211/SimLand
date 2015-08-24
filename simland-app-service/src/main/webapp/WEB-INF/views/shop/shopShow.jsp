@@ -21,9 +21,33 @@
 	<!-- 商家页面 新品页面 -->
 	<!-- shop1Page start  -->
 	<div data-role="page" id="shop1Page" class="shop">
+	
+		<div data-role="header" class="header_1 bg41AC98 onborder">
+			<a data-transition="slide" href="#" data-role="button"
+				data-rel="back" class="back bg41AC98 colorFFF" data-icon="arrow-l">&nbsp;</a>		
+			<h1 class="h0 w1">
+				<form action="${pageContext.request.contextPath}/shop/list" method="get" id="sellerListPage_form">
+					<input type="search" name="commodityName" placeholder="商品名称" value="">
+				</form>			
+			</h1>
+			<h1 class="h">
+				<a href="javascript:;" class="colorFFF more">
+				<span class="moreImg"></span>
+				</a>
+			</h1>
+			<ul class="listMenu">
+				<li class="first">
+				<a href="javascript:;" data-role="none" sid="${shop.id}">
+				<span class="img1"></span>
+				收藏
+				</a></li>
+				<li><a href="javascript:;" data-role="none">
+				<span class="img1"></span>
+				分享</a></li>
+			</ul>
+		</div>	
 		<div data-role="content" id="content">
-			
-			<div class="wrapper">
+			<div class="wrapper top">
 				<div class="scroller">
 
 					<div class="shop_top">
@@ -34,19 +58,23 @@
 							<h3>${shop.cname}</h3>
 							<span class="star star${shop.score}"></span>
 						</div>
+						<!-- 
 						<div class="b_btn">
 							<a  href="#"></a>
 						</div>
+						 -->
 					</div>
-					<div class="slides_container">
-						<div class="slides2">
+					<div class="wrapperRow b_Height">
+						<div class="scrollerRow b_Height">
 							<c:if test="${fn:length(shop.shopBanners)==0}">
-							<img src="${pageContext.request.contextPath}/images/activity/shop1_r6_c1.jpg"> 
-							<img src="${pageContext.request.contextPath}/images/activity/shop1_r6_c1.jpg"> 
-							<img src="${pageContext.request.contextPath}/images/activity/shop1_r6_c1.jpg">
+							<div class="slide">
+								<img src="${pageContext.request.contextPath}/images/activity/shop1_r6_c1.jpg">
+							</div>
 							</c:if>
 							<c:forEach items="${shop.shopBanners}" var="item">
+							<div class="slide">
 								<img src="${pageContext.request.contextPath}/${item.picUrl}"> 
+							</div>	
 							</c:forEach>
 						</div>
 					</div>

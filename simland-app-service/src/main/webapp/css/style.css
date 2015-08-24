@@ -130,6 +130,64 @@ span {
 	border: none;
 }
 
+.header_1.onborder {
+	border-bottom: none !important;
+}
+
+.header_1 .h0 {
+	display: inline-block;
+	position: relative;
+	width: 55%;
+	left: 18%;
+	padding: 7px 0 !important;
+}
+
+.header_1 .h0.w1 {
+	width: 64%;
+}
+
+.header_1 .h0 .ui-input-search {
+	width: 100%;
+	margin: 6px 0 !important;
+	overflow: hidden;
+	padding: 0 !important;
+	height: 28px;
+	border: none;
+}
+
+.header_1 .h0 .ui-input-search input {
+	font-size: 0.75em;
+	padding: 0 0 0 10px;
+	margin: 2px 0;
+	text-indent: 15px;
+	font-size: 0.75em;
+}
+
+.header_1 .h {
+	height: 30px;
+	left: 15%;
+	display: inline-block;
+	position: relative;
+	left: 18%;
+	padding: 16px 0 !important;
+	vertical-align: top;
+}
+
+.header_1 .h a .moreImg {
+	width: 30px;
+	height: 21px;
+	display: inline-block;
+	background: url("../images/bg/bg.png") no-repeat -101px -253px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+}
+
+.header_1 .h a {
+	font-size: 0.875em;
+	color: #666;
+	margin-left: 3px;
+}
+
 .header_1 h1 {
 	color: #666;
 	text-shadow: none;
@@ -144,6 +202,49 @@ span {
 	box-shadow: none;
 	background-color: #FFF;
 	padding: 14px 15px;
+}
+
+.header_1 .listMenu {
+	background-color: #FFF;
+	width: 80px;
+	min-height: 40px;
+	overflow: hidden;
+	position: absolute;
+	top: 48px;
+	right: 10px;
+	/* background-color: #EEE; */
+	padding-top: 4px;
+	background: url("../images/bg/jian.png") no-repeat 50% 0;
+	background-size: 10.5px auto;
+	border-radius: 0 0 2px 2px;
+	display: none;
+}
+
+.header_1 .listMenu li {
+	border-bottom: 1px solid #EEE;
+	background-color: #FFF;
+}
+
+.header_1 .listMenu li.first {
+	border-radius: 2px 2px 0 0;
+}
+
+.header_1 .listMenu li .img1 {
+	background: url("../images/bg/bg.png") no-repeat -15px -328px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+}
+
+.header_1 .listMenu li a {
+	color: #41AC98;
+	line-height: 30px;
+	height: 30px;
+	display: block;
+	font-size: 0.785em;
+	padding-left: 10px;
 }
 
 .ui-footer {
@@ -401,6 +502,11 @@ span {
 
 #indexPage .box1 .input2 {
 	text-align: center;
+	margin-top: 20px;
+}
+
+#indexPage .box1 .input2 .msg_1 {
+	margin-right: 7% !important;
 }
 
 #indexPage .box1 .input2 .msg_1, #indexPage .box1 .input2 .msg_2 {
@@ -411,27 +517,32 @@ span {
 	color: #41AC98;
 	font-size: 1em;
 	font-weight: bold;
-	width: 40%;
+	width: 35%;
 	margin: 0 auto;
 	text-align: center;
 	display: inline-block;
 }
 
-#indexPage .box1 .input2 .msg_1 {
-	background: url('../images/bg/index_r10_c4.jpg') no-repeat 10% 50%;
+#indexPage .box1 .input2 .msg_1 .img {
+	background: url("../images/bg/bg.png") no-repeat -12px -289px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+	height: 25px;
+	width: 36px;
 }
 
-#indexPage .box1 .input2 .msg_2 {
-	background: url('../images/bg/index_r10_c13.jpg') no-repeat 90% 50%;
+#indexPage .box1 .input2 .msg_2 .img {
+	background: url("../images/bg/bg.png") no-repeat -53px -289px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+	height: 25px;
+	width: 36px;
 }
 
 #indexPage .box1 .msg_1 a span, #indexPage .box1 .msg_2 a span {
 	color: #FFF;
-}
-
-#indexPage .box1 .msg_1 a, #indexPage .box1 .msg_2 a {
 	display: inline-block;
-	width: 80%;
+	vertical-align: top;
 }
 
 .history {
@@ -795,7 +906,8 @@ span {
 #assess1Page .star5 {
 	margin-top: 10px;
 	background: url("../images/bg/star.png") repeat 50% 50%;
-	-webkit-background-size: 245px auto; background-size : 245px 199px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px 199px;
 	width: 100px;
 	height: 20px;
 	display: block;
@@ -811,8 +923,8 @@ span {
 /************shop1Page start***************/
 .shop .shop_top {
 	min-height: 78px;
-	background-color: #41AC98;
-	padding-top: 10%;
+	background-color: #90D5C8;
+	padding-top: 5%;
 }
 
 .shop .shop_top .b_logo {
@@ -838,13 +950,15 @@ span {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	font-size: 0.75em;
+	font-size: 1em;
 	text-indent: initial;
+	text-shadow: none;
+	font-weight: bold;
 }
 
 .shop .shop_top .b_btn {
-	float: left;
-	margin: 4% 0;
+	float: right;
+	margin-right: 20px;
 }
 
 .shop .shop_top .b_btn a {
@@ -854,34 +968,13 @@ span {
 	height: 34px;
 }
 
-.shop .slidesjs-container {
-	width: 100%;
-	min-width: 100% !important;
-}
-
-.shop .slides_container {
-	width: 100%;
+.shop .b_Height {
 	height: 140px;
-	overflow: hidden !important;
-}
-
-.shop .slides_container div {
-	min-width: 320px;
-	min-height: 140px;
-	height: 140px;
-	display: inline-block;
-}
-
-.shop .slidesjs-control img {
-	width: 100% !important;
-}
-
-.shop .slidesjs-pagination {
-	display: none;
+	overflow: hidden;
 }
 
 .shop .shopTag {
-	width: 98%;
+	width: 100%;
 	margin: 0px auto;
 }
 
@@ -904,6 +997,13 @@ span {
 	padding-right: 7%;
 	border-left: none;
 	font-size: 1em;
+	border: none;
+}
+
+.shop .shopTag .ui-controlgroup-controls a:hover {
+	background-color: #FFF;
+	text-shadow: none;
+	color: #333;
 }
 
 .shop .shopTag .ui-controlgroup-controls a.last {
@@ -912,9 +1012,10 @@ span {
 
 .shop .shopTag .ui-controlgroup-controls a.on {
 	border-bottom: 1px solid #FFF;
-	border-top: 2px solid #E9E9E9;
+	border-top: 2px solid #E8916F;
 	background-color: #FFF;
 	color: #41AC98;
+	text-shadow: none;
 }
 
 .shop .commodityList {
@@ -942,7 +1043,6 @@ span {
 }
 
 .shop .commodityList  a .s4 {
-	color: #BDBDBD;
 	height: 30px;
 	overflow: hidden;
 	display: inline-block;
@@ -953,14 +1053,17 @@ span {
 	
 }
 
-.shop .commodityList .commodityBox .s1 {
+.shop .commodityList .commodityBox .s1, .shop .commodityList .commodityBox .s2
+	{
 	color: #E08559;
 }
 
 .shop .commodityList .s3 {
+	background: url("../images/bg/bg.png") no-repeat -15px -328px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
 	bottom: 5px;
 	height: 13px;
-	background: url("../images/bg/map_dianpu_r7_c2.png") no-repeat 0 50%;
 	bottom: 33%;
 	right: 12%;
 	padding-left: 15px;
@@ -981,7 +1084,7 @@ span {
 
 .shop .b_bottom_menu ul li a {
 	display: inline-block;
-	color: #BDBDBD;
+	color: #666;
 	padding-left: 10px;
 	margin-left: 6px;
 	background: url("../images/bg/shop1_r12_c4.jpg") no-repeat 0 50%;
@@ -1234,33 +1337,38 @@ span {
 /************contactPage end***************/
 
 /************CommodityPage start***************/
-#CommodityPage .commodityBx .p_img img {
-	width: 100%;
+#CommodityPage .commodityBx .c_title {
+	
 }
 
-#CommodityPage .onePrice0 {
-	margin: 5px 0;
-}
-
-#CommodityPage .commodityBx .onePrice0 .ui-block-a {
+#CommodityPage .commodityBx .c_title .t1 {
 	width: 60%;
+	padding-left: 3%;
+	display: inline-block;
 }
 
-#CommodityPage .commodityBx .onePrice0 .ui-block-b {
-	width: 13%;
+#CommodityPage .commodityBx .c_title .t2 {
+	width: 24%;
+	display: inline-block;
 }
 
-#CommodityPage .commodityBx .onePrice0 .ui-block-c {
-	width: 13%;
+#CommodityPage .commodityBx .c_title .t2 .s1 {
+	background: url("../images/bg/bg.png") no-repeat -181px -196px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+	height: 45px;
+	width: 45px;
+	display: inline-block;
 }
 
-#CommodityPage .commodityBx .onePrice0 .ui-block-d {
-	width: 13%;
-}
-
-#CommodityPage .commodityBx .onePrice {
-	height: 40px;
-	line-height: 40px;
+#CommodityPage .commodityBx .c_title .t2 .s2 {
+	background:
+		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUBAMAAABohZD3AAAACXBIW…jfDcZPgfDDYPxU7Hx09ejmoduH7h5096L7B8O/6OGBGl4APYg8TQ0XAScAAAAASUVORK5CYII=);
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+	height: 45px;
+	width: 45px;
+	display: inline-block;
 }
 
 #CommodityPage .commodityBx .onePrice .s_1 {
@@ -2227,48 +2335,6 @@ span {
 /************shopListPage end***************/
 
 /************sellerListPage start***************/
-#sellerListPage .header_1 h1.h0 {
-	display: inline-block;
-	position: relative;
-	width: 55%;
-	left: 18%;
-	padding: 7px 0 !important;
-}
-
-#sellerListPage .header_1 .ui-input-search {
-	width: 100%;
-	margin: 6px 0 !important;
-	overflow: hidden;
-	min-height: none;
-	padding: 0 !important;
-	height: 28px;
-	border: none;
-}
-
-#sellerListPage .header_1 .ui-input-search input {
-	font-size: 0.75em;
-	padding: 0 0 0 10px;
-	margin: 2px 0;
-	text-indent: 15px;
-	font-size: 0.75em;
-}
-
-#sellerListPage .header_1 .h {
-	height: 30px;
-	left: 15%;
-	display: inline-block;
-	position: relative;
-	left: 18%;
-	padding: 16px 0 !important;
-	vertical-align: top;
-}
-
-#sellerListPage .header_1 .h a {
-	font-size: 0.875em;
-	color: #666;
-	margin-left: 3px;
-}
-
 #sellerListPage .header_1 .h span.arrow {
 	background: url("../images/bg/map_dianpu_r2_c5.png") no-repeat 100% 50%;
 	width: 12px;
@@ -2363,10 +2429,11 @@ span {
 }
 
 #sellerListPage .boxList .box .p2 .s2 {
-	background: url("../images/bg/map_dianpu_r7_c2.png") no-repeat 100% 50%;
-	width: 13px;
-	height: 13px;
-	display: inline-block;
+	background: url("../images/bg/bg.png") no-repeat -15px -328px;
+	-webkit-background-size: 245px auto;
+	background-size: 245px auto;
+	width: 12px;
+	height: 12px;
 }
 
 #sellerListPage .boxList .box .p2 .s4 {
@@ -2386,7 +2453,7 @@ span {
 }
 
 .star0 {
-	background: url("../images/bg/bg.png") no-repeat -px -93px;
+	background: url("../images/bg/bg.png") no-repeat -95px -93px;
 	-webkit-background-size: 245px auto;
 	background-size: 245px auto;
 }
@@ -3025,6 +3092,8 @@ span {
 }
 
 /************listAddressPage end***************/
+
+/***************************Col IScroll***************************/
 .wrapper {
 	position: absolute;
 	z-index: 1;
@@ -3047,6 +3116,47 @@ span {
 	padding: 0 0 80px 0;
 	min-height: 6em;
 }
+
+/***************************Col IScroll end***************************/
+
+/***************************Row IScroll start***************************/
+.wrapperRow {
+	width: 100%;
+	height: 400px;
+	margin: 0 auto;
+}
+
+.scrollerRow {
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	width: 800px;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+	background-color: #444;
+}
+
+.slide {
+	width: 320px;
+	float: left;
+}
+
+.slide img {
+	width: 100%;
+}
+/***************************Row IScroll end***************************/
 
 /*------------- S 默认必须样式  -------------*/
 /**

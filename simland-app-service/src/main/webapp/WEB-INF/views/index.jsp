@@ -21,7 +21,6 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.textSearch-1.0.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll-probe.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.slides.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/index.js"></script>
@@ -118,10 +117,10 @@
 						
 						<div class="input2">
 							<div class="msg_1">
-								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/messageCenter"><span>12</span></a>
+								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/messageCenter"><span class="img"></span><span>12</span></a>
 							</div>
 							<div class="msg_2">
-								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/collectShopShow"><span>56</span></a>
+								<a  data-transition="slide" href="${pageContext.request.contextPath}/user/collectShopShow"><span class="img"></span><span>56</span></a>
 							</div>
 						</div>
 						

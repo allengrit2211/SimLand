@@ -19,8 +19,6 @@ var sellerList = {
 		$.mobile.activePage.find("#sellerListPage_currentPage").val(1);
 		// }
 
-		// 加载店铺收藏事件
-		shop.collectShopEvent();
 
 		$.mobile.activePage.find("#sellerListPage_search_k").unbind().bind("change",function(event, ui) {
 			sellerList.selerListPageShow({currentPage : 1,reset:0});	
@@ -276,6 +274,7 @@ var sellerList = {
 		}
 	},
 	scoreOrder : function() {// 商家星级排序
+		app.message("加载中...")
 		$.mobile.activePage.find("#sellerListPage_score").val("score");
 		$.mobile.activePage.find("#sellerListPage_scoreType").val(1);
 		sellerList.selerListPageShow({currentPage : 1,reset:0});		
