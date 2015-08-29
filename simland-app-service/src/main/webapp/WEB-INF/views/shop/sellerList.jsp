@@ -17,7 +17,7 @@
 
 	<!-- 商家列表 搜索列表 -->
 	<!-- sellerListPage start-->
-	<div data-role="page" id="sellerListPage">
+	<div data-role="page" id="sellerListPage" data-dom-cache="true">
 		<div data-role="header" class="header_1" data-tap-toggle="false" data-position="fixed">
 			
 				<a data-transition="slide" href="#" data-role="button" data-rel="back"

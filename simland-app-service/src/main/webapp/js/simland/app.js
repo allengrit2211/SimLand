@@ -16,9 +16,10 @@ jQuery(function() {
 var app = {
 	servicerURL : contextPath,
 	myScroll : {},
+	myRowScroll:{},
 	initialize : function() {
 		
-		$.mobile.allowCrossDomainPages = true;
+		//$.mobile.allowCrossDomainPages = true;
 		
 		app.loadScript();
 	},
@@ -33,6 +34,7 @@ var app = {
 		user.initialize();
 		order.initialize();
 		smap.initialize();
+		chat.initialize();
 	},
 	loadIScroll : function() {// 加载局部滚动
 		

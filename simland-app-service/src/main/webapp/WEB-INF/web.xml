@@ -38,6 +38,7 @@
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
+		<async-supported>true</async-supported>
 	</filter>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
@@ -83,6 +84,8 @@
 			<param-value>classpath:spring-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<!-- 启用异步支持 -->
+		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
@@ -91,6 +94,7 @@
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<async-supported>true</async-supported>
 	</filter>
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>

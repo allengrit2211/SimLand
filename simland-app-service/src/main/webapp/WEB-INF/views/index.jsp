@@ -9,7 +9,7 @@
 
 <title>Single-Page Application</title>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.mobile-1.4.3.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.mobile.structure-1.4.5.min.css" />
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 
@@ -17,21 +17,7 @@
 		contextPath = '${pageContext.request.contextPath}';
 	</script>
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.3.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.textSearch-1.0.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll-probe.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/index.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/shop.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/commodity.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/sellerList.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/user.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/cart.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/order.js"></script>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/smap.js"></script>
+	
 </head>
 
 <body>
@@ -148,5 +134,22 @@
 	</div>
 	<!-- /page -->
 
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.textSearch-1.0.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/iscroll/iscroll-probe.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/base.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/app.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/index.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/shop.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/commodity.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/sellerList.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/user.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/cart.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/order.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/chat.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FTvXZrsF9nk6s8t26PRyPn1P"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/simland/smap.js"></script>
+	<script type="text/javascript" src="http://139.196.23.106:3000/socket.io/socket.io.js"></script>
 </body>
 </html>

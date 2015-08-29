@@ -1480,6 +1480,7 @@ span {
 	min-height: 236px;
 	margin: 0 auto;
 	padding-bottom: 0.75em;
+	background-color: #FFF;
 }
 
 #CommodityPage .popup .box {
@@ -3138,6 +3139,83 @@ span {
 }
 
 /************listAddressPage end***************/
+
+
+
+/*******************chatMessagePage start****************************/
+
+#charMessagePage .msgBox {
+	    padding-bottom: 20px;
+}
+
+#charMessagePage .msgBox .msg .u_msg {
+	background: url("../images/bg/auction_1_r4_c4.jpg") no-repeat 100% 0;
+	display: inline-block;
+	width: 78%;
+	margin: 1em 0 1em 1em;
+	text-align: right;
+}
+
+#charMessagePage .msgBox .msg .u_msg .u_out {
+	min-height: 20px;
+	min-width: 10px;
+	padding: 0 10px;
+	border: 1.6px solid #E4E4E4;
+	border-radius: 5px;
+	margin-right: 8px;
+	display: inline-block;
+	padding:7px;
+}
+
+#charMessagePage .msgBox .msg .u_img {
+	height: 40px;
+	display: inline-block;
+	float: right;
+	margin: 1em 1em 1em 0;
+	width: 10%;
+}
+
+
+#charMessagePage .sendMsgBox {
+	height: 50px;
+	background-color: #F9F9F9;
+}
+
+#charMessagePage .sendMsgBox .a1 {
+	display: inline-block;
+	margin: 7.5px;
+	width: 35px;
+	height: 35px;
+	background: url("../images/bg/auction_1_r8_c2.jpg") no-repeat 100% 50%;
+	width: 35px;
+}
+
+#charMessagePage .sendMsgBox .ui-input-text {
+	width: 60%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 8px 0 8px 0;
+	height: 34px;
+	border-radius: 5px;
+	border: 1px solid #EEE;
+}
+
+#charMessagePage .sendMsgBox .a2 {
+	display: inline-block;
+	height: 35px;
+	width: 55px;
+	vertical-align: top;
+	background-color: #44BBAB;
+	color: #FFF;
+	line-height: 35px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 7.5px 0;
+}
+/*******************charMessagePage end****************************/
+
+
+
 
 /***************************Col IScroll***************************/
 .wrapper {
