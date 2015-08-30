@@ -19,10 +19,10 @@ io.on('connection', function(socket){
 	});
 	
 	
-  socket.on('new user',function(sign){
-  	console.log('group'+sign);
+	socket.on('new user',function(sign){
+		console.log('group'+sign);
 		socket.join('group'+sign);
-  });	
+	});	
 
 });
 

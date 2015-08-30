@@ -14,21 +14,23 @@
 $(function(){
 
 		var sid = '${shop.id}';
-		var uid = 1;
+		var uid = 2;
+		var sign = '_'+sid+'_'+uid;	
+		
+		var connection = io.connect('ws://139.196.23.106:3000',{'reconnect':true,'auto connect':true}); 
 
-		var connection = io.connect('ws://139.196.23.106:3000', { 'reconnect': false }); 
-		connection.on('connect', function (data) {  
-			console.log("与服务器连接");
-	    }); 
-		//监听消息发送
-		connection.on('message_'+sid+'_'+uid, function(re){
-			$("#showMsg").append(re.message);
-		});
+		connection.emit('new user',sign);
+
+		connection.on('event_name', showResult);
+
+		function showResult(msg){
+			$("#showMsg").append("<p>"+msg+"</p>");
+		}
 
 
 		$("#sendMsgBtn").unbind().click(function(){
 			var msg = $("#msgText").val();
-			connection.emit('message_'+sid+'_'+uid, {message:msg}); //向服务器发送消息
+			connection.emit('private message',sign,msg);
 		});
 
 })
@@ -50,11 +52,11 @@ $(function(){
 					&nbsp;&nbsp;&nbsp;&nbsp;${msg}
 				</div>
 				
+				<input type="text" id="msgText"><input type="button" value="发送" id="sendMsgBtn">
+				
 				<div id="showMsg">
 					
 				</div>
-				
-				<input type="text" id="msgText"><input type="button" value="发送" id="sendMsgBtn">
 				
 			</div>
 			
