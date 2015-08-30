@@ -12,6 +12,7 @@
 				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/shop/editShopInfo">我的认证</a></li>
 				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/customer/bulletinList">消息推送</a></li>
 				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/shop/bannerList">店铺横幅</a></li>
+				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/shop/chatMessage">聊天工具</a></li>
 				</div>
 		   </div>
 		   <div id="tree_down"></div>

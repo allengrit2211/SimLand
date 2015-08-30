@@ -1,11 +1,10 @@
 var chat = {
-	stompClient: null,
 	connection : null,
+	sign:null,
 	initialize : function() {
 		try{
-			setTimeout(function(){
-				location.href.indexOf("/buy/chatMessage")>-1?(chat.connect()):(chat.disconnect());
-			},200);
+			($.mobile.activePage.find(".msgBox").length>0)?chat.connect():chat.disconnect();
+			
 			
 			$.mobile.activePage.find("#sendMsg").unbind().click(chat.sendMsg);
 		}catch(e){
@@ -38,25 +37,40 @@ var chat = {
 	    	alert(e)
 	    });	
 		*/
+	
 		
+		var sid = $.mobile.activePage.find("input[name='sid']").val();
+		var uid = $.mobile.activePage.find("input[name='uid']").val();
+		chat.sign ='_'+sid+'_'+uid;		
 		
-		chat.connection = io.connect('ws://139.196.23.106:3000', { 'reconnect': false }); 
-		chat.connection.on('connect', function (data) {  
-			console.log("与服务器连接");
-	    }); 
+		//chat.connection = io.connect('ws://139.196.23.106:3000', { 'reconnect': true }); 
+		//chat.connection = io.connect('ws://139.196.23.106:3000', { "force new connection":true });
+		chat.connection = io.connect('ws://139.196.23.106:3000',{'reconnect':true,'auto connect':true});
+		chat.connection.on('connect', function (data) { 
+			//console.log("与服务器连接");
+	    });
+		
+		chat.connection.emit('new user',chat.sign);
+		
 		//监听消息发送
-		this.connection.on('message', chat.showResult);		
+		//this.connection.on('message_'+sid+'_'+uid, chat.showResult);
+        //监听 接收消息
+		chat.connection.on('event_name', chat.showResult);
+		
 		
 	},
 	disconnect : function(){//断开链接
+		
 		/*
 		if(chat.stompClient!=null){
 			chat.stompClient.disconnect();
 	        console.log("Disconnected");
 		}*/
-		if(chat.connection!=null){
+		if(chat.connection){
+			chat.connection.emit('disconnect remove',chat.sign);
+			//chat.connection.disconnect();
+			//console.log("与服务其断开");
 			chat.connection.disconnect();
-			console.log("与服务其断开");
 		}
 		
 
@@ -70,20 +84,24 @@ var chat = {
 		
 		var msg = $.mobile.activePage.find("input[name='inputMsg']").val();
 		/*
-		var sid = $.mobile.activePage.find("input[name='sid']").val();
-		var uid = $.mobile.activePage.find("input[name='uid']").val();
-		
 		chat.stompClient.send("/app/chat/sendMsg", {}, JSON.stringify({ 'message': msg,'time':0,'sid':sid,"uid":uid}));
 		*/
 		//chat.connection.on('msg',function(data){
-			chat.connection.emit('message', {message:msg}); //向服务器发送消息
+			//chat.connection.emit('message_'+sid+'_'+uid, {message:msg}); //向服务器发送消息
 		    //console.log(data);
 		//});
+		//console.log("chat.connection.id="+chat.connection.id);
+		//console.log("msg="+msg);
+
+         //发送消息
+		chat.connection.emit('private message',chat.sign,msg);
+
+			
 	},
-	showResult : function(re){
+	showResult : function(msg){
 		var htmlStr = "";
 		htmlStr += "<div class='msg'>";
-		htmlStr +="<div class='u_msg'><div class='u_out'>"+re.message+"</div></div>";
+		htmlStr +="<div class='u_msg'><div class='u_out'>"+msg+"</div></div>";
 		htmlStr +="<div class='u_img'><img alt='' src='"+contextPath+"/images/user/auction_1_r6_c6.jpg'></div>";	
 		htmlStr +="<div class='clear'></div>";
 		htmlStr +="</div>";

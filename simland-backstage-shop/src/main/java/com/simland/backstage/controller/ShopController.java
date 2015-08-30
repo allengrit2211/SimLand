@@ -122,4 +122,12 @@ public class ShopController {
 		return new ModelAndView("redirect:/shop/editShopInfo", model.asMap());
 	}
 
+	@RequestMapping(value = "/shop/chatMessage")
+	public String chatMessage(HttpServletRequest request, Model model) {
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
+		Shop shop = shopService.getShop(sessionShop.getId());
+		model.addAttribute("shop", shop);
+		return "shop/chatMessage";
+	}
+
 }

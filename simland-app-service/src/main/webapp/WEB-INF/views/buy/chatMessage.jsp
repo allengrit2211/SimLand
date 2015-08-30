@@ -12,7 +12,7 @@
 </head>
 
 <body>
-		<div data-role="page" id="charMessagePage" data-dom-cache="true">
+		<div data-role="page" id="charMessagePage">
 			<div data-role="header" class="header_1 bg41AC98">
 				<a data-transition="slide" href="#" data-role="button" data-rel="back" class="back bg41AC98" data-icon="arrow-l">&nbsp;</a>
 				<h1 class="colorFFF">客服对话</h1>
