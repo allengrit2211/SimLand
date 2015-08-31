@@ -50,7 +50,7 @@
 								<span>${commodity.name}</span>
 							</div>
 							<div class="t2">
-								<a data-transition='slide' href="${pageContext.request.contextPath}/buy/chatMessage?sid=${commodity.id}"><span class="s1"></span></a>
+								<a data-transition='slide' href="${pageContext.request.contextPath}/buy/chatMessage?sid=${commodity.sid}"><span class="s1"></span></a>
 								<span class="s2 c_listMenu"></span>
 								<ul class="listMenu">
 									<li>
