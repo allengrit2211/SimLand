@@ -14,23 +14,36 @@
 $(function(){
 
 		var sid = '${shop.id}';
-		var uid = 2;
+		var uid = 1;
 		var sign = '_'+sid+'_'+uid;	
 		
-		var connection = io.connect('ws://139.196.23.106:3000',{'reconnect':true,'auto connect':true}); 
+		
+
+		
+		var connection = io.connect('ws://139.196.23.106:3000',{"force new connection":true }); 
 
 		connection.emit('new user',sign);
 
 		connection.on('event_name', showResult);
 
-		function showResult(msg){
-			$("#showMsg").append("<p>"+msg+"</p>");
+		function showResult(msgObj){
+			if(msgObj.sendType==0){
+				$("#showMsg").append("<p>会员："+msgObj.msg+"</p>");
+			}else{
+				$("#showMsg").append("<p>我："+msgObj.msg+"</p>");
+			}
+			
 		}
 
 
 		$("#sendMsgBtn").unbind().click(function(){
 			var msg = $("#msgText").val();
-			connection.emit('private message',sign,msg);
+			var msgObj = {};
+			msgObj.msg = msg;
+			msgObj.sid = sid;
+			msgObj.uid = uid;
+			msgObj.sendType = 1;	
+			connection.emit('private message',sign,msgObj);
 		});
 
 })

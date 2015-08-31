@@ -43,6 +43,12 @@ var app = {
 		
 		function pullDownAction() {
 			setTimeout(function() {
+				
+				
+				if (location.href.indexOf("buy/chatMessage") > -1){
+					chat.pullDownAction();
+				}
+				
 				if (app.myScroll) {
 					app.myScroll.refresh();
 				}

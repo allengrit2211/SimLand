@@ -1,6 +1,6 @@
 package com.simland.core.module.chat.entity;
 
-
+@Deprecated
 public class ChatResult {
 
 	private String msg;

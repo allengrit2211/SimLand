@@ -22,7 +22,10 @@
 					<div class="scroller">
 						<input type="hidden" name="sid" value="${sid}">
 						<input type="hidden" name="uid" value="${uid}">
-						
+						<input type="hidden" name="icurrentPage" value="1">
+						<div id="pullDown">
+							<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+						</div>
 						<div class="msgBox">
 							<!-- 
 							<div class="msg">

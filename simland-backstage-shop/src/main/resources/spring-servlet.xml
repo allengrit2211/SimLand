@@ -16,7 +16,7 @@
 	http://www.springframework.org/schema/util
     http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<context:component-scan base-package="com.simland.backstage.controller" />
+	<context:component-scan base-package="com.simland.backstage" />
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">

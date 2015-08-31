@@ -3175,6 +3175,38 @@ span {
 	width: 10%;
 }
 
+#charMessagePage .msgBox .msg_s .u_msg {
+	background: url("../images/bg/auction_1_r4_c4.jpg") no-repeat 0 0;
+	display: inline-block;
+	width: 78%;
+	margin: 1em 0 1em 1em;
+	text-align: left;
+}
+
+#charMessagePage .msgBox .msg_s .u_msg .u_out {
+	min-height: 20px;
+	min-width: 10px;
+	padding: 0 10px;
+	border: 1.6px solid #E4E4E4;
+	border-radius: 5px;
+	margin-right: 8px;
+	display: inline-block;
+	padding:7px;
+}
+
+#charMessagePage .msgBox .msg_s .u_img {
+	height: 40px;
+	display: inline-block;
+	float: left;
+	margin: 1em 0em 1em 1em;
+	width: 10%;
+}
+
+#charMessagePage .msgBox .msg_s .u_img img{
+	width:100%;
+}
+
+
 
 #charMessagePage .sendMsgBox {
 	height: 50px;
