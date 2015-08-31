@@ -42,9 +42,13 @@ public class MessageController {
 		int totalRecord = messageService.getMessageCount(param);
 
 		PageView pageView = new PageView();
-		pageView.setCurrentPage(Utils.strToInteger(currentPage));
 		pageView.setPageSize(20);
 		pageView.setTotalRecord(totalRecord);
+		
+		int _currentPage = pageView.getTotalPage()+1 - Utils.strToInteger(currentPage);
+		if(_currentPage<=0)_currentPage = 1;
+		
+		pageView.setCurrentPage(_currentPage);
 		param.put("endSize", pageView.getFirstResult());
 		param.put("pageSize", pageView.getPageSize());
 

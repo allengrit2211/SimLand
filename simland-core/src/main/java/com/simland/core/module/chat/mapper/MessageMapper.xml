@@ -134,9 +134,8 @@
 		FROM t_message
 		<include refid="pageWhere" />
 
-		<if test="sortColumns!=null">
-			ORDER BY #{sortColumns} DESC
-		</if>
+		ORDER BY sendTime
+		
 		limit #{endSize},#{pageSize}
 	</select>
 
