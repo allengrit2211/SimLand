@@ -8,4 +8,6 @@ CKEDITOR.editorConfig = function( config )
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+	config.image_previewText='图片上传';
+	config.filebrowserImageUploadUrl= "/simland-backstage-shop/commodity/imgUploadAction";
 };

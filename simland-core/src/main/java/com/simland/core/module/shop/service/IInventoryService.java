@@ -8,14 +8,17 @@ import com.simland.core.module.shop.entity.CategoryPropertiesVal;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Inventory;
 
-@SuppressWarnings("unchecked")
 public interface IInventoryService {
 
 	public Integer insertInventory(Inventory inventory);
 
-	public Integer insertInventory(Commodity commodity,List<Inventory> inventorys, List<CategoryPropertiesVal> categoryPropertiesVals,SysMessage sysMessage);
+	public Integer insertInventory(Commodity commodity, List<Inventory> inventorys,
+			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage);
 
 	public Integer updateInventory(Inventory inventory);
+
+	public Integer updateInventory(Commodity commodity, List<Inventory> inventorys,
+			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage);
 
 	public Integer deleteInventory(Integer id);
 

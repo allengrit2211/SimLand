@@ -33,6 +33,10 @@ public class ConstantsImage {
 	 */
 	public static String copyFile(HttpServletRequest request, String newPath, String srcFile) {
 		try {
+			
+			if(srcFile.indexOf("tmp")<=-1)
+				return srcFile;
+			
 
 			String path = request.getSession().getServletContext().getRealPath("/") + srcFile;
 			path = path.replaceAll("\\\\", "/");

@@ -5,6 +5,7 @@ public class CommodityInventory implements java.io.Serializable {
 	private static final long serialVersionUID = 5454155825314635342L;
 
 	private java.lang.Integer cid;
+	private java.lang.Integer cpid;
 	private java.lang.Integer attr1;
 	private java.lang.Integer attr2;
 	private java.lang.Integer nums;
@@ -93,6 +94,14 @@ public class CommodityInventory implements java.io.Serializable {
 
 	public void setProductCode(java.lang.String productCode) {
 		this.productCode = productCode;
+	}
+
+	public java.lang.Integer getCpid() {
+		return cpid;
+	}
+
+	public void setCpid(java.lang.Integer cpid) {
+		this.cpid = cpid;
 	}
 
 }

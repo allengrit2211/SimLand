@@ -22,7 +22,7 @@
 	       <div class="left_menu"><strong class="strong_1">商品管理</strong></div>
 		   <div class="left_tree">
 				<div class="tree_text">
-				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/commodity/addShow">新增商品</a></li>
+				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/commodity/addCommodityView">新增商品</a></li>
 				     <li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/commodity/list">商品列表</a></li>	
 					<li class="tree_li"> <img src="${pageContext.request.contextPath}/images/list_img.gif" /> <a class="list_img" href="${pageContext.request.contextPath}/commodity/issueCommodityList">发布商品</a></li>
 				</div>

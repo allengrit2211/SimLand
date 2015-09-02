@@ -16,6 +16,8 @@ public interface ICommodityService {
 	public Commodity getCommodity(Map param);
 
 	public Commodity getCommodity(Integer id);
+	
+	public Commodity getCommodity(Integer id,Integer sid);
 
 	public List<Commodity> getCommodityList(Map param);
 

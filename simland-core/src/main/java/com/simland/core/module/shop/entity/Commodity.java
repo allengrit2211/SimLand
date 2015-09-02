@@ -59,7 +59,7 @@ public class Commodity implements java.io.Serializable {
 	 */
 	private List<CommodityInventory> cInventoryList;
 	/***
-	 * 库存MapN<_inventory_attr1_attr2,String[]{"库存","价格","图片"}>
+	 * 库存MapN<_inventory_attr1_attr2,String[]{"库存","价格","图片",商品编码}>
 	 */
 	private Map<String, String[]> inventoryMap = new HashMap<String, String[]>();
 
@@ -303,7 +303,6 @@ public class Commodity implements java.io.Serializable {
 	 */
 	public void setcInventoryList(List<CommodityInventory> cInventoryList) {
 
-		boolean flag = true;
 
 		Map<String, String> attrMap1 = new TreeMap<String, String>();
 		Map<String, String> attrMap2 = new TreeMap<String, String>();
@@ -322,7 +321,7 @@ public class Commodity implements java.io.Serializable {
 			// flag = false;
 			// }
 
-			String[] inStr = { String.valueOf(ci.getNums()), String.valueOf(ci.getPrice()), ci.getImage() };
+			String[] inStr = { String.valueOf(ci.getNums()), String.valueOf(ci.getPrice()), ci.getImage(),ci.getProductCode()};
 
 			inventoryMap.put(
 					INVENTORY_KEY + Utils.notNullTrim(String.valueOf(ci.getAttr1())) + "_"

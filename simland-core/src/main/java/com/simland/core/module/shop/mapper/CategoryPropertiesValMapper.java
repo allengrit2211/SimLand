@@ -14,6 +14,8 @@ public interface CategoryPropertiesValMapper {
 	public Integer updateCategoryPropertiesVal(CategoryPropertiesVal categoryPropertiesVal);
 
 	public Integer deleteCategoryPropertiesVal(Integer id);
+	
+	public Integer deleteCategoryPropertiesValByCid(Integer cid);
 
 	public CategoryPropertiesVal getCategoryPropertiesVal(Map param);
 

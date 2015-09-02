@@ -7,7 +7,6 @@ import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.simland.core.base.Cartesian;
@@ -23,7 +22,7 @@ import com.simland.core.module.shop.mapper.InventoryMapper;
 import com.simland.core.module.shop.service.IInventoryService;
 
 @Service("inventoryService")
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class InventoryServiceImpl implements IInventoryService {
 
 	@Autowired
@@ -38,17 +37,17 @@ public class InventoryServiceImpl implements IInventoryService {
 	@Autowired
 	private CategoryPropertiesValMapper categoryPropertiesValMapper;
 
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Transactional(readOnly = false)
 	public Integer insertInventory(Inventory inventory) {
 		return inventoryMapper.insertInventory(inventory);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Transactional(readOnly = false)
 	public Integer updateInventory(Inventory inventory) {
 		return inventoryMapper.updateInventory(inventory);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Transactional(readOnly = false)
 	public Integer deleteInventory(Integer id) {
 		return inventoryMapper.deleteInventory(id);
 	}
@@ -70,7 +69,7 @@ public class InventoryServiceImpl implements IInventoryService {
 	}
 
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Transactional(readOnly = false)
 	public Integer insertInventory(Commodity commodity, List<Inventory> inventorys,
 			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage) {
 
@@ -81,6 +80,23 @@ public class InventoryServiceImpl implements IInventoryService {
 			commodityDetailsMapper.insertCommodityDetails(commodity.getCommodityDetails());
 		}
 
+		saveInventory(commodity, inventorys, categoryPropertiesVals, sysMessage);
+
+		return id;
+	}
+
+	/***
+	 * 库存操作
+	 * 
+	 * @param commodity
+	 * @param inventorys
+	 * @param categoryPropertiesVals
+	 * @param sysMessage
+	 */
+	private void saveInventory(Commodity commodity, List<Inventory> inventorys,
+			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage) {
+		
+		
 		Map<String, List<String>> map = new TreeMap<String, List<String>>();
 		for (CategoryPropertiesVal categoryPropertiesVal : categoryPropertiesVals) {
 			categoryPropertiesVal.setCid(commodity.getId());
@@ -127,6 +143,32 @@ public class InventoryServiceImpl implements IInventoryService {
 		if (inventorys != null && inventorys.size() != 0) {
 			inventoryMapper.insertBatchInventory(inventorys);
 		}
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public Integer updateInventory(Commodity commodity, List<Inventory> inventorys,
+			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage) {
+
+		if (commodity.getId() <= 0) {
+			sysMessage.setMsg("商品id不合法 不能更新商品");
+			throw new RuntimeException(sysMessage.getMsg());
+		}
+
+		categoryPropertiesValMapper.deleteCategoryPropertiesValByCid(commodity.getId());
+
+		inventoryMapper.deleteInventoryByCid(commodity.getId());
+
+		int id = commodityMapper.updateCommodity(commodity);
+
+		if (Utils.isObjectNotEmpty(commodity.getCommodityDetails().getInfo())) {
+			commodity.getCommodityDetails().setCid(commodity.getId());
+			commodityDetailsMapper.updateCommodityDetailsByCid(commodity.getCommodityDetails());
+		}
+
+		saveInventory(commodity, inventorys, categoryPropertiesVals, sysMessage);
+
 		return id;
 	}
+
 }

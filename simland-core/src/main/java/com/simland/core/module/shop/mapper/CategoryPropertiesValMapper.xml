@@ -11,6 +11,7 @@
         <result property="cid" column="cid"/>
         <result property="cpid" column="cpid"/>
         <result property="cpvalue" column="cpvalue"/>
+        <result property="isDel" column="isDel"/>
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -18,7 +19,8 @@
         id id,
         cid cid,
         cpid cpid,
-        cpvalue cpvalue
+        cpvalue cpvalue,
+        isDel isDel
 	    ]]>
 	</sql>
 
@@ -80,6 +82,9 @@
 		<if test="cpvalue!=null">
         	cpvalue = #{cpvalue}
 		</if>
+		<if test="isDel!=null">
+        	isDel = #{isDel}
+		</if>		
 	    <![CDATA[  
         WHERE 
 	        id = #{id}
@@ -88,10 +93,18 @@
 
 	<delete id="deleteCategoryPropertiesVal">
     <![CDATA[
-        DELETE FROM t_category_properties_val WHERE
+        UPDATE t_category_properties_val SET isDel=1 WHERE
         id = #{id} 
     ]]>
 	</delete>
+	
+	<delete id="deleteCategoryPropertiesValByCid">
+    <![CDATA[
+        UPDATE t_category_properties_val SET isDel=1 WHERE
+        cid = #{cid} 
+    ]]>
+	</delete>
+	
 	
 	<select id="getCategoryPropertiesVal" resultMap="CategoryPropertiesValRM">
 		SELECT
@@ -99,7 +112,7 @@
 	    <![CDATA[
 		    FROM t_category_properties_val 
 	        WHERE 
-	        id = #{id} 
+	        id = #{id} and isDel=0
 	    ]]>
 	</select>
 	
@@ -108,7 +121,7 @@
 			<include refid="Base_Column_List" />
 		FROM t_category_properties_val 
 		<where>
-			cpid = #{cpid}
+			cpid = #{cpid} AND isDel=0
 		</where>
 	</select>
 	
@@ -117,7 +130,7 @@
 			<include refid="Base_Column_List" />
 		FROM t_category_properties_val 
 		<where>
-			cid = #{cid}
+			cid = #{cid} AND isDel=0
 		</where>
 	</select>	
 
@@ -130,6 +143,7 @@
 
 	<sql id="pageWhere">
 		<where>
+			AND isDel=0
 			<if test="id!=null">
 	        AND id = #{id}
 	        </if>
@@ -142,6 +156,9 @@
 			<if test="cpvalue!=null">
 	        AND cpvalue = #{cpvalue}
 	        </if>
+			<if test="isDel!=null">
+	        AND isDel = #{isDel}
+	        </if>	        
 		</where>
 	</sql>
 

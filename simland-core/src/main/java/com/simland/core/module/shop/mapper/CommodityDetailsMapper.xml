@@ -54,6 +54,22 @@
 	        id = #{id}
     	]]>
 	</update>
+	
+	<update id="updateCommodityDetailsByCid">
+	    <![CDATA[
+        UPDATE t_commodity_details
+        ]]>
+        <set>
+		<if test="info!=null">
+        	info = #{info},
+		</if>
+        </set>
+	    <![CDATA[  
+        WHERE 
+	        cid = #{cid}
+    	]]>
+	</update>
+	
 
 	<delete id="deleteCommodityDetails">
     <![CDATA[

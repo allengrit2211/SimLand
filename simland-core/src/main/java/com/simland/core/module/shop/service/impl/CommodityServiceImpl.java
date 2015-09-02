@@ -88,4 +88,17 @@ public class CommodityServiceImpl implements ICommodityService {
 		return commodityMapper.updateCommodityStatusByIds(param);
 	}
 
+	@Override
+	public Commodity getCommodity(Integer id, Integer sid) {
+		if (id == null || id <= 0)
+			return null;
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("id", id);
+		param.put("sid", sid);
+		Commodity c = commodityMapper.getCommodity(param);
+		param = null;
+		return c;
+	}
+
 }

@@ -55,15 +55,39 @@ public class CommodityController {
 	String reJson = null;
 	SysMessage msg = new SysMessage();
 
-	@RequestMapping(value = "/commodity/addShow")
+	@RequestMapping(value = "/commodity/addCommodityView")
 	public String addCommodityShow(HttpServletRequest request, Model model) {
 
+		setCategoryProperties(model);
+
+		return "commodity/editCommodity";
+	}
+
+	@RequestMapping(value = "/commodity/editCommodityView")
+	public ModelAndView editCommodityShow(HttpServletRequest request, Model model) {
+		String cid = request.getParameter("cid");
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
+		if (cid == null || Utils.strToInteger(cid) == 0) {
+			return new ModelAndView("redirect:/commodity/list");
+		}
+
+		Commodity commodity = commodityService.getCommodity(Utils.strToInteger(cid), sessionShop.getSid());
+		if (commodity == null) {
+			return new ModelAndView("redirect:/commodity/list");
+		}
+
+		setCategoryProperties(model);
+
+		model.addAttribute("c", commodity);
+
+		return new ModelAndView("commodity/editCommodity");
+	}
+
+	private void setCategoryProperties(Model model) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("pid", 0);
 		List list = categoryPropertiesService.getCategoryPropertiesList(param);
 		model.addAttribute("cplist", list);
-
-		return "commodity/addCommodity";
 	}
 
 	@RequestMapping(value = "/commodity/addCommodity")
@@ -78,27 +102,29 @@ public class CommodityController {
 			return reJson;
 		}
 
-		String[] attr1 = request.getParameterValues(String.valueOf("attr1_" + categoryType));
-		String[] attr1Val = request.getParameterValues("attr1Val_" + categoryType);
-		String[] attr2 = request.getParameterValues("attr2_" + categoryType);
-		String[] attr2Val = request.getParameterValues("attr2Val_" + categoryType);
-		String[] price = request.getParameterValues("price_" + categoryType);
-		String[] nums = request.getParameterValues("nums_" + categoryType);
-		String[] productCode = request.getParameterValues("productCode_" + categoryType);
-		String[] imageName = request.getParameterValues("imageName_" + categoryType);
+		int cid = Utils.strToInteger(request.getParameter("cid"));// 商品ID
+
+		String[] attr1 = request.getParameterValues(String.valueOf("attr1_" + categoryType));// 属性1值
+		String[] attr1Val = request.getParameterValues("attr1Val_" + categoryType);// 属性1ID
+		String[] attr2 = request.getParameterValues("attr2_" + categoryType);// 属性2值
+		String[] attr2Val = request.getParameterValues("attr2Val_" + categoryType);// 属性2ID
+		String[] price = request.getParameterValues("price_" + categoryType);// 价格
+		String[] nums = request.getParameterValues("nums_" + categoryType);// 库存数量
+		String[] productCode = request.getParameterValues("productCode_" + categoryType);// 商品编码
+		String[] imageName = request.getParameterValues("imageName_" + categoryType);// 图片
 
 		String[] iAttr1 = request.getParameterValues(String.valueOf("iAttr1_" + categoryType));
 		String[] iAttr1Val = request.getParameterValues(String.valueOf("iAttr1Val_" + categoryType));
 		String[] iAttr2 = request.getParameterValues(String.valueOf("iAttr2_" + categoryType));
 		String[] iAttr2Val = request.getParameterValues(String.valueOf("iAttr2Val_" + categoryType));
 
-		String cname = request.getParameter("cname");
-		String marketPrice = request.getParameter("marketPrice");
-		String realPrice = request.getParameter("realPrice");
-		String editor1 = request.getParameter("editor1");
-		String isNew = request.getParameter("isNew");
-		String isSpecial = request.getParameter("isSpecial");
-		String isVip = request.getParameter("isVip");
+		String cname = request.getParameter("cname");// 商品名称
+		String marketPrice = request.getParameter("marketPrice");// 市场价格
+		String realPrice = request.getParameter("realPrice");// 真实价格
+		String editor1 = request.getParameter("editor1");// 图文编辑
+		String isNew = request.getParameter("isNew");// 是否新品
+		String isSpecial = request.getParameter("isSpecial");// 特价
+		String isVip = request.getParameter("isVip");// 是否VIP
 
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
@@ -144,13 +170,15 @@ public class CommodityController {
 
 		for (int i = 0; iAttr1 != null && i < iAttr1.length; i++) {
 			Inventory inventory = new Inventory();
+			inventory.setCpid(Utils.strToInteger(categoryType));
 			inventory.setAttr1(Utils.strToInteger(Utils.getArrayVal(i, iAttr1Val)));
 			inventory.setAttr2(Utils.strToInteger(Utils.getArrayVal(i, iAttr2Val)));
 			inventory.setSid(shopUser.getId());
 			inventory.setNums(Utils.strToInteger(Utils.getArrayVal(i, nums)));
 			inventory.setPrice(Utils.strToDouble(Utils.getArrayVal(i, price)));
 			inventory.setProductCode(Utils.getArrayVal(index, productCode));
-			inventory.setImage(ConstantsImage.copyFile(request, ConstantsImage.COMMODITY, Utils.getArrayVal(i, imageName)));
+			inventory.setImage(ConstantsImage.copyFile(request, ConstantsImage.COMMODITY,
+					Utils.getArrayVal(i, imageName)));
 			ilist.add(inventory);
 			index++;
 		}
@@ -174,10 +202,14 @@ public class CommodityController {
 		logger.info(cpList);
 		logger.info(ilist);
 
-		boolean flag = false;
+		int id = 0;
 		try {
-			int id = inventoryService.insertInventory(commodity, ilist, cpList, msg);
-			flag = (id > 0) ? true : false;
+			if (cid > 0) {
+				commodity.setId(cid);
+				id = inventoryService.updateInventory(commodity, ilist, cpList, msg);
+			} else {
+				id = inventoryService.insertInventory(commodity, ilist, cpList, msg);
+			}
 		} catch (Exception e) {
 			reentrantLock.unlock();
 			logger.error(this.getClass() + " addommodity error:" + e.getMessage());
@@ -186,12 +218,12 @@ public class CommodityController {
 
 		reentrantLock.unlock();
 
-		if (flag) {
+		if (id > 0) {
 			msg.setCode("1");
-			msg.setMsg("添加成功");
+			msg.setMsg("保存成功");
 		} else {
 			msg.setCode("0");
-			msg.setMsg("添加失败");
+			msg.setMsg("保存失败");
 		}
 		logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
 		return reJson;
@@ -368,6 +400,6 @@ public class CommodityController {
 		commodityService.updateCommodityStatusByIds(param);
 		reentrantLock.unlock();
 
-		return new ModelAndView("redirect:/commodity/issueCommodityList");
+		return new ModelAndView("redirect:/commodity/issueCommodityList?currentPage="+pageView.getCurrentPage());
 	}
 }

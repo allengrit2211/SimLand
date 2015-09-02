@@ -127,55 +127,56 @@
 
 	<update id="updateCommodity">
 	    <![CDATA[
-        UPDATE t_commodity SET
+        UPDATE t_commodity
         ]]>
+        <set>
 		<if test="sid!=null">
-			sid = #{sid}
+			sid = #{sid},
 		</if>
 		<if test="name!=null">
-			name = #{name}
+			name = #{name},
 		</if>
 		<if test="img!=null">
-			img = #{img}
+			img = #{img},
 		</if>
 		<if test="type!=null">
-			type = #{type}
+			type = #{type},
 		</if>
 		<if test="collectNum!=null">
-			collectNum = #{collectNum}
+			collectNum = #{collectNum},
 		</if>
 		<if test="marketPrice!=null">
-			marketPrice = #{marketPrice}
+			marketPrice = #{marketPrice},
 		</if>
 		<if test="realPrice!=null">
-			realPrice = #{realPrice}
+			realPrice = #{realPrice},
 		</if>
 		<if test="createTime!=null">
-			createTime = #{createTime}
+			createTime = #{createTime},
 		</if>
 		<if test="creater!=null">
-			creater = #{creater}
+			creater = #{creater},
 		</if>
 		<if test="isNew!=null">
-			isNew = #{isNew}
+			isNew = #{isNew},
 		</if>
 		<if test="isSpecial!=null">
-			isSpecial = #{isSpecial}
+			isSpecial = #{isSpecial},
 		</if>
 		<if test="isVip!=null">
-			isVip = #{isVip}
+			isVip = #{isVip},
 		</if>
 		
 		<if test="issueTime!=null">
-			issueTime = #{issueTime}
+			issueTime = #{issueTime},
 		</if>
 		<if test="cause!=null">
-			cause = #{cause}
+			cause = #{cause},
 		</if>	
 		<if test="status!=null">
-			status = #{status}
+			status = #{status},
 		</if>	
-		
+		</set>
 	    <![CDATA[  
         WHERE 
 	        id = #{id}

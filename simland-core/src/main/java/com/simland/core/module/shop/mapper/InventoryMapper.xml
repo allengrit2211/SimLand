@@ -8,6 +8,7 @@
 
 	<resultMap id="InventoryRM" type="com.simland.core.module.shop.entity.Inventory">
         <result property="id" column="id"/>
+        <result property="cpid" column="cpid"/>
         <result property="cid" column="cid"/>
         <result property="attr1" column="attr1"/>
         <result property="attr2" column="attr2"/>
@@ -18,10 +19,12 @@
         <result property="status" column="status"/>
         <result property="type" column="type"/>
         <result property="sid" column="sid"/>
+        <result property="isDel" column="isDel"/>
 	</resultMap>
 	
 	<resultMap id="InventoryRM1" type="com.simland.core.module.shop.entity.CommodityInventory">
 		<result property="cid" column="cid"/>
+		<result property="cpid" column="cpid"/>
         <result property="attr1" column="attr1"/>
         <result property="attr2" column="attr2"/>
         <result property="nums" column="nums"/>
@@ -36,6 +39,7 @@
 	<sql id="Base_Column_List">
 	    <![CDATA[
         id id,
+        cpid cpid,
         cid cid,
         attr1 attr1,
         attr2 attr2,
@@ -45,7 +49,8 @@
         productCode productCode,
         status status,
         type type,
-        sid sid
+        sid sid,
+        isDel isDel
 	    ]]>
 	</sql>
 
@@ -55,6 +60,7 @@
 	    <![CDATA[
 	        INSERT INTO t_inventory (
 		        cid,
+		        cpid,
 		        attr1,
 		        attr2,
 		        nums,
@@ -66,6 +72,7 @@
 		        sid
 	        ) VALUES (
 		        	#{cid},
+		        	#{cpid},
 		        	#{attr1},
 		        	#{attr2},
 		        	#{nums},
@@ -90,6 +97,7 @@
 
 			INSERT INTO t_inventory (
 		        cid,
+		        cpid,
 		        attr1,
 		        attr2,
 		        nums,
@@ -104,6 +112,7 @@
 			<![CDATA[
  				(
 					#{item.cid},
+					#{item.cpid},
 		        	#{item.attr1},
 		        	#{item.attr2},
 		        	#{item.nums},
@@ -129,6 +138,9 @@
 		<if test="cid!=null">
         	cid = #{cid}
 		</if>
+		<if test="cpid!=null">
+        	cpid = #{cpid}
+		</if>		
 		<if test="attr1!=null">
         	attr1 = #{attr1}
 		</if>
@@ -147,6 +159,9 @@
 		<if test="sid!=null">
         	sid = #{sid}
 		</if>
+		<if test="isDel!=null">
+        	isDel = #{isDel}
+		</if>
 	    <![CDATA[  
         WHERE 
 	        id = #{id}
@@ -155,10 +170,17 @@
 
 	<delete id="deleteInventory">
     <![CDATA[
-        DELETE FROM t_inventory WHERE
+        UPDATE t_inventory SET isDel=1 WHERE
         id = #{id} 
     ]]>
 	</delete>
+	
+	<delete id="deleteInventoryByCid">
+    <![CDATA[
+        UPDATE t_inventory SET isDel=1 WHERE
+        cid = #{cid} 
+    ]]>
+	</delete>	
 	
 	<select id="getInventory" resultMap="InventoryRM">
 		SELECT
@@ -166,7 +188,7 @@
 	    <![CDATA[
 		    FROM t_inventory 
 	        WHERE 
-	        id = #{id} 
+	        id = #{id} AND isDel=0
 	    ]]>
 	</select>
 
@@ -179,9 +201,13 @@
 
 	<sql id="pageWhere">
 		<where>
+			isDel=0
 			<if test="id!=null">
 	        AND id = #{id}
 	        </if>
+			<if test="cpid!=null">
+	        AND cpid = #{cpid}
+	        </if>	        
 			<if test="cid!=null">
 	        AND cid = #{cid}
 	        </if>
@@ -202,6 +228,9 @@
 	        </if>
 			<if test="sid!=null">
 	        AND sid = #{sid}
+	        </if>
+			<if test="isDel!=null">
+	        AND isDel = #{isDel}
 	        </if>
 		</where>
 	</sql>
@@ -225,14 +254,14 @@
 
 	<select id="getInventoryByCommodityId" resultMap="InventoryRM1">
 	    <![CDATA[
-			select t1.cid,t1.attr1,t1.attr2,t1.nums,t1.price,t1.image,t1.productCode,t1.sid,t2.cpvalue cpvalue1,t3.cpvalue cpvalue2 from t_inventory t1 
+			select t1.cid,t1.cpid,t1.attr1,t1.attr2,t1.nums,t1.price,t1.image,t1.productCode,t1.sid,t2.cpvalue cpvalue1,t3.cpvalue cpvalue2 from t_inventory t1 
 			left join t_category_properties_val t2 on t1.attr1 = t2.id
 			left join t_category_properties_val t3 on t1.attr2 = t3.id
 	    ]]>	
 	    <where>
-	    	t1.cid = #{cid} AND nums>0
+	    	t1.cid = #{cid} AND nums>0 AND t1.isDel=0
 	    </where>
-	
+		ORDER BY t1.id
 	</select>
 
 

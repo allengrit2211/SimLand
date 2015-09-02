@@ -21,4 +21,6 @@ public interface CommodityDetailsMapper{
 	
 	public List getSplitCommodityDetailsList(Map param);
 
+	public void updateCommodityDetailsByCid(CommodityDetails commodityDetails);
+
 }

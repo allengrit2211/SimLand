@@ -91,6 +91,8 @@ $(function(){
 					&nbsp;&nbsp;
 					<input type="button" id="batchUp" value="批量发布">
 					<input type="button" id="batchDown" value="批量下架">
+					<input type="hidden" name="currentPage" value="${pageView.currentPage}">
+					
 				
 					<br/>
 					<br/>

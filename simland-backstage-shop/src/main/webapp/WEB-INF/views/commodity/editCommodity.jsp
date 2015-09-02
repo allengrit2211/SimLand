@@ -47,6 +47,7 @@ var editor1 = null;
 $(function(){
 	
 	var contextPath = '${pageContext.request.contextPath}';
+	var contextPathApp = '/simland-app-service';
 	var images = new Array();//图片地址数组
 	
 	$("#categoryType").find("option").each(function(i,e){
@@ -139,13 +140,15 @@ $(function(){
 		
 		if($(option).attr("attr1id")!=""){
 			$("#attrBox_"+typeId).find(".attr1 .inventoryInput ._input").each(function(i,e){
-				attr1s.push($(e).val()+"_"+$(e).attr("cpid"));
+				//属性值_属性类别id_属性值ID
+				attr1s.push($(e).val()+"_"+$(e).attr("cpid")+"_"+$(e).attr("e-attr1"));
 			});
 		}
 		
 		if($(option).attr("attr2id")!=""){
 			$("#attrBox_"+typeId).find(".attr2 .inventoryInput ._input").each(function(i,e){
-				attr2s.push($(e).val()+"_"+$(e).attr("cpid"));
+				//属性值_属性类别id_属性值ID
+				attr2s.push($(e).val()+"_"+$(e).attr("cpid")+"_"+$(e).attr("e-attr2"));
 			});
 		}
 
@@ -159,10 +162,23 @@ $(function(){
 					htmlStr+="<tr>";
 					htmlStr+="<td>"+e.split("_")[0]+"<input type='hidden' name='iAttr1_"+typeId+"' value='"+e.split("_")[0]+"'><input type='hidden' name='iAttr1Val_"+typeId+"' value='"+e.split("_")[1]+"'></td>";
 					htmlStr+="<td>"+ee.split("_")[0]+"<input type='hidden' name='iAttr2_"+typeId+"' value='"+ee.split("_")[0]+"'><input type='hidden' name='iAttr2Val_"+typeId+"' value='"+ee.split("_")[1]+"'></td>";
-					htmlStr+="<td><input name='price_"+typeId+"' size=\"7\" type=\"text\"></td>";
-					htmlStr+="<td><input name='nums_"+typeId+"' size=\"7\" type=\"text\"></td>";
-					htmlStr+="<td><input name='productCode_"+typeId+"' size=\"7\" type=\"text\"></td>";
-					htmlStr+="<td><input type='hidden' name='imageName_"+typeId+"' value='"+(images[typeId,_index])+"'><img src='"+((images[typeId][_index])?(contextPath+images[typeId][_index]):'')+"' width='30' height='30' id='showimg_"+typeId+"_"+_index+"'><input index='"+_index+"' name='file' id='file_"+typeId+"_"+_index+"' class='upfile' type='file'></td>";
+					
+					/*********Edit by Gavin 2015-09-02*********/
+					var e_inv = $("input[name=e_inventory_"+e.split("_")[2]+"_"+ee.split("_")[2]+"]");
+					var price = "" ,nums="",productCode="";
+					
+					if(e_inv.length>0){
+						if(e_inv.val().split("_")[0]) price = e_inv.val().split("_")[1];
+						if(e_inv.val().split("_")[1]) nums = e_inv.val().split("_")[0];
+						if(e_inv.val().split("_")[2]) images[typeId][_index] = e_inv.val().split("_")[2];
+						if(e_inv.val().split("_")[3]) productCode = e_inv.val().split("_")[3];
+					}
+					
+					
+					htmlStr+="<td><input name='price_"+typeId+"' size=\"7\" type=\"text\" value='"+(price)+"'></td>";
+					htmlStr+="<td><input name='nums_"+typeId+"' size=\"7\" type=\"text\" value='"+(nums)+"'></td>";
+					htmlStr+="<td><input name='productCode_"+typeId+"' size=\"7\" type=\"text\" value='"+(productCode)+"'></td>";
+					htmlStr+="<td><input type='hidden' name='imageName_"+typeId+"' value='"+(images[typeId][_index])+"'><img src='"+((images[typeId][_index])?((e_inv.length>0?contextPathApp:contextPath)+images[typeId][_index]):'')+"' width='30' height='30' id='showimg_"+typeId+"_"+_index+"'><input index='"+_index+"' name='file' id='file_"+typeId+"_"+_index+"' class='upfile' type='file'></td>";
 					htmlStr+="</tr>";
 					_index = _index+1;
 				});
@@ -175,10 +191,22 @@ $(function(){
 				images[typeId][_index] = images[typeId][_index]?(images[typeId][_index]):'';
 				htmlStr+="<tr>";
 				htmlStr+="<td>"+e.split("_")[0]+"<input type='hidden' name='iAttr1_"+typeId+"' value='"+e.split("_")[0]+"'><input type='hidden' name='iAttr1Val_"+typeId+"' value='"+e.split("_")[1]+"'></td>";
-				htmlStr+="<td><input name='price_"+typeId+"' size=\"7\" type=\"text\"></td>";
-				htmlStr+="<td><input name='nums_"+typeId+"' size=\"7\" type=\"text\"></td>";
-				htmlStr+="<td><input name='productCode_"+typeId+"' size=\"7\" type=\"text\"></td>";
-				htmlStr+="<td><input type='hidden' name='imageName_"+typeId+"' value='"+(images[typeId][_index])+"'><img src='"+((images[typeId][_index])?(contextPath+images[typeId][_index]):'')+"' width='30' height='30' id='showimg_"+typeId+"_"+_index+"'><input index='"+_index+"' name='file' id='file_"+typeId+"_"+_index+"' class='upfile' type='file'></td>";
+				
+				/*********Edit by Gavin 2015-09-02*********/
+				var e_inv = $("input[name=e_inventory_"+e.split("_")[2]+"_0]");
+				var price = "" ,nums="",productCode="";
+				
+				if(e_inv.length>0){
+					if(e_inv.val().split("_")[0]) price = e_inv.val().split("_")[1];
+					if(e_inv.val().split("_")[1]) nums = e_inv.val().split("_")[0];
+					if(e_inv.val().split("_")[2]) images[typeId][_index] = e_inv.val().split("_")[2];
+					if(e_inv.val().split("_")[3]) productCode = e_inv.val().split("_")[3];
+				}
+				
+				htmlStr+="<td><input name='price_"+typeId+"' size=\"7\" type=\"text\" value='"+(price)+"'></td>";
+				htmlStr+="<td><input name='nums_"+typeId+"' size=\"7\" type=\"text\" value='"+(nums)+"'></td>";
+				htmlStr+="<td><input name='productCode_"+typeId+"' size=\"7\" type=\"text\" value='"+(productCode)+"'></td>";
+				htmlStr+="<td><input type='hidden' name='imageName_"+typeId+"' value='"+(images[typeId][_index])+"'><img src='"+((images[typeId][_index])?((e_inv.length>0?contextPathApp:contextPath)+images[typeId][_index]):'')+"' width='30' height='30' id='showimg_"+typeId+"_"+_index+"'><input index='"+_index+"' name='file' id='file_"+typeId+"_"+_index+"' class='upfile' type='file'></td>";
 				htmlStr+="</tr>";
 				_index = _index+1;
 			});		
@@ -303,12 +331,12 @@ $(function(){
 	}); //参数‘content’是textarea元素的name属性值，而非id属性值
 	setTimeout(function(){
 		$("#cke_editor1").css({"width":"346"});
-	},100);
+	},150);
 });
 
 
 </script>
-<title>添加商品</title>
+<title>${(c==null)?"添加商品":"编辑商品"}</title>
 </head>
 <body>
 	<c:import url="../top.jsp"/>
@@ -317,7 +345,7 @@ $(function(){
 		<c:import url="../left.jsp"/>
 		<div id="right_box">
 			<c:import url="../right_top.jsp"/>
-			<div id="right_font"><img src="${pageContext.request.contextPath}/images/main_14.gif"/> 您现在所在的位置：商品管理 → <span class="bfont">添加商品 </span></div>
+			<div id="right_font"><img src="${pageContext.request.contextPath}/images/main_14.gif"/> 您现在所在的位置：商品管理 → <span class="bfont">${(c==null)?"添加商品":"编辑商品"} </span></div>
 			
 			<div id="msg">
 				&nbsp;&nbsp;&nbsp;&nbsp;${msg}
@@ -325,25 +353,26 @@ $(function(){
 			
 			<div id="right_content">
 				<form id="commodityForm" method="post" action="${pageContext.request.contextPath}/commodity/addCommodity">
+					<input type="hidden" name="cid" value="${c.id}">
 					<table class="gridtable" width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<th width="80">商品名称</th>
-							<td><input name="cname" class="input3"> </td>
+							<td><input name="cname" class="input3" value="${c.name}"> </td>
 						</tr>
 						<tr>
 							<th>销售价格</th>
-							<td><input name="marketPrice" class="input3"> </td>
+							<td><input name="marketPrice" class="input3" value="${c.marketPrice}"> </td>
 						</tr>
 						<tr>
 							<th>实际价格</th>
-							<td><input name="realPrice" class="input3"> </td>
+							<td><input name="realPrice" class="input3" value="${c.realPrice}"> </td>
 						</tr>
 						<tr>
 							<th>类别属性</th>
 							<td>
 								<select name="categoryType" id="categoryType">
 									<c:forEach items="${cplist}" var="item" varStatus="status0">
-										<option value="${item.id}" attr1="${item.categoryPropertiesList[0].name}" attr1Id="${item.categoryPropertiesList[0].id}" attr2="${item.categoryPropertiesList[1].name}" attr2Id="${item.categoryPropertiesList[1].id}">${item.name}</option>
+										<option ${c.type==item.id?('selected="selected"'):''} value="${item.id}" attr1="${item.categoryPropertiesList[0].name}" attr1Id="${item.categoryPropertiesList[0].id}" attr2="${item.categoryPropertiesList[1].name}" attr2Id="${item.categoryPropertiesList[1].id}">${item.name}</option>
 									</c:forEach>
 								</select>
 							</td>
@@ -351,9 +380,9 @@ $(function(){
 						<tr>
 							<th>相关</th>
 							<td>
-								<input type="checkbox" name="isNew" value="1"> <span style="vertical-align:top;">新品</span>
-								<input type="checkbox" name="isSpecial" value="1"> <span style="vertical-align:top;">特价</span>
-								<input type="checkbox" name="isVip" value="1"> <span style="vertical-align:top;">VIP</span>
+								<input type="checkbox" name="isNew" value="1" ${c.isNew==1?('checked="checked"'):''}> <span style="vertical-align:top;">新品</span>
+								<input type="checkbox" name="isSpecial" value="1" ${c.isSpecial==1?('checked="checked"'):''}> <span style="vertical-align:top;">特价</span>
+								<input type="checkbox" name="isVip" value="1" ${c.isVip==1?('checked="checked"'):''}> <span style="vertical-align:top;">VIP</span>
 							</td>
 						</tr>
 						<tr>
@@ -363,15 +392,29 @@ $(function(){
 							<td>
 							
 								<c:forEach items="${cplist}" var="item" varStatus="status0">
-									<div id="attrBox_${item.id}" class="attrBox ${status0.index==0?"show":""}" >
+									<div id="attrBox_${item.id}" class="attrBox ${c==null?(status0.index==0?"show":""):(c.type==item.id?("show"):"")}" >
 										<c:forEach items="${item.categoryPropertiesList}" var="item1" varStatus="status">
 											<div class="attr${status.index+1}">
 												<span style="display: block;padding-bottom:10px;">  <a href="#" class="removeAttr" index="${status.index+1}" cpid="${item1.id}">-</a> ${item1.name} <a href="#"  class="addAttr" index="${status.index+1}" cpid="${item1.id}">+</a></span>
-												<span num="0" class="inventoryInput"></span>
+												<span num="0" class="inventoryInput">
+													<c:if test="${c.type==item.id&&((status.index+1)==1)}">
+														<c:forEach items="${c.attr1List}" var="item5">
+															<input class="_input" name="attr1_${item.id}" value="${item5[1]}" cpid="${item1.id}" e-attr1="${item5[0]}" size="5" type="text">
+															<input name="attr1Val_${item.id}" value="${item1.id}" size="8" type="hidden">
+														</c:forEach>
+													</c:if>
+													<c:if test="${c.type==item.id&&((status.index+1)==2)}">
+														<c:forEach items="${c.attr2List}" var="item5">
+															<input class="_input" name="attr2_${item.id}" value="${item5[1]}" cpid="${item1.id}" e-attr2="${item5[0]}" size="5" type="text">
+															<input name="attr2Val_${item.id}" value="${item1.id}" size="8" type="hidden">
+														</c:forEach>
+													</c:if>
+												</span>
 											</div>
 										</c:forEach>
 									</div>
-									<div id="inventoryBox_${item.id}" class="inventoryBox ${status0.index==0?"show":""}">
+									
+									<div id="inventoryBox_${item.id}" class="inventoryBox ${c==null?(status0.index==0?"show":""):(c.type==item.id?("show"):"")}">
 										<table class="gridtable" id="inventoryTable_${item.id}" width="90%" border="0" cellspacing="0" cellpadding="0">
 											
 											<thead>
@@ -390,43 +433,40 @@ $(function(){
 											</thead>
 											<tbody>
 												<c:if test="${fn:length(item.categoryPropertiesList)==0}">
+													<!-- 无属性,单一记录 -->
+													<c:forEach items="${c.inventoryMap}" var="item1">
+														<c:set var="eItem" value="${item1}"/>
+													</c:forEach>
 													<tr>
 														<td>
 														<input type='hidden' name='iAttr1_${item.id}' value='0'><input type='hidden' name='iAttr1Val_${item.id}' value='0'>
 														<input type='hidden' name='iAttr2_${item.id}' value='0'><input type='hidden' name='iAttr2Val_${item.id}' value='0'>
-														<input name="price_${item.id}" size="7" type="text"></td>
-														<td><input name="nums_${item.id}" size="7" type="text"></td>
-														<td><input name="productCode_${item.id}" size="7" type="text"></td>
+														<input name="price_${item.id}" size="7" type="text" value="${eItem.value[1]}"></td>
+														<td><input name="nums_${item.id}" size="7" type="text" value="${eItem.value[0]}"></td>
+														<td><input name="productCode_${item.id}" size="7" type="text" value="${eItem.value[3]}"></td>
 														<td>
-															<input type="hidden" name="imageName_${item.id}" value="">
-															<img src="" width="30" height="30" id="showimg_${item.id}_1">
+															<input type="hidden" name="imageName_${item.id}" value="${eItem.value[2]}">
+															<img src="${c==null?"":"/simland-app-service"}${eItem.value[2]}" width="30" height="30" id="showimg_${item.id}_1">
 															<input index="1" name="file" id="file_${item.id}_1" class="upfile" type="file">
 														</td>
 													</tr>
 												</c:if>
+												
 											</tbody>
 											
-											<!-- 
-											<tr>
-												<td>100g</td>
-												<td>2x2</td>
-												<td><input type="text" size="4"></td>
-												<td><input type="text" size="4"></td>
-												<td><input type="text" size="8"></td>
-												<td>商品图片</td>
-											</tr>
-											<tr>
-												<td>100g</td>
-												<td>3x3</td>
-												<td><input type="text" size="4"></td>
-												<td><input type="text" size="4"></td>
-												<td><input type="text" size="8"></td>
-												<td>商品图片</td>
-											</tr>
-											 -->
 										</table>
 									</div>
 								</c:forEach>
+
+
+								<c:if test="${c!=null}">
+									<div style="display:block;">
+										<c:forEach items="${c.inventoryMap}" var="item1">
+											<!-- 库存,价格,图片,编码 -->
+											<input type="hidden" name="e${item1.key}" value="${item1.value[0]}_${item1.value[1]}_${item1.value[2]}_${item1.value[3]}"/>
+										</c:forEach>						
+									</div>
+								</c:if>											
 
 							</td>
 						</tr>
@@ -439,7 +479,7 @@ $(function(){
 									<p>
 										<label for="editor1">
 											Editor 1:</label>
-										<textarea  id="editor1" name="editor1" rows="10">请编辑商品图文</textarea>
+										<textarea  id="editor1" name="editor1" rows="10">${c.commodityDetails.info}</textarea>
 									</p>
 							</td>
 						</tr>

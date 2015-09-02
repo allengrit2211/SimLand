@@ -50,7 +50,7 @@
 							<td width="20">${item.id}</td>
 							<td width="220">${item.name}</td>
 							<td width="120">${pageContext.request.contextPath}${item.img}</td>
-							<td width="30"><a href="javascript:;">[编辑]</a></td>
+							<td width="30"><a href="${pageContext.request.contextPath}/commodity/editCommodityView?cid=${item.id}">[编辑]</a></td>
 						</tr>
 					</c:forEach>
 				</table>

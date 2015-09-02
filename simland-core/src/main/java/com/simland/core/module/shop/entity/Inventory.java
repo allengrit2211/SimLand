@@ -1,11 +1,11 @@
 package com.simland.core.module.shop.entity;
 
-import java.sql.Timestamp;
 
 public class Inventory implements java.io.Serializable {
 	private static final long serialVersionUID = 5454155825314635342L;
 
 	private java.lang.Integer id;
+	private java.lang.Integer cpid;
 	private java.lang.Integer cid;
 	private java.lang.Integer attr1;
 	private java.lang.Integer attr2;
@@ -16,6 +16,7 @@ public class Inventory implements java.io.Serializable {
 	private java.lang.Integer status;
 	private java.lang.Integer type;// 状态 0默认状态 1上架 2下架
 	private java.lang.Integer sid;
+	private java.lang.Integer isDel;
 
 	private Commodity commodity;
 
@@ -115,4 +116,21 @@ public class Inventory implements java.io.Serializable {
 		this.commodity = commodity;
 	}
 
+	public java.lang.Integer getCpid() {
+		return cpid;
+	}
+
+	public void setCpid(java.lang.Integer cpid) {
+		this.cpid = cpid;
+	}
+
+	public java.lang.Integer getIsDel() {
+		return isDel;
+	}
+
+	public void setIsDel(java.lang.Integer isDel) {
+		this.isDel = isDel;
+	}
+
+	
 }
