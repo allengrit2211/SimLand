@@ -263,6 +263,33 @@
 	    </where>
 		ORDER BY t1.id
 	</select>
+	
+	<!-- 批量更新库存 -->
+	<update id="updateInventoryNums">
+		UPDATE t_inventory
+		<set>
+			nums = nums - ${nums}
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+
+
+	<select id="getInventoryNumsBySku" resultMap="InventoryRM">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_inventory t1
+		<where>
+			t1.cid = #{cid} AND t1.sid = #{sid}
+			<if test="attr1!=null">
+	        AND t1.attr1 = #{attr1}
+	        </if>
+			<if test="attr2!=null">
+	        AND t1.attr2 = #{attr2}
+	        </if>
+		</where>
+	</select>
 
 
 </mapper>

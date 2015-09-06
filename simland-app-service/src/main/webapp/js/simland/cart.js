@@ -290,6 +290,8 @@ var cart = {
 	inventoryShow : function() {// 属性切换库存显示
 		var attr1Val = $.mobile.activePage.find(".inventoryShowBox .attr1Val").val();
 		var attr2Val = $.mobile.activePage.find(".inventoryShowBox .attr2Val").val();
+		if(attr1Val=='') attr1Val = 0;
+		if(attr2Val=='') attr2Val = 0;
 
 		var inv = $.mobile.activePage.find("input[name='_inventory_" + attr1Val + "_" + attr2Val + "']");
 
@@ -331,6 +333,8 @@ var cart = {
 
 		var attr1Val = $.mobile.activePage.find(".inventoryShowBox .attr1Val").val();
 		var attr2Val = $.mobile.activePage.find(".inventoryShowBox .attr2Val").val();
+		if(attr1Val=='') attr1Val = 0;
+		if(attr2Val=='') attr2Val = 0;
 
 		var inv = $.mobile.activePage.find(".inventoryShowBox input[name='_inventory_" + attr1Val + "_" + attr2Val + "']");
 

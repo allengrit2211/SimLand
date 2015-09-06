@@ -1,6 +1,7 @@
 package com.simland.core.module.shop.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -95,8 +96,7 @@ public class InventoryServiceImpl implements IInventoryService {
 	 */
 	private void saveInventory(Commodity commodity, List<Inventory> inventorys,
 			List<CategoryPropertiesVal> categoryPropertiesVals, SysMessage sysMessage) {
-		
-		
+
 		Map<String, List<String>> map = new TreeMap<String, List<String>>();
 		for (CategoryPropertiesVal categoryPropertiesVal : categoryPropertiesVals) {
 			categoryPropertiesVal.setCid(commodity.getId());
@@ -169,6 +169,26 @@ public class InventoryServiceImpl implements IInventoryService {
 		saveInventory(commodity, inventorys, categoryPropertiesVals, sysMessage);
 
 		return id;
+	}
+
+	@Override
+	@Transactional(readOnly = false)
+	public void updateInventoryNums(Integer id, Integer nums) {
+		inventoryMapper.updateInventoryNums(id, nums);
+	}
+
+	@Override
+	public Inventory getInventoryNumsBySku(Integer cid, Integer sid, Integer attrVal1Id, Integer attrVal2Id) {
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("cid", cid);
+		param.put("sid", sid);
+		param.put("attr1", attrVal1Id);
+		param.put("attr2", attrVal2Id);
+
+		Inventory inventory = inventoryMapper.getInventoryNumsBySku(param);
+		param = null;
+		return inventory;
 	}
 
 }

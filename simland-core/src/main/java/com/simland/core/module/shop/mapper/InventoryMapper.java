@@ -25,4 +25,26 @@ public interface InventoryMapper {
 
 	public void insertBatchInventory(List<Inventory> inventorys);
 
+	/***
+	 * 批量更新库存数量
+	 * 
+	 * @param id
+	 * @param nums
+	 */
+	public void updateInventoryNums(Integer id, Integer nums);
+
+	/***
+	 * 
+	 * @param cid
+	 *            商品ID
+	 * @param sid
+	 *            商家ID
+	 * @param attrVal1Id
+	 *            属性值1ID
+	 * @param attrVal2Id
+	 *            属性值2ID
+	 * @return
+	 */
+	public Inventory getInventoryNumsBySku(Map param);
+
 }

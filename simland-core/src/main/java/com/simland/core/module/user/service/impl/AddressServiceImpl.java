@@ -14,33 +14,33 @@ import com.simland.core.module.user.mapper.AddressMapper;
 import com.simland.core.module.user.service.IAddressService;
 
 @Service("addressService")
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class AddressServiceImpl implements IAddressService {
 
 	@Autowired
 	private AddressMapper addressMapper;
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertAddress(Address address) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("uid", address.getUid());
 		param.put("isDefault", 0);
 		addressMapper.updateAddressByUserId(param);
-		
+
 		return addressMapper.insertAddress(address);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateAddress(Map param) {
 		return addressMapper.updateAddress(param);
 	}
-	
-	@Transactional(propagation = Propagation.REQUIRED)
+
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer updateAddress(Address address) {
 		return addressMapper.updateAddress(address);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer deleteAddress(Integer id) {
 		return addressMapper.deleteAddress(id);
 	}
@@ -91,6 +91,7 @@ public class AddressServiceImpl implements IAddressService {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public Integer setUserDefaultAddress(Integer uid, Integer id) {
 
 		Map<String, Object> param = new HashMap<String, Object>();

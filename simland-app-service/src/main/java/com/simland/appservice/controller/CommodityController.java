@@ -23,6 +23,7 @@ public class CommodityController {
 
 	/***
 	 * 商品展示
+	 * 
 	 * @param request
 	 * @param model
 	 * @return
@@ -38,18 +39,19 @@ public class CommodityController {
 
 		return "commodity/commodityShow";
 	}
-	
+
 	/***
 	 * 商品评论
+	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/commodity/assess")
-	public String assess(){
+	public String assess() {
 		return "commodity/assess";
 	}
-	
+
 	@RequestMapping(value = "/commodity/assess2")
-	public String assess2(){
+	public String assess2() {
 		return "commodity/assess2";
 	}
 

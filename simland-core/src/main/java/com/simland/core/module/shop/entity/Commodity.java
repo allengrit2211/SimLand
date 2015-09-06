@@ -303,7 +303,6 @@ public class Commodity implements java.io.Serializable {
 	 */
 	public void setcInventoryList(List<CommodityInventory> cInventoryList) {
 
-
 		Map<String, String> attrMap1 = new TreeMap<String, String>();
 		Map<String, String> attrMap2 = new TreeMap<String, String>();
 		for (int i = 0; cInventoryList != null && i < cInventoryList.size(); i++) {
@@ -321,7 +320,8 @@ public class Commodity implements java.io.Serializable {
 			// flag = false;
 			// }
 
-			String[] inStr = { String.valueOf(ci.getNums()), String.valueOf(ci.getPrice()), ci.getImage(),ci.getProductCode()};
+			String[] inStr = { String.valueOf(ci.getNums()), String.valueOf(ci.getPrice()), ci.getImage(),
+					ci.getProductCode() };
 
 			inventoryMap.put(
 					INVENTORY_KEY + Utils.notNullTrim(String.valueOf(ci.getAttr1())) + "_"
@@ -380,9 +380,15 @@ public class Commodity implements java.io.Serializable {
 		if (c.getInventoryMap() == null)
 			return 1000000000d;// 默认价格
 
+		
+		String attr1Val = c.getAttr1Val();
+		String attr2Val = c.getAttr2Val();
+		if(Utils.isObjectEmpty(attr1Val)) attr1Val = "0";
+		if(Utils.isObjectEmpty(attr2Val)) attr2Val = "0";
+		
+		
 		String[] vals = c.getInventoryMap().get(
-				INVENTORY_KEY + Utils.notNullTrim(String.valueOf(c.getAttr1Val())) + "_"
-						+ Utils.notNullTrim(String.valueOf(c.getAttr2Val())));
+				INVENTORY_KEY + attr1Val + "_"+ attr2Val);
 
 		return Utils.strToDouble(Utils.getArrayVal(1, vals));
 	}
@@ -418,7 +424,5 @@ public class Commodity implements java.io.Serializable {
 	public void setStatus(java.lang.Integer status) {
 		this.status = status;
 	}
-	
-	
 
 }

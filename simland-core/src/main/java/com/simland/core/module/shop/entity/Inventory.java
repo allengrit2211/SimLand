@@ -1,6 +1,5 @@
 package com.simland.core.module.shop.entity;
 
-
 public class Inventory implements java.io.Serializable {
 	private static final long serialVersionUID = 5454155825314635342L;
 
@@ -53,6 +52,8 @@ public class Inventory implements java.io.Serializable {
 	}
 
 	public java.lang.Integer getNums() {
+		if (nums == null)
+			return 0;
 		return nums;
 	}
 
@@ -132,5 +133,4 @@ public class Inventory implements java.io.Serializable {
 		this.isDel = isDel;
 	}
 
-	
 }

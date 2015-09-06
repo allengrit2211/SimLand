@@ -62,7 +62,7 @@
 																<span>${item1.c.attr1.name}  </span><span class="s_1">${item1.c.attr1Value}</span> <span>${item1.c.attr2.name}  </span><span class="s_2">${item1.c.attr2Value}</span>
 															</p>
 															<p>
-																<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x ${item1.buyNum}</span>
+																<span class="s_3 red">￥ ${item1.price} </span><span class="s_4">x ${item1.buyNum}</span>
 															</p>
 														</div>
 													</div>

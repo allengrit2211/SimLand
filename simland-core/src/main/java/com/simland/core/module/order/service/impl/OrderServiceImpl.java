@@ -15,9 +15,10 @@ import com.simland.core.module.order.entity.OrderItem;
 import com.simland.core.module.order.mapper.OrderItemMapper;
 import com.simland.core.module.order.mapper.OrderMapper;
 import com.simland.core.module.order.service.IOrderService;
+import com.simland.core.module.shop.mapper.InventoryMapper;
 
 @Service("orderService")
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class OrderServiceImpl implements IOrderService {
 
 	@Autowired
@@ -25,6 +26,9 @@ public class OrderServiceImpl implements IOrderService {
 
 	@Autowired
 	private OrderItemMapper orderItemMapper;
+
+	@Autowired
+	private InventoryMapper inventoryMapper;
 
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public Integer insertOrder(Order order) {
@@ -75,6 +79,8 @@ public class OrderServiceImpl implements IOrderService {
 
 			for (OrderItem orderItem : order.getOrderItems()) {
 				orderItem.setOid(order.getId());
+
+				inventoryMapper.updateInventoryNums(orderItem.getId(), orderItem.getBuyNum());
 			}
 
 			orderItemMapper.insertBatchOrderItem(order.getOrderItems());

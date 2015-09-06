@@ -10,6 +10,9 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.simland.core.base.Utils;
 import com.simland.core.module.shop.entity.Commodity;
 import com.simland.core.module.shop.entity.Shop;
@@ -23,6 +26,8 @@ import com.simland.core.module.shop.entity.Shop;
  * @date 2015年7月10日
  */
 public class Cart {
+
+	public static final Log logger = LogFactory.getLog(Cart.class);
 
 	/****
 	 * 购物车名明细 <店铺ID,购物车明细>
@@ -84,6 +89,11 @@ public class Cart {
 	 */
 	public static Cart addCart(Cart cart, Shop shop, Commodity c, int buyNum) {
 
+		if (shop == null || c == null || buyNum <= 0) {
+			logger.error("cart=" + cart + " shop=" + shop + " Commodity=" + c + " buyNum=" + buyNum);
+			return new Cart();
+		}
+
 		if (cart == null)
 			cart = new Cart();
 
@@ -93,7 +103,6 @@ public class Cart {
 		 * 添加购物车功能
 		 */
 		String sku = Commodity.getCommoditySku(c);
-		System.out.println(sku);
 		if (cart.skuIndex.containsKey(sku)) {// 存在该商品
 			Vector<CartItem> ciList = cartItems.get(cart.skuIndex.get(sku));
 			for (int i = 0; ciList != null && i < ciList.size(); i++) {
@@ -105,8 +114,9 @@ public class Cart {
 			CartItem cartItem = new CartItem();
 			cartItem.setC(c);
 			cartItem.setBuyNum(buyNum);
-			cartItem.setSku(Commodity.getCommoditySku(c));
-			cartItem.setPrice(Commodity.getCommodityPrice(c, sku));
+			cartItem.setSku(sku);
+			cartItem.setPrice(Utils.isObjectEmpty(Commodity.getCommodityPrice(c, sku)) ? c.getMarketPrice() : Commodity
+					.getCommodityPrice(c, sku));
 
 			if (cartItems.get(shop) != null) {
 				cartItems.get(shop).add(cartItem);
