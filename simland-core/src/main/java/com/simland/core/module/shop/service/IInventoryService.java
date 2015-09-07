@@ -36,7 +36,7 @@ public interface IInventoryService {
 	 * @param param
 	 *            #nums #id
 	 */
-	public void updateInventoryNums(Integer id, Integer nums);
+	public void updateInventoryNums(Inventory inventory);
 
 	/***
 	 * 

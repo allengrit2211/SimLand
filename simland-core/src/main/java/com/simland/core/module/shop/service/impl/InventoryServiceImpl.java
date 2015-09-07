@@ -173,8 +173,8 @@ public class InventoryServiceImpl implements IInventoryService {
 
 	@Override
 	@Transactional(readOnly = false)
-	public void updateInventoryNums(Integer id, Integer nums) {
-		inventoryMapper.updateInventoryNums(id, nums);
+	public void updateInventoryNums(Inventory inventory) {
+		inventoryMapper.updateInventoryNums(inventory);
 	}
 
 	@Override

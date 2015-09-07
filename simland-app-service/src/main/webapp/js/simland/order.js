@@ -25,7 +25,18 @@ var order = {
 				$.mobile.changePage(app.servicerURL + "/user/orders", {
 					transition : "slide"
 				});
-			} else {
+			} else if(data.code == -200){
+				
+				var dd = eval('('+data.msg+')');
+				var html = "";
+				//$(dd).each(function(i,e){
+					//html += e.cname;
+					//html +="<br/>";
+				//});
+				html +="商品库存数量不足，请减少商品数量或更换其他商品";
+				
+				app.message(html);
+			}else {
 				app.message(data.msg)
 			}
 		}

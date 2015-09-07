@@ -155,7 +155,7 @@
 							<div class="img">
 								<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
 							</div>
-							<div class="info inventoryShowBox">
+							<div class="info inventoryShowBox_${commodity.id}">
 							
 								<span class="s1">￥<span class="price">${commodity.marketPrice}</span></span>
 								<span class="s2">库存 <strong class="inventoryNum"></strong> 件</span>
@@ -173,7 +173,7 @@
 							<span class="title">${commodity.attr1.name}</span>
 							<div class="attr1">
 								<c:forEach items="${commodity.attr1List}" var="item" varStatus="status">
-									<a class="choseAttr1" aid="${item[0]}" href="#">${item[1]}</a>
+									<a class="choseAttr1" cid="${commodity.id}" aid="${item[0]}" href="#">${item[1]}</a>
 								</c:forEach>
 							</div>
 						</div>
@@ -185,7 +185,7 @@
 							<span class="title">${commodity.attr2.name}</span>
 							<div class="attr2">
 								<c:forEach items="${commodity.attr2List}" var="item" varStatus="status">
-									<a class="choseAttr2" aid="${item[0]}" href="#">${item[1]}</a>
+									<a class="choseAttr2" cid="${commodity.id}" aid="${item[0]}" href="#">${item[1]}</a>
 								</c:forEach>
 							</div>
 						</div>
@@ -194,7 +194,7 @@
 						
 						<div class="box">
 							<span class="title inline">购买数量</span>
-							<div class="number inventoryShowBox">
+							<div class="number inventoryShowBox_${commodity.id}">
 							
 								<!-- 库存信息 -->
 								<c:forEach items="${commodity.inventoryMap}" var="item">
@@ -204,9 +204,9 @@
 								
 								<input type="hidden" value="${inventoryNum}" id="inventoryNum">
 							
-								<a href="#" class="a1 revNum"></a>
-								<input name="buyNum" class="input buyNum" type="number" data-role="none" value="1"/>
-								<a href="#" class="a2 addNum"></a>
+								<a href="#" class="a1 revNum" cid="${commodity.id}"></a>
+								<input name="buyNum" class="input buyNum" type="number" data-role="none" value="1" cid="${commodity.id}"/>
+								<a href="#" class="a2 addNum" cid="${commodity.id}"></a>
 							</div>
 						</div>
 						<div class="line"></div>

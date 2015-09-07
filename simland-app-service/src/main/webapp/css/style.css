@@ -1810,9 +1810,6 @@ span {
 	background: url("../images/bg/add.png") no-repeat 50% 50%;
 }
 
-#cartPage .cart .shopBox .commodity .box .c_info .c_infoboxEdit .p2 {
-	margin-top: 1em;
-}
 
 #cartPage .popup {
 	min-height: 236px;
@@ -1845,9 +1842,16 @@ span {
 }
 
 #cartPage .popup .box .info span {
-	display: block;
 	margin: 0.175em 0;
 }
+
+#cartPage .popup .box .info .s1,
+#cartPage .popup .box .info .s2,
+#cartPage .popup .box .info .s3{
+	display:block;
+	
+}
+
 
 #cartPage .popup .box .info .s1 {
 	color: #EE3939;
@@ -1884,6 +1888,47 @@ span {
 	background-color: #41AC98;
 	color: #FFF !important;
 }
+
+
+#cartPage .popup .box .number {
+	border: 1px solid #EEE;
+	display: inline-block;
+	margin: 2% 17% 2% 0;
+	height: 28px;
+	overflow: hidden;
+	float: right;
+}
+
+#cartPage .popup .box .number .a1, #cartPage .popup .box .number .a2,
+	#cartPage .popup .box .number .input {
+	width: 28px;
+	height: 28px;
+	display: inline-block;
+	line-height: 0.75em;
+	margin: 0;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#cartPage .popup .box .number .input {
+	border: none;
+	padding: 0;
+	height: 100%;
+	width: 28px;
+	text-align: center;
+}
+
+#cartPage .popup .box .number .a1 {
+	border-right: 1px solid #EEE;
+	background: url("../images/bg/subtract.png") no-repeat 50% 50%;
+}
+
+#cartPage .popup .box .number .a2 {
+	border-left: 1px solid #EEE;
+	background: url("../images/bg/add.png") no-repeat 50% 50%;
+}
+
 
 #cartPage .popup .buyBtn {
 	text-align: center;

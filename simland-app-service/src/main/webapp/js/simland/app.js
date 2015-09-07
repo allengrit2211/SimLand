@@ -44,9 +44,12 @@ var app = {
 		function pullDownAction() {
 			setTimeout(function() {
 				
-				
 				if (location.href.indexOf("buy/chatMessage") > -1){
 					chat.pullDownAction();
+				}
+				
+				if (location.href.indexOf("buy/cart") > -1){
+					cart.pullDownAction();
 				}
 				
 				if (app.myScroll) {

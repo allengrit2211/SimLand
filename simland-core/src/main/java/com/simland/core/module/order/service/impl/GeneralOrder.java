@@ -2,13 +2,13 @@ package com.simland.core.module.order.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Vector;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,6 +40,8 @@ import com.simland.core.module.user.entity.User;
 @Component
 public class GeneralOrder implements IOrderState {
 
+	public static final Log logger = LogFactory.getLog(GeneralOrder.class);
+
 	@Autowired
 	private IOrderService orderService;
 
@@ -64,12 +66,13 @@ public class GeneralOrder implements IOrderState {
 				OrderItem orderItem = new OrderItem();
 				orderItem.setCid(ci.getC().getId());
 				orderItem.setCname(ci.getC().getName());
-				orderItem.setAttr1Id(ci.getC().getAttr1().getId());
+				orderItem.setAttr1Id(Utils.strToInteger(ci.getC().getAttr1Val()));
 				orderItem.setAttr1Val(ci.getC().getAttr1Value());
-				orderItem.setAttr2Id(ci.getC().getAttr2().getId());
+				orderItem.setAttr2Id(Utils.strToInteger(ci.getC().getAttr2Val()));
 				orderItem.setAttr2Val(ci.getC().getAttr2Value());
 				orderItem.setBuyNum(ci.getBuyNum());
-				orderItem.setCprice(totalMoney += ci.getPrice());
+
+				orderItem.setCprice(ci.getPrice());// 产品单价
 				orderItem.setCreateTime(new Date());
 
 				Inventory inventory = inventoryService.getInventoryNumsBySku(ci.getC().getId(), ci.getC().getSid(),
@@ -82,6 +85,7 @@ public class GeneralOrder implements IOrderState {
 					orderItems.add(orderItem);
 				}
 
+				totalMoney += ci.getPrice() * ci.getBuyNum();// 订单中总价格
 			}
 
 			Order order = new Order();
@@ -108,6 +112,8 @@ public class GeneralOrder implements IOrderState {
 
 			orders.add(order);
 		}
+
+		logger.info("GeneralOrder create: Order - " + Utils.objToJson(orders));
 
 		/****
 		 * 库存检查

@@ -62,8 +62,8 @@ public class CartController {
 		String cid = request.getParameter("cid");
 		// String attr1 = request.getParameter("attr1");
 		// String attr2 = request.getParameter("attr2");
-		String attr1Val = request.getParameter("attr1Val");
-		String attr2Val = request.getParameter("attr2Val");
+		String attr1Val = Utils.isObjectEmpty(request.getParameter("attr1Val"))?"0":request.getParameter("attr1Val");
+		String attr2Val = Utils.isObjectEmpty(request.getParameter("attr2Val"))?"0":request.getParameter("attr2Val");
 		String buyNum = request.getParameter("buyNum");
 
 		Commodity c = commodityService.getCommodity(Utils.strToInteger(cid));

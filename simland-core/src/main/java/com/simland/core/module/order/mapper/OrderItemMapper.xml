@@ -19,6 +19,7 @@
 		<result property="buyNum" column="buyNum" />
 		<result property="cprice" column="cprice" />
 		<result property="createTime" column="createTime" />
+		<result property="iid" column="iid" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -33,7 +34,8 @@
         attr2Val attr2Val,
         buyNum buyNum,
         cprice cprice,
-        createTime createTime
+        createTime createTime,
+        iid iid
 	    ]]>
 	</sql>
 
@@ -51,7 +53,8 @@
 		        attr2Val,
 		        buyNum,
 		        cprice,
-		        createTime
+		        createTime,
+		        iid
 	        ) VALUES (
 		        	#{oid},
 		        	#{cid},
@@ -62,7 +65,8 @@
 		        	#{attr2Val},
 		        	#{buyNum},
 		        	#{cprice},
-		        	#{createTime}
+		        	#{createTime},
+		        	#{iid}
 	        )
 	    ]]>
 		<selectKey resultType="java.lang.Integer" order="AFTER"
@@ -88,7 +92,8 @@
 			attr2Val,
 			buyNum,
 			cprice,
-			createTime
+			createTime,
+			iid
 		) VALUES
 		<foreach collection="list" item="item" index="index"
 			separator=",">
@@ -103,7 +108,8 @@
 			        	#{item.attr2Val},
 			        	#{item.buyNum},
 			        	#{item.cprice},
-			        	#{item.createTime}
+			        	#{item.createTime},
+			        	#{item.iid}
 		        )
 		    ]]>
 		</foreach>
@@ -144,6 +150,9 @@
 		</if>
 		<if test="createTime!=null">
 			createTime = #{createTime}
+		</if>
+		<if test="iid!=null">
+			iid = #{iid}
 		</if>
 	    <![CDATA[  
         WHERE 
@@ -217,6 +226,9 @@
 			</if>
 			<if test="createTime!=null">
 				AND createTime = #{createTime}
+			</if>
+			<if test="iid!=null">
+				AND iid = #{iid}
 			</if>
 		</where>
 	</sql>

@@ -31,7 +31,7 @@ public interface InventoryMapper {
 	 * @param id
 	 * @param nums
 	 */
-	public void updateInventoryNums(Integer id, Integer nums);
+	public void updateInventoryNums(Inventory inventory);
 
 	/***
 	 * 
