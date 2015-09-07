@@ -10,13 +10,15 @@
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="createTime" column="createTime" />
+		<result property="sid" column="sid" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
 	    <![CDATA[
         id,
         name,
-        createTime
+        createTime,
+        sid
 	    ]]>
 	</sql>
 
@@ -28,9 +30,11 @@
 		</selectKey> 
 	    <![CDATA[
 	        INSERT INTO t_role (
-		        name
+		        name,
+		        sid
 	        ) VALUES (
-		    	#{name}
+		    	#{name},
+		    	#{sid}
 	        )
 	    ]]>
 	</insert>
@@ -40,7 +44,8 @@
         UPDATE t_role SET
 	        id = #{id},
 	        name = #{name},
-	        createTime = #{createTime}
+	        createTime = #{createTime},
+	        sid = #{sid}
         WHERE 
 	        id = #{id}
     	]]>
@@ -86,6 +91,9 @@
 			</if>
 			<if test="nameLike!=null">
 				AND name like "%"#{nameLike}"%"
+			</if>
+			<if test="sid!=null">
+				AND sid = #{sid}
 			</if>
 		</where>
 	</sql>

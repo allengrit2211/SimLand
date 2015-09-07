@@ -39,7 +39,7 @@
 						<c:forEach var="item" items="${list}">
 							<div class='commodityBox'>
 								<div class='img'>
-									<a  href='${pageContext.request.contextPath}/commodity/show?id=${item.id}' class='ui-link a1'><img width='61' height='61' alt='' src='${pageContext.request.contextPath}/${item.commodity.img}'></a>
+									<a  href='${pageContext.request.contextPath}/commodity/show?id=${item.id}' class='ui-link a1'><img width='61' height='61' alt='' src='${pageContext.request.contextPath}/${item.commodity.getImg(3)}'></a>
 								</div>
 								<div class='info'>
 									<p class='p1'><a  href='${pageContext.request.contextPath}/commodity/show?id=${item.id}' class='ui-link'>${item.commodity.name}</a></p>

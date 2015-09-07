@@ -8,10 +8,16 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.simland.core.base.SystemConstants;
 import com.simland.core.base.Utils;
 
 public class Commodity implements java.io.Serializable {
+	
+	private static final Log logger = LogFactory.getLog(Commodity.class);
+	
 	private static final long serialVersionUID = 5454155825314635342L;
 
 	public static final String INVENTORY_KEY = "_inventory_";
@@ -29,6 +35,12 @@ public class Commodity implements java.io.Serializable {
 	private java.lang.Integer isNew;
 	private java.lang.Integer isSpecial;
 	private java.lang.Integer isVip;
+
+	/****
+	 * 640*640 （产品图） 315*315 （两列） 230*230 （加入购物车，选择克数等） 120*120 （收藏等，缩略图）
+	 */
+	public static final String[][] IMGSIZE = new String[][] { { "640", "640" }, { "315", "315" }, { "230", "230" },
+			{ "120", "120" } };
 
 	public static final Integer status_0 = 0;// 默认状态
 	public static final Integer status_1 = 1;// 上架
@@ -91,6 +103,21 @@ public class Commodity implements java.io.Serializable {
 
 	public java.lang.String getImg() {
 		return this.img;
+	}
+
+	public String getImg(Integer size) {
+		if (Utils.isObjectEmpty(size) || Utils.isObjectEmpty(img))
+			return img;
+		else {
+			try {
+				String fname = img.replace(img, img.substring(0, img.lastIndexOf(".")) + "_" + IMGSIZE[size][0] + "x"
+						+ IMGSIZE[size][1] + img.substring(img.lastIndexOf("."), img.length()));
+				return fname;
+			} catch (Exception e) {
+				logger.error("Commodity getImg:"+e.getMessage());
+				return img;
+			}
+		}
 	}
 
 	public void setImg(java.lang.String value) {
@@ -380,15 +407,14 @@ public class Commodity implements java.io.Serializable {
 		if (c.getInventoryMap() == null)
 			return 1000000000d;// 默认价格
 
-		
 		String attr1Val = c.getAttr1Val();
 		String attr2Val = c.getAttr2Val();
-		if(Utils.isObjectEmpty(attr1Val)) attr1Val = "0";
-		if(Utils.isObjectEmpty(attr2Val)) attr2Val = "0";
-		
-		
-		String[] vals = c.getInventoryMap().get(
-				INVENTORY_KEY + attr1Val + "_"+ attr2Val);
+		if (Utils.isObjectEmpty(attr1Val))
+			attr1Val = "0";
+		if (Utils.isObjectEmpty(attr2Val))
+			attr2Val = "0";
+
+		String[] vals = c.getInventoryMap().get(INVENTORY_KEY + attr1Val + "_" + attr2Val);
 
 		return Utils.strToDouble(Utils.getArrayVal(1, vals));
 	}

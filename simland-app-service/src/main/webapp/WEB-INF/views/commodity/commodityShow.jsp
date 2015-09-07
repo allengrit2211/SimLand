@@ -34,7 +34,7 @@
 						<div class="wrapperRow c_height">
 							<div class="scrollerRow c_height">
 								<div class="slide">
-									<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
+									<img alt="" src="${pageContext.request.contextPath}/${commodity.getImg(0)}">
 								</div>
 								<c:forEach items="${commodity.inventoryMap}" var="item">
 									<div class="slide">
@@ -153,7 +153,7 @@
 						<input type="hidden" name="_stype" value="ajax"/>
 						<div class="box">
 							<div class="img">
-								<img alt="" src="${pageContext.request.contextPath}/${commodity.img}">
+								<img alt="" src="${pageContext.request.contextPath}/${commodity.getImg(2)}">
 							</div>
 							<div class="info inventoryShowBox_${commodity.id}">
 							

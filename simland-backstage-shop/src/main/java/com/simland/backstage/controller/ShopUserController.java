@@ -100,6 +100,9 @@ public class ShopUserController {
 		showEdit(request, model);
 
 		Map<String, Object> param = new HashMap<String, Object>();
+		
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
+		param.put("sid", sessionShop.getSid());
 
 		int totalRecord = shopUserService.getShopUserCount(param);
 		if (totalRecord == 0) {

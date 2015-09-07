@@ -401,6 +401,21 @@ public class Utils {
 		}
 		return ids;
 	}
+	
+	/**
+	 * 将字符串数字转化为int型数字
+	 * 
+	 * @param str被转化字符串
+	 * @param defValue转化失败后的默认值
+	 * @return int
+	 */
+	public static int parseInt(String str, int defValue) {
+		try {
+			return Integer.valueOf(str);
+		} catch (Exception e) {
+			return defValue;
+		}
+	}
 
 	public static void main(String[] args) {
 		String s1 = "你妈妈喊你回家吃饭哦，回家罗回家罗";

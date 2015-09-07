@@ -94,7 +94,7 @@
 							<div class='commodityBox'>
 								<a  data-transition='slide' href='${pageContext.request.contextPath}/commodity/show?id=${item.id}'>
 								<span class='s3' cid='${item.id}'>${item.collectNum}</span>
-								<img width='126' alt='' src='${pageContext.request.contextPath}/${item.img}'>
+								<img width='126' alt='' src='${pageContext.request.contextPath}/${item.getImg(1)}'>
 								<span class='s4'>${item.name}</span>
 								</a>
 								<div class='price'>

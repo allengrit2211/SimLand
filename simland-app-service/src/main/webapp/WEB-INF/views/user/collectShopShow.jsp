@@ -42,7 +42,7 @@
 								<div class="line"></div>
 								<div class="c_imgs">
 									<c:forEach var="itemn" items="${item.rclist}">
-										<a  class="a1" href="${pageContext.request.contextPath}/commodity/show?id=${itemn.id}"><img alt="" src="${pageContext.request.contextPath}/${itemn.img}"></a>
+										<a  class="a1" href="${pageContext.request.contextPath}/commodity/show?id=${itemn.id}"><img alt="" src="${pageContext.request.contextPath}/${itemn.getImg(3)}"></a>
 									</c:forEach>
 								</div>
 							</div>

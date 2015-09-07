@@ -400,6 +400,6 @@ public class CommodityController {
 		commodityService.updateCommodityStatusByIds(param);
 		reentrantLock.unlock();
 
-		return new ModelAndView("redirect:/commodity/issueCommodityList?currentPage="+pageView.getCurrentPage());
+		return new ModelAndView("redirect:/commodity/issueCommodityList?currentPage=" + pageView.getCurrentPage());
 	}
 }

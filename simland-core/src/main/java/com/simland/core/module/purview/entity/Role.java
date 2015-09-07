@@ -9,6 +9,7 @@ public class Role implements java.io.Serializable {
 	private java.lang.Integer id;
 	private java.lang.String name;
 	private java.util.Date createTime;
+	private Integer sid;
 
 	private List<Power> psowers;
 	private String[] powerChk;
@@ -62,5 +63,15 @@ public class Role implements java.io.Serializable {
 	public void setPowerChk(String[] powerChk) {
 		this.powerChk = powerChk;
 	}
+
+	public Integer getSid() {
+		return sid;
+	}
+
+	public void setSid(Integer sid) {
+		this.sid = sid;
+	}
+	
+	
 
 }

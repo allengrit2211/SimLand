@@ -14,11 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.simland.core.base.Constants;
 import com.simland.core.base.Utils;
 import com.simland.core.base.page.PageView;
 import com.simland.core.module.purview.entity.Power;
 import com.simland.core.module.purview.entity.Role;
 import com.simland.core.module.purview.entity.RolePower;
+import com.simland.core.module.purview.entity.ShopUser;
 import com.simland.core.module.purview.service.IPowerService;
 import com.simland.core.module.purview.service.IRolePowerService;
 import com.simland.core.module.purview.service.IRoleService;
@@ -41,9 +43,11 @@ public class RoleController {
 	public String roleList(HttpServletRequest request, Model model, PageView pageView) {
 
 		String nameLike = request.getParameter("nameLike");
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
 
+		param.put("sid", sessionShop.getSid());
 		if (Utils.isObjectNotEmpty(nameLike))
 			param.put("nameLike", nameLike);
 
@@ -117,7 +121,10 @@ public class RoleController {
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 
+		ShopUser sessionShop = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
+		
 		model.addAttribute("role", role = new Role(null, name, powerChk));
+		role.setSid(sessionShop.getSid());
 
 		if (!validate(powerChk, name, model)){
 			roleAddShow(request,model);
