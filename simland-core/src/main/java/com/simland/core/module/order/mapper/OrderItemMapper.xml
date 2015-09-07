@@ -20,6 +20,7 @@
 		<result property="cprice" column="cprice" />
 		<result property="createTime" column="createTime" />
 		<result property="iid" column="iid" />
+		<association property="commodity" column="cid" select="com.simland.core.module.shop.mapper.CommodityMapper.getCommodityById"/>
 	</resultMap>
 
 	<sql id="Base_Column_List">

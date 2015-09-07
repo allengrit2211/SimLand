@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,22 +35,22 @@
 									<a href="${pageContext.request.contextPath}/shop/showShop?id=${item.shop.id}" class="a1">
 										<span class="s1"><img alt="" src="${pageContext.request.contextPath}/${item.shop.clogo}"></span>
 										<span class="s2">${item.shop.cname}<span class="gt">&gt;</span></span>
-										<span class="s3 red">交易成功</span>
+										<span class="s3 red">${item.orderStatusName}</span>
 									</a>
 								</div>
 								
 								<c:forEach items="${item.orderItems}" var="item1">
 									<div class="o_content">
 										<a href="#" class="a2">
-											<span class="s1"><img alt="" src="${pageContext.request.contextPath}/images/commodity/2095659570_78488880.310x310.jpg"></span>
+											<span class="s1"><img alt="" src="${pageContext.request.contextPath}/${item1.commodity.img}"></span>
 											<span class="s2">${item1.cname}</span>
-											<span class="s3">￥${item1.cprice}<br/>x${item1.buyNum}</span>
+											<span class="s3">￥<fmt:formatNumber value="${item1.cprice}" pattern="#,#00.00#"/><br/>x${item1.buyNum}</span>
 										</a>
 									</div>
 								</c:forEach>
 								
 								<div class="o_sum">
-									<span>总1件商品，合计:<span class="red">30</span></span>
+									<span>共${item.quantity}件商品，合计:<span class="red"><fmt:formatNumber value="${item.total}" pattern="#,#00.00#"/></span></span>
 								</div>
 								<div class="line"></div>
 								<span class="o_option">

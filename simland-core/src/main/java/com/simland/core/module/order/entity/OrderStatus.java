@@ -13,36 +13,42 @@ public enum OrderStatus {
 	/***
 	 * 新建
 	 */
-	NEW(1),
-
-	/*****
-	 * 确认
-	 */
-	CONFIRM(2),
-
-	/****
-	 * 已经付款
-	 */
-	PAY_END(3),
-
-	/*****
-	 * 确认收货
-	 */
-	RECEIVING(4),
+	NEW(1, "新建"),
 
 	/*****
 	 * 作废
 	 */
-	INVALID(5);
+	INVALID(2, "作废"),
 
-	OrderStatus(Integer id) {
+	/*****
+	 * 确认
+	 */
+	CONFIRM(3, "已确认"),
+
+	/****
+	 * 已经付款
+	 */
+	PAY_END(4, "已付款"),
+
+	/*****
+	 * 确认收货
+	 */
+	RECEIVING(5, "确认收货");
+
+	OrderStatus(Integer id, String name) {
 		this.id = id;
+		this.name = name;
 	}
 
 	private Integer id;
+	private String name;
 
 	public Integer getId() {
 		return this.id;
+	}
+
+	public String getName() {
+		return this.name;
 	}
 
 }

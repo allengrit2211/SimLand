@@ -36,6 +36,8 @@ public class Order implements IOrder, java.io.Serializable {
 	private java.lang.String receiverAddress;
 	private java.lang.String receiverZipCode;
 	private java.lang.Integer orderStatus;
+	private String orderStatusName;// 状态名称
+
 	private java.lang.Integer payStatus;// 支付状态
 	private java.util.Date payTime;// 支付时间
 	private java.lang.Integer logisticsStauts;
@@ -182,6 +184,12 @@ public class Order implements IOrder, java.io.Serializable {
 	}
 
 	public void setOrderStatus(java.lang.Integer value) {
+		for (OrderStatus d : OrderStatus.values()) {
+			if (d.getId() == value) {
+				orderStatusName = d.getName();
+				break;
+			}
+		}
 		this.orderStatus = value;
 	}
 
@@ -244,4 +252,11 @@ public class Order implements IOrder, java.io.Serializable {
 		this.shop = shop;
 	}
 
+	public String getOrderStatusName() {
+		return orderStatusName;
+	}
+
+	public void setOrderStatusName(String orderStatusName) {
+		this.orderStatusName = orderStatusName;
+	}
 }

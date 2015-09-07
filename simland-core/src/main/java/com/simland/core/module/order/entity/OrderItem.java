@@ -1,7 +1,6 @@
 package com.simland.core.module.order.entity;
 
-import java.util.*;
-import java.math.BigDecimal;
+import com.simland.core.module.shop.entity.Commodity;
 
 public class OrderItem implements java.io.Serializable {
 	private static final long serialVersionUID = 5454155825314635342L;
@@ -17,6 +16,8 @@ public class OrderItem implements java.io.Serializable {
 	private java.lang.Integer buyNum;
 	private java.lang.Double cprice;
 	private java.util.Date createTime;
+
+	private Commodity commodity;
 
 	private java.lang.Integer iid;// 库存id
 
@@ -124,6 +125,14 @@ public class OrderItem implements java.io.Serializable {
 
 	public void setIid(java.lang.Integer iid) {
 		this.iid = iid;
+	}
+
+	public Commodity getCommodity() {
+		return commodity;
+	}
+
+	public void setCommodity(Commodity commodity) {
+		this.commodity = commodity;
 	}
 
 }

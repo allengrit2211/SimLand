@@ -6,6 +6,25 @@
 <!-- 不使用namespace的话sql搜索定位会比较方便 -->
 <mapper namespace="com.simland.core.module.shop.mapper.CommodityMapper">
 
+	<resultMap id="CommodityBase" type="com.simland.core.module.shop.entity.Commodity">
+		<result property="id" column="id" />
+		<result property="sid" column="sid" />
+		<result property="name" column="name" />
+		<result property="img" column="img" />
+		<result property="type" column="type" />
+		<result property="collectNum" column="collectNum" />
+		<result property="marketPrice" column="marketPrice" />
+		<result property="realPrice" column="realPrice" />
+		<result property="createTime" column="createTime" />
+		<result property="creater" column="creater" />
+		<result property="isNew" column="isNew" />
+		<result property="isSpecial" column="isSpecial" />
+		<result property="isVip" column="isVip" />
+        <result property="issueTime" column="issueTime"/>
+        <result property="cause" column="cause"/>
+        <result property="status" column="status" />
+	</resultMap>
+
 	<resultMap id="CommodityRM" type="com.simland.core.module.shop.entity.Commodity">
 		<result property="id" column="id" />
 		<result property="sid" column="sid" />
@@ -261,6 +280,13 @@
 	<select id="getCommodityCount" resultType="int">
 		SELECT count(*) FROM t_commodity t1
 		<include refid="pageWhere" />
+	</select>
+	
+	
+	<select id="getCommodityById" resultMap="CommodityBase">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_commodity t1 WHERE id = #{cid}
 	</select>
 
 	<select id="getSplitCommodityList" resultMap="CommodityRM">
