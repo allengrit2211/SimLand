@@ -314,6 +314,11 @@ var cart = {
 		if (inv.length > 0) {
 			$.mobile.activePage.find(".inventoryShowBox_"+cid+" .inventoryNum").html(inv.val());
 			$.mobile.activePage.find(".inventoryShowBox_"+cid+" .price").html(inv.attr("price"));
+			var img = inv.attr("img");
+			if(img!=''&&img!=undefined&&img!=null){
+				$.mobile.activePage.find(".inventoryShowBox_"+cid).prev().find("img").attr("src",app.servicerURL+img)
+			}
+			
 		}
 	},
 	carShopCheckAll : function() {// 商家商品全选

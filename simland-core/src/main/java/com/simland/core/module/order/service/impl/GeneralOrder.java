@@ -62,6 +62,7 @@ public class GeneralOrder implements IOrderState {
 
 			List<OrderItem> orderItems = new ArrayList<OrderItem>();
 			double totalMoney = 0;// 总金额
+			int quantity = 0;// 商品总数量
 			for (CartItem ci : e.getValue()) {
 				OrderItem orderItem = new OrderItem();
 				orderItem.setCid(ci.getC().getId());
@@ -86,13 +87,14 @@ public class GeneralOrder implements IOrderState {
 				}
 
 				totalMoney += ci.getPrice() * ci.getBuyNum();// 订单中总价格
+				quantity += quantity + ci.getBuyNum();//订单中总数量
 			}
 
 			Order order = new Order();
 			order.setUid(user.getId());
 			order.setSid(e.getKey().getId());
 			order.setTotal(totalMoney);
-			order.setQuantity(e.getValue().size());
+			order.setQuantity(quantity);
 			order.setCreateTime(new Date());
 			order.setUaid(address.getId());
 			order.setReceiverName(address.getReceiverName());

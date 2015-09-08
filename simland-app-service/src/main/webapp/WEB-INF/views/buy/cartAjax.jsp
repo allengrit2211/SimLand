@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 						<div class="cart">
 							<c:forEach items="${cart.cartItems}" var="item">
@@ -34,14 +35,16 @@
 														</div>
 														<div class="c_price">
 															<p>
-																<span class="s_3 red">￥ ${item1.price} </span> x <span class="s_4">${item1.buyNum}</span>
+																<span class="s_3 red">￥ <fmt:formatNumber value="${item1.price}" pattern="#,#00.00#"/> </span> x <span class="s_4">${item1.buyNum}</span>
 															</p>
 														</div>
 													</div>
 													<div class="c_infoboxEdit">
 													
 														<div class="c_attr">
-															<a id="attrShowBtn_${item1.sku}" class="cartPopupBtn" data-rel="popup" data-position-to="window"  data-transition="pop" href="#addCartPopup${item1.sku}">
+																<a data-role="button" data-mini="true" data-inline="true" class="cartPopupBtn" data-rel="popup" data-position-to="window"  data-transition="pop" href="#addCartPopup${item1.sku}">编辑</a>
+															<br/>
+															<a id="attrShowBtn_${item1.sku}">
 															<c:if test="${item1.c.attr1.name!=null}">
 																${item1.c.attr1.name}:${item1.c.attr1Value}
 															</c:if>
@@ -51,7 +54,7 @@
 															</a>
 														</div>
 														<div class="c_price">
-															<span>${item1.price}</span> x <span>${item1.buyNum}</span>
+															<span><fmt:formatNumber value="${item1.price}" pattern="#,#00.00#"/></span> x <span>${item1.buyNum}</span>
 														</div>
 														<div id="addCartPopup${item1.sku}" data-role="popup" class="popupBox" data-transition="pop">
 															<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"> Close</a>
@@ -63,7 +66,7 @@
 																			<img alt="" src="${pageContext.request.contextPath}/${item1.c.img}">
 																		</div>
 																		<div class="info inventoryShowBox_${item1.c.id}">
-																			<span class="s1">￥<span class="price">${item1.price}</span></span> 
+																			<span class="s1">￥<span class="price"> <fmt:formatNumber value="${item1.price}" pattern="#,#00.00#"/></span></span> 
 																			<span class="s2">库存 <strong class="inventoryNum">[${item1.c.inventoryMap[_inventory_+(item1.c.attr1Val)+_+(item1.c.attr2Val)][0]}] </strong> 件</span> 
 																			<span class="s3">已选 <span class="attr1ValShow">${item1.c.attr1Value}</span> <span class="attr2ValShow">${item1.c.attr2Value}</span></span> 
 
@@ -77,7 +80,7 @@
 																		<div class="number inventoryShowBox_${item1.c.id}">
 																			<!-- 库存信息 -->
 																			<c:forEach items="${item1.c.inventoryMap}" var="item2">
-																				<input type="hidden" value="${item2.value[0]}" price="${item2.value[1]}" img="${item2.value[2]}" name="${item2.key}"/>
+																				<input type="hidden" value="${item2.value[0]}" price="<fmt:formatNumber value="${item2.value[1]}" pattern="#,#00.00#"/>" img="${item2.value[2]}" name="${item2.key}"/>
 																			</c:forEach>
 																			<a href="#" class="a1 revNum" sku="${item1.sku}" cid="${item1.c.id}"></a> <input sku="${item1.sku}" cid="${item1.c.id}" name="buyNum" class="input buyNum" type="number" data-role="none" value="${item1.buyNum}" /> <a sku="${item1.sku}" cid="${item1.c.id}" href="#" class="a2 addNum"></a>
 																		</div>
@@ -85,6 +88,7 @@
 																	</div>
 																	<div class="clear"></div>
 																	<div class="line"></div>
+																	<c:if test="${item1.c.attr1.name!=null}">
 																	<div class="box">
 																		<span class="title">${item1.c.attr1.name}</span>
 																		<div class="attr1">
@@ -94,6 +98,9 @@
 																		</div>
 																	</div>
 																	<div class="line"></div>
+																	</c:if>
+																	
+																	<c:if test="${item1.c.attr2.name!=null}">
 																	<div class="box">
 																		<span class="title">${item1.c.attr2.name}</span>
 																		<div class="attr2">
@@ -103,6 +110,8 @@
 																		</div>
 																	</div>
 																	<div class="line"></div>
+																	</c:if>
+																	
 																	<div class="buyBtn">
 																		<a sku="${item1.sku}" class="confirmCommodityBtn a1" href="#">确定</a>
 																	</div>

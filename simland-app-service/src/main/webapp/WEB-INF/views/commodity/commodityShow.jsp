@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
 							
 							
 						<div class="wrapperRow c_height">
-							<div class="scrollerRow c_height">
+							<div class="scrollerRow c_height c_img">
 								<div class="slide">
 									<img alt="" src="${pageContext.request.contextPath}/${commodity.getImg(0)}">
 								</div>
@@ -81,17 +82,21 @@
 							</div>
 						</div>
 						
+						<div class="c_price">
+							<strong class="red_CD2C4C">￥ <fmt:formatNumber value="${commodity.marketPrice}" pattern="#,#00.00#"/></strong>
+						</div>
+						
 						<div class="clear"></div>
 			
-						<div class="tags" data-role="controlgroup" data-type="horizontal" data-mini="true">
-							<a  class="a1 on" data-transition="none" href="#" data-role="button">产品详情</a> 
-							<a  class="a2" data-transition="none" href="#" data-role="button">产品评价</a>
+						<div class="commTags">
+							<a  class="a1 on" i="1" data-transition="none" href="#">产品详情</a> 
+							<a  class="a2" i="2" data-transition="none" href="#">产品评价</a>
 						</div>
 						<div class="c_infoBox">
-							<div class="c_infoBox_tag on">
+							<div class="c_infoBox_tag on" id="page1">
 								${commodity.commodityDetails.info}
 							</div>
-							<div class="c_infoBox_tag">
+							<div class="c_infoBox_tag" id="page2">
 								<div class="p_appraisal_line">
 									<b>很好</b>
 									<p>颜色分类：深紫色</p>
@@ -157,7 +162,7 @@
 							</div>
 							<div class="info inventoryShowBox_${commodity.id}">
 							
-								<span class="s1">￥<span class="price">${commodity.marketPrice}</span></span>
+								<span class="s1">￥<span class="price"><fmt:formatNumber value="${commodity.marketPrice}" pattern="#,#00.00#"/></span></span>
 								<span class="s2">库存 <strong class="inventoryNum"></strong> 件</span>
 								<span class="s3">已选 <span class="attr1ValShow">请选择</span> <span class="attr2ValShow"></span></span>
 								<input type="hidden" value="${commodity.id}" name="cid"/>
@@ -198,7 +203,7 @@
 							
 								<!-- 库存信息 -->
 								<c:forEach items="${commodity.inventoryMap}" var="item">
-									<input type="hidden" value="${item.value[0]}" price="${item.value[1]}" img="${item.value[2]}" name="${item.key}"/>
+									<input type="hidden" value="${item.value[0]}" price="<fmt:formatNumber value="${item.value[1]}" pattern="#,#00.00#"/>" img="${item.value[2]}" name="${item.key}"/>
 									<c:set var="inventoryNum" value="${inventoryNum+item.value[0]}"/>
 								</c:forEach>
 								

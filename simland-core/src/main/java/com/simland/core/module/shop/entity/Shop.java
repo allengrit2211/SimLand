@@ -2,6 +2,8 @@ package com.simland.core.module.shop.entity;
 
 import java.util.List;
 
+import com.simland.core.module.order.entity.Settlement;
+
 public class Shop implements java.io.Serializable {
 
 	private static final long serialVersionUID = 5454155825314635342L;
@@ -35,6 +37,10 @@ public class Shop implements java.io.Serializable {
 	private java.lang.Integer status;
 
 	private List<ShopBanner> shopBanners;
+	/***
+	 * 结算信息
+	 */
+	private Settlement settlement;
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -250,6 +256,14 @@ public class Shop implements java.io.Serializable {
 
 	public void setShopBanners(List<ShopBanner> shopBanners) {
 		this.shopBanners = shopBanners;
+	}
+
+	public Settlement getSettlement() {
+		return settlement;
+	}
+
+	public void setSettlement(Settlement settlement) {
+		this.settlement = settlement;
 	}
 
 	@Override

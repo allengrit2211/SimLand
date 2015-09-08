@@ -5,7 +5,7 @@ var shop = {
 		$.mobile.activePage.find(".shopTag a").unbind().click(function() {
 			$("#loading").show();
 			$(this).addClass("on").siblings().removeClass('on');
-			$("#page" + $(this).attr("i")).siblings(".tags").addClass("none").end().removeClass('none');
+			$.mobile.activePage.find("#page" + $(this).attr("i")).siblings(".tags").addClass("none").end().removeClass('none');
 			$("#loading").hide();
 			app.myScroll.refresh();
 		});

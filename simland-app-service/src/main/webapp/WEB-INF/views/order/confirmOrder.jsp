@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,7 +81,7 @@
 																	class="s_2">${item1.c.attr2Value}</span>
 															</p>
 															<p>
-																<span class="s_3 red">￥ ${item1.c.marketPrice} </span><span class="s_4">x  ${item1.buyNum}</span>
+																<span class="s_3 red">￥ <fmt:formatNumber value="${item1.c.marketPrice}" pattern="#,#00.00#"/> </span><span class="s_4">x  ${item1.buyNum}</span>
 															</p>
 														</div>
 													</div>
@@ -89,10 +90,12 @@
 										</div>
 									</c:forEach>
 									<!-- 配送方式 -->
+									<!-- 
 									<div class="title">
 										<span class="left">配送方式</span>
 										<span class="right"></span>
 									</div>
+									 -->
 									<div class="title">
 										<div class="input">
 											<input type="text" name="remarks" placeholder="给商家留言">
@@ -100,7 +103,7 @@
 									</div>
 									<div class="title">
 										<span class="left"></span>
-										<span class="right">共${fn:length(cart.cartItems)}件商品,合计￥<span class="red">89</span></span>
+										<span class="right">共${item.key.settlement.quantity}件商品,合计￥<span class="red"><fmt:formatNumber value="${item.key.settlement.totalPrice}" pattern="#,#00.00#"/></span></span>
 									</div>
 								</div>
 			
@@ -123,24 +126,9 @@
 			data-theme="d">
 
 			<div class="confirmOrderInfo">
-				<!-- 
 				<div class="left">
-					<p><span>店铺优惠:</span><span>￥0.00</span></p>
-					<p><span>运费计算:</span><span>￥0.00</span></p>
-					<p><span>货款总计:</span><span>￥29,890.00</span></p>
+				总${cart.cartSettlement.quantity}件，总金额 <span class="red_CD2C4C"> ￥<fmt:formatNumber value="${cart.cartSettlement.totalPrice}" pattern="#,#00.00#"/> </span>
 				</div>
-				<div class="right">
-					<div class="l1">
-						<strong>总计:</strong>
-						<span class="s1">￥29,890.00</span>
-					</div>
-					<div class="l2">
-						<span>一种一件不含运费</span>
-					</div>
-					
-				</div>
-				<div class="clear"></div>
-				 -->
 				<div class="right">
 					<a href="#" id="submitOrderBtn" data-role="button">提交订单</a>
 				</div>

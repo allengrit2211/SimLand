@@ -1,5 +1,15 @@
 var commodity = {
 	initialize : function() {
+		
+		
+		//店铺tags切换
+		$.mobile.activePage.find(".commTags a").unbind().click(function() {
+			$(this).addClass("on").siblings().removeClass('on');
+			$.mobile.activePage.find("#page" + $(this).attr("i")).siblings(".c_infoBox_tag").removeClass("on").end().addClass('on');
+			app.myScroll.refresh();
+		});		
+		
+		
 		$.mobile.activePage.find(".inventoryNum").text($.mobile.activePage.find("#inventoryNum").val());
 		
 		$.mobile.activePage.find(".c_listMenu").unbind().click(function() {

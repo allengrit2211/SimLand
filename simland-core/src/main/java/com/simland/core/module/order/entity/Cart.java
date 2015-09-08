@@ -12,6 +12,8 @@ import java.util.concurrent.ConcurrentMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.simland.core.base.Utils;
 import com.simland.core.module.shop.entity.Commodity;
@@ -28,6 +30,16 @@ import com.simland.core.module.shop.entity.Shop;
 public class Cart {
 
 	public static final Log logger = LogFactory.getLog(Cart.class);
+
+	/****
+	 * 购物车结算信息
+	 */
+	private Settlement cartSettlement;
+
+	/***
+	 * 待结算信息
+	 */
+	private Settlement waitSettlementItems;
 
 	/****
 	 * 购物车名明细 <店铺ID,购物车明细>
@@ -137,6 +149,9 @@ public class Cart {
 			}
 		}
 
+		// 结算信息计算
+		cart.cartSettlement = Settlement.calculate(cart.getCartItems());
+
 		return cart;
 	}
 
@@ -171,6 +186,9 @@ public class Cart {
 			}
 		}
 
+		// 结算信息计算
+		cart.cartSettlement = Settlement.calculate(cart.getCartItems());
+		
 		return cart;
 	}
 
@@ -212,6 +230,27 @@ public class Cart {
 
 		set = null;
 
+		// 结算信息计算
+		cart.waitSettlementItems = Settlement.calculate(cart.getSettlementItems());
+
 		return cart;
 	}
+
+	public Settlement getCartSettlement() {
+		return cartSettlement;
+	}
+
+	public void setCartSettlement(Settlement cartSettlement) {
+		this.cartSettlement = cartSettlement;
+	}
+
+	public Settlement getWaitSettlementItems() {
+		return waitSettlementItems;
+	}
+
+	public void setWaitSettlementItems(Settlement waitSettlementItems) {
+		this.waitSettlementItems = waitSettlementItems;
+	}
+	
+	
 }

@@ -13,7 +13,7 @@ public enum OrderStatus {
 	/***
 	 * 新建
 	 */
-	NEW(1, "新建"),
+	NEW(1, "待付款"),
 
 	/*****
 	 * 作废

@@ -19,6 +19,7 @@ a {
 	text-decoration: none;
 	color: #666;
 	font-weight: normal !important;
+	text-shadow: none!important;
 }
 
 span {
@@ -86,6 +87,13 @@ span {
 .red {
 	color: red;
 }
+
+
+.red_CD2C4C {
+	color: #CD2C4C;
+}
+
+
 
 .ui-content {
 	margin: 0;
@@ -1337,6 +1345,12 @@ span {
 /************contactPage end***************/
 
 /************CommodityPage start***************/
+
+#CommodityPage .ui-mini{
+	margin:0px;
+}
+
+
 #CommodityPage .commodityBx .c_title {
 	
 }
@@ -1416,6 +1430,12 @@ span {
 	font-size: 0.785em;
 	padding-left: 10px;
 }
+
+#CommodityPage .commodityBx .c_price{
+	margin: 3% 5%;
+}
+
+
 
 #CommodityPage .commodityBx .onePrice .s_1 {
 	display: block;
@@ -1633,25 +1653,29 @@ span {
 	background-color: #209384;
 	color: #FFF !important;
 	font-size: 0.875em;
+	text-shadow: none;
 }
 
-#CommodityPage .tags .ui-controlgroup-controls {
-	width: 100%;
+
+#CommodityPage .commTags{
+	width:100%;
+	border-bottom: 1px solid #EEE;
+	margin:5px 0;
 }
 
-#CommodityPage .tags a {
-	width: 39%;
+#CommodityPage .commTags a {
+	width: 20%;
 	height: 32px;
 	line-height: 32px;
-	padding: .7em 1em;
-	font-size: 0.875em;
+	padding: .7em 3em;
+	font-size: 1em;
 }
 
-#CommodityPage .tags a.on {
-	border-bottom: 1px solid #FFF;
-	border-top: 2px solid #E9E9E9;
-	background-color: #FFF;
-	color: #41AC98;
+#CommodityPage .commTags a.on {
+    /* border-bottom: 1px solid #FFF; */
+    /* border-top: 2px solid #E9E9E9; */
+    background-color: #FFF;
+    color: #41AC98;
 }
 
 /************CommodityPage end***************/
@@ -2078,13 +2102,13 @@ span {
 }
 
 #confirmOrderPage .plistBox .shopBox .title .left {
-	width: 44%;
+	width: 35%;
 	display: inline-block;
 	text-align: left;
 }
 
 #confirmOrderPage .plistBox .shopBox .title .right {
-	width: 50%;
+	width: 57%;
 	display: inline-block;
 }
 
@@ -2140,19 +2164,25 @@ span {
 
 #confirmOrderPage .confirmOrderInfo {
 	background-color: #F9F9F9;
-	padding: 8px;
 }
 
 #confirmOrderPage .confirmOrderInfo, #confirmOrderPage .confirmOrderInfo_line
 	{
-	height: 1.5em;
+	height: 2.5em;
 }
 
-#confirmOrderPage .right {
+#confirmOrderPage .confirmOrderInfo .left {
+	float: left;
+    font-size: 12px;
+    text-indent: 10px;
+    line-height: 36px;
+}
+
+#confirmOrderPage .confirmOrderInfo .right {
 	float: right;
 }
 
-#confirmOrderPage .right #submitOrderBtn {
+#confirmOrderPage .confirmOrderInfo .right #submitOrderBtn {
 	padding: .8em 1em;
 	margin: 0;
 	background-color: #41AC98;
