@@ -42,6 +42,8 @@
         <result property="issueTime" column="issueTime"/>
         <result property="cause" column="cause"/>
         <result property="status" column="status" />
+        <association property="shop" column="sid" select="com.simland.core.module.shop.mapper.ShopMapper.getShop"/>
+        
 		<association property="cInventoryList" column="id"
 			select="com.simland.core.module.shop.mapper.InventoryMapper.getInventoryByCommodityId" />
 

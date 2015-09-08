@@ -38,6 +38,10 @@ var cart = {
 		$(this).siblings().removeClass('attrOn').end().addClass('attrOn');
 		$.mobile.activePage.find(".inventoryShowBox_"+cid+" .attr1Val").val($(this).attr("aid"));
 		$.mobile.activePage.find(".inventoryShowBox_"+cid+" .attr1ValShow").html($(this).text());
+		
+		//页面中显示
+		$.mobile.activePage.find(".c_chose .s2").text($(this).text());
+		
 		// 库存显示
 		cart.inventoryShow(cid);
 		
@@ -49,6 +53,9 @@ var cart = {
 		$.mobile.activePage.find(".inventoryShowBox_"+cid+" .attr2Val").val($(this).attr("aid"));
 		$.mobile.activePage.find(".inventoryShowBox_"+cid+" .attr2ValShow").html($(this).text());
 
+		//页面中显示
+		$.mobile.activePage.find(".c_chose .s3").text($(this).text());
+		
 		cart.inventoryShow(cid);
 
 		$.mobile.activePage.find(".inventoryShowBox_"+cid+" .buyNum").val(cart.checkInventoryNum($.mobile.activePage.find(".inventoryShowBox_"+cid+" .buyNum").val(),cid));

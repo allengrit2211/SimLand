@@ -76,6 +76,8 @@ public class Commodity implements java.io.Serializable {
 	private Map<String, String[]> inventoryMap = new HashMap<String, String[]>();
 
 	private Inventory inventory;
+	
+	private Shop shop;//店铺信息
 
 	public java.lang.Integer getId() {
 		return this.id;
@@ -450,5 +452,15 @@ public class Commodity implements java.io.Serializable {
 	public void setStatus(java.lang.Integer status) {
 		this.status = status;
 	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
+	
+	
 
 }

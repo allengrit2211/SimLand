@@ -102,59 +102,61 @@
 
 	<update id="updateOrder">
 	    <![CDATA[
-        UPDATE t_order SET
+        UPDATE t_order
         ]]>
+        <set>
 		<if test="uid!=null">
-        	uid = #{uid}
+        	uid = #{uid},
 		</if>
 		<if test="sid!=null">
-        	sid = #{sid}
+        	sid = #{sid},
 		</if>
 		<if test="total!=null">
-        	total = #{total}
+        	total = #{total},
 		</if>
 		<if test="quantity!=null">
-        	quantity = #{quantity}
+        	quantity = #{quantity},
 		</if>
 		<if test="createTime!=null">
-        	createTime = #{createTime}
+        	createTime = #{createTime},
 		</if>
 		<if test="uaid!=null">
-        	uaid = #{uaid}
+        	uaid = #{uaid},
 		</if>
 		<if test="receiverName!=null">
-        	receiverName = #{receiverName}
+        	receiverName = #{receiverName},
 		</if>
 		<if test="receiverPhone!=null">
-        	receiverPhone = #{receiverPhone}
+        	receiverPhone = #{receiverPhone},
 		</if>
 		<if test="receiverProvince!=null">
-        	receiverProvince = #{receiverProvince}
+        	receiverProvince = #{receiverProvince},
 		</if>
 		<if test="receiverCity!=null">
-        	receiverCity = #{receiverCity}
+        	receiverCity = #{receiverCity},
 		</if>
 		<if test="receiverDistrict!=null">
-        	receiverDistrict = #{receiverDistrict}
+        	receiverDistrict = #{receiverDistrict},
 		</if>
 		<if test="receiverAddress!=null">
-        	receiverAddress = #{receiverAddress}
+        	receiverAddress = #{receiverAddress},
 		</if>
 		<if test="receiverZipCode!=null">
-        	receiverZipCode = #{receiverZipCode}
+        	receiverZipCode = #{receiverZipCode},
 		</if>
 		<if test="orderStatus!=null">
-        	orderStatus = #{orderStatus}
+        	orderStatus = #{orderStatus},
 		</if>
 		<if test="logisticsStauts!=null">
-        	logisticsStauts = #{logisticsStauts}
+        	logisticsStauts = #{logisticsStauts},
 		</if>
 		<if test="isDel!=null">
-        	isDel = #{isDel}
+        	isDel = #{isDel},
 		</if>
 		<if test="remark!=null">
-        	remark = #{remark}
+        	remark = #{remark},
 		</if>
+		</set>
 	    <![CDATA[  
         WHERE 
 	        id = #{id}

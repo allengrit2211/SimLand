@@ -87,7 +87,7 @@ public class GeneralOrder implements IOrderState {
 				}
 
 				totalMoney += ci.getPrice() * ci.getBuyNum();// 订单中总价格
-				quantity += quantity + ci.getBuyNum();//订单中总数量
+				quantity += quantity + ci.getBuyNum();// 订单中总数量
 			}
 
 			Order order = new Order();
@@ -104,7 +104,7 @@ public class GeneralOrder implements IOrderState {
 			order.setReceiverDistrict(address.getReceiverDistrict());
 			order.setReceiverAddress(address.getReceiverAddress());
 			order.setReceiverZipCode(address.getReceiverZipCode());
-			order.setOrderStatus(OrderStatus.NEW.getId());
+			order.setOrderStatus(OrderStatus.WAIT_PAY.getId());
 			order.setPayStatus(PayStatus.PAY_WAIT.getId());
 			order.setPayTime(new Date());
 			order.setLogisticsStauts(0);// 物流状态，暂时未使用
@@ -157,6 +157,11 @@ public class GeneralOrder implements IOrderState {
 	@Override
 	public void complete(Order order) {
 
+	}
+
+	@Override
+	public int cancel(Order order, SysMessage msg) {
+		return orderService.cancelOrder(order);
 	}
 
 }

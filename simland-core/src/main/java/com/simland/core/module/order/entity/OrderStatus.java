@@ -11,29 +11,34 @@ package com.simland.core.module.order.entity;
 public enum OrderStatus {
 
 	/***
-	 * 新建
+	 * 新建订单，待付款
 	 */
-	NEW(1, "待付款"),
+	WAIT_PAY(1, "待付款"),
 
 	/*****
-	 * 作废
+	 * 新建订单，取消订单
 	 */
-	INVALID(2, "作废"),
-
-	/*****
-	 * 确认
-	 */
-	CONFIRM(3, "已确认"),
+	CANCEL(2, "已取消"),
 
 	/****
-	 * 已经付款
+	 * 已付款，待发货
 	 */
-	PAY_END(4, "已付款"),
+	WAIT_SEND(3, "待发货"),
 
 	/*****
-	 * 确认收货
+	 * 已发货，待确认收货
 	 */
-	RECEIVING(5, "确认收货");
+	WAIT_RECEIVING(4, "待收货"),
+
+	/***
+	 * 已确认收货，待评论
+	 */
+	WAIT_COMMENT(5, "待评论"),
+
+	/***
+	 * 评论结束，订单完成
+	 */
+	COMPLETE(6, "完成");
 
 	OrderStatus(Integer id, String name) {
 		this.id = id;

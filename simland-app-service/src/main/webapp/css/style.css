@@ -1346,13 +1346,13 @@ span {
 
 /************CommodityPage start***************/
 
-#CommodityPage .ui-mini{
-	margin:0px;
+#CommodityPage .wrapper{
+	background-color:#EEE;
 }
 
-
 #CommodityPage .commodityBx .c_title {
-	
+	padding: 10px 0;
+	background-color:#FFF;
 }
 
 #CommodityPage .commodityBx .c_title .t1 {
@@ -1435,6 +1435,69 @@ span {
 	margin: 3% 5%;
 }
 
+#CommodityPage .commodityBx .c_shop{
+	margin-top:10px;
+	background-color:#FFF;
+	padding-top:15px;
+}
+
+#CommodityPage .commodityBx .c_shop .shop_head{
+	margin:15px;
+}
+
+#CommodityPage .commodityBx .c_shop .shop_head .img{
+	width: 32px;
+	height:32px;
+	display: inline-block;
+}
+
+#CommodityPage .commodityBx .c_shop .shop_head .img img{
+	width: 100%;
+}
+
+
+#CommodityPage .commodityBx .c_shop .shop_head .tit{
+	display: inline-block;
+	text-indent: 10px;
+	vertical-align: top;
+	margin-top:4px;
+}
+#CommodityPage .commodityBx .c_shop .info .infoBox{
+    width: 23%;
+    display: inline-block;
+	text-align:center;
+}
+
+#CommodityPage .commodityBx .c_shop .info .infoBox .s1,
+#CommodityPage .commodityBx .c_shop .info .infoBox .s2{
+    display: block;
+}
+#CommodityPage .commodityBx .c_shop .info .infoBox .s2{
+	font-size: 0.75em;
+}
+
+#CommodityPage .commodityBx .c_shop .btn{
+	text-align: center;
+	padding:20px 0;
+}
+
+#CommodityPage .commodityBx .c_shop .btn .b{
+	padding: 5px 6px;
+	border: 1px solid #EEE;
+	margin:0 5px;
+	border-radius:5px;
+}
+
+#CommodityPage .commodityBx .c_chose{
+	background-color:#FFF;
+	padding:10px 0 ;
+}
+
+#CommodityPage .commodityBx .c_chose .s1{
+	margin-left:10px;	
+}
+
+
 
 
 #CommodityPage .commodityBx .onePrice .s_1 {
@@ -1484,7 +1547,7 @@ span {
 }
 
 #CommodityPage .c_infoBox {
-	
+	background-color:#FFF;
 }
 
 #CommodityPage .c_infoBox .c_infoBox_tag {
@@ -3036,7 +3099,7 @@ span {
 /************publicChipsPage end***************/
 
 /************myOrdersPage start***************/
-#myOrdersPage  .wrapper.top {
+#myOrdersPage  .wrapper {
 	background-color: #EEEEEE;
 }
 

@@ -99,6 +99,52 @@ public class OrderController {
 		return reJson;
 	}
 
+	/****
+	 * 取消订单
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/order/cancelOrder")
+	public String cancelOrder(HttpServletRequest request, Model model) {
+
+		String reJson = null;
+		SysMessage msg = new SysMessage();
+
+		int oid = Utils.strToInteger(request.getParameter("oid"));
+		Order order = orderService.getOrder(oid);
+		if (order == null) {
+			msg.setCode("-1");
+			msg.setMsg("订单不存在");
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			return reJson;
+		}
+
+		try {
+			int id = generalOrder.cancel(order, msg);
+			if (id > 0) {
+				msg.setCode("1");
+				msg.setMsg("订单已取消");
+				logger.info(this.getClass().getName()
+						+ (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+				return reJson;
+			} else {
+				msg.setCode("-3");
+				msg.setMsg("取消失败");
+				logger.info(this.getClass().getName()
+						+ (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+				return reJson;
+			}
+		} catch (Exception e) {
+			logger.info(this.getClass().getName() + (reJson = Utils.objToJsonp(msg, request.getParameter("callback"))));
+			e.printStackTrace();
+			return reJson;
+		}
+
+	}
+
 	/***
 	 * 我的订单
 	 * 

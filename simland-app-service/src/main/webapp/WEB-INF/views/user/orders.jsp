@@ -54,8 +54,19 @@
 								</div>
 								<div class="line"></div>
 								<span class="o_option">
-									<a class="a1" href="#">删除订单</a>
-									<a class="a2" href="${pageContext.request.contextPath}/commodity/assess">评价</a>
+									<c:if test="${item.orderStatus==1}">
+										<a class="a1" id="cancelOrderBtn" oid="${item.id}" href="#">取消订单</a>
+										<a class="a1 bg41AC98 colorFFF" href="#">去付款</a>
+									</c:if>
+									<c:if test="${item.orderStatus==4}">
+										<a class="a1" href="#">确认收货</a>
+									</c:if>
+									<c:if test="${item.orderStatus==5}">
+										<a class="a2" href="${pageContext.request.contextPath}/commodity/assess">评价</a>
+									</c:if>
+									<c:if test="${item.orderStatus==6}">
+										<a class="a1" href="#">删除订单</a>
+									</c:if>
 								</span>
 							</div>
 						</c:forEach>

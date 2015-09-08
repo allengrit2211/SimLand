@@ -25,7 +25,16 @@ public interface IOrderState {
 	 *            备注
 	 * @return
 	 */
-	int create(User user, Address address, Cart cart,SysMessage msg, String... remarks);
+	int create(User user, Address address, Cart cart, SysMessage msg, String... remarks);
+
+	/***
+	 * 取消订单
+	 * 
+	 * @param order
+	 * @param msg
+	 * @return 
+	 */
+	int cancel(Order order, SysMessage msg);
 
 	/***
 	 * 确认订单

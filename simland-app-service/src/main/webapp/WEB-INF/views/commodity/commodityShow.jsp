@@ -81,13 +81,52 @@
 									</li>
 								</ul>
 							</div>
+							
+							<div class="c_price">
+								<strong class="red_CD2C4C">￥ <fmt:formatNumber value="${commodity.marketPrice}" pattern="#,#00.00#"/></strong>
+							</div>
 						</div>
 						
-						<div class="c_price">
-							<strong class="red_CD2C4C">￥ <fmt:formatNumber value="${commodity.marketPrice}" pattern="#,#00.00#"/></strong>
-						</div>
+
+						<div class="line clear"></div>
 						
+						
+						<div class="c_shop">
+							<div class="shop_head">
+								<div class="img"><a href="${pageContext.request.contextPath}/shop/showShop?id=${commodity.sid}" data-transition="slide"><img alt="" src="${pageContext.request.contextPath}/${commodity.shop.clogo}"></a></div>
+								<span class="tit"><a href="${pageContext.request.contextPath}/shop/showShop?id=${commodity.sid}" data-transition="slide">${commodity.shop.cname}</a></span>
+							</div>
+							<div class="info">
+								<div class="infoBox">
+									<span class="s1">${commodity.shop.commodityNum}</span>
+									<span class="s2">全部商品</span>
+								</div>
+								<div class="infoBox">
+									<span class="s1">${commodity.shop.commodityNum}</span>
+									<span class="s2">全部商品</span>
+								</div>
+								<div class="infoBox">
+									<span class="s1">${commodity.shop.collectNum}</span>
+									<span class="s2">收藏人数</span>
+								</div>
+								<div class="infoBox">
+									<span class="star star${commodity.shop.score}"></span>
+								</div>
+							</div>
+							<div class="btn">
+								<a class="b1 b" href="javascript:;">查看分类</a>
+								<a class="b2 b" href="${pageContext.request.contextPath}/shop/showShop?id=${commodity.sid}" data-transition="slide">进入店铺</a>
+							</div>
+						</div>
 						<div class="clear"></div>
+			
+						<div class="c_chose">
+							<a data-transition="pop" href="#addCartPopup" data-rel="popup" data-position-to="window"><span class="s1">已选：</span></a>
+							<a class="s2_a" data-transition="pop" href="#addCartPopup" data-rel="popup" data-position-to="window">
+								<span class="s2">请选择</span>
+								<span class="s3"></span>
+							</a>
+						</div>
 			
 						<div class="commTags">
 							<a  class="a1 on" i="1" data-transition="none" href="#">产品详情</a> 

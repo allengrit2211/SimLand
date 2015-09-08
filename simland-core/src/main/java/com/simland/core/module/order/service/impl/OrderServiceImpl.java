@@ -3,6 +3,7 @@ package com.simland.core.module.order.service.impl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.simland.core.base.Utils;
 import com.simland.core.module.order.entity.Order;
 import com.simland.core.module.order.entity.OrderItem;
+import com.simland.core.module.order.entity.OrderStatus;
 import com.simland.core.module.order.mapper.OrderItemMapper;
 import com.simland.core.module.order.mapper.OrderMapper;
 import com.simland.core.module.order.service.IOrderService;
@@ -75,6 +77,9 @@ public class OrderServiceImpl implements IOrderService {
 		if (orders == null || orders.size() == 0)
 			return -1;
 
+		ReentrantLock reentrantLock = new ReentrantLock();
+		reentrantLock.lock();
+
 		for (Order order : orders) {
 			orderMapper.insertOrder(order);
 
@@ -91,6 +96,8 @@ public class OrderServiceImpl implements IOrderService {
 			orderItemMapper.insertBatchOrderItem(order.getOrderItems());
 
 		}
+
+		reentrantLock.unlock();
 
 		return 1;
 	}
@@ -121,4 +128,31 @@ public class OrderServiceImpl implements IOrderService {
 		return order;
 	}
 
+	@Override
+	@Transactional(readOnly = false)
+	public Integer cancelOrder(Order order) {
+
+		ReentrantLock reentrantLock = new ReentrantLock();
+		reentrantLock.lock();
+
+		Order upOrder = new Order();
+		upOrder.setId(order.getId());
+		upOrder.setOrderStatus(OrderStatus.CANCEL.getId());
+		int id = orderMapper.updateOrder(upOrder);
+
+		// 还原库存
+		for (OrderItem oi : order.getOrderItems()) {
+			if (oi.getIid() == null || oi.getBuyNum() == null)
+				continue;
+
+			Inventory inventory = new Inventory();
+			inventory.setId(oi.getIid());
+			inventory.setNums(-oi.getBuyNum());
+			inventoryMapper.updateInventoryNums(inventory);
+		}
+
+		reentrantLock.unlock();
+
+		return id;
+	}
 }

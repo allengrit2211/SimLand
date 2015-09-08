@@ -37,4 +37,12 @@ public interface IOrderService {
 
 	public List<Order> getSplitOrderList(Map<String, Object> param);
 
+	/***
+	 * 取消订单
+	 * 
+	 * @param order
+	 * @return
+	 */
+	public Integer cancelOrder(Order order);
+
 }
