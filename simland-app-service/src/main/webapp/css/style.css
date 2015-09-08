@@ -2102,13 +2102,13 @@ span {
 }
 
 #confirmOrderPage .plistBox .shopBox .title .left {
-	width: 35%;
+	width: 20%;
 	display: inline-block;
 	text-align: left;
 }
 
 #confirmOrderPage .plistBox .shopBox .title .right {
-	width: 57%;
+	width: 60%;
 	display: inline-block;
 }
 

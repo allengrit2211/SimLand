@@ -38,10 +38,11 @@
 									<img alt="" src="${pageContext.request.contextPath}/${commodity.getImg(0)}">
 								</div>
 								<c:forEach items="${commodity.inventoryMap}" var="item">
-									<div class="slide">
-										<img src="${pageContext.request.contextPath}/${item.value[2]}">
-									</div>
-									
+									<c:if test="${item.value[2]!=null&&item.value[2]!=''}">
+										<div class="slide">
+											<img src="${pageContext.request.contextPath}/${item.value[2]}">
+										</div>
+									</c:if>
 								</c:forEach>						
 							</div>
 						</div>			
