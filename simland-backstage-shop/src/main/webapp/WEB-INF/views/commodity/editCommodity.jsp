@@ -109,7 +109,7 @@ $(function(){
 		}
 		
 		$("#inventoryTable_"+typeId).find("tbody tr input[name='price_"+typeId+"']").each(function(i,e){
-			$(e).val($(tmp).val());
+			$(e).val($.trim($(tmp).val()));
 		});
 	}
 	
@@ -125,7 +125,7 @@ $(function(){
 		}
 		
 		$("#inventoryTable_"+typeId).find("tbody tr input[name='nums_"+typeId+"']").each(function(i,e){
-			$(e).val($(tmp).val());
+			$(e).val($.trim($(tmp).val()));
 		});
 	}
 	
@@ -168,10 +168,10 @@ $(function(){
 					var price = "" ,nums="",productCode="";
 					
 					if(e_inv.length>0){
-						if(e_inv.val().split("_")[0]) price = $trim(e_inv.val().split("_")[1]);
-						if(e_inv.val().split("_")[1]) nums = $trim(e_inv.val().split("_")[0]);
+						if(e_inv.val().split("_")[0]) price = $.trim(e_inv.val().split("_")[1]);
+						if(e_inv.val().split("_")[1]) nums = $.trim(e_inv.val().split("_")[0]);
 						if(e_inv.val().split("_")[2]) images[typeId][_index] = e_inv.val().split("_")[2];
-						if(e_inv.val().split("_")[3]) $trim(productCode = e_inv.val().split("_")[3]);
+						if(e_inv.val().split("_")[3]) $.trim(productCode = e_inv.val().split("_")[3]);
 					}
 					
 					
@@ -197,10 +197,10 @@ $(function(){
 				var price = "" ,nums="",productCode="";
 				
 				if(e_inv.length>0){
-					if(e_inv.val().split("_")[0]) price = $trim(e_inv.val().split("_")[1]);
-					if(e_inv.val().split("_")[1]) nums = $trim(e_inv.val().split("_")[0]);
+					if(e_inv.val().split("_")[0]) price = $.trim(e_inv.val().split("_")[1]);
+					if(e_inv.val().split("_")[1]) nums = $.trim(e_inv.val().split("_")[0]);
 					if(e_inv.val().split("_")[2]) images[typeId][_index] = e_inv.val().split("_")[2];
-					if(e_inv.val().split("_")[3]) productCode = $trim(e_inv.val().split("_")[3]);
+					if(e_inv.val().split("_")[3]) productCode = $.trim(e_inv.val().split("_")[3]);
 				}
 				
 				htmlStr+="<td><input name='price_"+typeId+"' size=\"7\" type=\"text\" value='"+(price)+"'></td>";
