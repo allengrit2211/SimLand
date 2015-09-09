@@ -261,7 +261,7 @@ $(function(){
 			flag = false;
 			$("#addCommodityBtn").removeAttr("disabled");
 			if(data.code==1){
-				$("input[name='cid']").val()
+				$("input[name='cid']").val(data.text);
 				alert(data.msg);
 			}else{
 				alert(data.msg);
@@ -381,7 +381,7 @@ $(function(){
 						<tr>
 							<th>相关</th>
 							<td>
-								<input type="checkbox" name="isNew" value="1" ${c.isNew==1?('checked="checked"'):''}> <span style="vertical-align:top;">新品</span>
+								<input type="checkbox" name="isNew" value="1" ${c==null?'checked="checked':''} ${c.isNew==1?('checked="checked"'):''}> <span style="vertical-align:top;">新品</span>
 								<input type="checkbox" name="isSpecial" value="1" ${c.isSpecial==1?('checked="checked"'):''}> <span style="vertical-align:top;">特价</span>
 								<input type="checkbox" name="isVip" value="1" ${c.isVip==1?('checked="checked"'):''}> <span style="vertical-align:top;">VIP</span>
 							</td>

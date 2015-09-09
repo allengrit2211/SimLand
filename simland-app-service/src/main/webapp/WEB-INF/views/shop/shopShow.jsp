@@ -72,9 +72,11 @@
 							</div>
 							</c:if>
 							<c:forEach items="${shop.shopBanners}" var="item">
+							<c:if test="${item.picUrl!=null&&item.picUrl!=''}">
 							<div class="slide">
 								<img src="${pageContext.request.contextPath}/${item.picUrl}"> 
-							</div>	
+							</div>
+							</c:if>
 							</c:forEach>
 						</div>
 					</div>

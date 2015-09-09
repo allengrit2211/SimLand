@@ -215,10 +215,14 @@
 		SELECT
 		<include refid="Base_Column_List" />
 	    <![CDATA[
-		    FROM t_commodity 
-	        WHERE 
-	        id = #{id} 
+		    FROM t_commodity t1
 	    ]]>
+	    <where>
+	    	t1.id = #{id} 
+			<if test="sid!=null">
+				AND t1.sid = #{sid}
+			</if>
+	    </where>
 	</select>
 
 	<select id="getCommodityList" resultMap="CommodityRM">

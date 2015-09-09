@@ -259,7 +259,7 @@
 			left join t_category_properties_val t3 on t1.attr2 = t3.id
 	    ]]>	
 	    <where>
-	    	t1.cid = #{cid} AND nums>0 AND t1.isDel=0
+	    	t1.cid = #{cid} AND t1.isDel=0
 	    </where>
 		ORDER BY t1.id
 	</select>
