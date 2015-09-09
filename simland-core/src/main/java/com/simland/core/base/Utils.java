@@ -52,7 +52,7 @@ public class Utils {
 	 */
 	public static Integer strToInteger(String str) {
 		try {
-			return Integer.parseInt(str);
+			return Integer.parseInt((str+"").trim());
 		} catch (Exception e) {
 			return 0;
 		}
@@ -60,7 +60,7 @@ public class Utils {
 
 	public static Double strToDouble(String str) {
 		try {
-			return Double.parseDouble(str);
+			return Double.parseDouble((str+"").trim());
 		} catch (Exception e) {
 			return 0d;
 		}
@@ -376,7 +376,7 @@ public class Utils {
 
 	public static String getArrayVal(String str, String split, Integer index) {
 		try {
-			return str.split(split)[index];
+			return str.split(split)[index].trim();
 		} catch (Exception e) {
 			return "";
 		}
@@ -384,7 +384,7 @@ public class Utils {
 
 	public static String getArrayVal(int index, String... vals) {
 		try {
-			return vals[index];
+			return vals[index].trim();
 		} catch (Exception e) {
 			return "";
 		}

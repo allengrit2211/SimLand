@@ -39,7 +39,7 @@ public class WaitOrderController {
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shopUser.getId());
+		param.put("sid", shopUser.getSid());
 		param.put("isDel", WaitOrder.ISDEL_0);
 
 		int totalRecord = waitOrderService.getWaitOrderCount(param);

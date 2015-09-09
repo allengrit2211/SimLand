@@ -118,9 +118,9 @@ public class CommodityController {
 		String[] iAttr2 = request.getParameterValues(String.valueOf("iAttr2_" + categoryType));
 		String[] iAttr2Val = request.getParameterValues(String.valueOf("iAttr2Val_" + categoryType));
 
-		String cname = request.getParameter("cname");// 商品名称
-		String marketPrice = request.getParameter("marketPrice");// 市场价格
-		String realPrice = request.getParameter("realPrice");// 真实价格
+		String cname = Utils.notNullTrim(request.getParameter("cname"));// 商品名称
+		String marketPrice = Utils.notNullTrim(request.getParameter("marketPrice"));// 市场价格
+		String realPrice = Utils.notNullTrim(request.getParameter("realPrice"));// 真实价格
 		String editor1 = request.getParameter("editor1");// 图文编辑
 		String isNew = request.getParameter("isNew");// 是否新品
 		String isSpecial = request.getParameter("isSpecial");// 特价
@@ -173,7 +173,7 @@ public class CommodityController {
 			inventory.setCpid(Utils.strToInteger(categoryType));
 			inventory.setAttr1(Utils.strToInteger(Utils.getArrayVal(i, iAttr1Val)));
 			inventory.setAttr2(Utils.strToInteger(Utils.getArrayVal(i, iAttr2Val)));
-			inventory.setSid(shopUser.getId());
+			inventory.setSid(shopUser.getSid());
 			inventory.setNums(Utils.strToInteger(Utils.getArrayVal(i, nums)));
 			inventory.setPrice(Utils.strToDouble(Utils.getArrayVal(i, price)));
 			inventory.setProductCode(Utils.getArrayVal(index, productCode));
@@ -183,7 +183,7 @@ public class CommodityController {
 			index++;
 		}
 
-		commodity.setSid(shopUser.getId());
+		commodity.setSid(shopUser.getSid());
 		commodity.setCreateTime(new Date());
 		commodity.setName(cname);
 		commodity.setRealPrice(Utils.strToDouble(realPrice));
@@ -219,6 +219,7 @@ public class CommodityController {
 		reentrantLock.unlock();
 
 		if (id > 0) {
+			msg.setText(String.valueOf(commodity.getId()));
 			msg.setCode("1");
 			msg.setMsg("保存成功");
 		} else {
@@ -288,7 +289,7 @@ public class CommodityController {
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shopUser.getId());
+		param.put("sid", shopUser.getSid());
 
 		int totalRecord = commodityService.getCommodityCount(param);
 		if (totalRecord == 0) {
@@ -317,7 +318,7 @@ public class CommodityController {
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shopUser.getId());
+		param.put("sid", shopUser.getSid());
 
 		int totalRecord = commodityService.getCommodityCount(param);
 		if (totalRecord == 0) {
@@ -349,7 +350,7 @@ public class CommodityController {
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shopUser.getId());
+		param.put("sid", shopUser.getSid());
 
 		int totalRecord = commodityService.getCommodityCount(param);
 		if (totalRecord == 0) {

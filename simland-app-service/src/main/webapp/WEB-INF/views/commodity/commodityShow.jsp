@@ -118,8 +118,8 @@
 								<a class="b2 b" href="${pageContext.request.contextPath}/shop/showShop?id=${commodity.sid}" data-transition="slide">进入店铺</a>
 							</div>
 						</div>
-						<div class="clear"></div>
-			
+						<div class="line clear"></div>
+						
 						<div class="c_chose">
 							<a data-transition="pop" href="#addCartPopup" data-rel="popup" data-position-to="window"><span class="s1">已选：</span></a>
 							<a class="s2_a" data-transition="pop" href="#addCartPopup" data-rel="popup" data-position-to="window">

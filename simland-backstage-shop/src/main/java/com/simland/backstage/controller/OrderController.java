@@ -305,7 +305,7 @@ public class OrderController {
 		ShopUser shopUser = (ShopUser) request.getSession().getAttribute(Constants.USER_SESSION);
 
 		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("sid", shopUser.getId());
+		param.put("sid", shopUser.getSid());
 
 		int totalRecord = orderService.getOrderCount(param);
 		if (totalRecord == 0) {
